@@ -12,6 +12,7 @@ Created on Wed Aug 7 16:01:20 2024
 # import os
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.colors as colors
 import argparse
 
 from parflow.tools.fs import get_absolute_path
@@ -50,27 +51,37 @@ dl = int(datashape[0]/4)+1
 
 for p in range(datashape[0]):
     data = data_to_plot[p]
-    dmin = data.min()
-    dmax = data.max()
+
+    if args.pfbfilename[:2] == "KS":
+        #ax.set_title("$K_S$ [cm day−1]")
+        ax.set_title("$K_S$ [m h−1]")
+        #data = data*1/100*0.01/24
+        print(data)
+        dmin = data.min()
+        dmax = data.max()
+        norm=colors.LogNorm(vmin=dmin, vmax=dmax)
+    else:
+        norm = None
+
     print('Layer',p,'- min,max:',dmin,',',dmax)
     if p in range(0,datashape[0],dl):
         # use mask to avoid e38 value. https://sigon.gitlab.io/post/2018-11-08-plot-raster-nodata-values/
-        ax.plot_surface(x,y,np.full_like(data, p), facecolors=plt.cm.viridis(data), rstride=1, cstride=1, antialiased=True, shade=False)
+        ax.plot_surface(x,y,np.full_like(data, p), facecolors=plt.cm.viridis(data), norm=norm, rstride=1, cstride=1, antialiased=True, shade=False)
+
+
+m = plt.cm.ScalarMappable(cmap=plt.cm.viridis, norm=norm)
+#dmin = data.min()
+#dmax = data.max()
+#m.set_clim(dmin,dmax)
+#print('min,max:',dmin,',',dmax)
+#print(f'non all nul in cell : {np.where(data>-3.402823466385288e+38)}')
+plt.colorbar(m, ax=plt.gca())
 
 ax.set_xlabel('x')
 ax.set_ylabel('y')
 #ax.set_zlabel('i')
-ax.set_title(filename_out[:-4])
-
-m = plt.cm.ScalarMappable(cmap=plt.cm.viridis)  #, norm=surf.norm)
-#dmin = data.min()
-#dmax = data.max()
-#ax.set_zlim(vmin,vmax)
-#m.set_clim(max(-1,vmin),vmax)
-m.set_clim(dmin,dmax)
-#print('min,max:',dmin,',',dmax)
-#print(f'non all nul in cell : {np.where(data>-3.402823466385288e+38)}')
-plt.colorbar(m, ax=plt.gca())
+#ax.set_title(filename_out[:-4])
+ax.view_init(50, -85, 0) # elev, azimuth, roll
 
 plt.show()
 plt.savefig(fig_dir+args.pfbfilename[:-4]+'.png')

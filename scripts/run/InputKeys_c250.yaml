@@ -1,35 +1,16 @@
 BCPressure:
   PatchNames: x-lower x-upper y-lower  y-upper z-lower z-upper
-Cell:
-  '0':
-    dzScale:
-      Value: 1.0
-  '1':
-    dzScale:
-      Value: 0.4
-  '2':
-    dzScale:
-      Value: 0.3
-  '3':
-    dzScale:
-      Value: 0.15
-  '4':
-    dzScale:
-      Value: 0.1
-  '5':
-    dzScale:
-      Value: 0.05
 ComputationalGrid:
   DX: 250.0
   DY: 250.0
-  DZ: 1.0
+  DZ: 2.0
   Lower:
     X: 0.0
     Y: 0.0
     Z: 0.0
   NX: 98
   NY: 102
-  NZ: 6
+  NZ: 1
 Contaminants:
   Names: ''
 Cycle:
@@ -57,7 +38,7 @@ Geom:
     Upper:
       X: 24500.0
       Y: 25500.0
-      Z: 6.0
+      Z: 2.0
     Lower:
       X: 0.0
       Y: 0.0
@@ -67,8 +48,9 @@ Geom:
       TensorValX: 1.0
       TensorValY: 1.0
       TensorValZ: 1.0
-      Type: Constant
-      Value: 3.6e-01
+      Names: domain
+      Type: PFBFile
+      FileName: KS.c250.v1.pfb
     Porosity:
       Type: Constant
       Value: 0.1
@@ -164,8 +146,8 @@ PhaseSources:
     Type: Constant
 Process:
   Topology:
-    P: 2
-    Q: 2
+    P: 4
+    Q: 4
     R: 1
 Solver:
   AbsTol: 1.0e-10
@@ -182,7 +164,7 @@ Solver:
     ResidualTol: 1.0e-05
     StepTol: 1.0e-30
     UseJacobian: true
-    VariableDz: true
+    VariableDz: false
   OverlandKinematic:
     Epsilon: 1.0e-05
   PrintMannings: true
@@ -208,7 +190,7 @@ TimeStep:
   MinStep: 0.001
 TimingInfo:
   BaseUnit: 1.0
-  DumpInterval: -20.0 
+  DumpInterval: 24.0 
   StartCount: 0
   StartTime: 0.0
   StopTime: 169
@@ -222,7 +204,3 @@ TopoSlopesY:
   Type: PFBFile
 Wells:
   Names: ''
-dzScale:
-  GeomNames: domain
-  Type: nzList
-  nzListNumber: 6

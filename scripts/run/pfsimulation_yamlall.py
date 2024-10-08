@@ -27,8 +27,8 @@ parser.add_argument('-working-directory', '--working-directory', default="~/Valm
 parser.add_argument('--show-line-error', action='store_true')
 parser.add_argument('--validation-verbose', action='store_true')
 # parser.add_argument('--write-yaml',action='store_true')
-parser.add_argument('-p', '--p', type=int, default=2)
-parser.add_argument('-q', '--q', type=int, default=2)
+parser.add_argument('-p', '--p', type=int, default=4)
+parser.add_argument('-q', '--q', type=int, default=4)
 parser.add_argument('-r', '--r', type=int, default=1)
 args = parser.parse_args()
 
@@ -47,4 +47,4 @@ runname.dist(slopeyfn)
 
 runname.run()
 
-#undist (>> rm *.dist) $run_name, slopes.pfb, ip_solid.pfb
+#end
