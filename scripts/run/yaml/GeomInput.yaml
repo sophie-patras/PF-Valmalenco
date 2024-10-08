@@ -1,0 +1,9 @@
+GeomInput:
+  Names: domainbox solidinput
+  domainbox:
+    InputType: Box
+    GeomName: background
+  solidinput:
+    InputType: SolidFile
+    GeomNames: domain
+    FileName: "./Tmp/solid.c500.v1.pfsol"

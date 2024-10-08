@@ -1,0 +1,24 @@
+Sensitivity: SeepBox_UXZ
+
+[L]:m,[T]:h,[M]:kg
+
+cellsize : 250.0
+Uniform distribution in XYZ of all variables
+Domaininput : box (no solid)
+Total depth : 2m
+Seep for Seepage means boundary conditions on y-lower is pressure head = 0m agl (no link with Seepage BC condition parflow input key), to mimic Adda river's boundary condition. For more realism a ponctual inflow could be added in surface cell at y-lower,x-upper. 
+Meanwhile finding the equilibrium condition, different boundary conditions are testes, and do not directly affect the Valmalenco basin.
+
+K36e-3 : cv with excess water depth (5m or more after 7d)
+K36e-2 : cv with reasonable water depth (1.5m after 7d)
+K36e0 : does not cv
+
+
+BCv1 : x-lower,upper,y-upper set at 0 flux; z-lower is FluxConst=0.00003 (a thrid of RF forcing), arbitrary.
+BCv2 :  x-lower,upper,y-upper set at equilibrium water table depth (idem to IC)
+
+ICv1 : head: -1 vs z-upper
+ICv2 : equilibrium head
+ICv3 : dry ?
+
+

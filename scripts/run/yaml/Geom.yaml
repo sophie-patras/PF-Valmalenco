@@ -1,0 +1,42 @@
+Geom:
+  Perm:
+    Names: domain
+    TensorByGeom:
+      Names: domain
+  Porosity:
+    GeomNames: domain
+  background:
+    Lower:
+      X: 554165.4984000000404194
+      Y: 5113101.3293000003322959
+      Z: 253
+    Upper:
+      X: 578165.4984000000404194
+      Y: 5137601.3293000003322959
+      Z: 3600
+  Patches: x-lower x-upper y-lower y-upper z-lower z-upper
+  domain:
+    Patches: top bottom side
+    Perm:
+      Type: Constant
+      Value: 2.0e-7
+      TensorValX: 1.0
+      TensorValY: 1.0
+      TensorValZ: 1.0
+    SpecificStorage:
+      Value: 1.6e-4
+    Porosity:
+      Type: Constant
+      Value: 0.25
+    RelPerm:
+      Alpha: 1.0
+      N: 1.4
+    Saturation:
+      Alpha: 1.0
+      N: 1.4
+      SRes: 0.02
+      SSat: 1.0
+    ICPressure:
+      RefGeom: domain
+      RefPatch: top
+      Value: -2.0

@@ -1,0 +1,6 @@
+TimingInfo:
+  BaseUnit: 24.0 #24hours:: 1day
+  StartCount: 0
+  StartTime: 0.0
+  StopTime: 365.0
+  DumpInterval: 30.0

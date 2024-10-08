@@ -1,0 +1,15 @@
+Phase:
+  Names: water
+  water:
+    Density:
+      Type: Constant
+      Value: 1.0
+    Viscosity:
+      Type: Constant
+      Value: 1.0
+  RelPerm:
+    Type: VanGenuchten
+    GeomNames: domain
+  Saturation:
+    Type: VanGenuchten
+    GeomNames: domain

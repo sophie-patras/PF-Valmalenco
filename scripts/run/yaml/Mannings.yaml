@@ -1,0 +1,6 @@
+Mannings:
+  GeomNames: domain
+  Type: Constant
+  Geom:
+    domain:
+      Value: 4.4e-4

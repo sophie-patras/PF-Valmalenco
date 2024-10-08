@@ -1,0 +1,4 @@
+dzScale:
+  GeomNames: domain
+  Type: Constant
+  nzListNumber: 10

@@ -1,0 +1,1258 @@
+﻿IdSensore;Tipologia;IdTipologia;UnitaMisura;DataMinimaRT;DataMinimaPubblicazione;DataMassimaRT;UTM Nord;UTM Est;Quota;idStazione;Nome;Provincia;Comune
+1;Livello Idrometrico;1;cm;24/11/1987;23/03/2021;06/05/2024;5142077;604122;1125;1;Valdisotto Cepina;SO;Valdisotto
+3;Livello Idrometrico;1;cm;24/11/1987;08/01/2019;06/05/2024;5133847;604242;950;3;Sondalo Le Prese;SO;Sondalo
+9;Precipitazione;2;mm;24/11/1987;08/01/2019;06/05/2024;5133847;604242;950;3;Sondalo Le Prese;SO;Sondalo
+12;Temperatura;3;°C;24/11/1987;08/01/2019;06/05/2024;5133847;604242;950;3;Sondalo Le Prese;SO;Sondalo
+16;Livello Idrometrico;1;cm;24/03/1989;05/12/2018;06/05/2024;5113305;566873;300;9;Sondrio Ponte Eifell;SO;Sondrio
+23;Precipitazione;2;mm;03/05/1988;15/12/2021;06/05/2024;5141977;619522;2180;16;VALFURVA Ghiacciaio dei Forni;SO;Valfurva
+31;Temperatura;3;°C;03/05/1988;15/12/2021;06/05/2024;5141977;619522;2180;16;VALFURVA Ghiacciaio dei Forni;SO;Valfurva
+41;Precipitazione;2;mm;28/10/1989;18/11/2020;06/05/2024;5130098;564213;1905;28;Chiesa in Valmalenco Alpe Entova;SO;Chiesa in Valmalenco
+46;Precipitazione;2;mm;10/11/1989;28/12/2018;06/05/2024;5124452;568154;988;33;Lanzada Ganda;SO;Lanzada
+48;Precipitazione;2;mm;27/10/1989;12/02/2021;06/05/2024;5122198;567188;1719;35;Caspoggio Piazzo Cavalli;SO;Caspoggio
+53;Temperatura;3;°C;28/10/1989;18/11/2020;06/05/2024;5130098;564213;1905;28;Chiesa in Valmalenco Alpe Entova;SO;Chiesa in Valmalenco
+56;Temperatura;3;°C;10/11/1989;28/12/2018;06/05/2024;5124452;568154;988;33;Lanzada Ganda;SO;Lanzada
+58;Temperatura;3;°C;27/10/1989;12/02/2021;06/05/2024;5122198;567188;1719;35;Caspoggio Piazzo Cavalli;SO;Caspoggio
+64;Livello Idrometrico;1;cm;10/11/1989;28/12/2018;06/05/2024;5124452;568154;988;33;Lanzada Ganda;SO;Lanzada
+70;Altezza Neve;4;cm;27/10/1989;12/02/2021;06/05/2024;5122198;567188;1719;35;Caspoggio Piazzo Cavalli;SO;Caspoggio
+115;Temperatura;3;°C;01/12/2001;21/10/2018;06/05/2024;5097126;566799;1955;58;Carona Lago Fregabolgia;BG;Carona
+116;Precipitazione;2;mm;01/01/2002;21/10/2018;06/05/2024;5097126;566799;1955;58;Carona Lago Fregabolgia;BG;Carona
+117;Altezza Neve;4;cm;01/12/2001;21/10/2018;06/05/2024;5097126;566799;1955;58;Carona Lago Fregabolgia;BG;Carona
+121;Temperatura;3;°C;20/11/2002;26/06/2019;06/05/2024;5131088;539415;665;60;Villa di Chiavenna ;SO;Villa di Chiavenna
+122;Precipitazione;2;mm;20/11/2002;26/06/2019;06/05/2024;5131088;539415;665;60;Villa di Chiavenna ;SO;Villa di Chiavenna
+131;Velocità Vento;9;m/s;15/10/2004;12/02/2021;06/05/2024;5122198;567188;1719;35;Caspoggio Piazzo Cavalli;SO;Caspoggio
+132;Direzione Vento;10;°;15/10/2004;12/02/2021;06/05/2024;5122198;567188;1719;35;Caspoggio Piazzo Cavalli;SO;Caspoggio
+207;Altezza Neve;4;cm;05/12/2011;15/12/2021;06/05/2024;5141977;619522;2180;16;VALFURVA Ghiacciaio dei Forni;SO;Valfurva
+210;Direzione Vento;10;°;01/01/2011;15/12/2021;06/05/2024;5141977;619522;2180;16;VALFURVA Ghiacciaio dei Forni;SO;Valfurva
+211;Velocità Vento;9;m/s;01/01/2011;15/12/2021;06/05/2024;5141977;619522;2180;16;VALFURVA Ghiacciaio dei Forni;SO;Valfurva
+2001;Temperatura;3;°C;29/06/2001;;06/05/2024;5038171;520120;120;100;Milano Lambrate;MI;Milano
+2002;Umidità Relativa;11;%;29/06/2001;;06/05/2024;5038171;520120;120;100;Milano Lambrate;MI;Milano
+2003;Velocità Vento;9;m/s;29/06/2001;;06/05/2024;5038171;520120;120;100;Milano Lambrate;MI;Milano
+2005;Direzione Vento;10;°;29/06/2001;;06/05/2024;5038171;520120;120;100;Milano Lambrate;MI;Milano
+2006;Precipitazione;2;mm;29/06/2001;;06/05/2024;5038171;520120;120;100;Milano Lambrate;MI;Milano
+2008;Radiazione Globale;12;W/m²;12/09/2003;;06/05/2024;5038171;520120;120;100;Milano Lambrate;MI;Milano
+2039;Temperatura;3;°C;27/06/2001;;06/05/2024;5002165;538425;140;102;San Colombano al Lambro ;MI;San Colombano al Lambro
+2040;Umidità Relativa;11;%;27/06/2001;;06/05/2024;5002165;538425;140;102;San Colombano al Lambro ;MI;San Colombano al Lambro
+2044;Radiazione Globale;12;W/m²;12/09/2003;;06/05/2024;5002165;538425;140;102;San Colombano al Lambro ;MI;San Colombano al Lambro
+2046;Precipitazione;2;mm;27/06/2001;;06/05/2024;5002165;538425;140;102;San Colombano al Lambro ;MI;San Colombano al Lambro
+2048;Direzione Vento;10;°;27/06/2001;;06/05/2024;5002165;538425;140;102;San Colombano al Lambro ;MI;San Colombano al Lambro
+2063;Temperatura;3;°C;21/06/1995;;16/06/2004;5038760;520713;120;104;Segrate Milano Due;MI;Segrate
+2064;Umidità Relativa;11;%;21/06/1995;;16/06/2004;5038760;520713;120;104;Segrate Milano Due;MI;Segrate
+2065;Precipitazione;2;mm;23/09/1994;;16/06/2004;5038760;520713;120;104;Segrate Milano Due;MI;Segrate
+2082;Temperatura;3;°C;15/05/2001;;06/05/2024;4961571;514194;500;106;Varzi Nivione;PV;Varzi
+2083;Umidità Relativa;11;%;15/05/2001;;06/05/2024;4961571;514194;500;106;Varzi Nivione;PV;Varzi
+2084;Radiazione Globale;12;W/m²;12/09/2003;;06/05/2024;4961571;514194;500;106;Varzi Nivione;PV;Varzi
+2089;Precipitazione;2;mm;15/05/2001;;06/05/2024;4961571;514194;500;106;Varzi Nivione;PV;Varzi
+2091;Direzione Vento;10;°;15/05/2001;;06/05/2024;4961571;514194;500;106;Varzi Nivione;PV;Varzi
+2096;Temperatura;3;°C;29/01/2001;;06/05/2024;5113016;565691;307;107;Sondrio Fond.Fojanini;SO;Sondrio
+2097;Umidità Relativa;11;%;29/01/2001;;06/05/2024;5113016;565691;307;107;Sondrio Fond.Fojanini;SO;Sondrio
+2098;Radiazione Globale;12;W/m²;05/03/2001;;06/05/2024;5113016;565691;307;107;Sondrio Fond.Fojanini;SO;Sondrio
+2103;Precipitazione;2;mm;29/01/2001;;06/05/2024;5113016;565691;307;107;Sondrio Fond.Fojanini;SO;Sondrio
+2104;Direzione Vento;10;°;29/01/2001;;06/05/2024;5113016;565691;307;107;Sondrio Fond.Fojanini;SO;Sondrio
+2110;Temperatura;3;°C;27/07/1994;;06/05/2024;5120370;532896;206;108;Samolaco v.Vignola;SO;Samolaco
+2111;Umidità Relativa;11;%;27/07/1994;;06/05/2024;5120370;532896;206;108;Samolaco v.Vignola;SO;Samolaco
+2112;Radiazione Globale;12;W/m²;24/07/1998;;06/05/2024;5120370;532896;206;108;Samolaco v.Vignola;SO;Samolaco
+2116;Precipitazione;2;mm;27/07/1994;;06/05/2024;5120370;532896;206;108;Samolaco v.Vignola;SO;Samolaco
+2117;Direzione Vento;10;°;27/07/1994;;06/05/2024;5120370;532896;206;108;Samolaco v.Vignola;SO;Samolaco
+2122;Temperatura;3;°C;11/03/1993;;06/05/2024;5011978;529787;60;109;Sant'Angelo Lodigiano ;LO;Sant'Angelo Lodigiano
+2123;Umidità Relativa;11;%;11/03/1993;;06/05/2024;5011978;529787;60;109;Sant'Angelo Lodigiano ;LO;Sant'Angelo Lodigiano
+2124;Radiazione Globale;12;W/m²;23/07/1998;;06/05/2024;5011978;529787;60;109;Sant'Angelo Lodigiano ;LO;Sant'Angelo Lodigiano
+2129;Precipitazione;2;mm;11/03/1993;;06/05/2024;5011978;529787;60;109;Sant'Angelo Lodigiano ;LO;Sant'Angelo Lodigiano
+2134;Temperatura;3;°C;01/01/1998;;06/05/2024;4980052;638675;22;110;GONZAGA Palidano;MN;Gonzaga
+2135;Umidità Relativa;11;%;01/01/1998;;06/05/2024;4980052;638675;22;110;GONZAGA Palidano;MN;Gonzaga
+2136;Radiazione Globale;12;W/m²;07/05/1999;;06/05/2024;4980052;638675;22;110;GONZAGA Palidano;MN;Gonzaga
+2140;Precipitazione;2;mm;03/01/1994;;06/05/2024;4980052;638675;22;110;GONZAGA Palidano;MN;Gonzaga
+2141;Direzione Vento;10;°;17/03/1999;;06/05/2024;4980052;638675;22;110;GONZAGA Palidano;MN;Gonzaga
+2146;Temperatura;3;°C;01/01/2002;;06/05/2024;5084512;538583;1234;111;Cassina Valsassina Moggio;LC;Cassina Valsassina
+2147;Umidità Relativa;11;%;01/01/2002;;06/05/2024;5084512;538583;1234;111;Cassina Valsassina Moggio;LC;Cassina Valsassina
+2148;Radiazione Globale;12;W/m²;31/10/2003;;06/05/2024;5084512;538583;1234;111;Cassina Valsassina Moggio;LC;Cassina Valsassina
+2152;Precipitazione;2;mm;01/01/2002;;06/05/2024;5084512;538583;1234;111;Cassina Valsassina Moggio;LC;Cassina Valsassina
+2153;Direzione Vento;10;°;28/02/2003;;06/05/2024;5084512;538583;1234;111;Cassina Valsassina Moggio;LC;Cassina Valsassina
+2187;Temperatura;3;°C;29/09/2005;;06/05/2024;5018597;520937;88;114;Landriano Cascina Marianna;PV;Landriano
+2188;Umidità Relativa;11;%;29/09/2005;;06/05/2024;5018597;520937;88;114;Landriano Cascina Marianna;PV;Landriano
+2190;Radiazione Globale;12;W/m²;29/09/2005;;06/05/2024;5018597;520937;88;114;Landriano Cascina Marianna;PV;Landriano
+2194;Direzione Vento;10;°;29/09/2005;;06/05/2024;5018600;520938;88;114;Landriano Cascina Marianna;PV;Landriano
+2195;Precipitazione;2;mm;29/09/2005;;06/05/2024;5018596;520935;88;114;Landriano Cascina Marianna;PV;Landriano
+2200;Temperatura;3;°C;24/09/2003;;01/08/2012;5073482;470058;193;115;Ispra tetto;VA;Ispra
+2201;Umidità Relativa;11;%;24/09/2003;;01/08/2012;5073482;470058;193;115;Ispra tetto;VA;Ispra
+2202;Velocità Vento;9;m/s;26/10/2001;;01/08/2012;5073482;470058;193;115;Ispra tetto;VA;Ispra
+2204;Radiazione Globale;12;W/m²;24/09/2003;;04/08/2012;5073482;470058;193;115;Ispra tetto;VA;Ispra
+2205;Direzione Vento;10;°;26/10/2001;;01/08/2012;5073482;470058;193;115;Ispra tetto;VA;Ispra
+2206;Precipitazione;2;mm;24/09/2003;;23/10/2012;5073482;470058;193;115;Ispra tetto;VA;Ispra
+2235;Temperatura;3;°C;25/10/2001;;15/06/2011;5073482;470058;193;116;Ispra prato;VA;Ispra
+2236;Umidità Relativa;11;%;25/10/2001;;15/06/2011;5073482;470058;193;116;Ispra prato;VA;Ispra
+2239;Precipitazione;2;mm;25/10/2001;;01/05/2011;5073482;470058;193;116;Ispra prato;VA;Ispra
+2245;Temperatura;3;°C;01/01/1998;;06/05/2024;5114436;602920;699;117;Edolo Ist.Meneghini;BS;Edolo
+2246;Umidità Relativa;11;%;01/01/1998;;06/05/2024;5114436;602920;699;117;Edolo Ist.Meneghini;BS;Edolo
+2247;Radiazione Globale;12;W/m²;21/07/1998;;16/11/2011;5114436;602920;699;117;Edolo Ist.Meneghini;BS;Edolo
+2251;Precipitazione;2;mm;02/04/1993;;06/05/2024;5114436;602920;699;117;Edolo Ist.Meneghini;BS;Edolo
+2252;Direzione Vento;10;°;01/01/1998;;06/05/2024;5113706;603479;659;1075;Edolo Centrale ENEL;BS;Edolo
+2270;Temperatura;3;°C;07/09/2001;;06/05/2024;5079768;549604;622;119;San Giovanni Bianco Cornalita;BG;San Giovanni Bianco
+2271;Umidità Relativa;11;%;07/09/2001;;06/05/2024;5079768;549604;622;119;San Giovanni Bianco Cornalita;BG;San Giovanni Bianco
+2275;Radiazione Globale;12;W/m²;12/09/2003;;06/05/2024;5079768;549604;622;119;San Giovanni Bianco Cornalita;BG;San Giovanni Bianco
+2277;Direzione Vento;10;°;27/09/2001;;06/05/2024;5079768;549604;622;119;San Giovanni Bianco Cornalita;BG;San Giovanni Bianco
+2278;Precipitazione;2;mm;07/09/2001;;06/05/2024;5079768;549604;622;119;San Giovanni Bianco Cornalita;BG;San Giovanni Bianco
+2327;Temperatura;3;°C;08/08/2002;;06/05/2024;5013015;544135;67;123;Cavenago d'Adda ;LO;Cavenago d'Adda
+2328;Umidità Relativa;11;%;08/08/2002;;06/05/2024;5013015;544135;67;123;Cavenago d'Adda ;LO;Cavenago d'Adda
+2333;Radiazione Globale;12;W/m²;23/09/2003;;06/05/2024;5013015;544132;67;123;Cavenago d'Adda ;LO;Cavenago d'Adda
+2336;Precipitazione;2;mm;08/08/2002;;06/05/2024;5013015;544135;67;123;Cavenago d'Adda ;LO;Cavenago d'Adda
+2361;Temperatura;3;°C;01/01/1993;;06/05/2024;5010411;476502;106;125;Castello d'Agogna ;PV;Castello d'Agogna
+2362;Umidità Relativa;11;%;01/01/1993;;06/05/2024;5010411;476502;106;125;Castello d'Agogna ;PV;Castello d'Agogna
+2364;Radiazione Globale;12;W/m²;21/07/1998;;06/05/2024;5010411;476502;106;125;Castello d'Agogna ;PV;Castello d'Agogna
+2368;Precipitazione;2;mm;17/10/1990;;06/05/2024;5010411;476502;106;125;Castello d'Agogna ;PV;Castello d'Agogna
+2373;Temperatura;3;°C;26/04/2002;;30/10/2017;5060979;524066;360;126;Casatenovo prato;LC;Casatenovo
+2374;Umidità Relativa;11;%;26/04/2002;;30/10/2017;5060979;524066;360;126;Casatenovo prato;LC;Casatenovo
+2377;Precipitazione;2;mm;26/04/2002;;30/10/2017;5060979;524066;360;126;Casatenovo prato;LC;Casatenovo
+2383;Direzione Vento;10;°;10/11/2003;;06/05/2024;5060979;524066;360;127;Casatenovo tetto;LC;Casatenovo
+2384;Radiazione Globale;12;W/m²;10/11/2003;;06/05/2024;5060979;524066;360;127;Casatenovo tetto;LC;Casatenovo
+2385;Precipitazione;2;mm;10/11/2003;;06/05/2024;5060979;524066;360;127;Casatenovo tetto;LC;Casatenovo
+2388;Temperatura;3;°C;20/03/1996;;10/02/2012;5032570;550482;96;128;Capralba ;CR;Capralba
+2389;Umidità Relativa;11;%;20/03/1996;;01/01/2012;5032570;550482;96;128;Capralba ;CR;Capralba
+2390;Radiazione Globale;12;W/m²;21/07/1998;;10/02/2012;5032570;550482;96;128;Capralba ;CR;Capralba
+2392;Velocità Vento;9;m/s;20/03/1996;;29/12/2010;5032570;550482;96;128;Capralba ;CR;Capralba
+2394;Direzione Vento;10;°;20/03/1996;;01/02/2012;5032570;550482;96;128;Capralba ;CR;Capralba
+2395;Precipitazione;2;mm;20/03/1996;;10/02/2012;5032570;550482;96;128;Capralba ;CR;Capralba
+2400;Temperatura;3;°C;30/10/2002;;06/05/2024;5097875;603903;362;129;Capo di Ponte v.Briscioli;BS;Capo di Ponte
+2401;Umidità Relativa;11;%;30/10/2002;;06/05/2024;5097875;603903;362;129;Capo di Ponte v.Briscioli;BS;Capo di Ponte
+2404;Radiazione Globale;12;W/m²;12/09/2003;;06/05/2024;5097875;603903;362;129;Capo di Ponte v.Briscioli;BS;Capo di Ponte
+2407;Direzione Vento;10;°;12/09/2003;;06/05/2024;5097875;603903;362;129;Capo di Ponte v.Briscioli;BS;Capo di Ponte
+2408;Precipitazione;2;mm;30/10/2002;;06/05/2024;5097875;603903;362;129;Capo di Ponte v.Briscioli;BS;Capo di Ponte
+2414;Temperatura;3;°C;01/01/1995;;06/05/2024;5042175;598502;149;130;Brescia ITAS Pastori;BS;Brescia
+2415;Umidità Relativa;11;%;01/01/1995;;06/05/2024;5042175;598502;149;130;Brescia ITAS Pastori;BS;Brescia
+2417;Precipitazione;2;mm;11/10/1990;;06/05/2024;5042175;598502;149;130;Brescia ITAS Pastori;BS;Brescia
+2433;Temperatura;3;°C;01/01/1993;;06/05/2024;5056541;551321;211;132;Bergamo v.Stezzano;BG;Bergamo
+2434;Umidità Relativa;11;%;01/01/1993;;06/05/2024;5056541;551321;211;132;Bergamo v.Stezzano;BG;Bergamo
+2435;Radiazione Globale;12;W/m²;01/01/1993;;06/05/2024;5056541;551321;211;132;Bergamo v.Stezzano;BG;Bergamo
+2441;Precipitazione;2;mm;15/10/1990;;06/05/2024;5056541;551321;211;132;Bergamo v.Stezzano;BG;Bergamo
+2442;Direzione Vento;10;°;19/05/1993;;06/05/2024;5056541;551321;211;132;Bergamo v.Stezzano;BG;Bergamo
+2447;Temperatura;3;°C;01/01/1993;;06/05/2024;5105929;544001;958;133;Bema ;SO;Bema
+2448;Umidità Relativa;11;%;01/01/1993;;06/05/2024;5105929;544001;958;133;Bema ;SO;Bema
+2449;Radiazione Globale;12;W/m²;01/01/1993;;06/05/2024;5105929;544001;958;133;Bema ;SO;Bema
+2450;Velocità Vento;9;m/s;01/01/1993;;06/05/2024;5105929;544001;958;133;Bema ;SO;Bema
+2452;Precipitazione;2;mm;01/01/1993;;06/05/2024;5105929;544001;958;133;Bema ;SO;Bema
+2453;Direzione Vento;10;°;01/01/1993;;06/05/2024;5105929;544001;958;133;Bema ;SO;Bema
+2459;Temperatura;3;°C;03/05/1998;;06/05/2024;5031658;581271;93;134;Corzano Bargnano;BS;Corzano
+2460;Umidità Relativa;11;%;03/05/1998;;06/05/2024;5031658;581271;93;134;Corzano Bargnano;BS;Corzano
+2461;Radiazione Globale;12;W/m²;12/09/2003;;06/05/2024;5031658;581271;93;134;Corzano Bargnano;BS;Corzano
+2465;Precipitazione;2;mm;03/05/1998;;06/05/2024;5031658;581271;93;134;Corzano Bargnano;BS;Corzano
+2466;Direzione Vento;10;°;03/05/1998;;06/05/2024;5031658;581271;93;134;Corzano Bargnano;BS;Corzano
+2471;Temperatura;3;°C;02/01/1992;;22/07/2010;5062757;506658;322;135;Vertemate con Minoprio villa;CO;Vertemate con Minoprio
+2472;Umidità Relativa;11;%;02/01/1993;;22/07/2010;5062757;506658;322;135;Vertemate con Minoprio villa;CO;Vertemate con Minoprio
+2476;Radiazione Globale;12;W/m²;21/02/1992;;22/07/2010;5062757;506658;322;135;Vertemate con Minoprio villa;CO;Vertemate con Minoprio
+2477;Precipitazione;2;mm;20/10/1990;;15/07/2010;5062757;506658;322;135;Vertemate con Minoprio villa;CO;Vertemate con Minoprio
+2485;Temperatura;3;°C;01/01/1993;;06/05/2024;5003424;582100;44;136;Persico Dosimo ;CR;Persico Dosimo
+2486;Umidità Relativa;11;%;01/01/1993;;06/05/2024;5003424;582100;44;136;Persico Dosimo ;CR;Persico Dosimo
+2488;Radiazione Globale;12;W/m²;13/02/2001;;06/05/2024;5003424;582100;44;136;Persico Dosimo ;CR;Persico Dosimo
+2491;Direzione Vento;10;°;14/05/1994;;06/05/2024;5003424;582100;44;136;Persico Dosimo ;CR;Persico Dosimo
+2492;Precipitazione;2;mm;17/10/1990;;06/05/2024;5003424;582100;44;136;Persico Dosimo ;CR;Persico Dosimo
+2497;Temperatura;3;°C;09/06/1993;;06/05/2024;5032417;540720;102;137;Rivolta d'Adda Ist. Spallanzani;CR;Rivolta d'Adda
+2498;Umidità Relativa;11;%;09/06/1993;;06/05/2024;5032417;540720;102;137;Rivolta d'Adda Ist. Spallanzani;CR;Rivolta d'Adda
+2502;Precipitazione;2;mm;09/06/1993;;06/05/2024;5032417;540720;102;137;Rivolta d'Adda Ist. Spallanzani;CR;Rivolta d'Adda
+2503;Direzione Vento;10;°;09/06/1993;;06/05/2024;5032417;540720;102;137;Rivolta d'Adda Ist. Spallanzani;CR;Rivolta d'Adda
+2524;Temperatura;3;°C;26/09/2003;;19/09/2018;4997294;641005;19;139;Virgilio Mantova Cerese;MN;Virgilio
+2527;Umidità Relativa;11;%;26/09/2003;;19/09/2018;4997294;641005;19;139;Virgilio Mantova Cerese;MN;Virgilio
+2533;Radiazione Globale;12;W/m²;26/09/2003;;19/09/2018;4997294;641005;19;139;Virgilio Mantova Cerese;MN;Virgilio
+2535;Precipitazione;2;mm;26/09/2003;;19/09/2018;4997294;641005;19;139;Virgilio Mantova Cerese;MN;Virgilio
+2536;Direzione Vento;10;°;26/09/2003;;19/09/2018;4997294;641005;19;139;Virgilio Mantova Cerese;MN;Virgilio
+2595;Temperatura;3;°C;06/10/2014;;06/05/2024;5061321;529882;385;205;Montevecchia cascina Butto;LC;Montevecchia
+2596;Precipitazione;2;mm;06/10/2014;;06/05/2024;5061321;529882;385;205;Montevecchia cascina Butto;LC;Montevecchia
+2597;Umidità Relativa;11;%;06/10/2014;;06/05/2024;5061321;529882;385;205;Montevecchia cascina Butto;LC;Montevecchia
+2611;Direzione Vento;10;°;26/11/2008;;06/05/2024;5077224;524701;1233;212;Canzo ;CO;Canzo
+2612;Umidità Relativa;11;%;26/11/2008;;06/05/2024;5077224;524701;1233;212;Canzo ;CO;Canzo
+2613;Temperatura;3;°C;20/04/2011;;06/05/2024;5077224;524701;1233;212;Canzo ;CO;Canzo
+2614;Precipitazione;2;mm;26/11/2008;;06/05/2024;5077224;524701;1233;212;Canzo ;CO;Canzo
+2620;Temperatura;3;°C;25/11/2009;;06/05/2024;5005622;648246;15;214;Bigarello ;MN;Bigarello
+2621;Umidità Relativa;11;%;25/11/2009;;06/05/2024;5005622;648246;15;214;Bigarello ;MN;Bigarello
+2623;Radiazione Globale;12;W/m²;25/11/2009;;06/05/2024;5005622;648246;15;214;Bigarello ;MN;Bigarello
+2626;Precipitazione;2;mm;25/11/2009;;06/05/2024;5005622;648246;15;214;Bigarello ;MN;Bigarello
+3062;Livello Idrometrico;1;cm;09/07/2013;;06/05/2024;5060406;472667;198;1363;Golasecca Miorina misuratore;VA;Golasecca
+3092;Livello Idrometrico;1;cm;25/03/2013;;06/05/2024;5001496;541819;63;1364;Orio Litta v.Francigena;LO;Orio Litta
+3118;Livello Idrometrico;1;cm;18/10/2013;;06/05/2024;5041381;515011;139;1425;Milano Niguarda;MI;Milano
+4001;Temperatura;3;°C;23/05/2003;;25/08/2020;5014273;499104;100;140;Motta Visconti SMR;MI;Motta Visconti
+4002;Umidità Relativa;11;%;15/05/2003;;25/08/2020;5014273;499104;100;140;Motta Visconti SMR;MI;Motta Visconti
+4004;Radiazione Globale;12;W/m²;28/10/2008;;25/08/2020;5014273;499104;100;140;Motta Visconti SMR;MI;Motta Visconti
+4006;Direzione Vento;10;°;15/05/2003;;25/08/2020;5014273;499104;100;140;Motta Visconti SMR;MI;Motta Visconti
+4008;Precipitazione;2;mm;15/05/2003;;25/08/2020;5014273;499104;100;140;Motta Visconti SMR;MI;Motta Visconti
+4009;Temperatura;3;°C;19/06/2002;;06/05/2024;5062832;506653;310;141;Vertemate con Minoprio serre;CO;Vertemate con Minoprio
+4010;Umidità Relativa;11;%;25/05/2002;;06/05/2024;5062832;506653;310;141;Vertemate con Minoprio serre;CO;Vertemate con Minoprio
+4012;Radiazione Globale;12;W/m²;25/05/2002;;06/05/2024;5062832;506653;310;141;Vertemate con Minoprio serre;CO;Vertemate con Minoprio
+4014;Direzione Vento;10;°;25/05/2002;;06/05/2024;5062832;506653;310;141;Vertemate con Minoprio serre;CO;Vertemate con Minoprio
+4016;Precipitazione;2;mm;04/02/2009;;06/05/2024;5062832;506653;310;141;Vertemate con Minoprio serre;CO;Vertemate con Minoprio
+4017;Temperatura;3;°C;24/05/2002;;06/05/2024;5111566;561195;274;142;Caiolo ;SO;Caiolo
+4018;Umidità Relativa;11;%;24/05/2002;;06/05/2024;5111566;561195;274;142;Caiolo ;SO;Caiolo
+4020;Radiazione Globale;12;W/m²;24/05/2002;;06/05/2024;5111566;561195;274;142;Caiolo ;SO;Caiolo
+4022;Direzione Vento;10;°;24/05/2002;;06/05/2024;5111566;561195;274;142;Caiolo ;SO;Caiolo
+4025;Precipitazione;2;mm;24/05/2002;;06/05/2024;5111566;561195;274;142;Caiolo ;SO;Caiolo
+4027;Umidità Relativa;11;%;02/06/2002;;06/05/2024;5149692;592663;2320;143;Livigno Passo Foscagno;SO;Livigno
+4029;Radiazione Globale;12;W/m²;02/06/2002;;06/05/2024;5149692;592663;2320;143;Livigno Passo Foscagno;SO;Livigno
+4031;Direzione Vento;10;°;02/06/2002;;06/05/2024;5149692;592663;2320;143;Livigno Passo Foscagno;SO;Livigno
+4033;Precipitazione;2;mm;02/06/2002;;06/05/2024;5149692;592663;2320;143;Livigno Passo Foscagno;SO;Livigno
+4034;Temperatura;3;°C;19/11/2000;;06/05/2024;5146514;526726;1915;144;Madesimo Spluga;SO;Madesimo
+4035;Umidità Relativa;11;%;19/11/2000;;06/05/2024;5146514;526726;1915;144;Madesimo Spluga;SO;Madesimo
+4037;Radiazione Globale;12;W/m²;19/11/2000;;06/05/2024;5146514;526726;1915;144;Madesimo Spluga;SO;Madesimo
+4039;Direzione Vento;10;°;12/01/2004;;06/05/2024;5146514;526726;1915;144;Madesimo Spluga;SO;Madesimo
+4041;Precipitazione;2;mm;19/11/2000;;06/05/2024;5146514;526726;1915;144;Madesimo Spluga;SO;Madesimo
+4042;Temperatura;3;°C;04/12/2002;;18/07/2023;5080789;591371;222;145;Darfo Boario Terme ;BS;Darfo Boario Terme
+4043;Umidità Relativa;11;%;06/06/2002;;18/07/2023;5080789;591371;222;145;Darfo Boario Terme ;BS;Darfo Boario Terme
+4045;Radiazione Globale;12;W/m²;06/06/2002;;18/07/2023;5080789;591371;222;145;Darfo Boario Terme ;BS;Darfo Boario Terme
+4047;Direzione Vento;10;°;06/06/2002;;18/07/2023;5080789;591371;222;145;Darfo Boario Terme ;BS;Darfo Boario Terme
+4049;Precipitazione;2;mm;06/06/2002;;18/07/2023;5080789;591371;222;145;Darfo Boario Terme ;BS;Darfo Boario Terme
+4050;Temperatura;3;°C;30/05/2003;;06/05/2024;5098491;548644;1824;146;Mezzoldo Passo S.Marco;BG;Mezzoldo
+4051;Umidità Relativa;11;%;23/05/2003;;06/05/2024;5098491;548644;1824;146;Mezzoldo Passo S.Marco;BG;Mezzoldo
+4053;Radiazione Globale;12;W/m²;19/09/2003;;06/05/2024;5098491;548644;1824;146;Mezzoldo Passo S.Marco;BG;Mezzoldo
+4055;Direzione Vento;10;°;23/05/2003;;06/05/2024;5098491;548644;1824;146;Mezzoldo Passo S.Marco;BG;Mezzoldo
+4057;Precipitazione;2;mm;23/05/2003;;06/05/2024;5098491;548644;1824;146;Mezzoldo Passo S.Marco;BG;Mezzoldo
+4058;Temperatura;3;°C;30/05/2002;;06/05/2024;5043257;516051;142;147;Cinisello Balsamo Parco Nord;MI;Cinisello Balsamo
+4059;Umidità Relativa;11;%;30/05/2002;;06/05/2024;5043257;516051;142;147;Cinisello Balsamo Parco Nord;MI;Cinisello Balsamo
+4060;Radiazione Globale;12;W/m²;30/05/2002;;06/05/2024;5043257;516051;142;147;Cinisello Balsamo Parco Nord;MI;Cinisello Balsamo
+4062;Direzione Vento;10;°;30/05/2002;;06/05/2024;5043257;516051;142;147;Cinisello Balsamo Parco Nord;MI;Cinisello Balsamo
+4065;Precipitazione;2;mm;30/05/2002;;06/05/2024;5043257;516051;142;147;Cinisello Balsamo Parco Nord;MI;Cinisello Balsamo
+4066;Temperatura;3;°C;02/07/2002;;06/05/2024;5043898;488082;182;148;Arconate SMR;MI;Arconate
+4067;Umidità Relativa;11;%;02/07/2002;;06/05/2024;5043898;488082;182;148;Arconate SMR;MI;Arconate
+4069;Radiazione Globale;12;W/m²;02/07/2002;;06/05/2024;5043898;488082;182;148;Arconate SMR;MI;Arconate
+4071;Direzione Vento;10;°;02/07/2002;;06/05/2024;5043898;488082;182;148;Arconate SMR;MI;Arconate
+4082;Temperatura;3;°C;04/07/2002;;06/05/2024;4997165;594008;39;150;Pieve San Giacomo ;CR;Pieve San Giacomo
+4083;Umidità Relativa;11;%;04/07/2002;;06/05/2024;4997165;594008;39;150;Pieve San Giacomo ;CR;Pieve San Giacomo
+4085;Radiazione Globale;12;W/m²;04/07/2002;;06/05/2024;4997165;594008;39;150;Pieve San Giacomo ;CR;Pieve San Giacomo
+4087;Direzione Vento;10;°;26/07/2005;;06/05/2024;4997179;594005;39;150;Pieve San Giacomo ;CR;Pieve San Giacomo
+4089;Precipitazione;2;mm;04/07/2002;;06/05/2024;4997170;594009;39;150;Pieve San Giacomo ;CR;Pieve San Giacomo
+4112;Precipitazione;2;mm;05/03/2009;;06/05/2024;5043898;488082;182;148;Arconate SMR;MI;Arconate
+5048;Precipitazione;2;mm;21/04/2004;;25/08/2008;5040086;617699;129;163;Padenghe sul Garda ;BS;Padenghe sul Garda
+5080;Livello Idrometrico;1;cm;24/07/2020;;06/05/2024;4999560;486707;93;1088;Ottobiano via Manzoni;PV;Ottobiano
+5082;Livello Idrometrico;1;cm;24/07/2020;;06/05/2024;5007042;528392;72;1089;Villanterio via Roma;PV;Villanterio
+5121;Temperatura;3;°C;15/02/2006;;06/05/2024;5002119;643358;25;166;Mantova Lunetta2 SMR;MN;Mantova
+5122;Umidità Relativa;11;%;08/01/2006;;06/05/2024;5002119;643358;25;166;Mantova Lunetta2 SMR;MN;Mantova
+5124;Radiazione Globale;12;W/m²;08/01/2006;;06/05/2024;5002119;643358;25;166;Mantova Lunetta2 SMR;MN;Mantova
+5126;Direzione Vento;10;°;08/01/2006;;06/05/2024;5002119;643358;25;166;Mantova Lunetta2 SMR;MN;Mantova
+5128;Precipitazione;2;mm;08/01/2006;;06/05/2024;5002119;643358;25;166;Mantova Lunetta2 SMR;MN;Mantova
+5856;Precipitazione;2;mm;07/12/1991;;06/05/2024;5053519;543342;190;595;Filago v.Don Milani;BG;Filago
+5857;Precipitazione;2;mm;09/07/1996;;06/05/2024;5062715;553620;290;594;Bergamo v.Goisis;BG;Bergamo
+5858;Precipitazione;2;mm;04/04/2000;;06/05/2024;5052072;547691;182;596;Osio Sotto v.per Levate;BG;Osio Sotto
+5859;Precipitazione;2;mm;01/01/1989;;27/10/2011;5058641;552746;249;582;Bergamo v.S.Giorgio;BG;Bergamo
+5860;Precipitazione;2;mm;15/06/1994;;11/01/2012;5060449;551482;249;584;Bergamo v.Garibaldi;BG;Bergamo
+5861;Precipitazione;2;mm;01/01/1992;;06/05/2024;5075429;585212;192;586;Costa Volpino v.Nazionale;BG;Costa Volpino
+5863;Temperatura;3;°C;07/12/1991;;06/05/2024;5053519;543342;190;595;Filago v.Don Milani;BG;Filago
+5864;Temperatura;3;°C;13/09/1996;;06/05/2024;5062715;553620;290;594;Bergamo v.Goisis;BG;Bergamo
+5865;Temperatura;3;°C;04/04/2000;;06/05/2024;5052072;547691;182;596;Osio Sotto v.per Levate;BG;Osio Sotto
+5866;Temperatura;3;°C;01/01/1989;;14/04/2010;5058641;552746;249;582;Bergamo v.S.Giorgio;BG;Bergamo
+5867;Temperatura;3;°C;16/06/1994;;11/07/2011;5060449;551482;249;584;Bergamo v.Garibaldi;BG;Bergamo
+5868;Temperatura;3;°C;26/07/1993;;06/05/2024;5075429;585212;192;586;Costa Volpino v.Nazionale;BG;Costa Volpino
+5870;Precipitazione;2;mm;01/07/2009;;06/05/2024;5072803;517232;279;564;Erba v. Battisti;CO;Erba
+5871;Temperatura;3;°C;21/02/2009;;06/05/2024;5072803;517232;279;564;Erba v. Battisti;CO;Erba
+5872;Precipitazione;2;mm;23/09/1996;;23/07/2016;5059463;514062;256;562;Mariano Comense v.le Lombardia;CO;Mariano Comense
+5873;Temperatura;3;°C;23/09/1996;;23/07/2016;5059463;514062;256;562;Mariano Comense v.le Lombardia;CO;Mariano Comense
+5876;Precipitazione;2;mm;06/11/1990;;06/05/2024;5109468;529713;229;573;Colico v.La Madoneta;LC;Colico
+5877;Temperatura;3;°C;06/11/1990;;06/05/2024;5109468;529713;229;573;Colico v.La Madoneta;LC;Colico
+5878;Precipitazione;2;mm;01/01/1991;;25/09/2008;5077479;530713;214;574;Lecco v. Amendola;LC;Lecco
+5882;Precipitazione;2;mm;02/12/2002;;30/11/2021;5066429;520613;310;575;Nibionno v.della Chiesa;LC;Nibionno
+5883;Temperatura;3;°C;03/12/2002;;30/11/2021;5066429;520613;310;575;Nibionno v.della Chiesa;LC;Nibionno
+5884;Precipitazione;2;mm;01/01/1991;;07/02/2008;5095134;522088;220;578;Varenna v.Polvani;LC;Varenna
+5887;Precipitazione;2;mm;13/01/2000;;15/06/2015;5020175;533400;80;617;Tavazzano con Villavesco Enel suolo;LO;Tavazzano con Villavesco
+5888;Temperatura;3;°C;13/01/2000;;15/06/2015;5020175;533400;80;617;Tavazzano con Villavesco Enel suolo;LO;Tavazzano con Villavesco
+5890;Temperatura;3;°C;23/01/2002;;06/05/2024;4992297;555154;50;598;San Rocco al Porto v.Matteotti;LO;San Rocco al Porto
+5894;Precipitazione;2;mm;24/03/1992;;06/11/2018;5046977;527628;162;530;Agrate Brianza v.Ferrario;MB;Agrate Brianza
+5895;Temperatura;3;°C;25/03/1992;;06/11/2018;5046977;527628;162;530;Agrate Brianza v.Ferrario;MB;Agrate Brianza
+5897;Temperatura;3;°C;19/03/1990;;06/05/2024;5035365;514782;122;620;Milano v.Brera;MI;Milano
+5900;Precipitazione;2;mm;31/03/1996;;06/09/2018;5057636;518272;250;512;Carate Brianza v.De Gasperi;MB;Carate Brianza
+5901;Temperatura;3;°C;01/04/1996;;26/04/2018;5057636;518272;250;512;Carate Brianza v.De Gasperi;MB;Carate Brianza
+5902;Precipitazione;2;mm;29/03/2002;;06/05/2024;5031403;507619;119;525;Corsico v.le Italia;MI;Corsico
+5903;Temperatura;3;°C;12/02/1997;;06/05/2024;5031403;507619;119;525;Corsico v.le Italia;MI;Corsico
+5908;Precipitazione;2;mm;01/01/1989;;06/05/2024;5035546;517376;122;502;Milano v.Juvara;MI;Milano
+5909;Temperatura;3;°C;01/01/1989;;06/05/2024;5035546;517376;122;502;Milano v.Juvara;MI;Milano
+5910;Temperatura;3;°C;15/09/1998;;06/05/2024;5019010;510543;97;535;Lacchiarella v.Molise;MI;Lacchiarella
+5911;Temperatura;3;°C;01/01/1989;;06/05/2024;5038105;514918;129;501;Milano v.Marche;MI;Milano
+5916;Precipitazione;2;mm;01/01/1999;;06/05/2024;5035511;527630;112;614;Rodano v.Turati;MI;Rodano
+5917;Temperatura;3;°C;01/01/1999;;06/05/2024;5035511;527630;112;614;Rodano v.Turati;MI;Rodano
+5918;Precipitazione;2;mm;21/02/2001;;06/05/2024;5051253;539618;199;513;Trezzo sull'Adda v.Nenni;MI;Trezzo sull'Adda
+5920;Temperatura;3;°C;01/01/1989;;06/05/2024;5035847;511082;122;503;Milano P.zza Zavattari;MI;Milano
+5921;Precipitazione;2;mm;01/11/1993;;04/10/2016;5147136;605598;1225;571;Bormio v.Monte Braulio;SO;Bormio
+5922;Temperatura;3;°C;01/11/1993;;04/10/2016;5147136;605598;1225;571;Bormio v.Monte Braulio;SO;Bormio
+5923;Precipitazione;2;mm;27/10/1993;;31/12/2010;5129769;530454;333;567;Chiavenna v.Cerletti;SO;Chiavenna
+5924;Temperatura;3;°C;27/10/1993;;21/10/2010;5129769;530454;333;567;Chiavenna v.Cerletti;SO;Chiavenna
+5927;Precipitazione;2;mm;29/09/1998;;29/09/2015;5108901;543736;262;572;Morbegno v.Cortivacci;SO;Morbegno
+5928;Temperatura;3;°C;29/09/1998;;26/09/2015;5108901;543736;262;572;Morbegno v.Cortivacci;SO;Morbegno
+5929;Precipitazione;2;mm;28/10/1993;;11/01/2012;5113078;567173;307;569;Sondrio v.Mazzini;SO;Sondrio
+5930;Temperatura;3;°C;28/10/1993;;24/06/2010;5113078;567173;307;569;Sondrio v.Mazzini;SO;Sondrio
+5931;Precipitazione;2;mm;01/11/1993;;03/07/2012;5118891;589196;439;570;Tirano Viale Italia;SO;Tirano
+5932;Temperatura;3;°C;01/11/1993;;17/05/2018;5118891;589196;439;570;Tirano Viale Italia;SO;Tirano
+5933;Precipitazione;2;mm;05/12/1998;;06/05/2024;5047718;487687;206;558;Busto Arsizio  Accam;VA;Busto Arsizio
+5934;Precipitazione;2;mm;25/05/1991;;21/10/2018;5050810;488313;222;555;Busto Arsizio v.Magenta;VA;Busto Arsizio
+5935;Temperatura;3;°C;25/05/1991;;10/12/2018;5050810;488313;222;555;Busto Arsizio v.Magenta;VA;Busto Arsizio
+5938;Precipitazione;2;mm;05/12/1996;;10/12/2018;5048975;479783;204;557;Lonate Pozzolo v.Veneto;VA;Lonate Pozzolo
+5939;Temperatura;3;°C;13/12/1996;;19/06/2018;5048975;479783;204;557;Lonate Pozzolo v.Veneto;VA;Lonate Pozzolo
+5940;Precipitazione;2;mm;20/03/2000;;30/10/2020;5055150;477613;210;559;Somma Lombardo v.Facchinetti;VA;Somma Lombardo
+5941;Temperatura;3;°C;20/03/2000;;30/10/2020;5055150;477613;210;559;Somma Lombardo v.Facchinetti;VA;Somma Lombardo
+5966;Temperatura;3;°C;01/06/1992;;21/02/2007;4981793;612537;23;625;Casalmaggiore v.Volta;CR;Casalmaggiore
+5968;Temperatura;3;°C;10/06/1992;;04/04/2006;4998730;581171;61;628;Cremona p.zza Libertà;CR;Cremona
+5969;Temperatura;3;°C;01/08/1992;;06/05/2024;5023885;555127;79;629;Crema v.XI febbraio;CR;Crema
+5979;Direzione Vento;10;°;03/02/2000;;06/05/2024;5053519;543342;190;595;Filago v.Don Milani;BG;Filago
+5981;Direzione Vento;10;°;16/09/1996;;06/05/2024;5062715;553620;290;594;Bergamo v.Goisis;BG;Bergamo
+5983;Direzione Vento;10;°;04/04/2000;;06/05/2024;5052072;547691;182;596;Osio Sotto v.per Levate;BG;Osio Sotto
+5987;Direzione Vento;10;°;25/09/2000;;06/05/2024;5059922;550116;249;583;Bergamo v.Meucci;BG;Bergamo
+5990;Direzione Vento;10;°;23/11/1994;;14/04/2010;5060449;551482;249;584;Bergamo v.Garibaldi;BG;Bergamo
+5994;Direzione Vento;10;°;21/01/1997;;06/05/2024;5075429;585212;192;586;Costa Volpino v.Nazionale;BG;Costa Volpino
+6008;Direzione Vento;10;°;01/01/1998;;06/05/2024;5109468;529713;229;573;Colico v.La Madoneta;LC;Colico
+6017;Direzione Vento;10;°;13/01/2000;;03/08/2015;5020197;533381;80;635;Tavazzano con Villavesco Enel;LO;Tavazzano con Villavesco
+6026;Direzione Vento;10;°;29/10/1999;;11/08/2016;5046977;527628;162;530;Agrate Brianza v.Ferrario;MB;Agrate Brianza
+6029;Direzione Vento;10;°;18/11/1999;;06/05/2024;5035365;514782;122;620;Milano v.Brera;MI;Milano
+6035;Direzione Vento;10;°;01/01/1999;;23/10/2014;5057636;518272;250;512;Carate Brianza v.De Gasperi;MB;Carate Brianza
+6038;Direzione Vento;10;°;02/11/1999;;06/05/2024;5031403;507619;119;525;Corsico v.le Italia;MI;Corsico
+6044;Direzione Vento;10;°;01/01/1999;;06/05/2024;5035546;517376;122;502;Milano v.Juvara;MI;Milano
+6046;Direzione Vento;10;°;01/01/1999;;06/05/2024;5019010;510543;97;535;Lacchiarella v.Molise;MI;Lacchiarella
+6048;Direzione Vento;10;°;17/11/1999;;06/05/2024;5038105;514918;129;501;Milano v.Marche;MI;Milano
+6060;Direzione Vento;10;°;22/02/2001;;06/05/2024;5051253;539618;199;513;Trezzo sull'Adda v.Nenni;MI;Trezzo sull'Adda
+6063;Direzione Vento;10;°;23/11/1999;;06/05/2024;5035847;511082;122;503;Milano P.zza Zavattari;MI;Milano
+6071;Direzione Vento;10;°;13/12/1999;;29/09/2015;5108901;543736;262;572;Morbegno v.Cortivacci;SO;Morbegno
+6077;Direzione Vento;10;°;17/07/1998;;10/12/2018;5050810;488313;222;555;Busto Arsizio v.Magenta;VA;Busto Arsizio
+6081;Direzione Vento;10;°;05/12/1996;;10/12/2018;5048975;479783;204;557;Lonate Pozzolo v.Veneto;VA;Lonate Pozzolo
+6084;Direzione Vento;10;°;20/03/2000;;30/10/2020;5055150;477613;210;559;Somma Lombardo v.Facchinetti;VA;Somma Lombardo
+6103;Velocità Vento;9;m/s;15/06/1994;;11/07/2011;5060449;551482;249;584;Bergamo v.Garibaldi;BG;Bergamo
+6116;Velocità Vento;9;m/s;12/03/1990;;30/10/2013;5046977;527628;162;530;Agrate Brianza v.Ferrario;MB;Agrate Brianza
+6137;Velocità Vento;9;m/s;22/02/2001;;07/05/2024;5051253;539618;199;513;Trezzo sull'Adda v.Nenni;MI;Trezzo sull'Adda
+6157;Umidità Relativa;11;%;01/01/1992;;06/05/2024;5053519;543342;190;595;Filago v.Don Milani;BG;Filago
+6158;Umidità Relativa;11;%;13/09/1996;;06/05/2024;5062715;553620;290;594;Bergamo v.Goisis;BG;Bergamo
+6159;Umidità Relativa;11;%;04/04/2000;;06/05/2024;5052072;547691;182;596;Osio Sotto v.per Levate;BG;Osio Sotto
+6160;Umidità Relativa;11;%;01/12/1989;;14/04/2010;5058641;552746;249;582;Bergamo v.S.Giorgio;BG;Bergamo
+6161;Umidità Relativa;11;%;26/07/1993;;06/05/2024;5075429;585212;192;586;Costa Volpino v.Nazionale;BG;Costa Volpino
+6163;Umidità Relativa;11;%;21/02/2009;;06/05/2024;5072803;517232;279;564;Erba v. Battisti;CO;Erba
+6164;Umidità Relativa;11;%;11/07/2001;;06/05/2024;5109468;529713;229;573;Colico v.La Madoneta;LC;Colico
+6167;Umidità Relativa;11;%;03/12/2002;;30/11/2021;5066429;520613;310;575;Nibionno v.della Chiesa;LC;Nibionno
+6169;Umidità Relativa;11;%;13/01/2000;;15/06/2015;5020175;533400;80;617;Tavazzano con Villavesco Enel suolo;LO;Tavazzano con Villavesco
+6170;Umidità Relativa;11;%;23/01/2002;;06/05/2024;4992297;555154;50;598;San Rocco al Porto v.Matteotti;LO;San Rocco al Porto
+6172;Umidità Relativa;11;%;01/01/1999;;06/11/2018;5046977;527628;162;530;Agrate Brianza v.Ferrario;MB;Agrate Brianza
+6174;Umidità Relativa;11;%;05/12/2002;;06/05/2024;5035365;514782;122;620;Milano v.Brera;MI;Milano
+6175;Umidità Relativa;11;%;01/01/1999;;26/04/2018;5057636;518272;250;512;Carate Brianza v.De Gasperi;MB;Carate Brianza
+6176;Umidità Relativa;11;%;01/01/1999;;06/05/2024;5031403;507619;119;525;Corsico v.le Italia;MI;Corsico
+6179;Umidità Relativa;11;%;01/01/1999;;06/05/2024;5035546;517376;122;502;Milano v.Juvara;MI;Milano
+6180;Umidità Relativa;11;%;01/01/1999;;06/05/2024;5019010;510543;97;535;Lacchiarella v.Molise;MI;Lacchiarella
+6183;Umidità Relativa;11;%;01/01/1999;;06/05/2024;5035511;527630;112;614;Rodano v.Turati;MI;Rodano
+6184;Umidità Relativa;11;%;22/02/2001;;06/05/2024;5051253;539618;199;513;Trezzo sull'Adda v.Nenni;MI;Trezzo sull'Adda
+6185;Umidità Relativa;11;%;22/04/2002;;06/05/2024;5035847;511082;122;503;Milano P.zza Zavattari;MI;Milano
+6186;Umidità Relativa;11;%;16/01/2000;;04/10/2016;5147136;605598;1225;571;Bormio v.Monte Braulio;SO;Bormio
+6187;Umidità Relativa;11;%;17/12/1999;;21/10/2010;5129769;530454;333;567;Chiavenna v.Cerletti;SO;Chiavenna
+6189;Umidità Relativa;11;%;13/12/1999;;29/09/2015;5108901;543736;262;572;Morbegno v.Cortivacci;SO;Morbegno
+6191;Umidità Relativa;11;%;15/12/1999;;17/05/2018;5118891;589196;439;570;Tirano Viale Italia;SO;Tirano
+6193;Umidità Relativa;11;%;13/12/1996;;19/06/2018;5048975;479783;204;557;Lonate Pozzolo v.Veneto;VA;Lonate Pozzolo
+6194;Umidità Relativa;11;%;20/03/2000;;30/10/2020;5055150;477613;210;559;Somma Lombardo v.Facchinetti;VA;Somma Lombardo
+6407;Umidità Relativa;11;%;01/01/2002;;21/02/2007;4981793;612537;23;625;Casalmaggiore v.Volta;CR;Casalmaggiore
+6421;Umidità Relativa;11;%;01/01/2002;;06/05/2024;5023885;555127;79;629;Crema v.XI febbraio;CR;Crema
+6430;Radiazione Globale;12;W/m²;07/12/1991;;06/05/2024;5053519;543342;190;595;Filago v.Don Milani;BG;Filago
+6431;Radiazione Globale;12;W/m²;13/09/1996;;06/05/2024;5062715;553620;290;594;Bergamo v.Goisis;BG;Bergamo
+6432;Radiazione Globale;12;W/m²;04/04/2000;;06/05/2024;5052072;547691;182;596;Osio Sotto v.per Levate;BG;Osio Sotto
+6433;Radiazione Globale;12;W/m²;01/01/1989;;14/04/2010;5058641;552746;249;582;Bergamo v.S.Giorgio;BG;Bergamo
+6434;Radiazione Globale;12;W/m²;26/07/1993;;06/05/2024;5075429;585212;192;586;Costa Volpino v.Nazionale;BG;Costa Volpino
+6437;Radiazione Globale;12;W/m²;01/01/2002;;21/02/2007;4981793;612537;23;625;Casalmaggiore v.Volta;CR;Casalmaggiore
+6440;Radiazione Globale;12;W/m²;01/01/2002;;06/05/2024;5023885;555127;79;629;Crema v.XI febbraio;CR;Crema
+6443;Radiazione Globale;12;W/m²;13/01/2000;;15/06/2015;5020175;533400;80;617;Tavazzano con Villavesco Enel suolo;LO;Tavazzano con Villavesco
+6453;Radiazione Globale;12;W/m²;02/01/2002;;06/09/2018;5057636;518272;250;512;Carate Brianza v.De Gasperi;MB;Carate Brianza
+6458;Radiazione Globale;12;W/m²;01/01/1999;;06/05/2024;5035546;517376;122;502;Milano v.Juvara;MI;Milano
+6469;Radiazione Globale;12;W/m²;06/06/1996;;24/06/2010;5113078;567173;307;569;Sondrio v.Mazzini;SO;Sondrio
+6474;Radiazione Globale;12;W/m²;13/12/1996;;10/12/2018;5048975;479783;204;557;Lonate Pozzolo v.Veneto;VA;Lonate Pozzolo
+6476;Radiazione Globale;12;W/m²;20/03/2000;;30/10/2020;5055150;477613;210;559;Somma Lombardo v.Facchinetti;VA;Somma Lombardo
+6588;Radiazione Globale;12;W/m²;01/01/1998;;15/07/2008;5077479;530713;214;574;Lecco v. Amendola;LC;Lecco
+6597;Umidità Relativa;11;%;21/03/2002;;06/05/2024;5038105;514918;129;501;Milano v.Marche;MI;Milano
+6603;Umidità Relativa;11;%;07/11/1991;;10/12/2018;5050810;488313;222;555;Busto Arsizio v.Magenta;VA;Busto Arsizio
+6694;Precipitazione;2;mm;01/06/2002;;06/05/2024;5004590;512932;77;642;Pavia v. Folperti;PV;Pavia
+6696;Radiazione Globale;12;W/m²;01/06/2002;;06/05/2024;5004590;512932;77;642;Pavia v. Folperti;PV;Pavia
+6698;Temperatura;3;°C;01/06/2002;;06/05/2024;5004590;512932;77;642;Pavia v. Folperti;PV;Pavia
+6699;Umidità Relativa;11;%;01/06/2002;;06/05/2024;5004590;512932;77;642;Pavia v. Folperti;PV;Pavia
+6717;Direzione Vento;10;°;24/01/2004;;09/10/2013;5019220;489053;107;644;Vigevano v.Petrarca;PV;Vigevano
+6723;Precipitazione;2;mm;24/01/2004;;09/10/2013;5019220;489053;107;644;Vigevano v.Petrarca;PV;Vigevano
+6725;Radiazione Globale;12;W/m²;24/01/2004;;09/10/2013;5019220;489053;107;644;Vigevano v.Petrarca;PV;Vigevano
+6727;Temperatura;3;°C;24/01/2004;;09/10/2013;5019220;489053;107;644;Vigevano v.Petrarca;PV;Vigevano
+6728;Umidità Relativa;11;%;24/01/2004;;09/10/2013;5019220;489053;107;644;Vigevano v.Petrarca;PV;Vigevano
+6729;Velocità Vento;9;m/s;24/01/2004;;09/10/2013;5019220;489053;107;644;Vigevano v.Petrarca;PV;Vigevano
+6788;Direzione Vento;10;°;15/10/1997;;06/05/2024;5040836;595170;125;653;Brescia v.Ziziola;BS;Brescia
+6792;Precipitazione;2;mm;15/10/1997;;06/05/2024;5040836;595170;125;653;Brescia v.Ziziola;BS;Brescia
+6795;Temperatura;3;°C;17/10/1997;;06/05/2024;5040836;595170;125;653;Brescia v.Ziziola;BS;Brescia
+6796;Umidità Relativa;11;%;18/11/2003;;06/05/2024;5040836;595170;125;653;Brescia v.Ziziola;BS;Brescia
+6797;Velocità Vento;9;m/s;15/10/1997;;06/05/2024;5040836;595170;125;653;Brescia v.Ziziola;BS;Brescia
+6800;Direzione Vento;10;°;01/01/1990;;10/12/2018;5055826;593900;269;654;Sarezzo v.Minelli;BS;Sarezzo
+6806;Velocità Vento;9;m/s;01/01/1990;;10/12/2018;5055826;593900;269;654;Sarezzo v.Minelli;BS;Sarezzo
+6815;Direzione Vento;10;°;01/01/1990;;06/05/2024;5011493;601945;47;656;Gambara v.Parma;BS;Gambara
+6819;Precipitazione;2;mm;01/01/1990;;06/05/2024;5011493;601945;47;656;Gambara v.Parma;BS;Gambara
+6823;Temperatura;3;°C;01/01/1990;;06/05/2024;5011493;601945;47;656;Gambara v.Parma;BS;Gambara
+6824;Umidità Relativa;11;%;01/01/1999;;06/05/2024;5011493;601945;47;656;Gambara v.Parma;BS;Gambara
+6825;Velocità Vento;9;m/s;01/01/1990;;06/05/2024;5011493;601945;47;656;Gambara v.Parma;BS;Gambara
+6834;Temperatura;3;°C;01/01/1990;;06/05/2024;5035536;615762;180;657;Lonato del Garda v.del Marchesino;BS;Lonato del Garda
+6835;Umidità Relativa;11;%;01/01/1999;;06/05/2024;5035536;615762;180;657;Lonato del Garda v.del Marchesino;BS;Lonato del Garda
+6846;Precipitazione;2;mm;22/02/2006;;06/05/2024;5055661;608260;349;659;Odolo v.Praes;BS;Odolo
+6849;Temperatura;3;°C;08/10/1990;;06/05/2024;5055661;608260;349;659;Odolo v.Praes;BS;Odolo
+6850;Umidità Relativa;11;%;01/01/1999;;06/05/2024;5055661;608260;349;659;Odolo v.Praes;BS;Odolo
+6986;Precipitazione;2;mm;21/01/2006;;06/05/2024;5076576;527307;247;679;Valmadrera v.Pozzi;LC;Valmadrera
+6987;Direzione Vento;10;°;01/03/2006;;06/05/2024;5076576;527307;247;679;Valmadrera v.Pozzi;LC;Valmadrera
+6990;Radiazione Globale;12;W/m²;02/02/2006;;06/05/2024;5076576;527307;247;679;Valmadrera v.Pozzi;LC;Valmadrera
+6992;Temperatura;3;°C;02/02/2006;;06/05/2024;5076576;527307;247;679;Valmadrera v.Pozzi;LC;Valmadrera
+6994;Umidità Relativa;11;%;02/02/2006;;06/05/2024;5076576;527307;247;679;Valmadrera v.Pozzi;LC;Valmadrera
+7025;Direzione Vento;10;°;22/11/2006;;06/05/2024;5051773;481053;215;687;Ferno v.Di Dio;VA;Ferno
+7028;Radiazione Globale;12;W/m²;21/11/2006;;06/05/2024;5051773;481053;215;687;Ferno v.Di Dio;VA;Ferno
+7029;Temperatura;3;°C;05/11/2006;;06/05/2024;5051773;481053;215;687;Ferno v.Di Dio;VA;Ferno
+7030;Umidità Relativa;11;%;05/11/2006;;06/05/2024;5051773;481053;215;687;Ferno v.Di Dio;VA;Ferno
+7042;Direzione Vento;10;°;19/12/2006;;03/03/2021;5030184;631718;113;695;Ponti sul Mincio v.San Martino;MN;Ponti sul Mincio
+7043;Precipitazione;2;mm;19/12/2006;;06/05/2024;5030184;631718;113;695;Ponti sul Mincio v.San Martino;MN;Ponti sul Mincio
+7045;Radiazione Globale;12;W/m²;19/12/2006;;06/05/2024;5030184;631718;113;695;Ponti sul Mincio v.San Martino;MN;Ponti sul Mincio
+7046;Temperatura;3;°C;19/12/2006;;06/05/2024;5030184;631718;113;695;Ponti sul Mincio v.San Martino;MN;Ponti sul Mincio
+7047;Umidità Relativa;11;%;19/12/2006;;06/05/2024;5030184;631718;113;695;Ponti sul Mincio v.San Martino;MN;Ponti sul Mincio
+7048;Velocità Vento;9;m/s;19/12/2006;;03/03/2021;5030184;631718;113;695;Ponti sul Mincio v.San Martino;MN;Ponti sul Mincio
+8001;Precipitazione;2;mm;01/01/1998;;19/09/2018;4963190;515657;485;855;Varzi v.Mazzini;PV;Varzi
+8002;Temperatura;3;°C;01/01/1998;;19/09/2018;4963190;515657;485;855;Varzi v.Mazzini;PV;Varzi
+8004;Precipitazione;2;mm;01/01/1998;;06/05/2024;4947846;517168;1363;857;Santa Margherita di Staffora Passo del Giovà;PV;Santa Margherita di Staffora
+8005;Temperatura;3;°C;01/01/1998;;06/05/2024;4947846;517168;1363;857;Santa Margherita di Staffora Passo del Giovà;PV;Santa Margherita di Staffora
+8006;Precipitazione;2;mm;01/01/1998;;06/05/2024;4973248;515391;501;856;Fortunago ;PV;Fortunago
+8007;Temperatura;3;°C;01/01/1998;;06/05/2024;4973248;515391;501;856;Fortunago ;PV;Fortunago
+8008;Temperatura;3;°C;01/01/1992;;06/05/2024;5145272;600293;2300;835;Valdisotto Oga S. Colombano;SO;Valdisotto
+8009;Altezza Neve;4;cm;01/01/1992;;06/05/2024;5145272;600293;2300;835;Valdisotto Oga S. Colombano;SO;Valdisotto
+8010;Precipitazione;2;mm;01/01/1992;;06/05/2024;5145272;600293;2300;835;Valdisotto Oga S. Colombano;SO;Valdisotto
+8011;Umidità Relativa;11;%;01/01/1992;;06/05/2024;5145272;600293;2300;835;Valdisotto Oga S. Colombano;SO;Valdisotto
+8013;Temperatura;3;°C;01/01/1992;;06/05/2024;5097116;544202;1875;833;Gerola Alta Pescegallo;SO;Gerola Alta
+8014;Altezza Neve;4;cm;01/01/1992;;06/05/2024;5097116;544202;1875;833;Gerola Alta Pescegallo;SO;Gerola Alta
+8015;Precipitazione;2;mm;01/01/1992;;06/05/2024;5097116;544202;1875;833;Gerola Alta Pescegallo;SO;Gerola Alta
+8016;Temperatura;3;°C;01/01/1992;;06/05/2024;5109097;588704;1950;836;Aprica ;SO;Aprica
+8017;Altezza Neve;4;cm;01/01/1992;;06/05/2024;5109097;588704;1950;836;Aprica ;SO;Aprica
+8018;Precipitazione;2;mm;01/01/1992;;06/05/2024;5109097;588704;1950;836;Aprica ;SO;Aprica
+8019;Temperatura;3;°C;01/05/1993;;06/05/2024;5114768;613679;2108;846;Edolo Pantano d`Avio;BS;Edolo
+8020;Altezza Neve;4;cm;01/05/1993;;06/05/2024;5114768;613679;2108;846;Edolo Pantano d`Avio;BS;Edolo
+8021;Precipitazione;2;mm;01/05/1993;;06/05/2024;5114768;613679;2108;846;Edolo Pantano d`Avio;BS;Edolo
+8024;Altezza Neve;4;cm;27/09/1993;;06/05/2024;5098634;561423;1954;847;Carona Carisole;BG;Carona
+8025;Precipitazione;2;mm;01/07/1993;;06/05/2024;5098634;561423;1954;847;Carona Carisole;BG;Carona
+8027;Temperatura;3;°C;11/09/1993;;06/05/2024;5147768;591251;2660;848;Livigno La Vallaccia;SO;Livigno
+8028;Altezza Neve;4;cm;13/09/1993;;06/05/2024;5147768;591251;2660;848;Livigno La Vallaccia;SO;Livigno
+8029;Precipitazione;2;mm;11/09/1993;;06/05/2024;5147768;591251;2660;848;Livigno La Vallaccia;SO;Livigno
+8030;Umidità Relativa;11;%;11/09/1993;;06/05/2024;5147768;591251;2660;848;Livigno La Vallaccia;SO;Livigno
+8092;Temperatura;3;°C;01/01/1992;;06/05/2024;5126972;568128;2151;832;Lanzada Palù;SO;Lanzada
+8093;Altezza Neve;4;cm;01/01/1992;;06/05/2024;5126972;568128;2151;832;Lanzada Palù;SO;Lanzada
+8094;Precipitazione;2;mm;01/01/1992;;06/05/2024;5126972;568128;2151;832;Lanzada Palù;SO;Lanzada
+8095;Precipitazione;2;mm;01/01/1998;;06/05/2024;5099046;558502;1682;912;Foppolo ;BG;Foppolo
+8096;Temperatura;3;°C;01/01/1998;;06/05/2024;5099046;558502;1682;912;Foppolo ;BG;Foppolo
+8097;Precipitazione;2;mm;01/01/1998;;06/05/2024;5091256;541747;982;822;Valtorta ;BG;Valtorta
+8098;Precipitazione;2;mm;01/01/1998;;06/05/2024;5088280;552145;510;823;Piazza Brembana vivaio;BG;Piazza Brembana
+8099;Livello Idrometrico;1;cm;01/01/1998;;06/05/2024;4994306;527217;64;815;Arena Po Spessa;PV;Arena Po
+8101;Livello Idrometrico;1;cm;01/01/1998;;06/05/2024;4989487;638276;18;849;Borgoforte SS 12;MN;Borgoforte
+8103;Precipitazione;2;mm;01/01/1998;;06/05/2024;5064493;616659;1147;851;Treviso Bresciano Cavacca;BS;Treviso Bresciano
+8104;Temperatura;3;°C;01/01/1998;;06/05/2024;5064493;616659;1147;851;Treviso Bresciano Cavacca;BS;Treviso Bresciano
+8105;Livello Idrometrico;1;cm;01/01/1998;;06/05/2024;5065629;612858;370;852;Lavenone Galleria Agricoltori - fiume;BS;Lavenone
+8107;Livello Idrometrico;1;cm;01/01/1998;;06/05/2024;5065945;613772;388;853;Idro SS 237;BS;Idro
+8110;Livello Idrometrico;1;cm;01/01/1998;;06/05/2024;5049767;612402;205;826;Gavardo SP 116;BS;Gavardo
+8111;Precipitazione;2;mm;01/01/1998;;06/05/2024;5110833;531836;199;818;Gera Lario Fuentes;CO;Gera Lario
+8112;Livello Idrometrico;1;cm;01/01/1998;;06/05/2024;5110833;531836;199;818;Gera Lario Fuentes;CO;Gera Lario
+8113;Livello Idrometrico;1;cm;24/07/1998;;08/01/2019;5060406;472667;204;861;Golasecca Miorina;VA;Golasecca
+8114;Livello Idrometrico;1;cm;24/07/1998;;06/05/2024;5018523;539869;64;862;Lodi v. X Maggio;LO;Lodi
+8115;Precipitazione;2;mm;24/07/1998;;26/03/2013;5069163;489791;276;863;Lozza Ponte Vedano;VA;Lozza
+8116;Temperatura;3;°C;24/07/1998;;26/03/2013;5069163;489791;276;863;Lozza Ponte Vedano;VA;Lozza
+8117;Livello Idrometrico;1;cm;24/07/1998;;26/03/2013;5069163;489791;276;863;Lozza Ponte Vedano;VA;Lozza
+8118;Livello Idrometrico;1;cm;24/07/1998;;06/05/2024;5050408;492783;206;864;Castellanza C.so G. Matteotti;VA;Castellanza
+8119;Livello Idrometrico;1;cm;24/07/1998;;06/05/2024;5062780;507811;244;865;Cantù Asnago;CO;Cantù
+8120;Livello Idrometrico;1;cm;24/07/1998;;06/05/2024;5053559;523312;180;868;Lesmo Peregallo;MB;Lesmo
+8121;Livello Idrometrico;1;cm;24/07/1998;;06/05/2024;5047708;512402;168;866;Paderno Dugnano Palazzolo;MI;Paderno Dugnano
+8122;Precipitazione;2;mm;24/07/1998;;06/05/2024;5075784;518046;427;867;Caslino d'Erba v. 4 novembre;CO;Caslino d'Erba
+8123;Temperatura;3;°C;24/07/1998;;06/05/2024;5075784;518046;427;867;Caslino d'Erba v. 4 novembre;CO;Caslino d'Erba
+8124;Livello Idrometrico;1;cm;24/07/1998;;06/05/2024;5075784;518046;427;867;Caslino d'Erba v. 4 novembre;CO;Caslino d'Erba
+8125;Livello Idrometrico;1;cm;24/07/1998;;06/05/2024;5037597;519436;127;869;Milano v.Feltre;MI;Milano
+8126;Precipitazione;2;mm;24/07/1998;;23/08/2011;5062019;545719;260;872;Brembate di Sopra Ponte Briolo;BG;Brembate di Sopra
+8127;Temperatura;3;°C;24/07/1998;;23/08/2011;5062019;545719;260;872;Brembate di Sopra Ponte Briolo;BG;Brembate di Sopra
+8128;Livello Idrometrico;1;cm;24/07/1998;;06/05/2024;5062019;545719;260;872;Brembate di Sopra Ponte Briolo;BG;Brembate di Sopra
+8129;Livello Idrometrico;1;cm;18/04/2001;;06/05/2024;4986960;485996;84;891;ISOLA S.ANTONIO SS 211;AL;ISOLA S.ANTONIO
+8131;Precipitazione;2;mm;21/11/2001;;16/11/2011;5113810;603547;623;888;Sonico centrale Edolo;BS;Sonico
+8133;Temperatura;3;°C;21/11/2001;;06/05/2024;5093242;597570;994;819;Lozio ;BS;Lozio
+8134;Temperatura;3;°C;21/11/2001;;06/05/2024;5074267;589881;842;820;Pisogne ;BS;Pisogne
+8135;Precipitazione;2;mm;12/04/2001;;06/05/2024;5057377;574538;197;874;Sarnico v. Roma;BG;Sarnico
+8136;Temperatura;3;°C;12/04/2001;;06/05/2024;5057377;574538;197;874;Sarnico v. Roma;BG;Sarnico
+8137;Precipitazione;2;mm;06/06/2001;;13/11/2012;5081485;612286;1226;875;Bagolino Valle Dorizzo;BS;Bagolino
+8138;Temperatura;3;°C;06/06/2001;;14/11/2012;5081485;612286;1226;875;Bagolino Valle Dorizzo;BS;Bagolino
+8139;Precipitazione;2;mm;01/02/2001;;06/05/2024;5051536;603100;428;876;Caino ;BS;Caino
+8140;Temperatura;3;°C;01/02/2001;;06/05/2024;5051536;603100;428;876;Caino ;BS;Caino
+8141;Livello Idrometrico;1;cm;06/06/2001;;06/05/2024;5070534;598195;572;877;Bovegno ponte Zigole;BS;Bovegno
+8142;Livello Idrometrico;1;cm;21/11/2001;;13/12/2015;5080335;589760;205;878;Darfo Boario Terme SS 42;BS;Darfo Boario Terme
+8143;Livello Idrometrico;1;cm;01/02/2001;;06/05/2024;5055325;571386;178;879;Capriolo SP12;BS;Capriolo
+8145;Temperatura;3;°C;21/11/2001;;06/05/2024;5063070;555269;311;889;Torre Boldone ;BG;Torre Boldone
+8146;Temperatura;3;°C;21/11/2001;;21/07/2015;5081860;573452;591;824;Clusone Campo Sportivo;BG;Clusone
+8147;Livello Idrometrico;1;cm;06/07/2000;;06/05/2024;5014643;555776;63;882;Montodine ponte   ;CR;Montodine
+8148;Livello Idrometrico;1;cm;17/10/2001;;06/05/2024;5067757;519381;248;883;Costa Masnaga Lambrugo;LC;Costa Masnaga
+8149;Precipitazione;2;mm;28/06/2006;;02/04/2012;5037078;515100;122;890;Milano v.Confalonieri;MI;Milano
+8150;Precipitazione;2;mm;06/07/2000;;06/05/2024;5083338;480047;294;884;Cuveglio ;VA;Cuveglio
+8151;Temperatura;3;°C;06/07/2000;;06/05/2024;5083338;480047;294;884;Cuveglio ;VA;Cuveglio
+8152;Precipitazione;2;mm;05/07/2000;;06/05/2024;5076955;491501;383;885;Arcisate ;VA;Arcisate
+8153;Livello Idrometrico;1;cm;25/05/2000;;06/05/2024;5020886;490573;94;886;Vigevano SS494;PV;Vigevano
+8154;Livello Idrometrico;1;cm;20/01/2000;;06/05/2024;4987208;680433;10;816;Sermide e Felonica SP 91;MN;Sermide e Felonica
+8155;Precipitazione;2;mm;04/05/2000;;06/05/2024;5003026;511523;71;817;Pavia SS 35;PV;Pavia
+8157;Temperatura;3;°C;04/05/2000;;06/05/2024;5003026;511523;71;817;Pavia SS 35;PV;Pavia
+8158;Livello Idrometrico;1;cm;01/02/2001;;06/05/2024;4997693;578223;40;887;Cremona SP 10;CR;Cremona
+8160;Precipitazione;2;mm;21/11/2001;;21/07/2015;5081860;573452;591;824;Clusone Campo Sportivo;BG;Clusone
+8161;Precipitazione;2;mm;21/11/2001;;06/05/2024;5063070;555269;311;889;Torre Boldone ;BG;Torre Boldone
+8162;Temperatura;3;°C;05/07/2000;;06/05/2024;5037597;519436;127;869;Milano v.Feltre;MI;Milano
+8163;Precipitazione;2;mm;05/07/2000;;06/05/2024;5094539;480079;205;859;Luino v. Piero Chiara;VA;Luino
+8164;Temperatura;3;°C;05/07/2000;;06/05/2024;5094539;480079;205;859;Luino v. Piero Chiara;VA;Luino
+8165;Precipitazione;2;mm;05/07/2000;;06/05/2024;5074079;506207;200;870;Como viale Geno ;CO;Como
+8166;Temperatura;3;°C;05/07/2000;;06/05/2024;5074079;506207;200;870;Como viale Geno ;CO;Como
+8167;Precipitazione;2;mm;05/07/2000;;06/05/2024;5068671;466871;202;860;Angera v.le Repubblica;VA;Angera
+8168;Temperatura;3;°C;05/07/2000;;06/05/2024;5076955;491501;383;885;Arcisate ;VA;Arcisate
+8169;Precipitazione;2;mm;21/11/2001;;06/05/2024;5074267;589881;842;820;Pisogne ;BS;Pisogne
+8170;Precipitazione;2;mm;21/11/2001;;06/05/2024;5093242;597570;994;819;Lozio ;BS;Lozio
+8171;Precipitazione;2;mm;31/12/2001;;06/05/2024;5092134;585424;746;821;Azzone Dezzo di Scalve;BG;Azzone
+8172;Precipitazione;2;mm;06/06/2001;;06/05/2024;5070534;598195;572;877;Bovegno ponte Zigole;BS;Bovegno
+8173;Precipitazione;2;mm;18/06/2003;;06/05/2024;5103920;606529;1128;905;Cevo ;BS;Cevo
+8174;Precipitazione;2;mm;01/01/2003;;22/03/2017;5088803;599748;501;909;Bienno ;BS;Bienno
+8176;Precipitazione;2;mm;16/01/2000;;26/11/2018;4996705;484222;95;894;Lomello SS 211;PV;Lomello
+8177;Livello Idrometrico;1;cm;16/01/2000;;26/11/2018;4996705;484222;95;894;Lomello SS 211;PV;Lomello
+8178;Temperatura;3;°C;16/01/2000;;26/11/2018;4996705;484222;95;894;Lomello SS 211;PV;Lomello
+8179;Precipitazione;2;mm;01/01/2000;;06/05/2024;5027680;569678;87;895;Soncino v. Brescia;CR;Soncino
+8180;Temperatura;3;°C;01/01/2000;;06/05/2024;5027680;569678;87;895;Soncino v. Brescia;CR;Soncino
+8181;Livello Idrometrico;1;cm;05/03/2003;;06/05/2024;5027680;569678;87;895;Soncino v. Brescia;CR;Soncino
+8182;Precipitazione;2;mm;01/01/2003;;04/08/2011;5036665;609910;145;854;Calcinato Ponte S.Marco;BS;Calcinato
+8184;Temperatura;3;°C;01/01/2003;;22/03/2017;5088803;599748;501;909;Bienno ;BS;Bienno
+8185;Precipitazione;2;mm;01/01/2003;;13/12/2015;5080335;589760;205;878;Darfo Boario Terme SS 42;BS;Darfo Boario Terme
+8186;Temperatura;3;°C;01/01/2003;;13/12/2015;5080335;589760;205;878;Darfo Boario Terme SS 42;BS;Darfo Boario Terme
+8187;Temperatura;3;°C;18/06/2003;;06/05/2024;5103920;606529;1128;905;Cevo ;BS;Cevo
+8188;Precipitazione;2;mm;04/03/2003;;06/05/2024;5022780;552590;103;901;Crema v.Camporelle;CR;Crema
+8189;Temperatura;3;°C;04/03/2003;;06/05/2024;5022780;552590;103;901;Crema v.Camporelle;CR;Crema
+8190;Precipitazione;2;mm;04/03/2003;;06/05/2024;4981871;501379;95;908;Voghera v. Cambiaso;PV;Voghera
+8191;Temperatura;3;°C;04/03/2003;;06/05/2024;4981871;501379;95;908;Voghera v. Cambiaso;PV;Voghera
+8192;Livello Idrometrico;1;cm;04/03/2003;;06/05/2024;4981871;501379;95;908;Voghera v. Cambiaso;PV;Voghera
+8193;Precipitazione;2;mm;18/02/2003;;06/05/2024;5018523;539869;64;862;Lodi v. X Maggio;LO;Lodi
+8195;Precipitazione;2;mm;18/02/2003;;06/05/2024;5020886;490573;94;886;Vigevano SS494;PV;Vigevano
+8196;Temperatura;3;°C;18/02/2003;;06/05/2024;5020886;490573;94;886;Vigevano SS494;PV;Vigevano
+8197;Precipitazione;2;mm;06/03/2003;;06/05/2024;5067627;519009;273;911;Lambrugo ;CO;Lambrugo
+8198;Temperatura;3;°C;06/03/2003;;06/05/2024;5067627;519009;273;911;Lambrugo ;CO;Lambrugo
+8199;Precipitazione;2;mm;29/04/2003;;06/05/2024;5062780;507811;244;865;Cantù Asnago;CO;Cantù
+8200;Temperatura;3;°C;29/04/2003;;06/05/2024;5062780;507811;244;865;Cantù Asnago;CO;Cantù
+8201;Precipitazione;2;mm;01/01/2003;;06/05/2024;4957210;518916;575;858;Santa Margherita di Staffora Casanova;PV;Santa Margherita di Staffora
+8202;Temperatura;3;°C;01/01/2003;;06/05/2024;4957210;518916;575;858;Santa Margherita di Staffora Casanova;PV;Santa Margherita di Staffora
+8206;Precipitazione;2;mm;12/03/2003;;19/11/2018;5008025;611167;41;906;Asola Sorbara ;MN;Asola
+8207;Temperatura;3;°C;12/03/2003;;19/11/2018;5008025;611167;41;906;Asola Sorbara ;MN;Asola
+8208;Precipitazione;2;mm;09/04/2003;;06/05/2024;5023553;589720;60;910;Manerbio v.Dante;BS;Manerbio
+8209;Temperatura;3;°C;09/04/2003;;06/05/2024;5023553;589720;60;910;Manerbio v.Dante;BS;Manerbio
+8210;Livello Idrometrico;1;cm;09/04/2003;;06/05/2024;5023553;589720;60;910;Manerbio v.Dante;BS;Manerbio
+8211;Precipitazione;2;mm;12/03/2003;;06/05/2024;5056428;505172;247;903;Misinto ;MB;Misinto
+8212;Temperatura;3;°C;12/03/2003;;06/05/2024;5056428;505172;247;903;Misinto ;MB;Misinto
+8213;Precipitazione;2;mm;13/03/2003;;09/05/2018;5083557;520640;625;902;Barni ;CO;Barni
+8214;Temperatura;3;°C;13/03/2003;;09/05/2018;5083557;520640;625;902;Barni ;CO;Barni
+8215;Precipitazione;2;mm;11/03/2003;;22/11/2018;5025628;618385;109;899;Castiglione delle Stiviere ;MN;Castiglione delle Stiviere
+8216;Temperatura;3;°C;11/03/2003;;22/11/2018;5025628;618385;109;899;Castiglione delle Stiviere ;MN;Castiglione delle Stiviere
+8217;Precipitazione;2;mm;09/04/2003;;15/03/2012;5073980;606852;960;896;Collio S.Colombano;BS;Collio
+8218;Temperatura;3;°C;09/04/2003;;15/03/2012;5073980;606852;960;896;Collio S.Colombano;BS;Collio
+8219;Precipitazione;2;mm;26/03/2003;;06/05/2024;5052553;486271;242;897;Busto Arsizio v.Rossini;VA;Busto Arsizio
+8220;Temperatura;3;°C;26/03/2003;;06/05/2024;5052553;486271;242;897;Busto Arsizio v.Rossini;VA;Busto Arsizio
+8221;Precipitazione;2;mm;26/03/2003;;06/05/2024;5001193;556652;68;898;Codogno Ist.Tosi;LO;Codogno
+8222;Precipitazione;2;mm;10/07/2003;;06/05/2024;4987208;680433;10;816;Sermide e Felonica SP 91;MN;Sermide e Felonica
+8223;Temperatura;3;°C;10/07/2003;;06/05/2024;4987208;680433;10;816;Sermide e Felonica SP 91;MN;Sermide e Felonica
+8224;Precipitazione;2;mm;01/07/2003;;06/05/2024;5027985;633560;62;873;Ponti sul Mincio Monzambano ;MN;Ponti sul Mincio
+8225;Temperatura;3;°C;01/07/2003;;06/05/2024;5027985;633560;62;873;Ponti sul Mincio Monzambano ;MN;Ponti sul Mincio
+8226;Precipitazione;2;mm;20/06/2003;;06/05/2024;5103599;600282;816;904;Paisco Loveno ;BS;Paisco Loveno
+8227;Temperatura;3;°C;20/06/2003;;06/05/2024;5103599;600282;816;904;Paisco Loveno ;BS;Paisco Loveno
+8228;Precipitazione;2;mm;27/08/2003;;06/05/2024;5075452;486300;416;907;Varese v.Appiani;VA;Varese
+8229;Temperatura;3;°C;27/08/2003;;06/05/2024;5075452;486300;416;907;Varese v.Appiani;VA;Varese
+8230;Precipitazione;2;mm;20/06/2003;;06/05/2024;5041392;573236;140;900;Chiari ;BS;Chiari
+8380;Livello Idrometrico;1;cm;24/07/1998;;06/05/2024;5094539;480079;205;859;Luino v. Piero Chiara;VA;Luino
+8381;Livello Idrometrico;1;cm;24/07/1998;;15/12/2011;5068671;466871;202;860;Angera v.le Repubblica;VA;Angera
+8382;Livello Idrometrico;1;cm;24/07/1998;;06/05/2024;5074079;506207;200;870;Como viale Geno ;CO;Como
+8383;Livello Idrometrico;1;cm;24/07/1998;;06/05/2024;5070743;533433;198;871;Olginate S.Maria Lavello;LC;Olginate
+8384;Livello Idrometrico;1;cm;01/02/2001;;06/05/2024;5027985;633560;62;873;Ponti sul Mincio Monzambano ;MN;Ponti sul Mincio
+8385;Livello Idrometrico;1;cm;12/04/2001;;06/05/2024;5057377;574538;197;874;Sarnico v. Roma;BG;Sarnico
+8386;Livello Idrometrico;1;cm;29/07/2002;;06/05/2024;5078101;529084;222;880;Valmadrera Malgrate;LC;Valmadrera
+8394;Livello Idrometrico;1;cm;01/02/2001;;06/05/2024;5003947;561219;47;916;Pizzighettone ponte Trento e Trieste;CR;Pizzighettone
+8546;Livello Idrometrico;1;cm;18/04/2001;;06/05/2024;5003026;511523;69;817;Pavia SS 35;PV;Pavia
+8583;Precipitazione;2;mm;23/06/1999;;06/05/2024;5084222;471939;950;999;Laveno-Mombello Poggio S.Elsa;VA;Laveno-Mombello
+8584;Temperatura;3;°C;23/06/1999;;06/05/2024;5084222;471939;950;999;Laveno-Mombello Poggio S.Elsa;VA;Laveno-Mombello
+8585;Umidità Relativa;11;%;23/06/1999;;06/05/2024;5084222;471939;950;999;Laveno-Mombello Poggio S.Elsa;VA;Laveno-Mombello
+8587;Precipitazione;2;mm;24/06/1999;;06/05/2024;5084109;470425;207;998;Laveno-Mombello p.zza Matteotti;VA;Laveno-Mombello
+8588;Temperatura;3;°C;24/06/1999;;06/05/2024;5084109;470425;207;998;Laveno-Mombello p.zza Matteotti;VA;Laveno-Mombello
+8692;Precipitazione;2;mm;07/02/2006;;24/11/2014;5047708;512402;168;866;Paderno Dugnano Palazzolo;MI;Paderno Dugnano
+9001;Temperatura;3;°C;01/01/2004;;06/05/2024;5070741;572525;486;1210;Ranzanico ;BG;Ranzanico
+9002;Temperatura;3;°C;01/01/2004;;06/05/2024;5066146;486058;379;1211;Castronno ;VA;Castronno
+9003;Temperatura;3;°C;01/01/2004;;06/05/2024;5086648;582441;1180;1212;Castione della Presolana ;BG;Castione della Presolana
+9004;Temperatura;3;°C;01/01/2004;;01/08/2012;5095844;551256;988;1213;Mezzoldo Ronchi;BG;Mezzoldo
+9005;Temperatura;3;°C;01/01/2004;;16/01/2012;5082095;559545;1084;1214;Oltre il Colle Acquedotto;BG;Oltre il Colle
+9006;Temperatura;3;°C;01/01/2004;;23/09/2012;5095451;588221;1096;1217;Schilpario ;BG;Schilpario
+9007;Temperatura;3;°C;01/01/2004;;10/11/2012;5082304;543960;763;1215;Taleggio ;BG;Taleggio
+9008;Temperatura;3;°C;01/12/2000;;06/05/2024;5101745;580327;1784;1216;Valbondione ;BG;Valbondione
+9009;Temperatura;3;°C;01/01/2004;;06/06/2013;5060559;592390;338;1227;Sarezzo Gardone;BS;Sarezzo
+9010;Temperatura;3;°C;04/10/2011;;06/05/2024;5070400;563860;361;1235;Cene Ponte;BG;Cene
+9011;Temperatura;3;°C;09/01/2004;;06/05/2024;5134157;524616;2064;1230;San Giacomo Filippo Lago Truzzo;SO;San Giacomo Filippo
+9012;Temperatura;3;°C;01/01/2004;;06/05/2024;5121068;548737;943;1238;Val Masino S.Martino;SO;Val Masino
+9013;Temperatura;3;°C;01/01/2004;;06/05/2024;5127374;617932;1640;1220;Ponte di Legno Case Pirli;BS;Ponte di Legno
+9014;Temperatura;3;°C;11/10/2004;;06/05/2024;5122690;600885;1728;1237;Monno ;BS;Monno
+9015;Temperatura;3;°C;01/01/2004;;06/05/2024;5095336;573386;738;1229;Gandellino Grabiasca;BG;Gandellino
+9016;Temperatura;3;°C;01/01/2004;;06/05/2024;5094947;529451;456;1224;Cortenova ;LC;Cortenova
+9017;Temperatura;3;°C;01/01/2004;;06/05/2024;5069985;523872;278;1205;Molteno Cimitero;LC;Molteno
+9018;Temperatura;3;°C;01/01/2004;;19/06/2014;5100122;531422;725;1225;Premana Diga di Pagnona;LC;Premana
+9019;Temperatura;3;°C;01/01/2004;;06/05/2024;4975743;521751;455;1201;Canevino ;PV;Canevino
+9020;Temperatura;3;°C;09/04/2004;;06/05/2024;5104225;508568;1100;1222;Cavargna ;CO;Cavargna
+9021;Temperatura;3;°C;01/01/2004;;06/05/2024;5058312;530261;234;1234;Osnago ;LC;Osnago
+9022;Temperatura;3;°C;08/01/2004;;13/12/2012;5098356;510910;304;1236;Porlezza Ponte Cuccio;CO;Porlezza
+9023;Temperatura;3;°C;01/01/2004;;18/04/2012;5090577;489263;279;1232;Lavena Ponte Tresa depuratore;VA;Lavena Ponte Tresa
+9024;Temperatura;3;°C;18/02/2004;;06/05/2024;5073453;567252;502;1221;Casnigo Campo Sportivo;BG;Casnigo
+9025;Temperatura;3;°C;11/03/2004;;06/05/2024;5013581;630514;30;1228;Goito ;MN;Goito
+9026;Temperatura;3;°C;01/01/2004;;06/05/2024;5061268;499092;296;1233;Lurago Marinone ;CO;Lurago Marinone
+9027;Temperatura;3;°C;01/01/2004;;06/05/2024;5059567;485026;274;1206;Cavaria con Premezzo v. Cantalupa;VA;Cavaria con Premezzo
+9029;Temperatura;3;°C;18/02/2004;;19/03/2013;5077078;551734;350;1239;San Pellegrino Terme P.za Alighieri;BG;San Pellegrino Terme
+9030;Temperatura;3;°C;01/01/2004;;06/05/2024;5088917;566917;1002;1218;Ardesio Valcanale;BG;Ardesio
+9031;Temperatura;3;°C;15/01/2005;;06/05/2024;5011836;575599;56;1219;Casalbuttano ed Uniti ;CR;Casalbuttano ed Uniti
+9033;Temperatura;3;°C;01/01/2004;;19/06/2014;5071532;498419;382;1208;Olgiate Comasco casa Cantalupo;CO;Olgiate Comasco
+9034;Temperatura;3;°C;02/01/2004;;06/05/2024;5076380;539709;674;1209;Rota d'Imagna ;BG;Rota d'Imagna
+9035;Altezza Neve;4;cm;01/01/2004;;02/05/2017;5086648;582441;1180;1212;Castione della Presolana ;BG;Castione della Presolana
+9036;Altezza Neve;4;cm;01/01/2004;;01/08/2012;5095844;551256;988;1213;Mezzoldo Ronchi;BG;Mezzoldo
+9037;Altezza Neve;4;cm;28/10/2012;;06/05/2024;5082261;561209;1138;1077;Oltre il Colle Zambla;BG;Oltre il Colle
+9038;Altezza Neve;4;cm;01/01/2004;;23/09/2012;5095451;588221;1096;1217;Schilpario ;BG;Schilpario
+9039;Altezza Neve;4;cm;01/01/2004;;10/11/2012;5082304;543960;763;1215;Taleggio ;BG;Taleggio
+9040;Altezza Neve;4;cm;01/01/2004;;06/05/2024;5101745;580327;1784;1216;Valbondione ;BG;Valbondione
+9041;Altezza Neve;4;cm;09/01/2004;;06/05/2024;5134157;524616;2064;1230;San Giacomo Filippo Lago Truzzo;SO;San Giacomo Filippo
+9042;Altezza Neve;4;cm;01/01/2004;;06/05/2024;5127374;617932;1640;1220;Ponte di Legno Case Pirli;BS;Ponte di Legno
+9043;Altezza Neve;4;cm;15/10/2004;;06/05/2024;5122690;600885;1728;1237;Monno ;BS;Monno
+9044;Altezza Neve;4;cm;09/04/2004;;06/05/2024;5104225;508568;1100;1222;Cavargna ;CO;Cavargna
+9076;Direzione Vento;10;°;01/01/2004;;06/05/2024;5066146;486058;379;1211;Castronno ;VA;Castronno
+9077;Direzione Vento;10;°;15/01/2005;;06/05/2024;5114304;525058;980;1202;Vercana ;CO;Vercana
+9079;Livello Idrometrico;1;cm;01/01/2004;;06/05/2024;5082983;551079;450;1203;Camerata Cornello via Orbrembo 37;BG;Camerata Cornello
+9081;Livello Idrometrico;1;cm;01/01/2004;;14/07/2010;5060468;592333;340;1226;Gardone Val Trompia v. della Vittoria;BS;Gardone Val Trompia
+9082;Livello Idrometrico;1;cm;04/10/2011;;06/05/2024;5070400;563860;361;1235;Cene Ponte;BG;Cene
+9083;Livello Idrometrico;1;cm;01/01/2004;;06/05/2024;5095336;573386;738;1229;Gandellino Grabiasca;BG;Gandellino
+9084;Livello Idrometrico;1;cm;01/01/2004;;06/05/2024;5069985;523872;278;1205;Molteno Cimitero;LC;Molteno
+9086;Livello Idrometrico;1;cm;08/01/2004;;14/12/2010;5098356;510910;304;1236;Porlezza Ponte Cuccio;CO;Porlezza
+9087;Livello Idrometrico;1;cm;01/01/2004;;06/05/2024;5059567;485026;274;1206;Cavaria con Premezzo v. Cantalupa;VA;Cavaria con Premezzo
+9090;Precipitazione;2;mm;01/01/2004;;06/05/2024;5070741;572525;486;1210;Ranzanico ;BG;Ranzanico
+9091;Precipitazione;2;mm;01/01/2004;;06/05/2024;5066146;486058;379;1211;Castronno ;VA;Castronno
+9092;Precipitazione;2;mm;01/01/2004;;06/05/2024;5086648;582441;1180;1212;Castione della Presolana ;BG;Castione della Presolana
+9093;Precipitazione;2;mm;01/01/2004;;02/08/2012;5095844;551256;988;1213;Mezzoldo Ronchi;BG;Mezzoldo
+9094;Precipitazione;2;mm;01/01/2004;;17/01/2012;5082095;559545;1084;1214;Oltre il Colle Acquedotto;BG;Oltre il Colle
+9095;Precipitazione;2;mm;01/01/2004;;23/09/2012;5095451;588221;1096;1217;Schilpario ;BG;Schilpario
+9096;Precipitazione;2;mm;01/01/2004;;10/11/2012;5082304;543960;763;1215;Taleggio ;BG;Taleggio
+9097;Precipitazione;2;mm;01/12/2000;;06/05/2024;5101745;580327;1784;1216;Valbondione ;BG;Valbondione
+9098;Precipitazione;2;mm;01/01/2004;;06/06/2013;5060559;592390;338;1227;Sarezzo Gardone;BS;Sarezzo
+9099;Precipitazione;2;mm;01/01/2012;;06/05/2024;5070400;563860;361;1235;Cene Ponte;BG;Cene
+9100;Precipitazione;2;mm;09/01/2004;;06/05/2024;5134157;524616;2064;1230;San Giacomo Filippo Lago Truzzo;SO;San Giacomo Filippo
+9101;Precipitazione;2;mm;21/02/2000;;06/05/2024;5121068;548737;943;1238;Val Masino S.Martino;SO;Val Masino
+9102;Precipitazione;2;mm;01/01/2004;;06/05/2024;5127374;617932;1640;1220;Ponte di Legno Case Pirli;BS;Ponte di Legno
+9103;Precipitazione;2;mm;11/10/2004;;06/05/2024;5122690;600885;1728;1237;Monno ;BS;Monno
+9104;Precipitazione;2;mm;01/01/2004;;06/05/2024;5095336;573386;738;1229;Gandellino Grabiasca;BG;Gandellino
+9105;Precipitazione;2;mm;01/01/2004;;06/05/2024;5094947;529451;456;1224;Cortenova ;LC;Cortenova
+9106;Precipitazione;2;mm;01/01/2004;;06/05/2024;5069985;523872;278;1205;Molteno Cimitero;LC;Molteno
+9107;Precipitazione;2;mm;01/01/2004;;24/02/2012;5100122;531422;725;1225;Premana Diga di Pagnona;LC;Premana
+9108;Precipitazione;2;mm;01/01/2004;;06/05/2024;4975743;521751;455;1201;Canevino ;PV;Canevino
+9109;Precipitazione;2;mm;09/04/2004;;06/05/2024;5104225;508568;1100;1222;Cavargna ;CO;Cavargna
+9110;Precipitazione;2;mm;01/01/2004;;06/05/2024;5058312;530261;234;1234;Osnago ;LC;Osnago
+9111;Precipitazione;2;mm;08/01/2004;;13/12/2012;5098356;510910;304;1236;Porlezza Ponte Cuccio;CO;Porlezza
+9112;Precipitazione;2;mm;01/01/2004;;18/04/2012;5090577;489263;279;1232;Lavena Ponte Tresa depuratore;VA;Lavena Ponte Tresa
+9113;Precipitazione;2;mm;18/02/2004;;06/05/2024;5073453;567252;502;1221;Casnigo Campo Sportivo;BG;Casnigo
+9114;Precipitazione;2;mm;11/03/2004;;06/05/2024;5013581;630514;30;1228;Goito ;MN;Goito
+9115;Precipitazione;2;mm;01/01/2004;;06/05/2024;5061268;499092;296;1233;Lurago Marinone ;CO;Lurago Marinone
+9116;Precipitazione;2;mm;01/01/2004;;06/05/2024;5059567;485026;274;1206;Cavaria con Premezzo v. Cantalupa;VA;Cavaria con Premezzo
+9117;Precipitazione;2;mm;01/01/2004;;06/05/2024;5114304;525058;980;1202;Vercana ;CO;Vercana
+9118;Precipitazione;2;mm;18/02/2004;;19/03/2013;5077078;551734;350;1239;San Pellegrino Terme P.za Alighieri;BG;San Pellegrino Terme
+9119;Precipitazione;2;mm;01/01/2004;;06/05/2024;5088917;566917;1002;1218;Ardesio Valcanale;BG;Ardesio
+9120;Precipitazione;2;mm;15/01/2005;;06/05/2024;5011836;575599;56;1219;Casalbuttano ed Uniti ;CR;Casalbuttano ed Uniti
+9122;Precipitazione;2;mm;01/01/2004;;21/03/2014;5071532;498419;382;1208;Olgiate Comasco casa Cantalupo;CO;Olgiate Comasco
+9123;Precipitazione;2;mm;02/01/2004;;06/05/2024;5076380;539709;674;1209;Rota d'Imagna ;BG;Rota d'Imagna
+9130;Umidità Relativa;11;%;19/02/2009;;23/09/2012;5095451;588221;1096;1217;Schilpario ;BG;Schilpario
+9308;Precipitazione;2;mm;01/01/1999;;15/12/2023;5073499;505203;201;646;Como Villa Gallia;CO;Como
+9310;Temperatura;3;°C;01/01/1999;;15/12/2023;5073499;505203;201;646;Como Villa Gallia;CO;Como
+9311;Umidità Relativa;11;%;01/01/1999;;15/12/2023;5073499;505203;201;646;Como Villa Gallia;CO;Como
+9312;Direzione Vento;10;°;01/01/1999;;15/12/2023;5073499;505203;201;646;Como Villa Gallia;CO;Como
+9320;Direzione Vento;10;°;20/01/2004;;21/02/2007;4981793;612537;23;625;Casalmaggiore v.Volta;CR;Casalmaggiore
+9321;Velocità Vento;9;m/s;20/01/2004;;21/02/2007;4981793;612537;23;625;Casalmaggiore v.Volta;CR;Casalmaggiore
+9322;Precipitazione;2;mm;20/01/2004;;21/02/2007;4981793;612537;23;625;Casalmaggiore v.Volta;CR;Casalmaggiore
+9325;Precipitazione;2;mm;20/01/2004;;04/04/2006;4998730;581171;61;628;Cremona p.zza Libertà;CR;Cremona
+9328;Direzione Vento;10;°;20/01/2004;;06/05/2024;5023885;555127;79;629;Crema v.XI febbraio;CR;Crema
+9329;Precipitazione;2;mm;20/01/2004;;06/05/2024;5023885;555127;79;629;Crema v.XI febbraio;CR;Crema
+9331;Velocità Vento;9;m/s;20/01/2004;;06/05/2024;5023885;555127;79;629;Crema v.XI febbraio;CR;Crema
+9334;Velocità Vento;9;m/s;16/05/2004;;03/08/2015;5020197;533381;80;635;Tavazzano con Villavesco Enel;LO;Tavazzano con Villavesco
+9341;Precipitazione;2;mm;22/11/2004;;06/05/2024;5035847;511082;122;503;Milano P.zza Zavattari;MI;Milano
+9380;Umidità Relativa;11;%;16/12/2008;;18/04/2012;5090577;489263;279;1232;Lavena Ponte Tresa depuratore;VA;Lavena Ponte Tresa
+9381;Umidità Relativa;11;%;17/12/2008;;06/05/2024;5121068;548737;943;1238;Val Masino S.Martino;SO;Val Masino
+9382;Umidità Relativa;11;%;16/12/2008;;13/12/2012;5098356;510910;304;1236;Porlezza Ponte Cuccio;CO;Porlezza
+9383;Umidità Relativa;11;%;21/01/2009;;06/06/2013;5060559;592390;338;1227;Sarezzo Gardone;BS;Sarezzo
+9384;Umidità Relativa;11;%;21/01/2009;;06/05/2024;5070741;572525;486;1210;Ranzanico ;BG;Ranzanico
+9386;Umidità Relativa;11;%;18/12/2008;;06/05/2024;5073453;567252;502;1221;Casnigo Campo Sportivo;BG;Casnigo
+9387;Umidità Relativa;11;%;29/01/2009;;06/05/2024;5086648;582441;1180;1212;Castione della Presolana ;BG;Castione della Presolana
+9388;Umidità Relativa;11;%;19/02/2009;;06/05/2024;5114304;525058;980;1202;Vercana ;CO;Vercana
+9390;Umidità Relativa;11;%;01/12/2000;;06/05/2024;5101745;580327;1784;1216;Valbondione ;BG;Valbondione
+9391;Umidità Relativa;11;%;18/12/2008;;06/05/2024;5088917;566917;1002;1218;Ardesio Valcanale;BG;Ardesio
+9392;Umidità Relativa;11;%;04/02/2009;;16/01/2012;5082095;559545;1084;1214;Oltre il Colle Acquedotto;BG;Oltre il Colle
+9393;Umidità Relativa;11;%;22/01/2009;;19/03/2013;5077078;551734;350;1239;San Pellegrino Terme P.za Alighieri;BG;San Pellegrino Terme
+9394;Umidità Relativa;11;%;22/01/2009;;01/08/2012;5095844;551256;988;1213;Mezzoldo Ronchi;BG;Mezzoldo
+9395;Umidità Relativa;11;%;23/01/2009;;06/05/2024;5076380;539709;674;1209;Rota d'Imagna ;BG;Rota d'Imagna
+9396;Umidità Relativa;11;%;17/12/2008;;06/05/2024;4975743;521751;455;1201;Canevino ;PV;Canevino
+9397;Umidità Relativa;11;%;17/02/2009;;06/05/2024;5122690;600885;1728;1237;Monno ;BS;Monno
+9398;Umidità Relativa;11;%;05/02/2009;;06/05/2024;5127374;617932;1640;1220;Ponte di Legno Case Pirli;BS;Ponte di Legno
+9399;Umidità Relativa;11;%;17/12/2008;;06/05/2024;5104225;508568;1100;1222;Cavargna ;CO;Cavargna
+9741;Direzione Vento;10;°;19/05/2004;;06/05/2024;5041392;573236;140;900;Chiari ;BS;Chiari
+9756;Direzione Vento;10;°;01/01/1992;;06/05/2024;5145272;600293;2300;835;Valdisotto Oga S. Colombano;SO;Valdisotto
+9757;Direzione Vento;10;°;01/01/1992;;06/05/2024;5097116;544202;1875;833;Gerola Alta Pescegallo;SO;Gerola Alta
+9758;Direzione Vento;10;°;01/01/1992;;06/05/2024;5109097;588704;1950;836;Aprica ;SO;Aprica
+9759;Direzione Vento;10;°;01/05/1993;;06/05/2024;5114768;613679;2108;846;Edolo Pantano d`Avio;BS;Edolo
+9760;Direzione Vento;10;°;01/07/1993;;06/05/2024;5098634;561423;1954;847;Carona Carisole;BG;Carona
+9761;Direzione Vento;10;°;11/09/1993;;06/05/2024;5147768;591251;2660;848;Livigno La Vallaccia;SO;Livigno
+9763;Direzione Vento;10;°;01/01/1992;;06/05/2024;5126972;568128;2151;832;Lanzada Palù;SO;Lanzada
+9765;Direzione Vento;10;°;23/06/1999;;06/05/2024;5084222;471939;950;999;Laveno-Mombello Poggio S.Elsa;VA;Laveno-Mombello
+9766;Direzione Vento;10;°;24/06/1999;;06/05/2024;5084109;470425;207;998;Laveno-Mombello p.zza Matteotti;VA;Laveno-Mombello
+9785;Radiazione Globale;12;W/m²;01/05/1993;;06/05/2024;5114768;613679;2108;846;Edolo Pantano d`Avio;BS;Edolo
+9786;Radiazione Globale;12;W/m²;01/07/1993;;06/05/2024;5098634;561423;1954;847;Carona Carisole;BG;Carona
+9812;Temperatura;3;°C;30/12/2004;;06/05/2024;5002356;641122;22;670;Mantova S.Agnese;MN;Mantova
+9813;Umidità Relativa;11;%;30/12/2004;;06/05/2024;5002356;641122;22;670;Mantova S.Agnese;MN;Mantova
+9815;Direzione Vento;10;°;30/12/2004;;01/02/2024;5001664;646147;22;671;Mantova Tridolino;MN;Mantova
+9816;Precipitazione;2;mm;30/12/2004;;01/02/2024;5001664;646147;22;671;Mantova Tridolino;MN;Mantova
+9818;Radiazione Globale;12;W/m²;30/12/2004;;01/02/2024;5001664;646147;22;671;Mantova Tridolino;MN;Mantova
+9819;Temperatura;3;°C;30/12/2004;;01/02/2024;5001664;646147;22;671;Mantova Tridolino;MN;Mantova
+9820;Umidità Relativa;11;%;30/12/2004;;01/02/2024;5001664;646147;22;671;Mantova Tridolino;MN;Mantova
+9821;Velocità Vento;9;m/s;30/12/2004;;01/02/2024;5001664;646147;22;671;Mantova Tridolino;MN;Mantova
+9827;Radiazione Globale;12;W/m²;01/10/1992;;06/05/2024;5145272;600293;2300;835;Valdisotto Oga S. Colombano;SO;Valdisotto
+9828;Radiazione Globale;12;W/m²;11/09/1993;;06/05/2024;5147768;591251;2660;848;Livigno La Vallaccia;SO;Livigno
+9862;Direzione Vento;10;°;28/07/2005;;06/05/2024;4987407;493238;74;672;Cornale v.Libertà;PV;Cornale
+9863;Precipitazione;2;mm;28/07/2005;;06/05/2024;4987407;493238;74;672;Cornale v.Libertà;PV;Cornale
+9865;Radiazione Globale;12;W/m²;29/07/2005;;06/05/2024;4987407;493238;74;672;Cornale v.Libertà;PV;Cornale
+9868;Temperatura;3;°C;28/07/2005;;06/05/2024;4987407;493238;74;672;Cornale v.Libertà;PV;Cornale
+9869;Umidità Relativa;11;%;28/07/2005;;06/05/2024;4987407;493238;74;672;Cornale v.Libertà;PV;Cornale
+9931;Direzione Vento;10;°;12/09/2008;;06/05/2024;4999315;582066;43;677;Cremona Via Fatebenefratelli;CR;Cremona
+9933;Precipitazione;2;mm;10/04/2006;;06/05/2024;4999315;582066;43;677;Cremona Via Fatebenefratelli;CR;Cremona
+9935;Radiazione Globale;12;W/m²;10/04/2006;;06/05/2024;4999315;582066;43;677;Cremona Via Fatebenefratelli;CR;Cremona
+9938;Temperatura;3;°C;10/04/2006;;06/05/2024;4999315;582066;43;677;Cremona Via Fatebenefratelli;CR;Cremona
+9939;Umidità Relativa;11;%;10/04/2006;;06/05/2024;4999315;582066;43;677;Cremona Via Fatebenefratelli;CR;Cremona
+9940;Velocità Vento;9;m/s;12/09/2008;;06/05/2024;4999315;582066;43;677;Cremona Via Fatebenefratelli;CR;Cremona
+10373;Precipitazione;2;mm;13/08/2007;;06/05/2024;5051773;481053;215;687;Ferno v.Di Dio;VA;Ferno
+10376;Precipitazione;2;mm;22/07/2008;;06/05/2024;5078987;531045;272;706;Lecco v.Sora;LC;Lecco
+10377;Temperatura;3;°C;22/07/2008;;06/05/2024;5078987;531045;272;706;Lecco v.Sora;LC;Lecco
+10378;Direzione Vento;10;°;22/07/2008;;06/05/2024;5078987;531045;272;706;Lecco v.Sora;LC;Lecco
+10381;Umidità Relativa;11;%;22/07/2008;;06/05/2024;5078987;531045;272;706;Lecco v.Sora;LC;Lecco
+10382;Radiazione Globale;12;W/m²;31/07/2008;;06/05/2024;5078987;531045;272;706;Lecco v.Sora;LC;Lecco
+10401;Direzione Vento;10;°;30/10/2008;;18/10/2019;5066429;520613;310;575;Nibionno v.della Chiesa;LC;Nibionno
+10434;Direzione Vento;10;°;17/11/2008;;22/01/2019;5113073;567873;290;1264;Sondrio v.Paribelli;SO;Sondrio
+10443;Precipitazione;2;mm;17/11/2008;;22/01/2019;5113073;567873;290;1264;Sondrio v.Paribelli;SO;Sondrio
+10459;Direzione Vento;10;°;03/03/2009;;06/05/2024;5009105;552297;65;1266;Bertonico v.Moro;LO;Bertonico
+10465;Precipitazione;2;mm;03/03/2009;;06/05/2024;5009105;552297;65;1266;Bertonico v.Moro;LO;Bertonico
+10467;Radiazione Globale;12;W/m²;03/03/2009;;06/05/2024;5009105;552297;65;1266;Bertonico v.Moro;LO;Bertonico
+10469;Temperatura;3;°C;03/03/2009;;06/05/2024;5009105;552297;65;1266;Bertonico v.Moro;LO;Bertonico
+10470;Umidità Relativa;11;%;03/03/2009;;06/05/2024;5009105;552297;65;1266;Bertonico v.Moro;LO;Bertonico
+10551;Temperatura;3;°C;06/07/2010;;06/05/2024;5052646;502058;212;554;Saronno v.Santuario;VA;Saronno
+10552;Umidità Relativa;11;%;06/07/2010;;06/05/2024;5052646;502058;212;554;Saronno v.Santuario;VA;Saronno
+10553;Direzione Vento;10;°;06/07/2010;;06/05/2024;5052646;502058;212;554;Saronno v.Santuario;VA;Saronno
+10554;Precipitazione;2;mm;06/07/2010;;06/05/2024;5052646;502058;212;554;Saronno v.Santuario;VA;Saronno
+10556;Radiazione Globale;12;W/m²;06/07/2010;;06/05/2024;5052646;502058;212;554;Saronno v.Santuario;VA;Saronno
+10557;Velocità Vento;9;m/s;06/07/2010;;06/05/2024;5052646;502058;212;554;Saronno v.Santuario;VA;Saronno
+10570;Temperatura;3;°C;15/07/2011;;12/02/2021;5121270;545980;1191;1273;Val Masino Bagni;SO;Val Masino
+10571;Umidità Relativa;11;%;15/07/2011;;12/02/2021;5121270;545980;1191;1273;Val Masino Bagni;SO;Val Masino
+10572;Velocità Vento;9;m/s;19/10/2011;;12/02/2021;5121270;545980;1191;1273;Val Masino Bagni;SO;Val Masino
+10573;Direzione Vento;10;°;04/09/2011;;12/02/2021;5121270;545980;1191;1273;Val Masino Bagni;SO;Val Masino
+10574;Precipitazione;2;mm;11/07/2011;;12/02/2021;5121270;545980;1191;1273;Val Masino Bagni;SO;Val Masino
+10575;Radiazione Globale;12;W/m²;15/07/2011;;12/02/2021;5121270;545980;1191;1273;Val Masino Bagni;SO;Val Masino
+10585;Precipitazione;2;mm;01/07/2010;;06/05/2024;5095846;522171;212;1274;Perledo P.zza della stazione;LC;Perledo
+10658;Temperatura;3;°C;18/05/2020;;06/05/2024;5084612;485317;665;1898;Valganna Mondonico;VA;Valganna
+10661;Umidità Relativa;11;%;18/05/2020;;06/05/2024;5084612;485317;665;1898;Valganna Mondonico;VA;Valganna
+10662;Direzione Vento;10;°;18/05/2020;;06/05/2024;5084612;485317;665;1898;Valganna Mondonico;VA;Valganna
+10664;Velocità Vento;9;m/s;18/05/2020;;06/05/2024;5084612;485317;665;1898;Valganna Mondonico;VA;Valganna
+10666;Precipitazione;2;mm;18/05/2020;;06/05/2024;5084612;485317;665;1898;Valganna Mondonico;VA;Valganna
+10773;Umidità Relativa;11;%;13/02/2021;;06/05/2024;5122179;567130;1719;35;Caspoggio Piazzo Cavalli;SO;Caspoggio
+10777;Radiazione Globale;12;W/m²;09/08/2022;;06/05/2024;5141977;619522;2180;16;VALFURVA Ghiacciaio dei Forni;SO;Valfurva
+10778;Umidità Relativa;11;%;15/12/2021;;06/05/2024;5141977;619522;2180;16;VALFURVA Ghiacciaio dei Forni;SO;Valfurva
+10787;Velocità Vento;9;m/s;12/04/2022;;06/05/2024;5009105;552297;65;1266;Bertonico v.Moro;LO;Bertonico
+10788;Velocità Vento;9;m/s;05/07/2022;;06/05/2024;4987406;493238;74;672;Cornale v.Libertà;PV;Cornale
+11007;Temperatura;3;°C;10/11/2010;;06/05/2024;5091256;541747;982;822;Valtorta ;BG;Valtorta
+11008;Umidità Relativa;11;%;10/11/2010;;06/05/2024;5091256;541747;982;822;Valtorta ;BG;Valtorta
+11011;Umidità Relativa;11;%;22/11/2010;;06/05/2024;5099046;558502;1682;912;Foppolo ;BG;Foppolo
+11020;Umidità Relativa;11;%;16/12/2010;;06/05/2024;5069985;523872;278;1205;Molteno Cimitero;LC;Molteno
+11021;Umidità Relativa;11;%;22/12/2010;;06/05/2024;5094947;529451;456;1224;Cortenova ;LC;Cortenova
+11025;Precipitazione;2;mm;06/08/2020;;06/05/2024;5049767;612402;205;826;Gavardo SP 116;BS;Gavardo
+11044;Temperatura;3;°C;01/07/2010;;22/01/2019;5113073;567873;290;1264;Sondrio v.Paribelli;SO;Sondrio
+11045;Umidità Relativa;11;%;15/10/2010;;22/01/2019;5113073;567873;290;1264;Sondrio v.Paribelli;SO;Sondrio
+11099;Livello Idrometrico;1;cm;04/08/2011;;06/05/2024;5098085;508966;272;1200;Porlezza via Porto Letizia;CO;Porlezza
+11100;Umidità Relativa;11;%;04/07/2011;;19/07/2012;5100122;531422;725;1225;Premana Diga di Pagnona;LC;Premana
+11113;Radiazione Globale;12;W/m²;10/08/2011;;15/03/2012;5073980;606852;960;896;Collio S.Colombano;BS;Collio
+11114;Umidità Relativa;11;%;10/08/2011;;15/03/2012;5073980;606852;960;896;Collio S.Colombano;BS;Collio
+11116;Umidità Relativa;11;%;11/08/2011;;14/11/2012;5081485;612286;1226;875;Bagolino Valle Dorizzo;BS;Bagolino
+11131;Velocità Vento;9;m/s;28/08/2002;;06/05/2024;5013018;544138;67;123;Cavenago d'Adda ;LO;Cavenago d'Adda
+11132;Direzione Vento;10;°;04/09/2011;;06/05/2024;5013018;544138;67;123;Cavenago d'Adda ;LO;Cavenago d'Adda
+11140;Radiazione Globale;12;W/m²;29/08/2011;;21/07/2015;5081860;573452;591;824;Clusone Campo Sportivo;BG;Clusone
+11144;Temperatura;3;°C;08/09/2011;;06/05/2024;5149692;592663;2320;143;Livigno Passo Foscagno;SO;Livigno
+11158;Umidità Relativa;11;%;30/09/2011;;06/05/2024;5134157;524616;2064;1230;San Giacomo Filippo Lago Truzzo;SO;San Giacomo Filippo
+11165;Livello Idrometrico;1;cm;07/10/2011;;06/05/2024;5008416;610514;39;1074;Asola v. Carducci;MN;Asola
+11167;Velocità Vento;9;m/s;02/10/2011;;06/05/2024;5134157;524616;2064;1230;San Giacomo Filippo Lago Truzzo;SO;San Giacomo Filippo
+11168;Direzione Vento;10;°;02/10/2011;;06/05/2024;5134157;524616;2064;1230;San Giacomo Filippo Lago Truzzo;SO;San Giacomo Filippo
+11190;Umidità Relativa;11;%;06/11/2011;;06/05/2024;5114768;613679;2108;846;Edolo Pantano d`Avio;BS;Edolo
+11216;Temperatura;3;°C;11/11/2011;;06/05/2024;5114304;525058;980;1202;Vercana ;CO;Vercana
+11217;Velocità Vento;9;m/s;02/04/2012;;06/05/2024;5104225;508568;1100;1222;Cavargna ;CO;Cavargna
+11218;Direzione Vento;10;°;03/05/2012;;06/05/2024;5104225;508568;1100;1222;Cavargna ;CO;Cavargna
+11228;Radiazione Globale;12;W/m²;20/12/2011;;06/05/2024;5113706;603479;659;1075;Edolo Centrale ENEL;BS;Edolo
+11383;Altezza Neve;4;cm;15/01/2005;;23/12/2011;5082095;559545;1084;1214;Oltre il Colle Acquedotto;BG;Oltre il Colle
+11734;Velocità Vento;9;m/s;27/06/2001;;06/05/2024;5002165;538425;140;102;San Colombano al Lambro ;MI;San Colombano al Lambro
+11735;Velocità Vento;9;m/s;15/05/2001;;06/05/2024;4961571;514194;500;106;Varzi Nivione;PV;Varzi
+11736;Velocità Vento;9;m/s;29/01/2001;;06/05/2024;5113016;565691;307;107;Sondrio Fond.Fojanini;SO;Sondrio
+11737;Velocità Vento;9;m/s;27/07/1994;;06/05/2024;5120370;532896;206;108;Samolaco v.Vignola;SO;Samolaco
+11739;Velocità Vento;9;m/s;01/01/1999;;06/05/2024;4980052;638675;22;110;GONZAGA Palidano;MN;Gonzaga
+11740;Velocità Vento;9;m/s;28/02/2003;;06/05/2024;5084512;538583;1234;111;Cassina Valsassina Moggio;LC;Cassina Valsassina
+11741;Velocità Vento;9;m/s;29/09/2005;;06/05/2024;5018600;520938;88;114;Landriano Cascina Marianna;PV;Landriano
+11742;Velocità Vento;9;m/s;01/01/1998;;06/05/2024;5113706;603479;659;1075;Edolo Centrale ENEL;BS;Edolo
+11743;Velocità Vento;9;m/s;07/09/2001;;06/05/2024;5079768;549604;622;119;San Giovanni Bianco Cornalita;BG;San Giovanni Bianco
+11745;Velocità Vento;9;m/s;01/07/2002;;06/05/2024;5060979;524066;360;127;Casatenovo tetto;LC;Casatenovo
+11746;Velocità Vento;9;m/s;16/01/2003;;06/05/2024;5097875;603903;362;129;Capo di Ponte v.Briscioli;BS;Capo di Ponte
+11747;Velocità Vento;9;m/s;19/05/1993;;06/05/2024;5056541;551321;211;132;Bergamo v.Stezzano;BG;Bergamo
+11748;Velocità Vento;9;m/s;03/05/1998;;06/05/2024;5031658;581271;93;134;Corzano Bargnano;BS;Corzano
+11749;Velocità Vento;9;m/s;14/05/1994;;06/05/2024;5003424;582100;44;136;Persico Dosimo ;CR;Persico Dosimo
+11750;Velocità Vento;9;m/s;09/06/1993;;06/05/2024;5032417;540720;102;137;Rivolta d'Adda Ist. Spallanzani;CR;Rivolta d'Adda
+11751;Velocità Vento;9;m/s;26/09/2003;;19/09/2018;4997294;641005;19;139;Virgilio Mantova Cerese;MN;Virgilio
+11752;Velocità Vento;9;m/s;26/11/2008;;06/05/2024;5077224;524701;1233;212;Canzo ;CO;Canzo
+11754;Velocità Vento;9;m/s;01/01/1992;;06/05/2024;5126972;568128;2151;832;Lanzada Palù;SO;Lanzada
+11755;Velocità Vento;9;m/s;01/01/1992;;06/05/2024;5097116;544202;1875;833;Gerola Alta Pescegallo;SO;Gerola Alta
+11756;Velocità Vento;9;m/s;01/01/1992;;06/05/2024;5145272;600293;2300;835;Valdisotto Oga S. Colombano;SO;Valdisotto
+11757;Velocità Vento;9;m/s;01/01/1992;;06/05/2024;5109097;588704;1950;836;Aprica ;SO;Aprica
+11758;Velocità Vento;9;m/s;01/05/1993;;06/05/2024;5114768;613679;2108;846;Edolo Pantano d`Avio;BS;Edolo
+11759;Velocità Vento;9;m/s;01/07/1993;;06/05/2024;5098634;561423;1954;847;Carona Carisole;BG;Carona
+11760;Velocità Vento;9;m/s;11/09/1993;;06/05/2024;5147768;591251;2660;848;Livigno La Vallaccia;SO;Livigno
+11761;Velocità Vento;9;m/s;19/05/2004;;06/05/2024;5041392;573236;140;900;Chiari ;BS;Chiari
+11762;Velocità Vento;9;m/s;24/06/1999;;06/05/2024;5084109;470425;207;998;Laveno-Mombello p.zza Matteotti;VA;Laveno-Mombello
+11763;Velocità Vento;9;m/s;23/06/1999;;06/05/2024;5084222;471939;950;999;Laveno-Mombello Poggio S.Elsa;VA;Laveno-Mombello
+11811;Velocità Vento;9;m/s;02/04/2012;;06/05/2024;5114304;525058;980;1202;Vercana ;CO;Vercana
+11812;Velocità Vento;9;m/s;26/01/2012;;06/05/2024;5062832;506653;310;141;Vertemate con Minoprio serre;CO;Vertemate con Minoprio
+11813;Velocità Vento;9;m/s;27/01/2012;;06/05/2024;5111566;561195;274;142;Caiolo ;SO;Caiolo
+11814;Velocità Vento;9;m/s;27/01/2012;;06/05/2024;5149692;592663;2320;143;Livigno Passo Foscagno;SO;Livigno
+11815;Velocità Vento;9;m/s;27/04/2012;;06/05/2024;5146514;526726;1915;144;Madesimo Spluga;SO;Madesimo
+11816;Velocità Vento;9;m/s;27/01/2012;;18/07/2023;5080789;591371;222;145;Darfo Boario Terme ;BS;Darfo Boario Terme
+11817;Velocità Vento;9;m/s;27/01/2012;;06/05/2024;5098491;548644;1824;146;Mezzoldo Passo S.Marco;BG;Mezzoldo
+11818;Velocità Vento;9;m/s;27/01/2012;;06/05/2024;5043898;488082;182;148;Arconate SMR;MI;Arconate
+11984;Umidità Relativa;11;%;10/01/2012;;06/05/2024;5064493;616659;1147;851;Treviso Bresciano Cavacca;BS;Treviso Bresciano
+11988;Livello Idrometrico;1;cm;13/01/2012;;06/05/2024;5130276;528984;403;1076;Chiavenna Inferno;SO;Chiavenna
+12023;Precipitazione;2;mm;03/02/2011;;06/05/2024;5000087;573153;48;1297;Spinadesco v.Battisti;CR;Spinadesco
+12025;Temperatura;3;°C;03/02/2011;;06/05/2024;5000087;573153;48;1297;Spinadesco v.Battisti;CR;Spinadesco
+12026;Umidità Relativa;11;%;03/02/2011;;06/05/2024;5000087;573153;48;1297;Spinadesco v.Battisti;CR;Spinadesco
+12712;Direzione Vento;10;°;22/05/2020;;06/05/2024;5010270;476207;106;125;Castello d'Agogna ;PV;Castello d'Agogna
+12713;Velocità Vento;9;m/s;21/05/2020;;06/05/2024;5010270;476207;106;125;Castello d'Agogna ;PV;Castello d'Agogna
+12716;Temperatura;3;°C;11/08/2020;;06/05/2024;5012143;501719;95;1899;Bereguardo Fornasetta;PV;Bereguardo
+12719;Umidità Relativa;11;%;11/08/2020;;06/05/2024;5012143;501719;95;1899;Bereguardo Fornasetta;PV;Bereguardo
+12720;Direzione Vento;10;°;16/08/2020;;06/05/2024;5012143;501719;95;1899;Bereguardo Fornasetta;PV;Bereguardo
+12722;Velocità Vento;9;m/s;16/08/2020;;06/05/2024;5012143;501719;95;1899;Bereguardo Fornasetta;PV;Bereguardo
+12724;Precipitazione;2;mm;11/08/2020;;06/05/2024;5012143;501719;95;1899;Bereguardo Fornasetta;PV;Bereguardo
+12728;Radiazione Globale;12;W/m²;30/08/2020;;06/05/2024;5066048;572800;1246;1974;Grone San Fermo;BG;Grone
+12745;Altezza Neve;4;cm;01/12/2020;;06/05/2024;4947846;517168;1363;857;Santa Margherita di Staffora Passo del Giovà;PV;Santa Margherita di Staffora
+12753;Altezza Neve;4;cm;01/12/2020;;06/05/2024;5130098;564213;1905;28;Chiesa in Valmalenco Alpe Entova;SO;Chiesa in Valmalenco
+12754;Umidità Relativa;11;%;18/11/2020;;06/05/2024;5130098;564213;1905;28;Chiesa in Valmalenco Alpe Entova;SO;Chiesa in Valmalenco
+12755;Temperatura;3;°C;25/11/2020;;29/04/2024;5048372;519174;173;1510;Monza v.Monte Generoso;MB;Monza
+12756;Umidità Relativa;11;%;25/11/2020;;29/04/2024;5048372;519174;173;1510;Monza v.Monte Generoso;MB;Monza
+12757;Temperatura;3;°C;25/11/2020;;06/05/2024;5050479;496327;215;1511;Rescaldina ;MI;Rescaldina
+12758;Umidità Relativa;11;%;25/11/2020;;06/05/2024;5050479;496327;215;1511;Rescaldina ;MI;Rescaldina
+12759;Temperatura;3;°C;25/11/2020;;06/05/2024;5042449;500406;160;1512;Pogliano Milanese ;MI;Pogliano Milanese
+12760;Umidità Relativa;11;%;24/11/2020;;06/05/2024;5042449;500406;160;1512;Pogliano Milanese ;MI;Pogliano Milanese
+12761;Altezza Neve;4;cm;02/12/2020;;06/05/2024;5126494;526127;1362;1420;Gordona ;SO;Gordona
+14001;Umidità Relativa;11;%;13/01/2012;;06/05/2024;5082261;561209;1138;1077;Oltre il Colle Zambla;BG;Oltre il Colle
+14006;Velocità Vento;9;m/s;16/09/2013;;06/05/2024;5082261;561209;1138;1077;Oltre il Colle Zambla;BG;Oltre il Colle
+14007;Direzione Vento;10;°;13/01/2012;;06/05/2024;5082261;561209;1138;1077;Oltre il Colle Zambla;BG;Oltre il Colle
+14014;Temperatura;3;°C;13/01/2012;;06/05/2024;5082261;561209;1138;1077;Oltre il Colle Zambla;BG;Oltre il Colle
+14018;Precipitazione;2;mm;13/01/2012;;06/05/2024;5082261;561209;1138;1077;Oltre il Colle Zambla;BG;Oltre il Colle
+14019;Radiazione Globale;12;W/m²;13/01/2012;;06/05/2024;5082261;561209;1138;1077;Oltre il Colle Zambla;BG;Oltre il Colle
+14021;Livello Idrometrico;1;cm;24/01/2012;;18/09/2018;5001496;541819;196;1078;Orio Litta SS234;LO;Orio Litta
+14024;Livello Idrometrico;1;cm;23/01/2012;;06/05/2024;5063460;471791;58;1079;Sesto Calende alzaia;VA;Sesto Calende
+14031;Velocità Vento;9;m/s;12/02/2012;;06/05/2024;5066146;486058;379;1211;Castronno ;VA;Castronno
+14038;Radiazione Globale;12;W/m²;27/02/2012;;06/05/2024;5109097;588704;1950;836;Aprica ;SO;Aprica
+14039;Umidità Relativa;11;%;27/02/2012;;06/05/2024;5109097;588704;1950;836;Aprica ;SO;Aprica
+14049;Velocità Vento;9;m/s;17/02/2012;;06/05/2024;4997179;594005;39;150;Pieve San Giacomo ;CR;Pieve San Giacomo
+14055;Umidità Relativa;11;%;13/03/2012;;06/05/2024;5074143;639089;75;1324;Limone sul Garda ;BS;Limone sul Garda
+14058;Temperatura;3;°C;13/03/2012;;06/05/2024;5074143;639089;75;1324;Limone sul Garda ;BS;Limone sul Garda
+14065;Velocità Vento;9;m/s;13/03/2012;;06/05/2024;5074143;639089;75;1324;Limone sul Garda ;BS;Limone sul Garda
+14066;Direzione Vento;10;°;13/03/2012;;06/05/2024;5074143;639089;75;1324;Limone sul Garda ;BS;Limone sul Garda
+14072;Umidità Relativa;11;%;15/03/2012;;06/05/2024;5073930;602209;1069;1325;Collio Memmo;BS;Collio
+14075;Temperatura;3;°C;15/03/2012;;06/05/2024;5073930;602209;1069;1325;Collio Memmo;BS;Collio
+14082;Velocità Vento;9;m/s;15/03/2012;;06/05/2024;5073930;602209;1069;1325;Collio Memmo;BS;Collio
+14083;Direzione Vento;10;°;15/03/2012;;06/05/2024;5073930;602209;1069;1325;Collio Memmo;BS;Collio
+14089;Umidità Relativa;11;%;22/03/2012;;06/05/2024;5054923;626015;70;1326;Toscolano-Maderno ;BS;Toscolano-Maderno
+14092;Temperatura;3;°C;22/03/2012;;06/05/2024;5054923;626015;70;1326;Toscolano-Maderno ;BS;Toscolano-Maderno
+14099;Velocità Vento;9;m/s;22/03/2012;;06/05/2024;5054923;626015;70;1326;Toscolano-Maderno ;BS;Toscolano-Maderno
+14100;Direzione Vento;10;°;22/03/2012;;06/05/2024;5054923;626015;70;1326;Toscolano-Maderno ;BS;Toscolano-Maderno
+14113;Velocità Vento;9;m/s;09/03/2012;;06/05/2024;5043257;516051;142;147;Cinisello Balsamo Parco Nord;MI;Cinisello Balsamo
+14118;Precipitazione;2;mm;18/03/2012;;06/05/2024;5073930;602209;1069;1325;Collio Memmo;BS;Collio
+14119;Precipitazione;2;mm;18/03/2012;;06/05/2024;5074143;639089;75;1324;Limone sul Garda ;BS;Limone sul Garda
+14120;Precipitazione;2;mm;25/03/2012;;06/05/2024;5054923;626015;70;1326;Toscolano-Maderno ;BS;Toscolano-Maderno
+14121;Precipitazione;2;mm;02/04/2012;;06/05/2024;5037412;515187;124;1327;Milano v.Rosellini;MI;Milano
+14125;Temperatura;3;°C;20/04/2012;;06/05/2024;5112157;580182;357;1328;Teglio S. Giacomo;SO;Teglio
+14128;Precipitazione;2;mm;20/04/2012;;06/05/2024;5112157;580182;357;1328;Teglio S. Giacomo;SO;Teglio
+14129;Livello Idrometrico;1;cm;20/04/2012;;06/05/2024;5112157;580182;357;1328;Teglio S. Giacomo;SO;Teglio
+14130;Temperatura;3;°C;18/04/2012;;06/05/2024;5090913;488398;269;1329;Lavena Ponte Tresa via della Boschiva;VA;Lavena Ponte Tresa
+14131;Precipitazione;2;mm;18/04/2012;;06/05/2024;5090913;488398;269;1329;Lavena Ponte Tresa via della Boschiva;VA;Lavena Ponte Tresa
+14132;Umidità Relativa;11;%;18/04/2012;;06/05/2024;5090913;488398;269;1329;Lavena Ponte Tresa via della Boschiva;VA;Lavena Ponte Tresa
+14139;Temperatura;3;°C;18/04/2012;;06/05/2024;5068834;497872;400;1330;Olgiate Comasco v.Repubblica;CO;Olgiate Comasco
+14141;Precipitazione;2;mm;08/06/2016;;06/05/2024;5068834;497872;400;1330;Olgiate Comasco v.Repubblica;CO;Olgiate Comasco
+14145;Umidità Relativa;11;%;18/04/2012;;06/05/2024;5068834;497872;400;1330;Olgiate Comasco v.Repubblica;CO;Olgiate Comasco
+14148;Radiazione Globale;12;W/m²;18/04/2012;;06/05/2024;5073930;602209;1069;1325;Collio Memmo;BS;Collio
+14160;Velocità Vento;9;m/s;07/05/2012;;25/08/2020;5014273;499104;100;140;Motta Visconti SMR;MI;Motta Visconti
+14161;Radiazione Globale;12;W/m²;16/06/2012;;06/05/2024;5114304;525058;980;1202;Vercana ;CO;Vercana
+14165;Umidità Relativa;11;%;09/10/2012;;06/05/2024;5011836;575599;56;1219;Casalbuttano ed Uniti ;CR;Casalbuttano ed Uniti
+14170;Livello Idrometrico;1;cm;27/10/2012;;06/05/2024;5072258;522295;266;1341;Bosisio Parini Imbarcadero;LC;Bosisio Parini
+14171;Precipitazione;2;mm;27/10/2012;;06/05/2024;5072258;522295;266;1341;Bosisio Parini Imbarcadero;LC;Bosisio Parini
+14178;Altezza Neve;4;cm;13/10/2012;;06/05/2024;5105228;574978;2440;1342;Ponte in Valtellina Lago Reguzzo;SO;Ponte in Valtellina
+14180;Radiazione Globale;12;W/m²;13/10/2012;;06/05/2024;5105228;574978;2440;1342;Ponte in Valtellina Lago Reguzzo;SO;Ponte in Valtellina
+14189;Direzione Vento;10;°;13/10/2012;;06/05/2024;5105228;574978;2440;1342;Ponte in Valtellina Lago Reguzzo;SO;Ponte in Valtellina
+14190;Velocità Vento;9;m/s;13/10/2012;;06/05/2024;5105228;574978;2440;1342;Ponte in Valtellina Lago Reguzzo;SO;Ponte in Valtellina
+14191;Umidità Relativa;11;%;13/10/2012;;06/05/2024;5105228;574978;2440;1342;Ponte in Valtellina Lago Reguzzo;SO;Ponte in Valtellina
+14194;Temperatura;3;°C;13/10/2012;;06/05/2024;5105228;574978;2440;1342;Ponte in Valtellina Lago Reguzzo;SO;Ponte in Valtellina
+14197;Precipitazione;2;mm;13/10/2012;;06/05/2024;5105228;574978;2440;1342;Ponte in Valtellina Lago Reguzzo;SO;Ponte in Valtellina
+14205;Altezza Neve;4;cm;13/10/2012;;06/05/2024;5133321;570414;3032;1343;Lanzada Passo Marinelli;SO;Lanzada
+14207;Radiazione Globale;12;W/m²;13/10/2012;;06/05/2024;5133321;570414;3032;1343;Lanzada Passo Marinelli;SO;Lanzada
+14216;Direzione Vento;10;°;13/10/2012;;06/05/2024;5133321;570414;3032;1343;Lanzada Passo Marinelli;SO;Lanzada
+14217;Velocità Vento;9;m/s;13/10/2012;;06/05/2024;5133321;570414;3032;1343;Lanzada Passo Marinelli;SO;Lanzada
+14218;Umidità Relativa;11;%;13/10/2012;;06/05/2024;5133321;570414;3032;1343;Lanzada Passo Marinelli;SO;Lanzada
+14221;Temperatura;3;°C;13/10/2012;;06/05/2024;5133321;570414;3032;1343;Lanzada Passo Marinelli;SO;Lanzada
+14224;Precipitazione;2;mm;13/10/2012;;06/05/2024;5133321;570414;3032;1343;Lanzada Passo Marinelli;SO;Lanzada
+14232;Direzione Vento;10;°;13/10/2012;;06/05/2024;5093546;553689;966;1345;Piazzatorre ;BG;Piazzatorre
+14237;Velocità Vento;9;m/s;13/10/2012;;06/05/2024;5093546;553689;966;1345;Piazzatorre ;BG;Piazzatorre
+14238;Umidità Relativa;11;%;13/10/2012;;06/05/2024;5093546;553689;966;1345;Piazzatorre ;BG;Piazzatorre
+14241;Precipitazione;2;mm;13/10/2012;;06/05/2024;5093546;553689;966;1345;Piazzatorre ;BG;Piazzatorre
+14242;Temperatura;3;°C;13/10/2012;;06/05/2024;5093546;553689;966;1345;Piazzatorre ;BG;Piazzatorre
+14251;Direzione Vento;10;°;17/10/2012;;06/05/2024;5141127;528341;1880;1346;Campodolcino Alpe Motta;SO;Campodolcino
+14252;Altezza Neve;4;cm;17/10/2012;;06/05/2024;5141127;528341;1880;1346;Campodolcino Alpe Motta;SO;Campodolcino
+14253;Precipitazione;2;mm;17/10/2012;;06/05/2024;5141127;528341;1880;1346;Campodolcino Alpe Motta;SO;Campodolcino
+14255;Radiazione Globale;12;W/m²;17/10/2012;;06/05/2024;5141127;528341;1880;1346;Campodolcino Alpe Motta;SO;Campodolcino
+14257;Temperatura;3;°C;17/10/2012;;06/05/2024;5141127;528341;1880;1346;Campodolcino Alpe Motta;SO;Campodolcino
+14265;Umidità Relativa;11;%;17/10/2012;;06/05/2024;5141127;528341;1880;1346;Campodolcino Alpe Motta;SO;Campodolcino
+14272;Velocità Vento;9;m/s;17/10/2012;;06/05/2024;5141127;528341;1880;1346;Campodolcino Alpe Motta;SO;Campodolcino
+14278;Direzione Vento;10;°;14/10/2012;;06/05/2024;5089669;538832;1713;1347;Barzio Piani di Bobbio;LC;Barzio
+14279;Altezza Neve;4;cm;15/10/2012;;06/05/2024;5089669;538832;1713;1347;Barzio Piani di Bobbio;LC;Barzio
+14280;Precipitazione;2;mm;14/10/2012;;06/05/2024;5089669;538832;1713;1347;Barzio Piani di Bobbio;LC;Barzio
+14282;Radiazione Globale;12;W/m²;14/10/2012;;06/05/2024;5089669;538832;1713;1347;Barzio Piani di Bobbio;LC;Barzio
+14284;Temperatura;3;°C;14/10/2012;;06/05/2024;5089669;538832;1713;1347;Barzio Piani di Bobbio;LC;Barzio
+14292;Umidità Relativa;11;%;14/10/2012;;06/05/2024;5089669;538832;1713;1347;Barzio Piani di Bobbio;LC;Barzio
+14299;Velocità Vento;9;m/s;16/10/2012;;06/05/2024;5089669;538832;1713;1347;Barzio Piani di Bobbio;LC;Barzio
+14301;Livello Idrometrico;1;cm;16/10/2012;;06/05/2024;5010486;489275;101;1348;Gambolò via Roma;PV;Gambolò
+14304;Livello Idrometrico;1;cm;23/10/2012;;06/05/2024;5035962;538944;106;1349;Rivolta d'Adda SP 4;CR;Rivolta d'Adda
+14307;Livello Idrometrico;1;cm;08/11/2012;;21/11/2018;5022881;515873;92;1350;Locate di Triulzi v. Staffora;MI;Locate di Triulzi
+14310;Livello Idrometrico;1;cm;16/11/2012;;06/05/2024;5016386;529850;74;1351;Salerano sul Lambro SP115;LO;Salerano sul Lambro
+14313;Livello Idrometrico;1;cm;31/10/2012;;15/11/2018;5022526;609865;71;1352;Calvisano Mezzane;BS;Calvisano
+14317;Temperatura;3;°C;21/10/2012;;06/05/2024;5088280;552145;510;823;Piazza Brembana vivaio;BG;Piazza Brembana
+14320;Umidità Relativa;11;%;21/10/2012;;06/05/2024;5088280;552145;510;823;Piazza Brembana vivaio;BG;Piazza Brembana
+14327;Velocità Vento;9;m/s;21/10/2012;;06/05/2024;5002119;643358;25;166;Mantova Lunetta2 SMR;MN;Mantova
+14348;Temperatura;3;°C;09/12/2012;;06/05/2024;5090337;611798;2410;1359;Breno Lago Della Vacca;BS;Breno
+14351;Umidità Relativa;11;%;09/12/2012;;06/05/2024;5090337;611798;2410;1359;Breno Lago Della Vacca;BS;Breno
+14358;Direzione Vento;10;°;09/12/2012;;06/05/2024;5090337;611798;2410;1359;Breno Lago Della Vacca;BS;Breno
+14363;Velocità Vento;9;m/s;09/12/2012;;06/05/2024;5090337;611798;2410;1359;Breno Lago Della Vacca;BS;Breno
+14364;Altezza Neve;4;cm;09/12/2012;;06/05/2024;5090337;611798;2410;1359;Breno Lago Della Vacca;BS;Breno
+14365;Precipitazione;2;mm;09/12/2012;;06/05/2024;5090337;611798;2410;1359;Breno Lago Della Vacca;BS;Breno
+14367;Temperatura;3;°C;14/11/2012;;06/05/2024;5081243;572409;564;1360;Clusone SP 671;BG;Clusone
+14370;Umidità Relativa;11;%;14/11/2012;;06/05/2024;5081243;572409;564;1360;Clusone SP 671;BG;Clusone
+14377;Direzione Vento;10;°;16/11/2012;;06/05/2024;5081243;572409;564;1360;Clusone SP 671;BG;Clusone
+14382;Velocità Vento;9;m/s;16/11/2012;;06/05/2024;5081243;572409;564;1360;Clusone SP 671;BG;Clusone
+14384;Precipitazione;2;mm;21/11/2012;;06/05/2024;5081243;572409;564;1360;Clusone SP 671;BG;Clusone
+14385;Radiazione Globale;12;W/m²;14/11/2012;;06/05/2024;5081243;572409;564;1360;Clusone SP 671;BG;Clusone
+14399;Temperatura;3;°C;18/11/2012;;06/05/2024;5057931;603395;911;1365;Bione ;BS;Bione
+14402;Umidità Relativa;11;%;18/11/2012;;06/05/2024;5057931;603395;911;1365;Bione ;BS;Bione
+14405;Radiazione Globale;12;W/m²;18/11/2012;;06/05/2024;5057931;603395;911;1365;Bione ;BS;Bione
+14406;Precipitazione;2;mm;18/11/2012;;06/05/2024;5057931;603395;911;1365;Bione ;BS;Bione
+14411;Direzione Vento;10;°;18/11/2012;;06/05/2024;5057931;603395;911;1365;Bione ;BS;Bione
+14416;Velocità Vento;9;m/s;18/11/2012;;06/05/2024;5057931;603395;911;1365;Bione ;BS;Bione
+14443;Precipitazione;2;mm;12/12/2012;;06/05/2024;5098254;510895;291;1366;Porlezza torrente;CO;Porlezza
+14445;Temperatura;3;°C;10/05/2013;;06/05/2024;5098254;510895;291;1366;Porlezza torrente;CO;Porlezza
+14446;Umidità Relativa;11;%;12/12/2012;;06/05/2024;5098254;510895;291;1366;Porlezza torrente;CO;Porlezza
+14451;Radiazione Globale;12;W/m²;12/12/2012;;06/05/2024;5098254;510895;291;1366;Porlezza torrente;CO;Porlezza
+14458;Direzione Vento;10;°;12/12/2012;;06/05/2024;5098254;510895;291;1366;Porlezza torrente;CO;Porlezza
+14459;Velocità Vento;9;m/s;12/12/2012;;06/05/2024;5098254;510895;291;1366;Porlezza torrente;CO;Porlezza
+14471;Direzione Vento;10;°;12/12/2012;;06/05/2024;5077140;612773;775;1367;Bagolino SP669;BS;Bagolino
+14472;Velocità Vento;9;m/s;12/12/2012;;06/05/2024;5077140;612773;775;1367;Bagolino SP669;BS;Bagolino
+14473;Umidità Relativa;11;%;12/12/2012;;06/05/2024;5077140;612773;775;1367;Bagolino SP669;BS;Bagolino
+14476;Precipitazione;2;mm;12/12/2012;;06/05/2024;5077140;612773;775;1367;Bagolino SP669;BS;Bagolino
+14477;Radiazione Globale;12;W/m²;12/12/2012;;06/05/2024;5077140;612773;775;1367;Bagolino SP669;BS;Bagolino
+14478;Temperatura;3;°C;12/12/2012;;06/05/2024;5077140;612773;775;1367;Bagolino SP669;BS;Bagolino
+14497;Livello Idrometrico;1;cm;31/01/2013;;05/12/2018;5113327;531293;205;1370;Gera Lario Ponte del Passo;CO;Gera Lario
+14499;Precipitazione;2;mm;19/03/2013;;06/05/2024;5073646;547333;468;1371;Brembilla ;BG;Brembilla
+14500;Temperatura;3;°C;19/03/2013;;06/05/2024;5073646;547333;468;1371;Brembilla ;BG;Brembilla
+14501;Umidità Relativa;11;%;19/03/2013;;06/05/2024;5073646;547333;468;1371;Brembilla ;BG;Brembilla
+14508;Direzione Vento;10;°;19/03/2013;;06/05/2024;5073646;547333;468;1371;Brembilla ;BG;Brembilla
+14509;Velocità Vento;9;m/s;19/03/2013;;06/05/2024;5073646;547333;468;1371;Brembilla ;BG;Brembilla
+14517;Precipitazione;2;mm;25/07/2013;;06/05/2024;5108761;519145;581;1372;Garzeno ;CO;Garzeno
+14518;Temperatura;3;°C;25/07/2013;;06/05/2024;5108761;519145;581;1372;Garzeno ;CO;Garzeno
+14519;Umidità Relativa;11;%;25/07/2013;;06/05/2024;5108761;519145;581;1372;Garzeno ;CO;Garzeno
+14527;Precipitazione;2;mm;27/03/2013;;06/05/2024;5068133;477631;241;1375;Varano Borghi ;VA;Varano Borghi
+14528;Temperatura;3;°C;27/03/2013;;06/05/2024;5068133;477631;241;1375;Varano Borghi ;VA;Varano Borghi
+14529;Umidità Relativa;11;%;27/03/2013;;06/05/2024;5068133;477631;241;1375;Varano Borghi ;VA;Varano Borghi
+14536;Direzione Vento;10;°;27/03/2013;;06/05/2024;5068133;477631;241;1375;Varano Borghi ;VA;Varano Borghi
+14537;Velocità Vento;9;m/s;27/03/2013;;06/05/2024;5068133;477631;241;1375;Varano Borghi ;VA;Varano Borghi
+14545;Precipitazione;2;mm;19/04/2013;;06/05/2024;5048460;617051;291;1376;Puegnago del Garda ;BS;Puegnago del Garda
+14546;Temperatura;3;°C;19/04/2013;;06/05/2024;5048460;617051;291;1376;Puegnago del Garda ;BS;Puegnago del Garda
+14547;Umidità Relativa;11;%;19/04/2013;;06/05/2024;5048460;617051;291;1376;Puegnago del Garda ;BS;Puegnago del Garda
+14554;Direzione Vento;10;°;19/04/2013;;06/05/2024;5048460;617051;291;1376;Puegnago del Garda ;BS;Puegnago del Garda
+14555;Velocità Vento;9;m/s;19/04/2013;;06/05/2024;5048460;617051;291;1376;Puegnago del Garda ;BS;Puegnago del Garda
+14565;Livello Idrometrico;1;cm;28/03/2013;;06/05/2024;5098299;603849;366;1377;Capo di Ponte v.Bona;BS;Capo di Ponte
+14567;Precipitazione;2;mm;23/07/2013;;06/05/2024;5065781;633895;374;1378;Tignale Oldesio;BS;Tignale
+14568;Temperatura;3;°C;23/07/2013;;06/05/2024;5065781;633895;374;1378;Tignale Oldesio;BS;Tignale
+14569;Umidità Relativa;11;%;23/07/2013;;06/05/2024;5065781;633895;374;1378;Tignale Oldesio;BS;Tignale
+14576;Direzione Vento;10;°;23/07/2013;;06/05/2024;5065781;633895;374;1378;Tignale Oldesio;BS;Tignale
+14577;Velocità Vento;9;m/s;23/07/2013;;06/05/2024;5065781;633895;374;1378;Tignale Oldesio;BS;Tignale
+14584;Radiazione Globale;12;W/m²;23/07/2013;;06/05/2024;5065781;633895;374;1378;Tignale Oldesio;BS;Tignale
+14586;Precipitazione;2;mm;15/07/2015;;06/05/2024;5065317;625847;984;1379;Gargnano ;BS;Gargnano
+14587;Temperatura;3;°C;15/07/2015;;06/05/2024;5065317;625847;984;1379;Gargnano ;BS;Gargnano
+14588;Umidità Relativa;11;%;15/07/2015;;06/05/2024;5065317;625847;984;1379;Gargnano ;BS;Gargnano
+14595;Direzione Vento;10;°;15/07/2015;;06/05/2024;5065317;625847;984;1379;Gargnano ;BS;Gargnano
+14596;Velocità Vento;9;m/s;15/07/2015;;06/05/2024;5065317;625847;984;1379;Gargnano ;BS;Gargnano
+14603;Radiazione Globale;12;W/m²;15/07/2015;;06/05/2024;5065317;625847;984;1379;Gargnano ;BS;Gargnano
+14605;Precipitazione;2;mm;18/04/2013;;06/05/2024;5092705;516580;309;1380;Tremezzo ;CO;Tremezzo
+14606;Temperatura;3;°C;18/04/2013;;06/05/2024;5092705;516580;309;1380;Tremezzo ;CO;Tremezzo
+14607;Umidità Relativa;11;%;18/04/2013;;06/05/2024;5092705;516580;309;1380;Tremezzo ;CO;Tremezzo
+14624;Livello Idrometrico;1;cm;27/03/2013;;06/05/2024;5067247;489587;268;1381;Castiglione Olona v. XXIV Maggio;VA;Castiglione Olona
+14627;Umidità Relativa;11;%;10/04/2013;;06/05/2024;5059567;485026;274;1206;Cavaria con Premezzo v. Cantalupa;VA;Cavaria con Premezzo
+14640;Direzione Vento;10;°;13/02/2013;;06/05/2024;5061268;499092;296;1233;Lurago Marinone ;CO;Lurago Marinone
+14641;Velocità Vento;9;m/s;13/02/2013;;06/05/2024;5061268;499092;296;1233;Lurago Marinone ;CO;Lurago Marinone
+14645;Temperatura;3;°C;19/07/2013;;06/05/2024;5102054;482122;1302;1382;Veddasca Monte Cadrigna;VA;Veddasca
+14648;Umidità Relativa;11;%;19/07/2013;;06/05/2024;5102054;482122;1302;1382;Veddasca Monte Cadrigna;VA;Veddasca
+14651;Direzione Vento;10;°;19/07/2013;;06/05/2024;5102054;482122;1302;1382;Veddasca Monte Cadrigna;VA;Veddasca
+14652;Velocità Vento;9;m/s;19/07/2013;;06/05/2024;5102054;482122;1302;1382;Veddasca Monte Cadrigna;VA;Veddasca
+14661;Precipitazione;2;mm;19/07/2013;;06/05/2024;5102054;482122;1302;1382;Veddasca Monte Cadrigna;VA;Veddasca
+14664;Precipitazione;2;mm;02/11/2012;;06/05/2024;5057824;592468;290;1383;Sarezzo v.della Fonte;BS;Sarezzo
+14665;Temperatura;3;°C;02/11/2012;;06/05/2024;5057824;592468;290;1383;Sarezzo v.della Fonte;BS;Sarezzo
+14667;Umidità Relativa;11;%;02/11/2012;;06/05/2024;5057824;592468;290;1383;Sarezzo v.della Fonte;BS;Sarezzo
+14668;Direzione Vento;10;°;05/06/2013;;06/05/2024;5057824;592468;290;1383;Sarezzo v.della Fonte;BS;Sarezzo
+14669;Velocità Vento;9;m/s;05/06/2013;;06/05/2024;5057824;592468;290;1383;Sarezzo v.della Fonte;BS;Sarezzo
+14684;Temperatura;3;°C;20/03/2014;;06/05/2024;5126494;526127;1362;1420;Gordona ;SO;Gordona
+14687;Umidità Relativa;11;%;20/03/2014;;06/05/2024;5126494;526127;1362;1420;Gordona ;SO;Gordona
+14690;Direzione Vento;10;°;14/04/2014;;06/05/2024;5126494;526127;1362;1420;Gordona ;SO;Gordona
+14691;Velocità Vento;9;m/s;20/03/2014;;06/05/2024;5126494;526127;1362;1420;Gordona ;SO;Gordona
+14700;Precipitazione;2;mm;20/03/2014;;06/05/2024;5126494;526127;1362;1420;Gordona ;SO;Gordona
+14702;Direzione Vento;10;°;19/06/2014;;06/05/2024;4973248;515391;501;856;Fortunago ;PV;Fortunago
+14703;Velocità Vento;9;m/s;11/12/2013;;06/05/2024;4973248;515391;501;856;Fortunago ;PV;Fortunago
+14712;Precipitazione;2;mm;13/10/2014;;06/05/2024;5053559;523312;180;868;Lesmo Peregallo;MB;Lesmo
+14714;Direzione Vento;10;°;30/12/2014;;06/05/2024;5102069;518430;1285;1545;San Siro Alpe Rescascìa;CO;San Siro
+14715;Velocità Vento;9;m/s;30/12/2014;;06/05/2024;5102069;518430;1285;1545;San Siro Alpe Rescascìa;CO;San Siro
+14724;Precipitazione;2;mm;30/12/2014;;06/05/2024;5102069;518430;1285;1545;San Siro Alpe Rescascìa;CO;San Siro
+14725;Temperatura;3;°C;30/12/2014;;06/05/2024;5102069;518430;1285;1545;San Siro Alpe Rescascìa;CO;San Siro
+14728;Umidità Relativa;11;%;30/12/2014;;06/05/2024;5102069;518430;1285;1545;San Siro Alpe Rescascìa;CO;San Siro
+14731;Direzione Vento;10;°;29/12/2014;;06/05/2024;4947846;517168;1363;857;Santa Margherita di Staffora Passo del Giovà;PV;Santa Margherita di Staffora
+14732;Velocità Vento;9;m/s;29/12/2014;;06/05/2024;4947846;517168;1363;857;Santa Margherita di Staffora Passo del Giovà;PV;Santa Margherita di Staffora
+14741;Precipitazione;2;mm;24/02/2015;;06/05/2024;5040479;506867;143;1546;Rho Scalo Fiorenza - Prato;MI;Rho
+14742;Temperatura;3;°C;24/02/2015;;06/05/2024;5040479;506867;143;1546;Rho Scalo Fiorenza - Prato;MI;Rho
+14745;Umidità Relativa;11;%;24/02/2015;;06/05/2024;5040479;506867;143;1546;Rho Scalo Fiorenza - Prato;MI;Rho
+14748;Direzione Vento;10;°;24/02/2015;;06/05/2024;5040421;507155;143;1547;Rho Scalo Fiorenza - Tetto;MI;Rho
+14749;Velocità Vento;9;m/s;24/02/2015;;06/05/2024;5040421;507155;143;1547;Rho Scalo Fiorenza - Tetto;MI;Rho
+14759;Livello Idrometrico;1;cm;14/06/2015;;06/05/2024;5081001;591075;205;1549;Darfo Boario Terme Cav. Vittorio Veneto;BS;Darfo Boario Terme
+14765;Precipitazione;2;mm;13/08/2015;;06/05/2024;5036208;553342;104;1553;Mozzanica v.Donizetti;BG;Mozzanica
+14766;Temperatura;3;°C;20/07/2015;;06/05/2024;5036208;553342;104;1553;Mozzanica v.Donizetti;BG;Mozzanica
+14769;Umidità Relativa;11;%;20/07/2015;;06/05/2024;5036208;553342;104;1553;Mozzanica v.Donizetti;BG;Mozzanica
+14772;Direzione Vento;10;°;20/07/2015;;06/05/2024;5036208;553342;104;1553;Mozzanica v.Donizetti;BG;Mozzanica
+14773;Velocità Vento;9;m/s;20/07/2015;;06/05/2024;5036208;553342;104;1553;Mozzanica v.Donizetti;BG;Mozzanica
+14782;Direzione Vento;10;°;09/05/2017;;06/05/2024;5044545;622300;73;1555;Manerba del Garda Dusano;BS;Manerba del Garda
+14783;Velocità Vento;9;m/s;09/05/2017;;06/05/2024;5044545;622300;73;1555;Manerba del Garda Dusano;BS;Manerba del Garda
+17001;Temperatura;3;°C;10/10/2011;;06/05/2024;4995675;584111;36;1303;Cremona v.Gerre Borghi;CR;Cremona
+17002;Umidità Relativa;11;%;20/09/2011;;06/05/2024;4995675;584111;36;1303;Cremona v.Gerre Borghi;CR;Cremona
+17003;Radiazione Globale;12;W/m²;20/09/2011;;06/05/2024;4995675;584111;36;1303;Cremona v.Gerre Borghi;CR;Cremona
+17131;Precipitazione;2;mm;10/10/2011;;06/05/2024;4995675;584111;36;1303;Cremona v.Gerre Borghi;CR;Cremona
+17418;Velocità Vento;9;m/s;22/03/2018;;06/05/2024;4987916;517630;77;1862;Broni ;PV;Broni
+17419;Direzione Vento;10;°;22/03/2018;;06/05/2024;4987916;517630;77;1862;Broni ;PV;Broni
+17429;Radiazione Globale;12;W/m²;22/03/2018;;06/05/2024;4987916;517630;77;1862;Broni ;PV;Broni
+17432;Temperatura;3;°C;22/03/2018;;06/05/2024;4987916;517630;77;1862;Broni ;PV;Broni
+17435;Umidità Relativa;11;%;22/03/2018;;06/05/2024;4987916;517630;77;1862;Broni ;PV;Broni
+17437;Precipitazione;2;mm;22/03/2018;;06/05/2024;4987916;517630;77;1862;Broni ;PV;Broni
+17443;Temperatura;3;°C;13/07/2018;;06/05/2024;5086804;600114;472;1692;Bienno Piazze;BS;Bienno
+17446;Precipitazione;2;mm;13/07/2018;;06/05/2024;5086804;600114;472;1692;Bienno Piazze;BS;Bienno
+17448;Livello Idrometrico;1;cm;12/10/2018;;06/05/2024;5037842;540270;105;1870;Rivolta d'Adda Monfalcone;CR;Rivolta d'Adda
+17450;Precipitazione;2;mm;27/11/2018;;06/05/2024;5060849;582076;185;1871;Tavernola Bergamasca Gallinarga;BG;Tavernola Bergamasca
+17451;Temperatura;3;°C;27/11/2018;;06/05/2024;5060849;582076;185;1871;Tavernola Bergamasca Gallinarga;BG;Tavernola Bergamasca
+17454;Velocità Vento;9;m/s;27/11/2018;;06/05/2024;5060849;582076;185;1871;Tavernola Bergamasca Gallinarga;BG;Tavernola Bergamasca
+17456;Direzione Vento;10;°;27/11/2018;;06/05/2024;5060849;582076;185;1871;Tavernola Bergamasca Gallinarga;BG;Tavernola Bergamasca
+17459;Precipitazione;2;mm;26/09/2018;;06/05/2024;5081375;520268;554;1872;Lasnigo s.Alessandro;CO;Lasnigo
+17460;Temperatura;3;°C;26/09/2018;;06/05/2024;5081375;520268;554;1872;Lasnigo s.Alessandro;CO;Lasnigo
+17463;Umidità Relativa;11;%;26/09/2018;;06/05/2024;5081375;520268;554;1872;Lasnigo s.Alessandro;CO;Lasnigo
+17464;Radiazione Globale;12;W/m²;21/10/2018;;06/05/2024;5097125;566799;1955;58;Carona Lago Fregabolgia;BG;Carona
+17465;Umidità Relativa;11;%;21/10/2018;;06/05/2024;5097125;566799;1955;58;Carona Lago Fregabolgia;BG;Carona
+17468;Velocità Vento;9;m/s;21/10/2018;;06/05/2024;5097125;566799;1955;58;Carona Lago Fregabolgia;BG;Carona
+17470;Direzione Vento;10;°;21/10/2018;;06/05/2024;5097125;566799;1955;58;Carona Lago Fregabolgia;BG;Carona
+17472;Umidità Relativa;11;%;27/11/2018;;06/05/2024;5060849;582076;185;1871;Tavernola Bergamasca Gallinarga;BG;Tavernola Bergamasca
+17473;Radiazione Globale;12;W/m²;26/09/2018;;06/05/2024;5083535;518233;1158;1679;Sormano rifugio Alpetto;CO;Sormano
+17474;Radiazione Globale;12;W/m²;27/09/2018;;06/05/2024;5102054;482122;1302;1382;Veddasca Monte Cadrigna;VA;Veddasca
+17475;Radiazione Globale;12;W/m²;26/09/2018;;06/05/2024;5102069;518430;1285;1545;San Siro Alpe Rescascìa;CO;San Siro
+17476;Radiazione Globale;12;W/m²;26/09/2018;;06/05/2024;5126494;526127;1362;1420;Gordona ;SO;Gordona
+17477;Radiazione Globale;12;W/m²;28/09/2018;;06/05/2024;4947846;517168;1363;857;Santa Margherita di Staffora Passo del Giovà;PV;Santa Margherita di Staffora
+17479;Radiazione Globale;12;W/m²;28/12/2018;;06/05/2024;5026799;491367;115;1873;Abbiategrasso Strada Casalina;MI;Abbiategrasso
+17481;Velocità Vento;9;m/s;28/12/2018;;06/05/2024;5026799;491367;115;1873;Abbiategrasso Strada Casalina;MI;Abbiategrasso
+17483;Direzione Vento;10;°;27/12/2018;;06/05/2024;5026799;491367;115;1873;Abbiategrasso Strada Casalina;MI;Abbiategrasso
+17487;Precipitazione;2;mm;13/11/2018;;06/05/2024;5033848;488617;137;1874;Magenta cascina Mainaga;MI;Magenta
+17488;Temperatura;3;°C;30/10/2018;;06/05/2024;5033844;488621;137;1874;Magenta cascina Mainaga;MI;Magenta
+17491;Umidità Relativa;11;%;30/10/2018;;06/05/2024;5033844;488621;137;1874;Magenta cascina Mainaga;MI;Magenta
+17498;Livello Idrometrico;1;cm;19/11/2018;;06/05/2024;5024991;515066;98;1875;Opera Ponte Matteotti;MI;Opera
+17501;Radiazione Globale;12;W/m²;21/10/2018;;06/05/2024;5003026;511523;71;817;Pavia SS 35;PV;Pavia
+17502;Velocità Vento;9;m/s;21/10/2018;;06/05/2024;5003026;511523;71;817;Pavia SS 35;PV;Pavia
+17504;Direzione Vento;10;°;21/10/2018;;06/05/2024;5003026;511523;71;817;Pavia SS 35;PV;Pavia
+17506;Radiazione Globale;12;W/m²;21/10/2018;;06/05/2024;4987208;680433;10;816;Sermide e Felonica SP 91;MN;Sermide e Felonica
+17507;Velocità Vento;9;m/s;21/10/2018;;06/05/2024;4987208;680433;10;816;Sermide e Felonica SP 91;MN;Sermide e Felonica
+17509;Direzione Vento;10;°;21/10/2018;;06/05/2024;4987208;680433;10;816;Sermide e Felonica SP 91;MN;Sermide e Felonica
+17511;Radiazione Globale;12;W/m²;21/10/2018;;06/05/2024;4973248;515391;501;856;Fortunago ;PV;Fortunago
+17518;Radiazione Globale;12;W/m²;21/10/2018;;06/05/2024;5068133;477631;241;1375;Varano Borghi ;VA;Varano Borghi
+17527;Radiazione Globale;12;W/m²;21/10/2018;;06/05/2024;5057377;574538;197;874;Sarnico v. Roma;BG;Sarnico
+17528;Radiazione Globale;12;W/m²;21/10/2018;;06/05/2024;5044545;622300;73;1555;Manerba del Garda Dusano;BS;Manerba del Garda
+17533;Umidità Relativa;11;%;07/01/2019;;06/05/2024;5133847;604242;950;3;Sondalo Le Prese;SO;Sondalo
+17536;Umidità Relativa;11;%;26/06/2019;;06/05/2024;5131088;539415;665;60;Villa di Chiavenna ;SO;Villa di Chiavenna
+17537;Velocità Vento;9;m/s;26/06/2019;;06/05/2024;5130930;538478;665;60;Villa di Chiavenna ;SO;Villa di Chiavenna
+17540;Direzione Vento;10;°;26/06/2019;;06/05/2024;5130930;538478;665;60;Villa di Chiavenna ;SO;Villa di Chiavenna
+17545;Umidità Relativa;11;%;28/12/2018;;06/05/2024;5124452;568154;988;33;Lanzada Ganda;SO;Lanzada
+17548;Livello Idrometrico;1;cm;16/01/2019;;06/05/2024;5118018;588720;416;1876;Tirano Via Poschiavino;SO;Tirano
+17551;Precipitazione;2;mm;19/11/2018;;06/05/2024;5008934;609678;38;1877;Asola v.Industria;MN;Asola
+17552;Temperatura;3;°C;19/11/2018;;06/05/2024;5008934;609678;38;1877;Asola v.Industria;MN;Asola
+17556;Livello Idrometrico;1;cm;15/11/2018;;06/05/2024;5034552;609726;125;1878;Calcinato Ponte Santa Maria;BS;Calcinato
+17561;Precipitazione;2;mm;13/12/2018;;06/05/2024;5028666;610666;92;1879;Montichiari Boschetti;BS;Montichiari
+17562;Temperatura;3;°C;13/12/2018;;06/05/2024;5028666;610666;92;1879;Montichiari Boschetti;BS;Montichiari
+17565;Radiazione Globale;12;W/m²;13/12/2018;;06/05/2024;5028666;610666;92;1879;Montichiari Boschetti;BS;Montichiari
+17567;Velocità Vento;9;m/s;30/11/2018;;06/05/2024;4957210;518916;575;858;Santa Margherita di Staffora Casanova;PV;Santa Margherita di Staffora
+17568;Direzione Vento;10;°;30/11/2018;;06/05/2024;4957210;518916;575;858;Santa Margherita di Staffora Casanova;PV;Santa Margherita di Staffora
+17572;Precipitazione;2;mm;05/12/2018;;06/05/2024;4996463;484923;84;1880;Lomello Cantona;PV;Lomello
+17573;Temperatura;3;°C;05/12/2018;;06/05/2024;4996463;484923;84;1880;Lomello Cantona;PV;Lomello
+17578;Livello Idrometrico;1;cm;14/12/2018;;06/05/2024;4990048;490350;76;1881;Mezzana Bigli Passerella;PV;Mezzana Bigli
+17580;Temperatura;3;°C;20/08/2016;;06/05/2024;5098634;561423;1954;847;Carona Carisole;BG;Carona
+17583;Umidità Relativa;11;%;20/08/2016;;06/05/2024;5098634;561423;1954;847;Carona Carisole;BG;Carona
+17585;Temperatura;3;°C;01/01/2008;;06/05/2024;5119691;544851;2280;1889;Val Masino Merdarola;SO;Val Masino
+17588;Direzione Vento;10;°;01/08/2019;;06/05/2024;5119691;544851;2280;1889;Val Masino Merdarola;SO;Val Masino
+17589;Velocità Vento;9;m/s;01/08/2019;;06/05/2024;5119691;544851;2280;1889;Val Masino Merdarola;SO;Val Masino
+17592;Altezza Neve;4;cm;21/12/2007;;06/05/2024;5119691;544851;2280;1889;Val Masino Merdarola;SO;Val Masino
+17593;Radiazione Globale;12;W/m²;01/08/2019;;06/05/2024;5119691;544851;2280;1889;Val Masino Merdarola;SO;Val Masino
+17600;Precipitazione;2;mm;01/08/2019;;06/05/2024;5119691;544851;2280;1889;Val Masino Merdarola;SO;Val Masino
+17612;Altezza Neve;4;cm;07/11/2019;;06/05/2024;5102069;518430;1285;1545;San Siro Alpe Rescascìa;CO;San Siro
+17615;Velocità Vento;9;m/s;21/02/2019;;06/05/2024;5094539;480080;205;859;Luino v. Piero Chiara;VA;Luino
+17616;Direzione Vento;10;°;21/02/2019;;06/05/2024;5094539;480080;205;859;Luino v. Piero Chiara;VA;Luino
+18261;Livello Idrometrico;1;cm;29/07/2018;;06/05/2024;5004817;524815;73;1864;Vistarino ;PV;Vistarino
+18264;Livello Idrometrico;1;cm;27/07/2018;;06/05/2024;5075911;505257;205;1865;Cernobbio Ponte Nuovo;CO;Cernobbio
+18267;Livello Idrometrico;1;cm;31/08/2018;;06/05/2024;5013473;594870;44;1867;Pralboino SP64;BS;Pralboino
+18270;Livello Idrometrico;1;cm;26/09/2018;;06/05/2024;4997057;620259;27;1868;Marcaria Argine Oglio;MN;Marcaria
+18298;Livello Idrometrico;1;cm;08/11/2018;;06/05/2024;5113409;531290;201;1869;Sorico Ponte del Passo;CO;Sorico
+19004;Velocità Vento;9;m/s;23/09/2013;;06/05/2024;5035847;511082;122;503;Milano P.zza Zavattari;MI;Milano
+19007;Velocità Vento;9;m/s;25/03/2014;;06/05/2024;5035365;514782;122;620;Milano v.Brera;MI;Milano
+19010;Velocità Vento;9;m/s;12/11/2013;;30/10/2020;5055150;477613;210;559;Somma Lombardo v.Facchinetti;VA;Somma Lombardo
+19016;Velocità Vento;9;m/s;31/10/2013;;23/10/2014;5057636;518272;250;512;Carate Brianza v.De Gasperi;MB;Carate Brianza
+19019;Velocità Vento;9;m/s;29/10/2013;;06/05/2024;5038105;514918;129;501;Milano v.Marche;MI;Milano
+19022;Temperatura;3;°C;01/10/2013;;06/05/2024;5060404;552526;249;1422;Bergamo v.Maffei;BG;Bergamo
+19023;Umidità Relativa;11;%;01/10/2013;;06/05/2024;5060404;552526;249;1422;Bergamo v.Maffei;BG;Bergamo
+19024;Radiazione Globale;12;W/m²;06/11/2013;;06/05/2024;5060404;552526;249;1422;Bergamo v.Maffei;BG;Bergamo
+19026;Precipitazione;2;mm;01/10/2013;;06/05/2024;5060404;552526;249;1422;Bergamo v.Maffei;BG;Bergamo
+19042;Velocità Vento;9;m/s;12/11/2013;;10/12/2018;5048975;479783;204;557;Lonate Pozzolo v.Veneto;VA;Lonate Pozzolo
+19045;Velocità Vento;9;m/s;11/11/2013;;06/05/2024;5051773;481053;215;687;Ferno v.Di Dio;VA;Ferno
+19051;Velocità Vento;9;m/s;26/11/2013;;10/12/2018;5050810;488313;222;555;Busto Arsizio v.Magenta;VA;Busto Arsizio
+19058;Velocità Vento;9;m/s;31/10/2013;;06/05/2024;5031403;507619;119;525;Corsico v.le Italia;MI;Corsico
+19061;Velocità Vento;9;m/s;30/10/2013;;06/05/2024;5019010;510543;97;535;Lacchiarella v.Molise;MI;Lacchiarella
+19064;Velocità Vento;9;m/s;30/10/2013;;15/12/2023;5073499;505203;201;646;Como Villa Gallia;CO;Como
+19097;Velocità Vento;9;m/s;24/01/2014;;06/05/2024;5059922;550116;249;583;Bergamo v.Meucci;BG;Bergamo
+19100;Velocità Vento;9;m/s;24/01/2014;;06/05/2024;5075429;585212;192;586;Costa Volpino v.Nazionale;BG;Costa Volpino
+19103;Velocità Vento;9;m/s;30/01/2014;;06/05/2024;5062715;553620;290;594;Bergamo v.Goisis;BG;Bergamo
+19106;Velocità Vento;9;m/s;30/01/2014;;06/05/2024;5052072;547691;182;596;Osio Sotto v.per Levate;BG;Osio Sotto
+19109;Velocità Vento;9;m/s;03/12/2013;;06/05/2024;5109468;529713;229;573;Colico v.La Madoneta;LC;Colico
+19112;Velocità Vento;9;m/s;17/12/2013;;18/10/2019;5066429;520613;310;575;Nibionno v.della Chiesa;LC;Nibionno
+19115;Velocità Vento;9;m/s;17/12/2013;;06/05/2024;5078987;531045;272;706;Lecco v.Sora;LC;Lecco
+19121;Velocità Vento;9;m/s;24/01/2014;;29/09/2015;5108901;543736;262;572;Morbegno v.Cortivacci;SO;Morbegno
+19124;Velocità Vento;9;m/s;24/01/2014;;22/01/2019;5113073;567873;290;1264;Sondrio v.Paribelli;SO;Sondrio
+19148;Velocità Vento;9;m/s;25/11/2013;;06/05/2024;5053519;543342;190;595;Filago v.Don Milani;BG;Filago
+19159;Direzione Vento;10;°;19/11/2013;;06/05/2024;5000087;573153;48;1297;Spinadesco v.Battisti;CR;Spinadesco
+19160;Velocità Vento;9;m/s;19/11/2013;;06/05/2024;5000087;573153;48;1297;Spinadesco v.Battisti;CR;Spinadesco
+19165;Velocità Vento;9;m/s;18/06/2014;;06/05/2024;5076576;527307;247;679;Valmadrera v.Pozzi;LC;Valmadrera
+19178;Direzione Vento;10;°;22/11/2013;;06/05/2024;4995675;584111;36;1303;Cremona v.Gerre Borghi;CR;Cremona
+19179;Velocità Vento;9;m/s;22/11/2013;;06/05/2024;4995675;584111;36;1303;Cremona v.Gerre Borghi;CR;Cremona
+19242;Velocità Vento;9;m/s;03/03/2014;;06/05/2024;5035546;517377;122;502;Milano v.Juvara;MI;Milano
+19282;Temperatura;3;°C;28/01/2017;;06/05/2024;5090402;534927;574;1513;Introbio al bivio;LC;Introbio
+19283;Umidità Relativa;11;%;22/06/2018;;06/05/2024;5090402;534927;574;1513;Introbio al bivio;LC;Introbio
+19293;Temperatura;3;°C;08/05/2018;;06/05/2024;5072042;536210;633;1514;Carenno centro sportivo;LC;Carenno
+19294;Umidità Relativa;11;%;08/05/2018;;06/05/2024;5072042;536210;633;1514;Carenno centro sportivo;LC;Carenno
+19295;Precipitazione;2;mm;18/07/2014;;06/05/2024;5072042;536210;633;1514;Carenno centro sportivo;LC;Carenno
+19300;Velocità Vento;9;m/s;30/07/2014;;06/05/2024;5072042;536210;633;1514;Carenno centro sportivo;LC;Carenno
+19301;Direzione Vento;10;°;18/07/2014;;06/05/2024;5072042;536210;633;1514;Carenno centro sportivo;LC;Carenno
+19307;Temperatura;3;°C;21/11/2014;;06/05/2024;5112733;535367;993;1518;Dubino La Piazza;SO;Dubino
+19308;Umidità Relativa;11;%;21/11/2014;;06/05/2024;5112733;535367;993;1518;Dubino La Piazza;SO;Dubino
+19309;Precipitazione;2;mm;21/11/2014;;06/05/2024;5112733;535367;993;1518;Dubino La Piazza;SO;Dubino
+19333;Temperatura;3;°C;08/07/2015;;06/05/2024;5099899;532481;910;1551;Premana v.Luciani papa;LC;Premana
+19334;Umidità Relativa;11;%;08/07/2015;;06/05/2024;5099899;532481;910;1551;Premana v.Luciani papa;LC;Premana
+19335;Precipitazione;2;mm;08/07/2015;;06/05/2024;5099899;532481;910;1551;Premana v.Luciani papa;LC;Premana
+19340;Velocità Vento;9;m/s;08/07/2015;;06/05/2024;5099899;532481;910;1551;Premana v.Luciani papa;LC;Premana
+19341;Direzione Vento;10;°;08/07/2015;;06/05/2024;5099899;532481;910;1551;Premana v.Luciani papa;LC;Premana
+19342;Temperatura;3;°C;03/12/2015;;06/05/2024;5126642;531883;1035;1556;Prata Camportaccio Pratella;SO;Prata Camportaccio
+19343;Umidità Relativa;11;%;03/12/2015;;06/05/2024;5126642;531883;1035;1556;Prata Camportaccio Pratella;SO;Prata Camportaccio
+19344;Precipitazione;2;mm;03/12/2015;;06/05/2024;5126642;531883;1035;1556;Prata Camportaccio Pratella;SO;Prata Camportaccio
+19345;Temperatura;3;°C;14/07/2016;;06/05/2024;5041631;617629;187;1560;Padenghe sul Garda v.Fondrini;BS;Padenghe sul Garda
+19346;Umidità Relativa;11;%;14/07/2016;;06/05/2024;5041631;617629;187;1560;Padenghe sul Garda v.Fondrini;BS;Padenghe sul Garda
+19347;Precipitazione;2;mm;14/07/2016;;06/05/2024;5041631;617629;187;1560;Padenghe sul Garda v.Fondrini;BS;Padenghe sul Garda
+19352;Velocità Vento;9;m/s;19/02/2016;;06/05/2024;5041631;617629;187;1560;Padenghe sul Garda v.Fondrini;BS;Padenghe sul Garda
+19353;Direzione Vento;10;°;14/07/2016;;06/05/2024;5041631;617629;187;1560;Padenghe sul Garda v.Fondrini;BS;Padenghe sul Garda
+19354;Temperatura;3;°C;23/12/2016;;06/05/2024;5082687;491668;275;1561;Porto Ceresio campo sportivo;VA;Porto Ceresio
+19355;Umidità Relativa;11;%;23/12/2016;;06/05/2024;5082687;491668;275;1561;Porto Ceresio campo sportivo;VA;Porto Ceresio
+19356;Precipitazione;2;mm;23/12/2016;;06/05/2024;5082687;491668;275;1561;Porto Ceresio campo sportivo;VA;Porto Ceresio
+19363;Temperatura;3;°C;05/07/2016;;06/05/2024;5101755;523618;198;1559;Dervio v.S.Cecilia;LC;Dervio
+19364;Umidità Relativa;11;%;05/07/2016;;06/05/2024;5101755;523618;198;1559;Dervio v.S.Cecilia;LC;Dervio
+19365;Precipitazione;2;mm;03/05/2016;;06/05/2024;5101755;523618;198;1559;Dervio v.S.Cecilia;LC;Dervio
+19373;Precipitazione;2;mm;11/07/2016;;06/05/2024;5035365;514782;122;620;Milano v.Brera;MI;Milano
+19374;Radiazione Globale;12;W/m²;08/07/2016;;06/05/2024;5035365;514782;122;620;Milano v.Brera;MI;Milano
+19375;Temperatura;3;°C;28/07/2016;;06/05/2024;5109394;545135;230;1651;Morbegno eliporto;SO;Morbegno
+19376;Umidità Relativa;11;%;23/09/2016;;06/05/2024;5109394;545135;230;1651;Morbegno eliporto;SO;Morbegno
+19377;Precipitazione;2;mm;28/07/2016;;06/05/2024;5109394;545135;230;1651;Morbegno eliporto;SO;Morbegno
+19382;Velocità Vento;9;m/s;23/09/2016;;06/05/2024;5109394;545135;230;1651;Morbegno eliporto;SO;Morbegno
+19383;Direzione Vento;10;°;28/07/2016;;06/05/2024;5109394;545135;230;1651;Morbegno eliporto;SO;Morbegno
+19384;Radiazione Globale;12;W/m²;28/07/2016;;06/05/2024;5109394;545135;230;1651;Morbegno eliporto;SO;Morbegno
+19388;Temperatura;3;°C;29/09/2016;;06/05/2024;5145365;604906;1172;1650;Bormio eliporto;SO;Bormio
+19389;Umidità Relativa;11;%;29/09/2016;;06/05/2024;5145365;604906;1172;1650;Bormio eliporto;SO;Bormio
+19390;Precipitazione;2;mm;12/01/2017;;06/05/2024;5145365;604906;1172;1650;Bormio eliporto;SO;Bormio
+19395;Velocità Vento;9;m/s;29/09/2016;;06/05/2024;5145365;604906;1172;1650;Bormio eliporto;SO;Bormio
+19396;Direzione Vento;10;°;30/09/2016;;06/05/2024;5145365;604906;1172;1650;Bormio eliporto;SO;Bormio
+19397;Radiazione Globale;12;W/m²;29/09/2016;;06/05/2024;5145365;604906;1172;1650;Bormio eliporto;SO;Bormio
+19401;Temperatura;3;°C;07/12/2016;;06/05/2024;5118967;591186;481;1652;Tirano eliporto;SO;Tirano
+19402;Umidità Relativa;11;%;07/12/2016;;06/05/2024;5118967;591186;481;1652;Tirano eliporto;SO;Tirano
+19403;Precipitazione;2;mm;07/12/2016;;06/05/2024;5118967;591186;481;1652;Tirano eliporto;SO;Tirano
+19408;Velocità Vento;9;m/s;12/01/2017;;06/05/2024;5118967;591186;481;1652;Tirano eliporto;SO;Tirano
+19409;Direzione Vento;10;°;07/12/2016;;06/05/2024;5118967;591186;481;1652;Tirano eliporto;SO;Tirano
+19410;Radiazione Globale;12;W/m²;07/12/2016;;06/05/2024;5118967;591186;481;1652;Tirano eliporto;SO;Tirano
+19415;Temperatura;3;°C;28/03/2017;;06/05/2024;4983484;611536;26;1656;Casalmaggiore campo sportivo;CR;Casalmaggiore
+19416;Umidità Relativa;11;%;28/03/2017;;06/05/2024;4983484;611536;26;1656;Casalmaggiore campo sportivo;CR;Casalmaggiore
+19417;Precipitazione;2;mm;28/03/2017;;06/05/2024;4983484;611536;26;1656;Casalmaggiore campo sportivo;CR;Casalmaggiore
+19419;Radiazione Globale;12;W/m²;28/03/2017;;19/04/2024;4983484;611536;26;1656;Casalmaggiore campo sportivo;CR;Casalmaggiore
+19426;Temperatura;3;°C;11/10/2017;;06/05/2024;5059052;513843;255;1657;Mariano Comense campo sportivo;CO;Mariano Comense
+19427;Umidità Relativa;11;%;11/10/2017;;06/05/2024;5059052;513843;255;1657;Mariano Comense campo sportivo;CO;Mariano Comense
+19428;Precipitazione;2;mm;11/10/2017;;06/05/2024;5059052;513843;255;1657;Mariano Comense campo sportivo;CO;Mariano Comense
+19430;Radiazione Globale;12;W/m²;11/10/2017;;06/05/2024;5059052;513843;255;1657;Mariano Comense campo sportivo;CO;Mariano Comense
+19434;Velocità Vento;9;m/s;10/10/2017;;06/05/2024;5059052;513843;255;1657;Mariano Comense campo sportivo;CO;Mariano Comense
+19436;Direzione Vento;10;°;10/10/2017;;06/05/2024;5059052;513843;255;1657;Mariano Comense campo sportivo;CO;Mariano Comense
+19441;Temperatura;3;°C;14/04/2017;;06/05/2024;5049158;562551;162;1659;Mornico al Serio campo sportivo;BG;Mornico al Serio
+19442;Umidità Relativa;11;%;14/04/2017;;06/05/2024;5049158;562551;162;1659;Mornico al Serio campo sportivo;BG;Mornico al Serio
+19443;Precipitazione;2;mm;08/09/2017;;06/05/2024;5049158;562551;162;1659;Mornico al Serio campo sportivo;BG;Mornico al Serio
+19445;Radiazione Globale;12;W/m²;14/04/2017;;06/05/2024;5049158;562551;162;1659;Mornico al Serio campo sportivo;BG;Mornico al Serio
+22002;Altezza Neve;4;cm;06/11/2019;;06/05/2024;5067376;591417;1790;1890;Tavernole sul Mella Monte Guglielmo;BS;Tavernole sul Mella
+22003;Temperatura;3;°C;14/10/2019;;06/05/2024;5067376;591417;1790;1890;Tavernole sul Mella Monte Guglielmo;BS;Tavernole sul Mella
+22006;Umidità Relativa;11;%;14/10/2019;;06/05/2024;5067376;591417;1790;1890;Tavernole sul Mella Monte Guglielmo;BS;Tavernole sul Mella
+22007;Direzione Vento;10;°;14/10/2019;;06/05/2024;5067376;591417;1790;1890;Tavernole sul Mella Monte Guglielmo;BS;Tavernole sul Mella
+22009;Velocità Vento;9;m/s;14/10/2019;;06/05/2024;5067376;591417;1790;1890;Tavernole sul Mella Monte Guglielmo;BS;Tavernole sul Mella
+22011;Precipitazione;2;mm;14/10/2019;;06/05/2024;5067376;591417;1790;1890;Tavernole sul Mella Monte Guglielmo;BS;Tavernole sul Mella
+22017;Radiazione Globale;12;W/m²;14/10/2019;;06/05/2024;5067376;591417;1790;1890;Tavernole sul Mella Monte Guglielmo;BS;Tavernole sul Mella
+22022;Precipitazione;2;mm;30/01/2020;;06/05/2024;5087930;477812;875;1891;Porto Valtravaglia San Michele;VA;Porto Valtravaglia
+22023;Temperatura;3;°C;30/01/2020;;06/05/2024;5087930;477812;875;1891;Porto Valtravaglia San Michele;VA;Porto Valtravaglia
+22026;Umidità Relativa;11;%;30/01/2020;;06/05/2024;5087930;477812;875;1891;Porto Valtravaglia San Michele;VA;Porto Valtravaglia
+22552;Velocità Vento;9;m/s;25/11/2022;;06/05/2024;5006634;647386;15;214;Bigarello ;MN;Bigarello
+22553;Direzione Vento;10;°;25/11/2022;;06/05/2024;5006634;647386;15;214;Bigarello ;MN;Bigarello
+22571;Altezza Neve;4;cm;30/11/2023;;06/05/2024;5070236;626539;1244;1955;MAGASA Malga Corva;BS;Magasa
+22572;Velocità Vento;9;m/s;01/06/2023;;06/05/2024;5070236;626539;1244;1955;MAGASA Malga Corva;BS;Magasa
+22573;Direzione Vento;10;°;01/06/2023;;06/05/2024;5070236;626539;1244;1955;MAGASA Malga Corva;BS;Magasa
+22576;Temperatura;3;°C;01/06/2023;;06/05/2024;5070236;626539;1244;1955;MAGASA Malga Corva;BS;Magasa
+22579;Umidità Relativa;11;%;01/06/2023;;06/05/2024;5070236;626539;1244;1955;MAGASA Malga Corva;BS;Magasa
+22580;Precipitazione;2;mm;01/06/2023;;06/05/2024;5070236;626539;1244;1955;MAGASA Malga Corva;BS;Magasa
+24408;Temperatura;3;°C;30/08/2020;;06/05/2024;5066048;572800;1246;1974;Grone San Fermo;BG;Grone
+24411;Umidità Relativa;11;%;30/08/2020;;06/05/2024;5066048;572800;1246;1974;Grone San Fermo;BG;Grone
+24412;Direzione Vento;10;°;30/08/2020;;06/05/2024;5066048;572800;1246;1974;Grone San Fermo;BG;Grone
+24414;Velocità Vento;9;m/s;30/08/2020;;06/05/2024;5066048;572800;1246;1974;Grone San Fermo;BG;Grone
+24416;Precipitazione;2;mm;30/08/2020;;06/05/2024;5066048;572800;1246;1974;Grone San Fermo;BG;Grone
+30523;Livello Idrometrico;1;cm;25/09/2014;;06/05/2024;5046729;503760;160;1508;Lainate SP 109;MI;Lainate
+30525;Precipitazione;2;mm;21/05/2014;;06/05/2024;5047745;512305;170;1509;Paderno Dugnano Palazzolo Parco Borghetto;MI;Paderno Dugnano
+30533;Precipitazione;2;mm;26/09/2014;;29/04/2024;5048372;519174;173;1510;Monza v.Monte Generoso;MB;Monza
+30536;Precipitazione;2;mm;26/09/2014;;06/05/2024;5050479;496327;215;1511;Rescaldina ;MI;Rescaldina
+30539;Precipitazione;2;mm;26/09/2014;;06/05/2024;5042449;500406;160;1512;Pogliano Milanese ;MI;Pogliano Milanese
+32228;Direzione Vento;10;°;22/06/2016;;06/05/2024;5057377;574538;197;874;Sarnico v. Roma;BG;Sarnico
+32229;Velocità Vento;9;m/s;22/06/2016;;06/05/2024;5057377;574538;197;874;Sarnico v. Roma;BG;Sarnico
+32238;Umidità Relativa;11;%;01/08/2016;;06/05/2024;4973248;515391;501;856;Fortunago ;PV;Fortunago
+32241;Umidità Relativa;11;%;01/08/2016;;06/05/2024;5083338;480047;294;884;Cuveglio ;VA;Cuveglio
+32244;Umidità Relativa;11;%;01/08/2016;;06/05/2024;5076955;491501;383;885;Arcisate ;VA;Arcisate
+32247;Umidità Relativa;11;%;01/08/2016;;06/05/2024;5103599;600282;816;904;Paisco Loveno ;BS;Paisco Loveno
+32250;Umidità Relativa;11;%;01/08/2016;;06/05/2024;5051536;603100;428;876;Caino ;BS;Caino
+32253;Umidità Relativa;11;%;28/09/2016;;09/05/2018;5083557;520640;625;902;Barni ;CO;Barni
+32259;Umidità Relativa;11;%;27/10/2016;;06/05/2024;5126972;568128;2151;832;Lanzada Palù;SO;Lanzada
+32262;Umidità Relativa;11;%;27/10/2016;;06/05/2024;5097116;544202;1875;833;Gerola Alta Pescegallo;SO;Gerola Alta
+32336;Umidità Relativa;11;%;11/08/2016;;06/05/2024;5103920;606529;1128;905;Cevo ;BS;Cevo
+32339;Umidità Relativa;11;%;02/09/2016;;06/05/2024;4947846;517168;1363;857;Santa Margherita di Staffora Passo del Giovà;PV;Santa Margherita di Staffora
+32345;Radiazione Globale;12;W/m²;11/07/2017;;06/05/2024;5090337;611798;2410;1359;Breno Lago Della Vacca;BS;Breno
+32353;Temperatura;3;°C;21/04/2022;;06/05/2024;5072552;471760;249;1807;Ispra JRC;VA;Ispra
+32354;Umidità Relativa;11;%;21/04/2022;;06/05/2024;5072552;471760;249;1807;Ispra JRC;VA;Ispra
+32355;Precipitazione;2;mm;21/04/2022;;06/05/2024;5072552;471760;249;1807;Ispra JRC;VA;Ispra
+32357;Radiazione Globale;12;W/m²;21/04/2022;;06/05/2024;5072552;471760;249;1807;Ispra JRC;VA;Ispra
+32360;Radiazione Globale;12;W/m²;13/10/2017;;06/05/2024;5097116;544202;1875;833;Gerola Alta Pescegallo;SO;Gerola Alta
+32363;Radiazione Globale;12;W/m²;12/10/2017;;06/05/2024;5126972;568128;2151;832;Lanzada Palù;SO;Lanzada
+32370;Temperatura;3;°C;23/11/2017;;06/05/2024;5083535;518233;1158;1679;Sormano rifugio Alpetto;CO;Sormano
+32373;Umidità Relativa;11;%;23/11/2017;;06/05/2024;5083535;518233;1158;1679;Sormano rifugio Alpetto;CO;Sormano
+32376;Velocità Vento;9;m/s;23/11/2017;;06/05/2024;5083535;518233;1158;1679;Sormano rifugio Alpetto;CO;Sormano
+32379;Direzione Vento;10;°;23/11/2017;;06/05/2024;5083535;518233;1158;1679;Sormano rifugio Alpetto;CO;Sormano
+32382;Precipitazione;2;mm;28/11/2017;;06/05/2024;5083535;518233;1158;1679;Sormano rifugio Alpetto;CO;Sormano
+32384;Altezza Neve;4;cm;07/11/2017;;06/05/2024;5102054;482122;1302;1382;Veddasca Monte Cadrigna;VA;Veddasca
+32390;Livello Idrometrico;1;cm;15/11/2017;;06/05/2024;5044545;622300;73;1555;Manerba del Garda Dusano;BS;Manerba del Garda
+32391;Temperatura;3;°C;15/11/2017;;06/05/2024;5044545;622300;73;1555;Manerba del Garda Dusano;BS;Manerba del Garda
+32394;Umidità Relativa;11;%;17/11/2017;;06/05/2024;5044545;622300;73;1555;Manerba del Garda Dusano;BS;Manerba del Garda
+32398;Precipitazione;2;mm;15/11/2017;;06/05/2024;5092483;580679;1856;1680;Vilminore di Scalve Presolana;BG;Vilminore di Scalve
+32399;Altezza Neve;4;cm;15/11/2017;;06/05/2024;5092483;580679;1856;1680;Vilminore di Scalve Presolana;BG;Vilminore di Scalve
+32401;Temperatura;3;°C;15/11/2017;;06/05/2024;5092483;580679;1856;1680;Vilminore di Scalve Presolana;BG;Vilminore di Scalve
+32404;Umidità Relativa;11;%;15/11/2017;;06/05/2024;5092483;580679;1856;1680;Vilminore di Scalve Presolana;BG;Vilminore di Scalve
+32407;Direzione Vento;10;°;15/11/2017;;06/05/2024;5092483;580679;1856;1680;Vilminore di Scalve Presolana;BG;Vilminore di Scalve
+32410;Velocità Vento;9;m/s;15/11/2017;;06/05/2024;5092483;580679;1856;1680;Vilminore di Scalve Presolana;BG;Vilminore di Scalve
+32413;Radiazione Globale;12;W/m²;15/11/2017;;06/05/2024;5092483;580679;1856;1680;Vilminore di Scalve Presolana;BG;Vilminore di Scalve

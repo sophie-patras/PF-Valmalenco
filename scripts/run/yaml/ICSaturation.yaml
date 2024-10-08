@@ -1,0 +1,4 @@
+ICSaturation:
+  water:
+    Type: Constant
+    GeomNames: domain

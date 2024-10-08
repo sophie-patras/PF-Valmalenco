@@ -1,0 +1,6 @@
+TimeStep:
+  Type: Growth
+  InitialStep: 1
+  GrowthFactor: 1.1
+  MaxStep: 100
+  MinStep: 0.1

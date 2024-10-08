@@ -1,0 +1,261 @@
+*****************************************************************************
+ParFlow Output Log
+	Version         : v3.13.0-20-g7c8e7f0
+	Compiled on     : Sep 29 2024 23:13:30
+*****************************************************************************
+==============================================
+BEGIN Log Info (SolverRichards)
+
+Transient Problem Solved.
+-------------------------
+
+Total Timesteps: 41
+
+-------------------------
+Sequence #       Time         \Delta t         Dumpfile #   Recompute?
+----------   ------------   ------------ -     ----------   ----------
+  000000     0.000000e+00   0.000000e+00 i       000000          n
+  000001     1.100000e-02   1.100000e-02 p                       y
+  000002     2.310000e-02   1.210000e-02 p                       y
+  000003     3.641000e-02   1.331000e-02 p                       y
+  000004     5.105100e-02   1.464100e-02 p                       y
+  000005     6.715610e-02   1.610510e-02 p                       y
+  000006     8.487171e-02   1.771561e-02 p                       y
+  000007     1.043589e-01   1.948717e-02 p                       y
+  000008     1.257948e-01   2.143589e-02 p                       y
+  000009     1.493742e-01   2.357948e-02 p                       y
+  000010     1.753117e-01   2.593742e-02 p                       y
+  000011     2.038428e-01   2.853117e-02 p                       y
+  000012     2.352271e-01   3.138428e-02 p                       y
+  000013     2.697498e-01   3.452271e-02 p                       y
+  000014     3.077248e-01   3.797498e-02 p                       y
+  000015     3.494973e-01   4.177248e-02 p                       y
+  000016     3.954470e-01   4.594973e-02 p                       y
+  000017     4.207194e-01   2.527235e-02 p                       y
+  000018     4.485190e-01   2.779959e-02 p                       y
+  000019     4.790985e-01   3.057955e-02 p                       y
+  000020     5.127360e-01   3.363750e-02 p                       y
+  000021     5.497373e-01   3.700125e-02 p                       y
+  000022     5.700879e-01   2.035069e-02 p                       y
+  000023     5.756844e-01   5.596439e-03 p                       y
+  000024     5.787624e-01   3.078041e-03 p                       y
+  000025     5.804554e-01   1.692923e-03 p                       y
+  000026     5.809209e-01   4.655538e-04 p                       y
+  000027     5.810459e-01   1.250000e-04 p                       y
+  000028     5.811084e-01   6.250000e-05 p                       y
+  000029     5.811397e-01   3.125000e-05 p                       y
+  000030     5.811475e-01   7.812500e-06 p                       y
+  000031     5.821475e-01   1.000000e-03 p                       y
+  000032     5.832475e-01   1.100000e-03 p                       y
+  000033     5.844575e-01   1.210000e-03 p                       y
+  000034     5.851230e-01   6.655000e-04 p                       y
+  000035     5.853730e-01   2.500000e-04 p                       y
+  000036     5.854980e-01   1.250000e-04 p                       y
+  000037     5.855292e-01   3.125000e-05 p                       y
+  000038     5.855370e-01   7.812500e-06 p                       y
+  000039     5.855448e-01   7.812500e-06 p                       y
+  000040     5.855527e-01   7.812500e-06 p                       y
+  000041     5.855605e-01   7.812500e-06 p                       y
+
+Overland flow Results
+  000000     0.000000e+00   0.000000e+00
+  000001     1.100000e-02   1.100000e-02
+  000002     2.310000e-02   1.210000e-02
+  000003     3.641000e-02   1.331000e-02
+  000004     5.105100e-02   1.464100e-02
+  000005     6.715610e-02   1.610510e-02
+  000006     8.487171e-02   1.771561e-02
+  000007     1.043589e-01   1.948717e-02
+  000008     1.257948e-01   2.143589e-02
+  000009     1.493742e-01   2.357948e-02
+  000010     1.753117e-01   2.593742e-02
+  000011     2.038428e-01   2.853117e-02
+  000012     2.352271e-01   3.138428e-02
+  000013     2.697498e-01   3.452271e-02
+  000014     3.077248e-01   3.797498e-02
+  000015     3.494973e-01   4.177248e-02
+  000016     3.954470e-01   4.594973e-02
+  000017     4.207194e-01   2.527235e-02
+  000018     4.485190e-01   2.779959e-02
+  000019     4.790985e-01   3.057955e-02
+  000020     5.127360e-01   3.363750e-02
+  000021     5.497373e-01   3.700125e-02
+  000022     5.700879e-01   2.035069e-02
+  000023     5.756844e-01   5.596439e-03
+  000024     5.787624e-01   3.078041e-03
+  000025     5.804554e-01   1.692923e-03
+  000026     5.809209e-01   4.655538e-04
+  000027     5.810459e-01   1.250000e-04
+  000028     5.811084e-01   6.250000e-05
+  000029     5.811397e-01   3.125000e-05
+  000030     5.811475e-01   7.812500e-06
+  000031     5.821475e-01   1.000000e-03
+  000032     5.832475e-01   1.100000e-03
+  000033     5.844575e-01   1.210000e-03
+  000034     5.851230e-01   6.655000e-04
+  000035     5.853730e-01   2.500000e-04
+  000036     5.854980e-01   1.250000e-04
+  000037     5.855292e-01   3.125000e-05
+  000038     5.855370e-01   7.812500e-06
+  000039     5.855448e-01   7.812500e-06
+  000040     5.855527e-01   7.812500e-06
+  000041     5.855605e-01   7.812500e-06
+
+END Log Info
+==============================================
+==============================================
+BEGIN Log Info (Globals)
+
+Run Name: /home/patras/PF-Valmalenco/Codes/RunProcess/Tmp/SeepBox_UXZ
+Logging Level = 1
+Num processes = 4
+Process grid = (2,2,1)
+
+END Log Info
+==============================================
+==============================================
+BEGIN Log Info (Timing)
+
+Solver Setup:
+  wall clock time   = 0.175800 seconds
+  wall MFLOPS = 0.000000 (0)
+Solver:
+  wall clock time   = 1605.202000 seconds
+  wall MFLOPS = 18.275053 (2.93352e+10)
+Richards Exclude 1st Time Step:
+  wall clock time   = 1600.818300 seconds
+  wall MFLOPS = 18.307376 (2.93068e+10)
+Solver Cleanup:
+  wall clock time   = 0.012000 seconds
+  wall MFLOPS = 0.000000 (0)
+Matvec:
+  wall clock time   = 28.501800 seconds
+  wall MFLOPS = 259.147294 (7.38616e+09)
+PFSB I/O:
+  wall clock time   = 0.000000 seconds
+  wall MFLOPS = 0.000000 (0)
+PFB I/O:
+  wall clock time   = 0.176300 seconds
+  wall MFLOPS = 0.000000 (0)
+CLM:
+  wall clock time   = 0.008600 seconds
+  wall MFLOPS = 0.000000 (0)
+PFSOL Read:
+  wall clock time   = 0.000000 seconds
+  wall MFLOPS = 0.000000 (0)
+Clustering:
+  wall clock time   = 2.149000 seconds
+  wall MFLOPS = 0.000000 (0)
+Netcdf I/O:
+  wall clock time   = 0.000000 seconds
+  wall MFLOPS = 0.000000 (0)
+Permeability Face:
+  wall clock time   = 0.000000 seconds
+  wall MFLOPS = 0.000000 (0)
+Godunov Advection:
+  wall clock time   = 0.000000 seconds
+  wall MFLOPS = 0.000000 (0)
+Geometries:
+  wall clock time   = 0.488600 seconds
+  wall MFLOPS = 0.000000 (0)
+SubsrfSim:
+  wall clock time   = 0.023300 seconds
+  wall MFLOPS = 0.000000 (0)
+Porosity:
+  wall clock time   = 0.005000 seconds
+  wall MFLOPS = 0.000000 (0)
+PhaseRelPerm:
+  wall clock time   = 195.276800 seconds
+  wall MFLOPS = 0.000259 (50611)
+PFMG:
+  wall clock time   = 119.086700 seconds
+  wall MFLOPS = 0.000000 (0)
+HYPRE_Copies:
+  wall clock time   = 34.403500 seconds
+  wall MFLOPS = 0.000000 (0)
+NL_F_Eval:
+  wall clock time   = 735.791200 seconds
+  wall MFLOPS = 0.000048 (35551)
+KINSol:
+  wall clock time   = 1603.710700 seconds
+  wall MFLOPS = 18.292047 (2.93352e+10)
+
+END Log Info
+==============================================
+==============================================
+BEGIN Log Info (ParFlow Total Time)
+
+Total Run Time: 1606.979900 seconds
+
+Maximum memory used on processor 0 : 50 MB
+Maximum memory used on processor 1 : 25 MB
+Maximum memory used on processor 2 : 25 MB
+Maximum memory used on processor 3 : 25 MB
+
+
+BEGIN(Contents of /proc/18709/status)
+Name:	parflow
+Umask:	0022
+State:	R (running)
+Tgid:	18709
+Ngid:	0
+Pid:	18709
+PPid:	18705
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	64
+Groups:	4 20 24 25 27 29 30 44 46 116 1000 
+NStgid:	18709
+NSpid:	18709
+NSpgid:	18709
+NSsid:	18508
+VmPeak:	  245992 kB
+VmSize:	  207648 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   46480 kB
+VmRSS:	   28556 kB
+RssAnon:	   16660 kB
+RssFile:	   11352 kB
+RssShmem:	     544 kB
+VmData:	   34832 kB
+VmStk:	     136 kB
+VmExe:	    3924 kB
+VmLib:	    9288 kB
+VmPTE:	     160 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+Threads:	3
+SigQ:	0/256667
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000280000000
+SigCgt:	00000001000004e0
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	1
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	289
+nonvoluntary_ctxt_switches:	421
+
+
+END(Contents of /proc/18709/status)
+
+Memory in use : 3 MB in 397 allocs, 15 MB reserved ( 13 unused)
+
+
+END Log Info
+==============================================

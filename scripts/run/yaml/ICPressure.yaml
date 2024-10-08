@@ -1,0 +1,3 @@
+ICPressure:
+  GeomNames: domain
+  Type: HydroStaticPatch

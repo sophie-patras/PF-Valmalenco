@@ -1,0 +1,10 @@
+# TO UPDATE - not match Seep models
+
+runname,cellsize,DZ,NX,NY,NZ,dZScale,ICPressure.Value,Perm,PermMx,Porosity,Alpha,N,SRes,SSat,SpecificStorage,Manning,z-upper.BCP.Type,z-upper.BCP.Val,allother.BCP.Type,allother.BCP.Val,P,Q,R,Solver,AbsTol,Drop,KrylovDimension,MaxRestarts,Preconditioner,MaxConvergenceFailures,MaxIter,Globalization,MaxIter,ResidualTol,StepTol,TimeStep.Type,TimeStep.Val,BaseUnit,DumpInterval,StartCount,StartTime,StopTime,Slope
+BowlBox_UXZ_TcDnRe-3K36e-10L1,250,2,98,102,1,[1.0],-1,3.6e-10,[1;1;1],0.1,1.8,1.3,0.01,1,1.0e-05,2.78e-5,OK,-0.001,FC,0,2,2,1,Richards,1.0e-10,1.0e-20,15,15,PFMG,8,1000000,LineSearch,50,1.0e-05,1.0e-30,Cst,1,-24,1,0,0,169,v1
+BowlBox_UXZ_TgwDnK36e-10L1,250,2,98,102,1,[1.0],-1,3.6e-10,[1;1;1],0.1,1.8,1.3,0.01,1,1.0e-05,2.78e-5,OK,-0.001,FC,0,2,2,1,Richards,1.0e-10,1.0e-20,15,15,PFMG,8,1000000,LineSearch,50,1.0e-05,1.0e-30,Grw,0.01,-24,1,0,0,169,v1
+BowlBox_UXZ_TgwDpK36e-10L1,250,2,98,102,1,[1.0],-1,3.6e-10,[1;1;1],0.1,1.8,1.3,0.01,1,1.0e-05,2.78e-5,OK,-0.001,FC,0,2,2,1,Richards,1.0e-10,1.0e-20,15,15,PFMG,8,1000000,LineSearch,50,1.0e-05,1.0e-30,Grw,0.01,24,1,0,0,169,v1
+BowlBox_UXZ_TgwDpRFe-4K36e-10L1,250,2,98,102,1,[1.0],-1,3.6e-10,[1;1;1],0.1,1.8,1.3,0.01,1,1.0e-05,2.78e-5,OK,-0.0001,FC,0,2,2,1,Richards,1.0e-10,1.0e-20,15,15,PFMG,8,1000000,LineSearch,50,1.0e-05,1.0e-30,Grw,0.01,24,1,0,0,169,v1
+BowlBox_UXZ_K36e-3L1,250,2,98,102,1,[1.0],-1,3.6e-10,[1;1;1],0.1,1.8,1.3,0.01,1,1.0e-05,2.78e-5,OK,-0.0001,FC,0,2,2,1,Richards,1.0e-10,1.0e-20,15,15,PFMG,8,1000000,LineSearch,50,1.0e-05,1.0e-30,Grw,0.01,24,1,0,0,169,v1
+BowlBox_UXZ_K36e-3L2,250,1,98,102,2,"[1.0,1.0]",-1,3.6e-10,[1;1;1],0.1,1.8,1.3,0.01,1,1.0e-05,2.78e-5,OK,-0.0001,FC,0,2,2,1,Richards,1.0e-10,1.0e-20,15,15,PFMG,8,1000000,LineSearch,50,1.0e-05,1.0e-30,Grw,0.01,24,1,0,0,744,v1
+BowlBox_UXZ_K36e-3L2d,250,1,98,102,2,"[1.7,0.3]",-1,3.6e-10,[1;1;1],0.1,1.8,1.3,0.01,1,1.0e-05,2.78e-5,OK,-0.0001,FC,0,2,2,1,Richards,1.0e-10,1.0e-20,15,15,PFMG,8,1000000,LineSearch,50,1.0e-05,1.0e-30,Grw,0.01,24,1,0,0,744,v1

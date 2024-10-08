@@ -1,0 +1,3 @@
+SpecificStorage:
+  Type: Constant
+  GeomNames: domain

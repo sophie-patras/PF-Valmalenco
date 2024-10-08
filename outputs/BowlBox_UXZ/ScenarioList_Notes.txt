@@ -1,0 +1,14 @@
+Sensitivity: BowlBox_UXZ
+
+[L]:m,[T]:h,[M]:kg
+
+cellsize : 250.0
+Uniform distribution in XYZ of all variables
+Domaininput : box (no solid)
+Total depth : 2
+Bowl means boundary conditions on all x-lower,upper, y-lower,upper, z-lower is FluxConst=0, so 'bocale' no water can flow out of the domains, which is a major and unphysical constrains. Especially if we look at simulations K36e-3 (L2 vs L2d) the water flow in z direction on the lower layer is 0, and reaches instead higher velocities in XY direction respect to upper layer.
+
+No significant gain in computational cost with TimeStepGrowth.
+
+
+

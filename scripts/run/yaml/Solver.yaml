@@ -1,0 +1,29 @@
+Solver:
+  _value_: Richards
+  TerrainFollowingGrid: true
+  OverlandKinematic:
+    Epsilon: 1.0e-5
+  MaxIter: 2500
+  Drop: 1.0e-20
+  AbsTol: 1.0e-9
+  MaxConvergenceFailures: 10
+  Linear:
+    KrylovDimension: 20
+    MaxRestarts: 2
+    Preconditioner: PFMG
+    _value_: PCG
+  Nonlinear:
+    DerivativeEpsilon: 1e-8
+    EtaChoice: EtaConstant
+    EtaValue: 1.0e-02
+    MaxIter: 20
+    StepTol: 1e-20
+    ResidualTol: 1.0e-9
+    UseJacobian: true
+    Globalization: LineSearch
+  PrintSubsurf: true
+  PrintSaturation: true
+  PrintVelocities: true
+#  PrintSlopes: true
+#  PrintMannings: true
+

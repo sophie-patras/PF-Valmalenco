@@ -1,0 +1,7 @@
+PhaseSources:
+  water:
+    GeomNames: domain
+    Type: Constant
+    Geom:
+      domain:
+        Value: 0.0

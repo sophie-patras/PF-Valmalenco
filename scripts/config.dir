@@ -1,0 +1,14 @@
+#!/bin/bash
+
+export EXEC_DIR=/home/patras/PF-Valmalenco/Codes/RunProcess/
+export WORK_DIR=/home/patras/PF-Valmalenco/Codes/RunProcess/Tmp/
+export PF_SRC=~/PF-Tree/parflow/
+#export WIN_DIR=/mnt/c/Users/User/Documents/POLIMI/0_TESI/
+export WIN_DIR=/mnt/c/Users/Sophie/Documents/
+# FIG_DIR = /mnt/c/Users/Sophie/Documents/4-Figures/
+
+dir for preprocess : data/
+dir for posprocess : outputs/
+
+# call any exported dir with echo "$<NAME_DIR>", ex.
+# echo "Using WORK_DIR: ${WORK_DIR}"

@@ -1,0 +1,9 @@
+Patch:
+  top:
+    BCPressure:
+      Type: OverlandKinematic
+      Cycle: rainrec
+      rain:
+        Value: -0.05
+      rec:
+        Value: 1.0e-6

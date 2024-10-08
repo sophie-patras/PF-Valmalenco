@@ -1,0 +1,7 @@
+PhaseConcen:
+  water:
+    tce:
+      Type: Constant
+      ic_concen_region: #one of the solid domain
+        Value: 0.001
+    GeomNames: ic_concen_region

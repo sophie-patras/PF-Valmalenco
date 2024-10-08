@@ -1,0 +1,4 @@
+CapPressure:
+  water:
+    Type: Constant
+    GeomNames: domain

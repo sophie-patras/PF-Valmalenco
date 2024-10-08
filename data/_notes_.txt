@@ -1,0 +1,4 @@
+steps of elaboration of data (processed with scripts/processing/):
+ - rawdata (as found from online downloads)
+ - prepareddata (EPSG, domain extent, calculations), preparing to convert at last step to parflow binaries/parflow readable inputs
+ - pfdata (.pfb, .pfsol, etc)

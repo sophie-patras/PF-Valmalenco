@@ -1,0 +1,14 @@
+Cycle:
+  Names: constant rainrec
+  constant:
+    Names: alltime
+    Repeat: -1
+    alltime:
+      Length: 10000
+  rainrec:
+    Names: rain rec
+    Repeat: -1
+    rain:
+      Length: 1
+    rec:
+      Length: 364

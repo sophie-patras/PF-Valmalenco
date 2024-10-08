@@ -1,0 +1,206 @@
+BCPressure:
+  PatchNames: x-lower x-upper y-lower y-upper z-lower z-upper
+ComputationalGrid:
+  DX: 250.0
+  DY: 250.0
+  DZ: 1.0
+  Lower:
+    X: 0.0
+    Y: 0.0
+    Z: 0.0
+  NX: 98
+  NY: 102
+  NZ: 2
+Contaminants:
+  Names: ''
+Cycle:
+  Names: constant
+  constant:
+    Names: alltime
+    Repeat: -1
+    alltime:
+      Length: 1
+Domain:
+  GeomName: domain
+FileVersion: 4
+Geom:
+  Perm:
+    Names: domain
+    TensorByGeom:
+      Names: domain
+  Porosity:
+    GeomNames: domain
+  domain:
+    ICPressure:
+      RefGeom: domain
+      RefPatch: z-upper
+      Value: -1.0
+    Upper:
+      X: 24500.0
+      Y: 25500.0
+      Z: 2.0
+    Lower:
+      X: 0.0
+      Y: 0.0
+      Z: 0.0
+    Patches: x-lower x-upper y-lower y-upper z-lower z-upper
+    Perm:
+      TensorValX: 1.0
+      TensorValY: 1.0
+      TensorValZ: 1.0
+      Type: Constant
+      Value: 3.6e-03
+    Porosity:
+      Type: Constant
+      Value: 0.1
+    RelPerm:
+      Alpha: 1.8
+      N: 1.3
+    Saturation:
+      Alpha: 1.8
+      N: 1.3
+      SRes: 0.01
+      SSat: 1.0
+    SpecificStorage:
+      Value: 1.0e-5
+GeomInput:
+  Names: domaininput
+  domaininput:
+    GeomName: domain 
+    GeomNames: domain
+    InputType: Box
+Gravity: 1.0
+ICPressure:
+  GeomNames: domain
+  Type: HydroStaticPatch
+KnownSolution: NoKnownSolution
+Mannings:
+  Geom:
+    domain:
+      Value: 2.78e-5
+  GeomNames: domain
+  Type: Constant
+Patch:
+  z-upper:
+    BCPressure:
+      Cycle: constant
+      Type: OverlandKinematic
+      alltime:
+        Value: -0.0001
+  z-lower:
+    BCPressure:
+      Cycle: constant
+      Type: FluxConst
+      alltime:
+        Value: 0.0
+  x-lower:
+    BCPressure:
+      Cycle: constant
+      Type: FluxConst
+      alltime:
+        Value: 0.0
+  x-lower:
+    BCPressure:
+      Cycle: constant
+      Type: FluxConst
+      alltime:
+        Value: 0.0
+  x-upper:
+    BCPressure:
+      Cycle: constant
+      Type: FluxConst
+      alltime:
+        Value: 0.0
+  y-lower:
+    BCPressure:
+      Cycle: constant
+      Type: FluxConst
+      alltime:
+        Value: 0.0
+  y-upper:
+    BCPressure:
+      Cycle: constant
+      Type: FluxConst
+      alltime:
+        Value: 0.0
+Perm:
+  TensorType: TensorByGeom
+Phase:
+  Names: water
+  RelPerm:
+    GeomNames: domain
+    Type: VanGenuchten
+  Saturation:
+    GeomNames: domain
+    Type: VanGenuchten
+  water:
+    Density:
+      Type: Constant
+      Value: 1.0
+    Viscosity:
+      Type: Constant
+      Value: 1.0
+PhaseSources:
+  water:
+    Geom:
+      domain:
+        Value: 0.0
+    GeomNames: domain
+    Type: Constant
+Process:
+  Topology:
+    P: 2
+    Q: 2
+    R: 1
+Solver:
+  AbsTol: 1.0e-10
+  Drop: 1.0e-20
+  Linear:
+    KrylovDimension: 15
+    MaxRestarts: 15
+    Preconditioner: PFMG
+  MaxConvergenceFailures: 8
+  MaxIter: 1000000
+  Nonlinear:
+    Globalization: LineSearch
+    MaxIter: 50
+    ResidualTol: 1.0e-05
+    StepTol: 1.0e-30
+    UseJacobian: true
+    VariableDz: false
+  OverlandKinematic:
+    Epsilon: 1.0e-05
+  PrintMannings: true
+  PrintSaturation: true
+  PrintSlopes: true
+  PrintSubsurf: true
+  PrintOverlandSum: true
+  PrintOverlandBCFlux: true
+  PrintVelocities: true
+  TerrainFollowingGrid: true
+  _value_: Richards
+SpecificStorage:
+  GeomNames: domain
+  Type: Constant
+TimeStep:
+  Type: Growth
+  InitialStep: 0.01
+  GrowthFactor: 1.1
+  MaxStep: 10
+  MinStep: 0.001
+TimingInfo:
+  BaseUnit: 1.0
+  DumpInterval: 24.0 
+  StartCount: 0
+  StartTime: 0.0
+  StopTime: 744
+TopoSlopesX:
+  FileName: slopeX.c250.v1.pfb
+  GeomNames: domain
+  Type: PFBFile
+TopoSlopesY:
+  FileName: slopeY.c250.v1.pfb
+  GeomNames: domain
+  Type: PFBFile
+Wells:
+  Names: ''
