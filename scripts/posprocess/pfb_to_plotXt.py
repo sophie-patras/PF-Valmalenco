@@ -26,7 +26,7 @@ from parflow.tools.io import read_pfb
 ###
 np.set_printoptions(precision=6)
 FIG_DIR = '/mnt/c/Users/Sophie/Documents/4-Figures/'
-plt.style.use('~/PF-Valmalenco/Codes/settings.mplstyle')
+plt.style.use('~/PF-Valmalenco/scripts/config.mplstyle')
 ###
 
 
@@ -44,11 +44,11 @@ dumptimes = args.dtimes
 # .pfb files path
 path_out = './'
 # input .asc dem
-path_dem = '/home/patras/PF-Valmalenco/Data/DataElab/'
+path_dem = '/home/patras/PF-Valmalenco/data/prepareddata/'
 filename_dem = 'hydroDEM.c250.v2.asc'
 f_dem = path_dem + filename_dem
 # controlpoints
-f_cp = '/home/patras/PF-Valmalenco/Data/controlpoints.txt'
+f_cp = '/home/patras/PF-Valmalenco/data/controlpoints.txt'
 
 
 # READ FILES (dem, cp, pfb)

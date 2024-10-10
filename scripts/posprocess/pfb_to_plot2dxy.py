@@ -3,7 +3,7 @@
 
 """
 For graphical output
-Pfb file (2d (1-layer) or 3d (p-layers)) to stacked plot
+Pfb file (2d (1-layer) or 3d (p-layers)) to surface layer plot
 
 Created on Wed Aug 7 16:01:20 2024
 @author: S.P.
@@ -18,8 +18,8 @@ from parflow.tools.fs import get_absolute_path
 from parflow.tools.io import read_pfb
 
 ###
-plt.style.use('~/PF-Valmalenco/Codes/settings.mplstyle')
-np.set_printoptions(precision=6)
+plt.style.use('/home/patras/PF-Valmalenco/scripts/config.mplstyle')
+#np.set_printoptions(precision=6)
 ###
 
 parser = argparse.ArgumentParser()
@@ -28,23 +28,30 @@ parser.add_argument('variable',type = str, default="press")
 parser.add_argument('dumptime',type = str, default="00007")
 args = parser.parse_args()
 
-#path_out = "/home/patras/Valmalenco/Data/DataPF/"
-#filename_out = "slopeY.c500.v2.pfb"
-# path_out = "/home/patras/Lombardy/Tmp/PLT_35_Leo/" #pyyamlshTmp/"
-# path_out = "/home/patras/Valmalenco/Tmp/"+args.runname+"_new/"
-path_out = './'
-filename_out = args.runname + ".out." + args.variable + "." + args.dumptime + ".pfb"
-# filename_out = "PLT_Box.out.slope_x.pfb"
-# filename_out = args.pfbfilename 
-f_out = path_out + filename_out
-data_to_plot = read_pfb(get_absolute_path(f_out))
+variable = args.variable
 
-datashape = data_to_plot.shape
+path_in = './' # execute from input file folder
+#filename_out = args.runname + ".out." + args.variable + "." + args.dumptime + ".pfb"
+#f_out = path_out + filename_out
+
+if variable == 'vel':
+    filename_x = args.runname + ".out." + variable + "x." + args.dumptime + ".pfb"
+    filename_y = args.runname + ".out." + variable + "y." + args.dumptime + ".pfb"
+    filename_z = args.runname + ".out." + variable + "z." + args.dumptime + ".pfb"
+    datax = read_pfb(get_absolute_path(path_in + filename_x))
+    datay = read_pfb(get_absolute_path(path_in + filename_y))
+    dataz = read_pfb(get_absolute_path(path_in + filename_z))
+    data = np.sqrt(np.square(datax[:,:,:-1]) + np.square(datay[:,1:,:]) + np.square(dataz[:-1,:,:]))
+else:
+    filename_in = args.runname + ".out." + args.variable + "." + args.dumptime + ".pfb"
+    f_in = path_in + filename_in
+    data = read_pfb(get_absolute_path(f_in))
+
+datashape = data.shape
 #print(f'Dimensions of output file: {datashape}') # plot (NZ,NY,NX)
-#print(type(data_to_plot))  # numpy array
 
 # Apply mask where data <-3.1e+38 (ie. nodata_value)
-data_masked = np.ma.masked_where(data_to_plot <= -3.e+38, data_to_plot, copy=True)
+#data_masked = np.ma.masked_where(data_to_plot <= -3.e+38, data_to_plot, copy=True)
 
 # LW_surface_press
 #DZ = 2.0
@@ -70,29 +77,44 @@ DepthFaceCellZ = np.array([sum(DZScaled[i:]) for i in range(len(DZScaled))])
 DepthCenteredCellZ = (-1)*(DepthFaceCellZ[:-1]+DepthFaceCellZ[1:])/2 #0 @ surface
 
 p = -1
-#for p in range(0,datashape[0]):
-Zvssurf = DepthCenteredCellZ[p] 
+z_agl = DepthCenteredCellZ[p] 
+data = data[p]
+#data = data_masked[p]
 
-data = data_masked[p]
+if variable[:-1]=='vel':
+    colorofmap = 'Spectral'
+    varlabel = '$v_' + variable[-1] + '$ [m/s]'
+    data = data * 1/(60*60)
+    varrange = [data.min(),data.max()]
+elif variable == 'vel':
+    colorofmap = 'Spectral'
+    varlabel = 'v [m/s]'
+    data = data * 1/(60*60)
+elif variable == 'press':
+    colorofmap = 'Blues'
+    varlabel = 'h [m agl]'
+    data = data + z_agl
+    varrange = [-2, 1]
+elif variable == 'satur':
+    colorofmap = 'Blues'
+    varlabel = 'S [-]'
+    varrange = [0, 1]
+
 vmin = data.min()
 vmax = data.max()
 vmean = np.mean(data)
-
-if args.variable[:-1]=='vel':
-    colorofmap = 'Spectral'
-else :
-    colorofmap = 'Blues'
 
 fig = plt.figure(dpi=150)
 ax = fig.add_subplot(111)
 
 plt.imshow(data,cmap = colorofmap, interpolation='nearest') 
-plt.colorbar()
+plt.colorbar(label = varlabel)
+#plt.clim(varrange[0],varrange[1])
 
-#ax.set_xlabel('x')
-#ax.set_ylabel('y')
-
+#ax.set_xlabel('nx')
+#ax.set_ylabel('ny')
 ax.set_ylim(0, 102)
+
 #m = plt.cm.ScalarMappable(cmap=plt.cm.Blues)  #, norm=surf.norm)
 #vmin = data.min()
 #vmax = data.max()
