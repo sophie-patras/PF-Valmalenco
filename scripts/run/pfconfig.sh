@@ -21,7 +21,7 @@ cellsize=250 # in {500; 250; 100}
 echo "Job started at " `date`
 
 # chmod +rx pfsimulation_yaml.py
-python3 pfsimulation_yamlall.py $run_name $cellsize --parflow-directory ${PARFLOW_DIR} --working-directory ${WORK_DIR} --show-line-error --validation-verbose -p 4 -q 4 -r 1
+python3 pfsimulation_yamlall.py $run_name $cellsize --parflow-directory ${PARFLOW_DIR} --working-directory ${WORK_DIR} --show-line-error --validation-verbose -p 3 -q 3 -r 1
 
 # run_script.py [-h] [--parflow-directory PARFLOW_DIRECTORY] [--parflow-version PARFLOW_VERSION]
 #  [--working-directory WORKING_DIRECTORY] [--skip-validation] [--dry-run] [--show-line-error]

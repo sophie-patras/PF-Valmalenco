@@ -27,8 +27,8 @@ parser.add_argument('-working-directory', '--working-directory', default="~/Valm
 parser.add_argument('--show-line-error', action='store_true')
 parser.add_argument('--validation-verbose', action='store_true')
 # parser.add_argument('--write-yaml',action='store_true')
-parser.add_argument('-p', '--p', type=int, default=4)
-parser.add_argument('-q', '--q', type=int, default=4)
+parser.add_argument('-p', '--p', type=int, default=2)
+parser.add_argument('-q', '--q', type=int, default=2)
 parser.add_argument('-r', '--r', type=int, default=1)
 args = parser.parse_args()
 
@@ -44,6 +44,11 @@ slopeyfn = 'slopeY.c'+str(int(args.cellsize))+'.v1.pfb'
 #print(slopexfn)
 runname.dist(slopexfn)
 runname.dist(slopeyfn)
+runname.dist('KS.c250.v2-331.pfb')
+runname.dist('MRC_Tr.c250.v1-331.pfb')
+runname.dist('MRC_Ts.c250.v1-331.pfb')
+runname.dist('MRC_a.c250.v1-331.pfb')
+runname.dist('MRC_n.c250.v1-331.pfb')
 
 runname.run()
 
