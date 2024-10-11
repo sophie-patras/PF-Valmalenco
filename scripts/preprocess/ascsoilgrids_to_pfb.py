@@ -20,6 +20,7 @@ from parflow.tools.io import write_pfb, read_pfb
 plt.style.use('../config.mplstyle')
 
 # path to files
+# ascsoilgrids files required previous preprocessing with gdal to clip extent, interpolated data at dem raster format, on corrected EPSG (done from qgis interface)
 path_in = "../../data/prepareddata/" # corrected EPSG:32632 and framed to hydroDem.c250 with QGIS
 param = "MRC_a" # in {KS, THS, MRC}
 fname_in = "_sl4_VM.asc"

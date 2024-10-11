@@ -23,7 +23,7 @@ parser.add_argument('ascfilename', type = str)
 args = parser.parse_args()
 
 # input .asc
-path_in = './' #/../../data/prepareddata/'
+path_in = '/home/patras/PF-Valmalenco/data/prepareddata/'
 # path_in = '/home/patras/Lombardy/Data/TXT/'
 filename_in = args.ascfilename
 #filename_in = 'hydroDEM.c500.v2.asc'
