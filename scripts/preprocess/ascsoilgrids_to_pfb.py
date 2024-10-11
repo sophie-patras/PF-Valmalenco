@@ -21,7 +21,7 @@ plt.style.use('../config.mplstyle')
 
 # path to files
 path_in = "../../data/prepareddata/" # corrected EPSG:32632 and framed to hydroDem.c250 with QGIS
-param = "KS" # in {KS, THS, MRC}
+param = "MRC_a" # in {KS, THS, MRC}
 fname_in = "_sl4_VM.asc"
 f_in = path_in + param + fname_in
 
@@ -62,7 +62,15 @@ idxmask = np.where(data == nodata_value)
 if param == 'KS':
     data = data*1/100*0.01/24 # [m/h]
     data[idxmask] = data.max()
+    data[idxmask] = data.min() # masking with min value
+elif param == 'MRC_a':
+    data = data*100/10000
+    data[idxmask] = data.max()
     data[idxmask] = data.min()
+elif param[:3] == 'MRC':
+    data = data*1/10000 # 
+    data[idxmask] = data.max()
+    data[idxmask] = data.min() # masking with min value
 
 print(data)
 # data = np.ma.masked_where(data == nodata_value, data, copy=True)
@@ -73,10 +81,19 @@ print(idxmask)
 #data = data[::-1,::-1] #rotate by 180 degree
 data = np.flip(data,0)
 
+nlayers = 6
+stackeddata = np.empty((nlayers, nrows, ncols))
+stackeddata[0] = data
+stackeddata[1] = data
+stackeddata[2] = data
+stackeddata[3] = data
+stackeddata[4] = data
+stackeddata[5] = data
+
 # write pfb
 # write_pfb(file, array, p=1, q=1, r=1, x=0.0, y=0.0, z=0.0, dx=1.0, dy=1.0, dz=1.0, z_first=True, dist=True, **kwargs)
 
-fname_out = param + ".c" + str(int(cellsize)) + ".v" + version +".pfb"
+fname_out = param + ".c" + str(int(cellsize)) + ".v" + version +"-331.pfb"
 f_out = path_out + fname_out
-write_pfb(get_absolute_path(f_out), data, p=4, q=4, r=1, x=0, y=0, z=0, dx=cellsize, dy=cellsize, dz=1.0, z_first=True, dist=False)
+write_pfb(get_absolute_path(f_out), stackeddata, p=3, q=3, r=1, x=0, y=0, z=0, dx=cellsize, dy=cellsize, dz=1.0, z_first=True, dist=False)
 
