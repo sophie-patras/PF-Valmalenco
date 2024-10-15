@@ -1,0 +1,6 @@
+# lines to copy
+
+# web adress for download :
+
+# cp .zip data/rawdata/SG_S14
+# unzip .zip
