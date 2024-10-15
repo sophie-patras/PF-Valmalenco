@@ -7,7 +7,7 @@ Created on Mon Aug 5 11:37:26 2024
 @author: Sophie Patras
 """
 
-import os, sys, argparse
+import os, sys, re, argparse
 import numpy as np
 
 from parflow import Run
@@ -39,6 +39,7 @@ runname = Run(args.run_name, __file__)
 #print(yamlfn)
 runname.pfset(yaml_file='InputKeys_c250.yaml')
 
+# dist
 slopexfn = 'slopeX.c'+str(int(args.cellsize))+'.v1.pfb'
 slopeyfn = 'slopeY.c'+str(int(args.cellsize))+'.v1.pfb'
 #print(slopexfn)
@@ -50,6 +51,17 @@ runname.dist('MRC_Ts.c250.v1-331.pfb')
 runname.dist('MRC_a.c250.v1-331.pfb')
 runname.dist('MRC_n.c250.v1-331.pfb')
 
+# clm
+#variables = ['DSWR', 'DLWR', 'Press', 'SPFH', 'Temp', 'APCP', 'UGRD', 'VGRD']
+#path_clm = '.'
+#for variable in variables:
+#    p = re.compile('clm.v1-331.'+ variable + '.000[0-9][0-9][0-9]_to_000[0-9][0-9][0-9].pfb')
+#    for filename in sorted(os.listdir(path_clm)):
+#        if p.match(filename):
+#            fn_path = os.path.join(path_clm, filename)
+#            runname.dist(fn_path)
+
+# run
 runname.run()
 
 #end

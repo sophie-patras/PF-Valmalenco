@@ -14,7 +14,7 @@ export WORK_DIR=/home/patras/PF-Valmalenco/scripts/run/tmp/
 
 # cp /home/patras/Valmalenco/Data/DataPF/slope* ${WORK_DIR}
 
-run_name=SeepBox_UZ # in {PLT,CLM,...}
+run_name=CLM_UZ # in {PLT,CLM,...}
 cellsize=250 # in {500; 250; 100}
 
 ## RUN SIMULATION
@@ -29,7 +29,7 @@ python3 pfsimulation_yamlall.py $run_name $cellsize --parflow-directory ${PARFLO
 
 echo "Job finished at " `date`
 
-rm tmp/*.dist
+#rm tmp/*.dist
 ls tmp/
 cp InputKeys_c250.yaml tmp/${run_name}.yaml
 #rm /home/patras/Valmalenco/Tmp/${run_name}_new/*
