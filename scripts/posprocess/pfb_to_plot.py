@@ -25,24 +25,33 @@ from parflow.tools.io import read_pfb
 from parflow import Run
 from parflow.tools.hydrology import calculate_surface_storage, calculate_water_table_depth, calculate_overland_flow_grid, calculate_subsurface_storage
 
+from Xcrs_to_Xidx import *
+
 plt.style.use('/home/patras/PF-Valmalenco/scripts/config.mplstyle')
-path_fig = '/mnt/c/Users/User/Documents/POLIMI/0_TESI/8-Figures/'
+#path_fig = '/mnt/c/Users/User/Documents/POLIMI/0_TESI/8-Figures/'   #local
+path_fig = '/mnt/c/Users/Sophie/Documents/4-Figures/'   #distant
 
 ###############################################################################################
 # INPUT
 
 #path = '/home/patras/PF-Test/DumbSquare/outputs/'
-#foldername = 'DS.c1_v8'
+#foldername = 'DS.c1_v7R'
 #runname = 'DS.c1'
 
-path = '/home/patras/PF-Test/'
-foldername = 'LW'
-runname = 'LW_surface_press'
+path = '/home/patras/PF-Valmalenco/outputs/'
+foldername = 'CLM_V22'
+runname = 'CLM_V2'
+
+#path = '/home/patras/PF-Test/LW/outputs/'
+#foldername = 'LW_surface_press'
+#runname = 'LW_surface_press'
 
 ###############################################################################################
 
 run = Run.from_definition(f'{path}{foldername}/{runname}.pfidb')
 data = run.data_accessor
+
+#print(data)
 
 dx = data.dx
 dy = data.dy
@@ -53,6 +62,12 @@ nx = data.shape[2]
 ny = data.shape[1]
 nz = data.shape[0]
 #nt = data.time
+
+# domain rect cells
+x_centers = dx*(np.linspace(1,nx,nx)-1/2)
+y_centers = dy*(np.linspace(1,ny,ny)-1/2)
+x_faces = dx*(np.linspace(0,nx,nx+1))
+y_faces = dy*(np.linspace(0,ny,ny+1))
 
 porosity = data.computed_porosity
 specific_storage = data.specific_storage
@@ -83,47 +98,156 @@ def read_pfidb(path,runname):
     slopey = data.slope_y               # shape (ny, nx)
     mannings = data.mannings
 
-def layers_centereddepth():
+#def layers_centereddepth():
     
-    dzscaled = np.concatenate((dz,[0]))
-    facedepth = np.array([sum(dzscaled[i:]) for i in range(nz+1)])
-    centereddepth = (-1)*(facedepth[:-1]+facedepth[1:])/2 #0 @ surface
-    #print(centereddepth)
-    return centereddepth
+dzscaled = np.concatenate((dz,[0]))
+z_faces = (-1)*np.array([sum(dzscaled[i:]) for i in range(nz+1)])
+print('z_faces',z_faces)
+z_centers = (z_faces[:-1]+z_faces[1:])/2
+print('z_centers',z_centers)
+z_centers = [round(z_centers[i],4) for i in range(nz)]
+#return z_centers, z_faces
 
 def list_dumptimes(): #(path,runname):
-    ndt = 7
+    ndt = 7 + 1
     return ndt
 
-def readpfblist_to_4Darray(path,runname,variable):
+def readpfblist_to_3Dtarray(path,runname,variable):
 
     nt = list_dumptimes() #path,runname)
-    variable4D_rawpfb = np.empty((nt,nz,ny,nx))
     data.time=0
     if variable == 'press':
+        variable4D_rawpfb = np.empty((nt,nz,ny,nx))
         for t in range(nt):
             variable4D_rawpfb[t] = data.pressure
             data.time +=1
     if variable == 'satur':
+        variable4D_rawpfb = np.empty((nt,nz,ny,nx))
         for t in range(nt):
             variable4D_rawpfb[t] = data.saturation
             data.time +=1
-    if variable == 'velx': #NO !
+    if variable == 'velx':
+        variable4D_rawpfb = np.empty((nt,nz,ny,nx+1))
         for t in range(nt):
-            variable4D_rawpfb[t] = data.velx
-            data.time +=1
+            filename = path + foldername + '/' + runname + ".out." + variable + "." + str(t).zfill(5) + ".pfb"
+            variable4D_rawpfb[t] = read_pfb(filename)
     if variable == 'vely':
+        variable4D_rawpfb = np.empty((nt,nz,ny+1,nx))
         for t in range(nt):
-            variable4D_rawpfb[t] = data.vely
-            data.time +=1
+            filename = path + foldername + '/' + runname + ".out." + variable + "." + str(t).zfill(5) + ".pfb"
+            variable4D_rawpfb[t] = read_pfb(filename)
     if variable == 'velz':
+        variable4D_rawpfb = np.empty((nt,nz+1,ny,nx))
         for t in range(nt):
-            variable4D_rawpfb[t] = data.velz
-            data.time +=1
+            filename = path + foldername + '/' + runname + ".out." + variable + "." + str(t).zfill(5) + ".pfb"
+            variable4D_rawpfb[t] = read_pfb(filename)
 
     return variable4D_rawpfb
 
-def plot2dxz(variable4D_rawpfb,ny,varname):
+
+def projected_array(array_3Dt,projection,idx):
+
+    array = array_3Dt
+    if projection == '2dxz':
+        array_2Dt = array[:,:,idx]
+    if projection == '2dxy':
+        array_2Dt = array[:,idx]
+    if projection == '2dyz':
+        array_2Dt = array[:,:,:,idx]
+
+    return array_2Dt
+
+def projscaling(varname, projection):
+
+    if projection == '2dxz':
+        xlabels = 'x [m]'
+        ylabels = 'z [m agl]'
+        xlim = x_faces
+        ylim = z_faces
+    if projection == '2dxy':
+        xlabels = 'x [m]'
+        ylabels = 'y [m]'
+        xlim = x_faces
+        ylim = y_faces
+    if projection == '2dyz':
+        xlabels = 'y [m]'
+        ylabels = 'z [m agl]'
+        xlim = y_faces
+        ylim = z_faces
+
+    if (varname == 'press') | (varname == 'satur'):
+    # cell centered values
+        if projection == '2dxz':
+            print('test :',varname)
+            x = x_centers
+            y = z_centers
+        if projection == '2dxy':
+            x = x_centers
+            y = y_centers
+        if projection == '2dyz':
+            x = y_centers
+            y = z_centers
+
+    # velocities//i : faces centered values//i
+    if varname == 'velx':
+        if projection == '2dxz':
+            x = x_faces
+            y = z_centers
+        if projection == '2dxy':
+            x = x_faces
+            y = y_centers
+        if projection == '2dyz':
+            x = y_centers
+            y = z_centers
+
+    if varname == 'vely':
+        if projection == '2dxz':
+            x = x_centers
+            y = z_centers
+        if projection == '2dxy':
+            x = x_centers
+            y = y_faces
+        if projection == '2dyz':
+            x = y_faces
+            y = z_centers
+
+    if varname == 'velz':
+        if projection == '2dxz':
+            x = x_centers
+            y = z_faces
+        if projection == '2dxy':
+            x = x_centers
+            y = y_centers
+        if projection == '2dyz':
+            x = y_centers
+            y = z_faces
+
+    return x,y,xlabels,ylabels,xlim,ylim
+
+def variablescaling(array,variable):
+
+    if variable[:-1]=='vel':
+        colorofmap = 'Spectral'
+        varlabel = '$v_' + variable[-1] + '$ [m/h]'
+        varrange = [array.min(),array.max()]
+    elif variable == 'vel':
+        colorofmap = 'Spectral'
+        varlabel = 'v [m/h]'
+        varrange = [array.min(),array.max()]
+    elif variable == 'press':
+        colorofmap = 'Blues'
+        varlabel = 'h [m above layer]'
+        varrange = [array.min(), array.max()] #min(array.max(),2)]
+        #varrange = [-0.7, 0.1]
+    elif variable == 'satur':
+        colorofmap = 'Blues'
+        varlabel = 'S [-]'
+        #varrange = [data.min(), data.max()]
+        varrange = [max(0, array.min()), min(array.max(), 1)]
+
+    return colorofmap, varlabel, varrange
+
+def plotsingle_proj2d(variable4D_rawpfb,varname,dt,projection,idx):
 
     array = variable4D_rawpfb[:,:,ny,:]
     nt = array.shape[0]
@@ -153,117 +277,111 @@ def plot2dxz(variable4D_rawpfb,ny,varname):
         plt.savefig(f'{path_fig}{foldername}.{varname}.{str(t).zfill(5)}.2dxz.png', dpi = 300)
         plt.close()
 
-def plot2dxy(variable4D_rawpfb,nz,varname):
+def plotmosaic_proj2d(runname,projection,idx):
 
-    array = variable4D_rawpfb[:,nz,:,:]
-    nt = array.shape[0]
-
-    x = np.linspace(0,nx-1,nx)
-    y = np.linspace(0,ny-1,ny)
-
-    for t in range(nt):
-
-        fig, ax = plt.subplots()
-        plt.pcolormesh(x, y, array[t], cmap='Blues')
-        varlabel = 'h [m above layer]'
-        varrange = [array.min(), array.max()]
-
-        #plt.imshow(data,cmap = colorofmap, origin="lower", extent=[0,10,-1,0], aspect=2) #, interpolation='nearest'/'none')
-        
-        #ax.set(yticks=z, yticklabels=z)
-        plt.colorbar(label = varlabel)
-        #plt.colorbar(orientation='vertical', label = r'pressure head vs sl1 [m]', fraction = 0.04, pad = 0.0)
-        plt.clim(varrange[0],varrange[1])
-        
-        #plt.axis('off')
-        ax.set_xlabel('x [m]')
-        ax.set_ylabel('y [m]')
-        plt.savefig(f'{path_fig}{foldername}.{varname}.{str(t).zfill(5)}.2dxy.png', dpi = 300)
-        plt.close()
-
-def variablescaling(array,variable):
-
-    if variable[:-1]=='vel':
-        colorofmap = 'Spectral'
-        varlabel = '$v_' + variable[-1] + '$ [m/h]'
-        varrange = [array.min(),array.max()]
-    elif variable == 'vel':
-        colorofmap = 'Spectral'
-        varlabel = 'v [m/h]'
-        varrange = [array.min(),array.max()]
-    elif variable == 'press':
-        colorofmap = 'Blues'
-        varlabel = 'h [m above layer]'
-        varrange = [array.min(), array.max()] #min(data.max(),2)]
-        #varrange = [-0.7, 0.1]
-    elif variable == 'satur':
-        colorofmap = 'Blues'
-        varlabel = 'S [-]'
-        #varrange = [data.min(), data.max()]
-        varrange = [0, 1]
-
-    return colorofmap, varlabel, varrange
-
-def plotmosaic(runname,projection,idx):
-
-    if projection == '2dxz':
-        x = np.linspace(0,nx-1,nx)
-        y = layers_centereddepth()
-        y = [round(y[i],4) for i in range(nz)]
-    if projection == '2dxy':
-        x = np.linspace(0,nx-1,nx)
-        y = np.linspace(0,ny-1,ny)
-    if projection == '2dyz':
-        x = np.linspace(0,ny-1,ny)
-        y = layers_centereddepth()
-        y = [round(y[i],4) for i in range(nz)]
-
-    fig, axs = plt.subplots(nt,len(pfb_outputvariables),figsize=(len(pfb_outputvariables)*5,nt*5+2))
+    fig, axs = plt.subplots(nt+1,len(pfb_outputvariables),figsize=(len(pfb_outputvariables)*6,nt*5),
+                            gridspec_kw={'width_ratios': [1, 1, 1, 1, 1],
+                                        'height_ratios': [1, 1, 1, 1, 1, 1, 1, 1, 0.5]}) #
+                                        #'wspace': 0.4,
+                                        #'hspace': 0.4})
 
     for v in range(len(pfb_outputvariables)):
         vname = pfb_outputvariables[v]
-        array = readpfblist_to_4Darray(path,runname,vname)
-        if projection == '2dxz':
-            array = array[:,:,idx]
-        if projection == '2dxy':
-            array = array[:,idx]
-        if projection == '2dyz':
-            array = array[:,:,:,idx]
-        pltsettings = variablescaling(array, pfb_outputvariables[v])
-        for t in range(nt):
-            im = axs[t,v].pcolormesh(x, y, array[t], shading='auto', cmap=pltsettings[0])
-            varlabel = pltsettings[1]
-            varrange = pltsettings[2]
+        print(vname, ' axs loop')
 
-            if projection == '2dxz':
+        projectioninfo = projscaling(vname, projection)
+        x = projectioninfo[0]
+        y = projectioninfo[1]
+        xtit = projectioninfo[2]
+        ytit = projectioninfo[3]
+        xlim = projectioninfo[4]
+        ylim = projectioninfo[5]
+
+        array_3Dt = readpfblist_to_3Dtarray(path,runname,vname)
+        array_2Dt = projected_array(array_3Dt,projection,idx)
+        pltsettings = variablescaling(array_2Dt, vname)
+        varcolor = pltsettings[0]
+        varlabel = pltsettings[1]
+        varrange = pltsettings[2]
+
+        array_fantom = np.empty(array_2Dt[0].shape)
+
+        for t in range(nt):
+            print(t, 't axs loop', np.mean(array_2Dt[t]))
+            im = axs[t,v].pcolormesh(x, y, array_2Dt[t], shading='auto', cmap=varcolor, vmin = varrange[0], vmax=varrange[1] )
+
+            if (projection == '2dxz') | (projection == '2dyz'):
                 axs[t,v].set_yticks(y)
-                axs[t,v].set_ylabel('z [m agl]')
-            #plt.clim(varrange[0],varrange[1])
+                #axs[t,v].set_aspect(10000)
+            elif projection == '2dxy':
+                axs[t,v].set_aspect('equal')
+            
+            axs[t,v].set_xlabel(xtit)
+            #axs[t,v].set_xlim(xlim[0],xlim[-1])
+            axs[t,v].set_ylabel(ytit)
+            #axs[t,v].set_ylim(ylim[0],ylim[-1])
+
             #plt.axis('off')
-            #ax.set_xlabel('x [m]')
-        fig.colorbar(im, ax=axs[t,v], orientation='horizontal', label = varlabel)
+
+            axs[t, 0].text(0, 0.9, f'dumptime {t}') #, ha='center', va='center', transform=axs[t, v].transAxes)
+        im_fantom = axs[t+1,v].pcolormesh(x,y,array_fantom)
+        axs[t+1,v].set_aspect('0.001')
+        axs[t+1,v].axis('off')
+        fig.colorbar(im, ax=axs[t+1,v], orientation='horizontal', label = varlabel, fraction=0.5, pad=0.04)
+        axs[0,v].set_title(f'{varlabel}')
+    #plt.title(f'Sequence of PF direct outputs for run {foldername}, in plan {projection}')
     plt.tight_layout()
     plt.savefig(f'{path_fig}{foldername}.varall.dtall.{projection}-{idx}.png', dpi = 300)
     plt.close()
 
+def plotXt(runname, Xcp, varname):
+
+    X = Xcp[0]
+    loc_cp = Xcp[1]
+    position_layer = nz-1
+    array_3Dt = readpfblist_to_3Dtarray(path,runname,varname)
+    tarray = np.linspace(0,nt-1,nt)
+    fig = plt.figure(1)
+    ax = fig.add_subplot(111)
+
+    for x in range(3):
+
+        array_Xt = array_3Dt[:,position_layer,X[x,0],X[x,1]]
+
+        ax.plot(tarray,array_Xt,label=loc_cp[x])
+    
+    ax.grid(True)
+    ax.legend()
+    ax.set_xlabel('t [d]')
+    ax.set_ylabel(f'{varname}')
+
+    #plt.show()
+    plt.savefig(f'{path_fig}{foldername}.{varname}.dtall.X.png', dpi = 300)
+
 
 ################################################################""
 
-pfb_outputvariables = ['press','satur'] #,'velx','vely','velz']
+pfb_outputvariables = ['press','satur','velx','vely','velz']
 plot_projections = ['2dxy','2dxz','3d']
 
 nt = list_dumptimes()
-varname = 'satur'
-var_4D = readpfblist_to_4Darray(path,runname,varname)
+#varname = 'satur'
+#var_4D = readpfblist_to_4Darray(path,runname,varname)
 #print(press_4D.shape)
 
-yidx = 0
 zidx = data.shape[0]-1
+yidx = 0
 xidx = int(data.shape[2]/2)
 
 #plot2dxz(var_4D,yidx,varname)
 #plot2dxy(var_4D,zidx-1,varname)
 
-plotmosaic(runname,'2dxz',yidx)
-plotmosaic(runname,'2dxy',zidx)
-#plotmosaic(runname,'2dyz',xidx)
+plotmosaic_proj2d(runname,'2dxz',yidx)
+plotmosaic_proj2d(runname,'2dxy',zidx)
+plotmosaic_proj2d(runname,'2dyz',xidx)
+
+f_cp = '/home/patras/PF-Valmalenco/data/controlpoints.txt'
+Xidx_cp = read_cpcsv(f_cp)
+#print(Xidx_cp)
+
+plotXt(runname,Xidx_cp,'press')
