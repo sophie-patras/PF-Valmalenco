@@ -26,6 +26,7 @@ from parflow import Run
 from parflow.tools.hydrology import calculate_surface_storage, calculate_water_table_depth, calculate_overland_flow_grid, calculate_subsurface_storage
 
 from Xcrs_to_Xidx import *
+from read_log import *
 
 plt.style.use('/home/patras/PF-Valmalenco/scripts/config.mplstyle')
 #path_fig = '/mnt/c/Users/User/Documents/POLIMI/0_TESI/8-Figures/'   #local
@@ -35,7 +36,7 @@ path_fig = '/mnt/c/Users/Sophie/Documents/4-Figures/'   #distant
 # INPUT
 
 path = '/home/patras/PF-Test/DumbSquare/outputs/'
-foldername = 'DS.c1_v7R'
+foldername = 'DS.c1_v11R'
 runname = 'DS.c1'
 
 """
@@ -110,13 +111,12 @@ print('z_centers',z_centers)
 z_centers = [round(z_centers[i],4) for i in range(nz)]
 #return z_centers, z_faces
 
-def list_dumptimes(): #(path,runname):
-    ndt = 7 + 1
-    return ndt
+#def list_dumptimes(): #(path,runname):
+#    ndt = 7 + 1
+#    return ndt
 
 def readpfblist_to_3Dtarray(path,runname,variable):
 
-    nt = list_dumptimes() #path,runname)
     data.time=0
     if variable == 'press':
         variable4D_rawpfb = np.empty((nt,nz,ny,nx))
@@ -143,19 +143,13 @@ def readpfblist_to_3Dtarray(path,runname,variable):
         for t in range(nt):
             filename = path + foldername + '/' + runname + ".out." + variable + "." + str(t).zfill(5) + ".pfb"
             variable4D_rawpfb[t] = read_pfb(filename)
-    if variable == 'overlandsum':
-        variable4D_rawpfb = np.empty((nt,nz+1,ny,nx))
-        for t in range(nt):
-            filename = path + foldername + '/' + runname + ".out." + variable + "." + str(t).zfill(5) + ".pfb"
-            variable4D_rawpfb[t] = read_pfb(filename)
-    if variable == 'overland_bc_flux':
-        variable4D_rawpfb = np.empty((nt,nz+1,ny,nx))
-        for t in range(nt):
+    if (variable == 'overlandsum') | (variable == 'overland_bc_flux'):
+        variable4D_rawpfb = np.zeros((nt,ny,nx))
+        for t in range(1,nt):
             filename = path + foldername + '/' + runname + ".out." + variable + "." + str(t).zfill(5) + ".pfb"
             variable4D_rawpfb[t] = read_pfb(filename)
 
     return variable4D_rawpfb
-
 
 def projected_array(array_3Dt,projection,idx):
 
@@ -186,19 +180,6 @@ def projscaling(varname, projection):
         ylabels = 'z [m agl]'
         xlim = y_faces
         ylim = z_faces
-
-    if (varname == 'press') | (varname == 'satur'):
-    # cell centered values
-        if projection == '2dxz':
-            print('test :',varname)
-            x = x_centers
-            y = z_centers
-        if projection == '2dxy':
-            x = x_centers
-            y = y_centers
-        if projection == '2dyz':
-            x = y_centers
-            y = z_centers
 
     # velocities//i : faces centered values//i
     if varname == 'velx':
@@ -234,6 +215,20 @@ def projscaling(varname, projection):
             x = y_centers
             y = z_faces
 
+    if (varname == 'press') | (varname == 'satur') | (varname== 'overland_bc_flux') | (varname=='overlandsum') :
+        #print(f'{varname}')
+    # cell centered values
+        if projection == '2dxz':
+            #print('test :',varname)
+            x = x_centers
+            y = z_centers
+        if projection == '2dxy':
+            x = x_centers
+            y = y_centers
+        if projection == '2dyz':
+            x = y_centers
+            y = z_centers
+
     return x,y,xlabels,ylabels,xlim,ylim
 
 def variablescaling(array,variable):
@@ -256,18 +251,19 @@ def variablescaling(array,variable):
         varlabel = 'S [-]'
         #varrange = [data.min(), data.max()]
         varrange = [max(0, array.min()), min(array.max(), 1)]
+    elif (variable == 'overlandsum') | (variable == 'overland_bc_flux'):
+        colorofmap = 'jet'
+        varlabel = 'overland flux [m^3/h]'
+        varrange = [0,2] #array.min(),array.max()]
 
     return colorofmap, varlabel, varrange
 
 def plotsingle_proj2d(variable4D_rawpfb,varname,dt,projection,idx):
 
     array = variable4D_rawpfb[:,:,ny,:]
-    nt = array.shape[0]
-    #print(array.shape)
 
     x = np.linspace(0,nx-1,nx)
-    z = layers_centereddepth()
-    z = [round(z[i],4) for i in range(nz)]
+    z = z_centers
 
     for t in range(nt):
 
@@ -287,20 +283,23 @@ def plotsingle_proj2d(variable4D_rawpfb,varname,dt,projection,idx):
         ax.set_xlabel('x [m]')
         ax.set_ylabel('z [m agl]')
         plt.savefig(f'{path_fig}{foldername}.{varname}.{str(t).zfill(5)}.2dxz.png', dpi = 300)
-        plt.close()
 
 def plotmosaic_proj2d(runname,projection,idx):
 
-    nbvar = len(pfb_outputvariables)
+    pfb_outvariables = pfb_out3dtvariables
+    if (projection == '2dxy') & (idx == nz-1):
+        pfb_outvariables = pfb_out3dtvariables + pfb_out2dtvariables
+    
+    nbvar = len(pfb_outvariables)
 
     fig, axs = plt.subplots(nt+1,nbvar,figsize=(nbvar*6,nt*5),
-                            gridspec_kw={'width_ratios': [1, 1, 1, 1, 1],
-                                        'height_ratios': [1, 1, 1, 1, 1, 1, 1, 1, 0.5]}) #
+                            gridspec_kw={'width_ratios': [1]*nbvar,
+                                        'height_ratios': [1]*nt + [0.5]}) #
                                         #'wspace': 0.4,
                                         #'hspace': 0.4})
 
     for v in range(nbvar):
-        vname = pfb_outputvariables[v]
+        vname = pfb_outvariables[v]
         print(vname, ' axs loop')
 
         projectioninfo = projscaling(vname, projection)
@@ -311,8 +310,11 @@ def plotmosaic_proj2d(runname,projection,idx):
         xlim = projectioninfo[4]
         ylim = projectioninfo[5]
 
-        array_3Dt = readpfblist_to_3Dtarray(path,runname,vname)
-        array_2Dt = projected_array(array_3Dt,projection,idx)
+        array_2Dt = readpfblist_to_3Dtarray(path,runname,vname) #3Dt, future 2Dt
+        if (vname != 'overland_bc_flux') & (vname != 'overlandsum'):
+            array_2Dt = projected_array(array_2Dt,projection,idx)
+        #print(array_2Dt.shape)
+        
         pltsettings = variablescaling(array_2Dt, vname)
         varcolor = pltsettings[0]
         varlabel = pltsettings[1]
@@ -336,8 +338,8 @@ def plotmosaic_proj2d(runname,projection,idx):
             #axs[t,v].set_ylim(ylim[0],ylim[-1])
 
             #plt.axis('off')
-
-            axs[t, 0].set_title(f't={t}d',loc='left') #, ha='center', va='center', transform=axs[t, v].transAxes)
+            realt = dt_real[t]
+            axs[t, 0].set_title(f't={realt}h',loc='left') #, ha='center', va='center', transform=axs[t, v].transAxes)
         axs[0,v].set_title(f'{varlabel}')
         #axs[0,0].set_title(f't=0d \t\t\t {varlabel}',loc='left')
         im_fantom = axs[t+1,v].pcolormesh(x,y,array_fantom)
@@ -356,13 +358,14 @@ def plot_multiXt(runname, Xcp):
     nbX = X.shape[0]
     loc_cp = Xcp[1]
     position_layer = nz-1
-    tarray = np.linspace(0,nt-1,nt)
+
+    tarray = dt_real #np.linspace(0,nt-1,nt)
     
-    nbvar = len(pfb_outputvariables)
+    nbvar = len(pfb_out3dtvariables)
     fig, axs = plt.subplots(1,nbvar,figsize=(nbvar*6,5))
 
     for v in range(nbvar):
-        vname = pfb_outputvariables[v]
+        vname = pfb_out3dtvariables[v]
         array_3Dt = readpfblist_to_3Dtarray(path,runname,vname)
         pltsettings = variablescaling(array_3Dt, vname)
         varlabel = pltsettings[1]
@@ -373,7 +376,7 @@ def plot_multiXt(runname, Xcp):
     
         axs[v].grid(True)
         axs[v].legend()
-        axs[v].set_xlabel('t [d]')
+        axs[v].set_xlabel('t [h]')
         axs[v].set_ylabel(f'{varlabel}')
 
     #plt.show()
@@ -385,11 +388,11 @@ def plot_zXt(runname, Xcp):
     loc_cp = Xcp[1]
     tarray = np.linspace(0,nt-1,nt)
     
-    nbvar = len(pfb_outputvariables)
+    nbvar = len(pfb_out3dtvariables)
     fig, axs = plt.subplots(1,nbvar,figsize=(nbvar*6,5))
 
     for v in range(nbvar):
-        vname = pfb_outputvariables[v]
+        vname = pfb_out3dtvariables[v]
         array_3Dt = readpfblist_to_3Dtarray(path,runname,vname)
         pltsettings = variablescaling(array_3Dt, vname)
         varlabel = pltsettings[1]
@@ -400,7 +403,7 @@ def plot_zXt(runname, Xcp):
     
         axs[v].grid(True)
         axs[v].legend()
-        axs[v].set_xlabel('t [d]')
+        axs[v].set_xlabel('t [h]')
         axs[v].set_ylabel(f'{varlabel}')
 
     #plt.show()
@@ -409,24 +412,29 @@ def plot_zXt(runname, Xcp):
 
 ################################################################""
 
-pfb_outputvariables = ['press','satur','velx','vely','velz'] #,'overland_bc_flux', 'overlandsum']
+pfb_out3dtvariables = ['press','satur','velx','vely','velz']
+pfb_out2dtvariables = ['overland_bc_flux', 'overlandsum']
+
 plot_projections = ['2dxy','2dxz','2dyz','1d','3d']
 
-nt = list_dumptimes()
+dt_real = dump_to_simulatedtimes_equivalent(path,foldername,runname)
+print(f'dumptimes {dt_real}')
+nt = len(dt_real)
+
 #varname = 'satur'
 #var_4D = readpfblist_to_4Darray(path,runname,varname)
 #print(press_4D.shape)
 
-zidx = data.shape[0]-1
+zidx = nz-1
 yidx = 0
-xidx = int(data.shape[2]/2)
+xidx = int(nx/2)
 
 #plot2dxz(var_4D,yidx,varname)
 #plot2dxy(var_4D,zidx-1,varname)
 
-plotmosaic_proj2d(runname,'2dxz',yidx)
+#plotmosaic_proj2d(runname,'2dxz',yidx)
 plotmosaic_proj2d(runname,'2dxy',zidx)
-plotmosaic_proj2d(runname,'2dyz',xidx)
+#plotmosaic_proj2d(runname,'2dyz',xidx)
 
 #f_cp = '/home/patras/PF-Valmalenco/data/controlpoints.txt'
 #Xidx_cp = read_cpcsv(f_cp)
