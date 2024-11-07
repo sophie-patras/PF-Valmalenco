@@ -34,17 +34,19 @@ path_fig = '/mnt/c/Users/Sophie/Documents/4-Figures/'   #distant
 ###############################################################################################
 # INPUT
 
-#path = '/home/patras/PF-Test/DumbSquare/outputs/'
-#foldername = 'DS.c1_v7R'
-#runname = 'DS.c1'
+path = '/home/patras/PF-Test/DumbSquare/outputs/'
+foldername = 'DS.c1_v7R'
+runname = 'DS.c1'
 
+"""
 path = '/home/patras/PF-Valmalenco/outputs/'
 foldername = 'CLM_V22'
 runname = 'CLM_V2'
+"""
 
 #path = '/home/patras/PF-Test/LW/outputs/'
-#foldername = 'LW_surface_press'
-#runname = 'LW_surface_press'
+#foldername = 'LW_var_dz_spinup'
+#runname = 'LW_var_dz_spinup'
 
 ###############################################################################################
 
@@ -137,6 +139,16 @@ def readpfblist_to_3Dtarray(path,runname,variable):
             filename = path + foldername + '/' + runname + ".out." + variable + "." + str(t).zfill(5) + ".pfb"
             variable4D_rawpfb[t] = read_pfb(filename)
     if variable == 'velz':
+        variable4D_rawpfb = np.empty((nt,nz+1,ny,nx))
+        for t in range(nt):
+            filename = path + foldername + '/' + runname + ".out." + variable + "." + str(t).zfill(5) + ".pfb"
+            variable4D_rawpfb[t] = read_pfb(filename)
+    if variable == 'overlandsum':
+        variable4D_rawpfb = np.empty((nt,nz+1,ny,nx))
+        for t in range(nt):
+            filename = path + foldername + '/' + runname + ".out." + variable + "." + str(t).zfill(5) + ".pfb"
+            variable4D_rawpfb[t] = read_pfb(filename)
+    if variable == 'overland_bc_flux':
         variable4D_rawpfb = np.empty((nt,nz+1,ny,nx))
         for t in range(nt):
             filename = path + foldername + '/' + runname + ".out." + variable + "." + str(t).zfill(5) + ".pfb"
@@ -279,13 +291,15 @@ def plotsingle_proj2d(variable4D_rawpfb,varname,dt,projection,idx):
 
 def plotmosaic_proj2d(runname,projection,idx):
 
-    fig, axs = plt.subplots(nt+1,len(pfb_outputvariables),figsize=(len(pfb_outputvariables)*6,nt*5),
+    nbvar = len(pfb_outputvariables)
+
+    fig, axs = plt.subplots(nt+1,nbvar,figsize=(nbvar*6,nt*5),
                             gridspec_kw={'width_ratios': [1, 1, 1, 1, 1],
                                         'height_ratios': [1, 1, 1, 1, 1, 1, 1, 1, 0.5]}) #
                                         #'wspace': 0.4,
                                         #'hspace': 0.4})
 
-    for v in range(len(pfb_outputvariables)):
+    for v in range(nbvar):
         vname = pfb_outputvariables[v]
         print(vname, ' axs loop')
 
@@ -323,46 +337,80 @@ def plotmosaic_proj2d(runname,projection,idx):
 
             #plt.axis('off')
 
-            axs[t, 0].text(0, 0.9, f'dumptime {t}') #, ha='center', va='center', transform=axs[t, v].transAxes)
+            axs[t, 0].set_title(f't={t}d',loc='left') #, ha='center', va='center', transform=axs[t, v].transAxes)
+        axs[0,v].set_title(f'{varlabel}')
+        #axs[0,0].set_title(f't=0d \t\t\t {varlabel}',loc='left')
         im_fantom = axs[t+1,v].pcolormesh(x,y,array_fantom)
         axs[t+1,v].set_aspect('0.001')
         axs[t+1,v].axis('off')
         fig.colorbar(im, ax=axs[t+1,v], orientation='horizontal', label = varlabel, fraction=0.5, pad=0.04)
-        axs[0,v].set_title(f'{varlabel}')
+        
     #plt.title(f'Sequence of PF direct outputs for run {foldername}, in plan {projection}')
     plt.tight_layout()
     plt.savefig(f'{path_fig}{foldername}.varall.dtall.{projection}-{idx}.png', dpi = 300)
     plt.close()
 
-def plotXt(runname, Xcp, varname):
+def plot_multiXt(runname, Xcp):
 
     X = Xcp[0]
+    nbX = X.shape[0]
     loc_cp = Xcp[1]
     position_layer = nz-1
-    array_3Dt = readpfblist_to_3Dtarray(path,runname,varname)
     tarray = np.linspace(0,nt-1,nt)
-    fig = plt.figure(1)
-    ax = fig.add_subplot(111)
-
-    for x in range(3):
-
-        array_Xt = array_3Dt[:,position_layer,X[x,0],X[x,1]]
-
-        ax.plot(tarray,array_Xt,label=loc_cp[x])
     
-    ax.grid(True)
-    ax.legend()
-    ax.set_xlabel('t [d]')
-    ax.set_ylabel(f'{varname}')
+    nbvar = len(pfb_outputvariables)
+    fig, axs = plt.subplots(1,nbvar,figsize=(nbvar*6,5))
+
+    for v in range(nbvar):
+        vname = pfb_outputvariables[v]
+        array_3Dt = readpfblist_to_3Dtarray(path,runname,vname)
+        pltsettings = variablescaling(array_3Dt, vname)
+        varlabel = pltsettings[1]
+
+        for x in range(nbX):
+            array_Xt = array_3Dt[:,position_layer,X[x,0],X[x,1]]
+            axs[v].plot(tarray,array_Xt,label=loc_cp[x]+f'({position_layer},{X[x,0]},{X[x,1]})')
+    
+        axs[v].grid(True)
+        axs[v].legend()
+        axs[v].set_xlabel('t [d]')
+        axs[v].set_ylabel(f'{varlabel}')
 
     #plt.show()
-    plt.savefig(f'{path_fig}{foldername}.{varname}.dtall.X.png', dpi = 300)
+    plt.savefig(f'{path_fig}{foldername}.varall.dtall.X.png', dpi = 300)
+
+def plot_zXt(runname, Xcp):
+
+    X = Xcp[0] # single point
+    loc_cp = Xcp[1]
+    tarray = np.linspace(0,nt-1,nt)
+    
+    nbvar = len(pfb_outputvariables)
+    fig, axs = plt.subplots(1,nbvar,figsize=(nbvar*6,5))
+
+    for v in range(nbvar):
+        vname = pfb_outputvariables[v]
+        array_3Dt = readpfblist_to_3Dtarray(path,runname,vname)
+        pltsettings = variablescaling(array_3Dt, vname)
+        varlabel = pltsettings[1]
+
+        for z in range(nz):
+            array_Xt = array_3Dt[:,z,X[0],X[1]]
+            axs[v].plot(tarray,array_Xt,label=f'layer {z}')
+    
+        axs[v].grid(True)
+        axs[v].legend()
+        axs[v].set_xlabel('t [d]')
+        axs[v].set_ylabel(f'{varlabel}')
+
+    #plt.show()
+    plt.savefig(f'{path_fig}{foldername}.varall.dtall.{Xcp[1]}z.png', dpi = 300)
 
 
 ################################################################""
 
-pfb_outputvariables = ['press','satur','velx','vely','velz']
-plot_projections = ['2dxy','2dxz','3d']
+pfb_outputvariables = ['press','satur','velx','vely','velz'] #,'overland_bc_flux', 'overlandsum']
+plot_projections = ['2dxy','2dxz','2dyz','1d','3d']
 
 nt = list_dumptimes()
 #varname = 'satur'
@@ -380,8 +428,13 @@ plotmosaic_proj2d(runname,'2dxz',yidx)
 plotmosaic_proj2d(runname,'2dxy',zidx)
 plotmosaic_proj2d(runname,'2dyz',xidx)
 
-f_cp = '/home/patras/PF-Valmalenco/data/controlpoints.txt'
-Xidx_cp = read_cpcsv(f_cp)
+#f_cp = '/home/patras/PF-Valmalenco/data/controlpoints.txt'
+#Xidx_cp = read_cpcsv(f_cp)
 #print(Xidx_cp)
+#XP = [Xidx_cp[0][1],[Xidx_cp[1][1]]]
 
-plotXt(runname,Xidx_cp,'press')
+Xidx_cp = [np.array([[1,5],[5,5],[9,5],[9,2]]),['P1','P2','P3','P4']]
+XP = [np.array([5,5]),['P2']]
+
+plot_multiXt(runname,Xidx_cp)
+plot_zXt(runname,XP)
