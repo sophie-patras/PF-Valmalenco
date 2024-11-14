@@ -194,7 +194,7 @@ def readpfblist_to_2Dtarray(path,runname,variable):
         pressure_3Dt = readpfblist_to_3Dtarray(path,runname,'press')
         for t in range(1,nt):
             variable2Dt[t] = calculate_overland_flow_grid(pressure_3Dt[t], slopex, slopey, mannings, dx, dy, epsilon=1e-5, mask=mask)
-        variable2Dt = variable2Dt* 1/3600 # m^3/s
+        variable2Dt = variable2Dt #* 1/3600 # m^3/s
 
     return variable2Dt
 
@@ -373,13 +373,13 @@ def variablescaling(array,variable):
         varrange = [array.min(), array.max()]
     elif variable == 'overland_flow':
         colorofmap = 'Spectral_r'
-        varlabel = 'overland flow [m$^3$/s]'
+        varlabel = 'overland flow [m$^3$/h]'
         varrange = [array.min(), array.max()]
 
     return colorofmap, varlabel, varrange
 
 ################################################################################
-# PLOT PAINTING/MOSAIC
+# PLOT 'PAINTINGS'
 
 def plot_3d_singlevardtall(vname,t):
 
@@ -398,7 +398,7 @@ def plot_3d_singlevardtall(vname,t):
         vmin = data.min()
         vmax = data.max()
         vmean = np.mean(data)
-        print(f'layer {z} centered depth z=',z_centers),'m.agl; vmin,vmean,vmax',round(vmin,5),round(vmean,5),round(vmax,5))
+        print(f'layer {z} centered depth z=',z_centers,'m.agl; vmin,vmean,vmax',round(vmin,5),round(vmean,5),round(vmax,5))
     
         if z in range(0,nz,1):
             ax.plot_surface(x_centers,y_centers,np.full_like(data, z_centers), facecolors=plt.cm.Blues(data), rstride=1, cstride=1, antialiased=True, shade=False)
@@ -423,7 +423,6 @@ def plot_3d_singlevardtall(vname,t):
 
     #plt.show()
     plt.savefig(f'{path_fig}{foldername}.{vname}.dtall.3d.png', dpi = 300)
-
 
 def plot_proj2d_singlevardtslall(varname,projection,idx_list):
     # plot for 3Dt variables only (ie. exclude overland_flow)
@@ -678,7 +677,7 @@ def plot_compared_peakdischarge(runname, Xcp):
     # pressure head to press
     vname = 'overland_flow'
     array_2Dt = readpfblist_to_2Dtarray(path,runname,vname)
-    pltsettings = variablescaling(array_2Dt, vname)
+    #pltsettings = variablescaling(array_2Dt, vname)
     #varlabel = pltsettings[1]
 
     array_Xt = array_2Dt[:,X[0],X[1]]
@@ -687,7 +686,7 @@ def plot_compared_peakdischarge(runname, Xcp):
     axs.grid(True)
     # axs.legend()
     axs.set_xlabel('t [h]')
-    axs.set_ylabel('discharge [m$^3$/s]')
+    axs.set_ylabel('discharge [m$^3$/h]')
 
     plt.title('Comparison of flux in first sublayer and overland_flow')
 
@@ -762,16 +761,23 @@ xidx = int(nx/2)
 #plot_proj2d_multivardtall(runname,'2dyz',xidx)
 
 layerstoplot = [10,9,8,7,6,5,4,3,2,1,0]
-plot_proj2d_singlevardtslall('vel_norm','2dxy',layerstoplot)
+#plot_proj2d_singlevardtslall('vel_norm','2dxy',layerstoplot)
 
 f_cp = '/home/patras/PF-Valmalenco/data/controlpoints.txt'
-Xidx_cp = read_cpcsv(f_cp)
+#Xidx_cp = read_cpcsv(f_cp)
 #print(Xidx_cp)
-XP_ylower = [Xidx_cp[0][2],[Xidx_cp[1][2]]]
+#XP_ylower = [Xidx_cp[0][2],[Xidx_cp[1][2]]]
 
+# Find max index in overland_flow # [[3, 67], 'X_ofmax'] for VM_V52
+# Q_max(x=16750) = 1176 m^3/h = 0.32 m^3/s
 array_forXPmax = readpfblist_to_2Dtarray(path,runname,'overland_flow')
-idx_max = np.where(array_forXPmax = max(array_forXPmax))
-print(idx_max)
+max_of = array_forXPmax.max()
+print(max_of)
+idx_max = np.where(array_forXPmax == array_forXPmax.max())
+idx_np = np.array(idx_max)
+idxlist = [arr[0] for arr in idx_np] # Convert the numpy arrays into a list of values
+XP_maxof = [idxlist[1:],'X_ofmax']
+print(XP_maxof)
 
 #Xidx_cp = [np.array([[0,5],[5,5],[9,2],[9,5]]),['P1','P2','P3','P4']]
 #XP_center = [np.array([5,5]),['P2']]
@@ -780,5 +786,5 @@ print(idx_max)
 #plot_multiXt(runname,Xidx_cp)
 #plot_zXt(runname,XP_ylower)
 #plot_compared_press(runname,XP_ylower)
-#plot_compared_peakdischarge(runname,XP_ylower)
+plot_compared_peakdischarge(runname,XP_maxof)
 #plot_flow_at_boundaries()
