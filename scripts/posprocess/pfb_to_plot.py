@@ -6,13 +6,15 @@ For graphical output
 Read all times <runname>.out.<variable>.<dumptime>.pfb files (p-layers) of an assigned folder path
 Functions : 
 - 3d
-- 2dxy
-- 2dxz
+- 2dproj (xy,xz,yz) @ given missing index
 - 1dz(t)
 ...etc.
 
 Created on Mon Oct 28 16:41:20 2024
 @author: S.P.
+
+
+version : DRAFT v1
 """
 
 import numpy as np
@@ -29,23 +31,32 @@ from parflow.tools.hydrology import calculate_surface_storage, calculate_water_t
 from Xcrs_to_Xidx import *
 from read_log import *
 
+
+# coment if not defined
 plt.style.use('/home/patras/PF-Valmalenco/scripts/config.mplstyle')
+
+#####################################################################################"
+# OUTPUT PATH
+
 #path_fig = '/mnt/c/Users/User/Documents/POLIMI/0_TESI/8-Figures/'   #local
 path_fig = '/mnt/c/Users/Sophie/Documents/4-Figures/'   #distant
 
 ###############################################################################################
-# INPUT
+# INPUT PATH
+# define the complete path to your output .pfidb and .pfb files
+# such that <runname>.pfidb can be found in : f'{path}{foldername}{runname}.pfidb'
 
-"""
+## DS
 path = '/home/patras/PF-Test/DumbSquare/outputs/'
-foldername = 'DS.c100s1_v28' #'DS.c100s1_v24'
+foldername = 'DS.c100s1_v34' #'DS.c100s1_v28'
 runname = 'DS.c100s1'
 
-"""
-path = '/home/patras/PF-Valmalenco/outputs/'
-foldername = 'CLM_V52'
-runname = 'CLM_V5'
+## VM
+#path = '/home/patras/PF-Valmalenco/outputs/'
+#foldername = 'CLM_V52'
+#runname = 'CLM_V5'
 
+## parflow test cases
 #path = '/home/patras/PF-Test/LW/outputs/'
 #foldername = 'LW_var_dz_spinup'
 #runname = 'LW_var_dz_spinup'
@@ -57,6 +68,8 @@ data = run.data_accessor
 
 #print(data)
 
+#########################################
+# Discretization parameters
 dx = data.dx
 dy = data.dy
 dz = data.dz
@@ -77,42 +90,11 @@ dt_real = dump_to_simulatedtimes_equivalent(path,foldername,runname)
 #print(f'dumptimes {dt_real}')
 nt = len(dt_real)
 
-porosity = data.computed_porosity
-specific_storage = data.specific_storage
 mask = data.mask
 slopex = data.slope_x               # shape (ny, nx)
 slopey = data.slope_y               # shape (ny, nx)
-mannings = data.mannings
-
-press_BC = data.pressure_boundary_conditions
-print(press_BC)
-# data.flow_boundary_conditions doesn't exist.
-
-
-def read_pfidb(path,runname):
-    
-    run = Run.from_definition(f'{path}{foldername}/{runname}.pfidb')
-    data = run.data_accessor
-
-    dx = data.dx
-    dy = data.dy
-    dz = data.dz
-    #print(dz)
-
-    nx = data.shape[2]
-    ny = data.shape[1]
-    nz = data.shape[0]
-    nt = data.time
-
-    porosity = data.computed_porosity
-    specific_storage = data.specific_storage
-    mask = data.mask
-    slopex = data.slope_x               # shape (ny, nx)
-    slopey = data.slope_y               # shape (ny, nx)
-    mannings = data.mannings
 
 #def layers_centereddepth():
-    
 dzscaled = np.concatenate((dz,[0]))
 z_faces = (-1)*np.array([sum(dzscaled[i:]) for i in range(nz+1)])
 #print('z_faces',z_faces)
@@ -121,9 +103,16 @@ z_centers = (z_faces[:-1]+z_faces[1:])/2
 z_centers = [round(z_centers[i],4) for i in range(nz)]
 #return z_centers, z_faces
 
-#def list_dumptimes(): #(path,runname):
-#    ndt = 7 + 1
-#    return ndt
+#################################
+# DISTRIBUTED INPUT PARAMETERS
+
+porosity = data.computed_porosity
+specific_storage = data.specific_storage
+mannings = data.mannings
+
+press_BC = data.pressure_boundary_conditions
+print('Pressure head boundary conditions : ', press_BC)
+# data.flow_boundary_conditions doesn't exist.
 
 #################################
 # VARIABLES
@@ -132,6 +121,7 @@ def readpfblist_to_3Dtarray(path,runname,variable):
     # read raw pfb output 3D data 3D for each timestep, to 4D array
     data.time=0
     if variable == 'press':
+        # pressure head (as gravity=1, density=1)
         variable3Dt = np.empty((nt,nz,ny,nx))
         for t in range(nt):
             variable3Dt[t] = data.pressure
@@ -222,6 +212,13 @@ def velocitynorm_3Dt():
     array_3Dt = vector_norm(velx_centered,vely_centered,velz_centered)
     return array_3Dt
   
+def hydraulichead_3Dt():
+    # centered variable
+    v = velocitynorm_3Dt()
+    p = readpfblist_to_3Dtarray(path, runname, 'press') # pressure head
+    # h = p + z + u^2/2
+
+
 
 #################################################################################
 # Array operations
@@ -261,7 +258,7 @@ def layer_sum1Dt(array_2Dt):
     return array_1Dt
 
 #################################################################################"
-# PLOTTING SETTINGS
+# PLOT SETTINGS x variable
 
 def projected_array(array_3Dt,projection,idx):
 
@@ -355,7 +352,7 @@ def variablescaling(array,variable):
         varrange = [array.min(),array.max()]
     elif variable == 'press':
         colorofmap = 'Blues'
-        varlabel = 'h [m above layer]'
+        varlabel = r'$p/\rho g$ [m above layer]'
         varrange = [array.min(), array.max()] #min(array.max(),2)]
         #varrange = [-0.7, 0.1]
     elif variable == 'satur':
@@ -378,6 +375,21 @@ def variablescaling(array,variable):
 
     return colorofmap, varlabel, varrange
 
+def dt_idxscaling(dt_fullreal,mod,nbofmosaic):
+    # return idx of time
+    if nt>2*nbofmosaic :
+        if mod == "equaldist_indumptimes":
+            idx = np.linspace(0,nt-1,nbofmosaic+1)
+            idx = idx.astype(int)
+        if mod == "beginning":
+            idx = np.linspace(0,nbofmosaic,nbofmosaic+1)
+        dt_selecreal = [dt_fullreal[i] for i in idx]
+    else:
+        dt_selecreal = np.linspace(0,nt-1,nt)
+    return dt_selecreal
+
+#dt_new = dtscaling(dt_real,"equaldist_indumptimes",5)
+#print(dt_new)
 ################################################################################
 # PLOT 'PAINTINGS'
 
@@ -544,6 +556,7 @@ def plot_proj2d_multivardtall(runname,projection,idx):
             realt = dt_real[t]
             axs[t, 0].set_title(f't={realt}h',loc='left') #, ha='center', va='center', transform=axs[t, v].transAxes)
             fig.colorbar(im, ax=axs[t,v], orientation='vertical') #, fraction=0.5, pad=0.04)
+            #fig.clim(varrange[0],varrange[1])
 
         axs[0,v].set_title(f'{varlabel}')
         
@@ -626,7 +639,7 @@ def plot_compared_press(runname, Xcp):
     nbvar = 1
     fig, axs = plt.subplots(1,nbvar,figsize=(nbvar*6,5))
 
-    # pressure head to press
+    # pressure head to hydraulic head
     vname = 'press'
     v = 1
     array_3Dt = readpfblist_to_3Dtarray(path,runname,vname)
@@ -634,7 +647,7 @@ def plot_compared_press(runname, Xcp):
     #varlabel = pltsettings[1]
 
     for z in range(nz):
-        array_Xt = array_3Dt[:,z,X[0],X[1]] + z_centers[z] # p = (rho g)(h - z)
+        array_Xt = array_3Dt[:,z,X[0],X[1]] + z_centers[z] # h = p/(rho g) + z
         axs.plot(tarray,array_Xt,label=f'press(l={z})', marker='.')
 
     # Water table
@@ -646,19 +659,17 @@ def plot_compared_press(runname, Xcp):
     array_Xt = array_3Dt[:,X[0],X[1]]
     axs.plot(tarray,array_Xt,label='pf-wt', linestyle=':', color='k', marker='.')
     
-    """
     # PBC y-lower
     v = 3
     ylower = press_BC['y-lower__alltime'] * np.ones(dt_real.shape)
     axs.plot(tarray,ylower,label='PBC y-lower')
-    """
 
     axs.grid(True)
     axs.legend()
     axs.set_xlabel('t [h]')
     axs.set_ylabel('pressure [m agl]')
 
-    plt.title('Comparison of linear pressure, water table (-1), press BC')
+    plt.title('Comparison of linear pressure head, water table (-1), press BC')
 
     #plt.show()
     plt.savefig(f'{path_fig}{foldername}.presscomp.dtall.{loc_cp}.png', dpi = 300)
@@ -724,8 +735,9 @@ def plot_boundarychecks():
     array_Xt = layer_sum1Dt(projected_array(discharge_3Dt('z'),'2dxy',nz))
     sum += array_Xt
     ax.plot(dt_real, array_Xt, label='z-upper', marker='.')
+    
     # 'sum'
-    #ax.plot(dt_real,sum,label='sum', color='k',marker='.')
+    ax.plot(dt_real,sum,label='sum', color='k',marker='.')
 
     ax.grid(True)
     ax.legend()
@@ -734,7 +746,7 @@ def plot_boundarychecks():
 
     plt.title('Total outflow at each boundary face and sum')
     #plt.show()
-    plt.savefig(f'{path_fig}{foldername}.outflow.Bf.dtall.png', dpi = 300)
+    plt.savefig(f'{path_fig}{foldername}.outflow.Bf-low.dtall.png', dpi = 300)
 
 
 ################################################################
@@ -745,16 +757,10 @@ pfb_out2dtvariables = ['water_table', 'overland_flow'] #'surface_storage', 'surf
 faces = ['x-lower', 'x-upper', 'y-lower', 'y-upper', 'z-lower', 'z-upper']
 plot_projections = ['2dxy','2dxz','2dyz','1d','3d']
 
-#varname = 'satur'
-#var_4D = readpfblist_to_4Darray(path,runname,varname)
-#print(press_4D.shape)
 
 zidx = nz-1
 yidx = 0
 xidx = int(nx/2)
-
-#plot2dxz(var_4D,yidx,varname)
-#plot2dxy(var_4D,zidx-1,varname)
 
 #plot_proj2d_multivardtall(runname,'2dxz',yidx)
 #plot_proj2d_multivardtall(runname,'2dxy',zidx)
@@ -763,28 +769,34 @@ xidx = int(nx/2)
 layerstoplot = [10,9,8,7,6,5,4,3,2,1,0]
 #plot_proj2d_singlevardtslall('vel_norm','2dxy',layerstoplot)
 
+"""
+## VM check points
 f_cp = '/home/patras/PF-Valmalenco/data/controlpoints.txt'
-#Xidx_cp = read_cpcsv(f_cp)
-#print(Xidx_cp)
-#XP_ylower = [Xidx_cp[0][2],[Xidx_cp[1][2]]]
+Xidx_cp = read_cpcsv(f_cp)
+print(Xidx_cp)
+XP_ylower = [Xidx_cp[0][1],[Xidx_cp[1][1]]]
+"""
 
+## 'Universal' check point
 # Find max index in overland_flow # [[3, 67], 'X_ofmax'] for VM_V52
 # Q_max(x=16750) = 1176 m^3/h = 0.32 m^3/s
 array_forXPmax = readpfblist_to_2Dtarray(path,runname,'overland_flow')
 max_of = array_forXPmax.max()
-print(max_of)
+#print(max_of)
 idx_max = np.where(array_forXPmax == array_forXPmax.max())
 idx_np = np.array(idx_max)
 idxlist = [arr[0] for arr in idx_np] # Convert the numpy arrays into a list of values
 XP_maxof = [idxlist[1:],'X_ofmax']
-print(XP_maxof)
+#print(XP_maxof)
 
-#Xidx_cp = [np.array([[0,5],[5,5],[9,2],[9,5]]),['P1','P2','P3','P4']]
-#XP_center = [np.array([5,5]),['P2']]
-#XP_ylower = [np.array([0,5]),['P1']]
+Xidx_cp = [np.array([[0,int(nx/2)],[int(ny/2),int(nx/2)],[ny-1,int(nx/5)],[ny-1,int(nx/2)]]),['P1','P2','P3','P4']]
+XP_center = [np.array([int(ny/2),int(nx/2)]),[f'[{int(ny/2)},{int(nx/2)}]']]
+XP_ylower = [np.array([0,int(nx/2)]),[f'[0,{int(nx/2)}]']]
 
-#plot_multiXt(runname,Xidx_cp)
-#plot_zXt(runname,XP_ylower)
-#plot_compared_press(runname,XP_ylower)
+plot_multiXt(runname,Xidx_cp)
+plot_zXt(runname,XP_center)
+plot_zXt(runname,XP_center)
+plot_compared_press(runname,XP_center)
+plot_compared_press(runname,XP_center)
 plot_compared_peakdischarge(runname,XP_maxof)
-#plot_flow_at_boundaries()
+plot_boundarychecks()
