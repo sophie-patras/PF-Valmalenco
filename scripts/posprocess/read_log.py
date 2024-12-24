@@ -25,9 +25,9 @@ path_fig = '/mnt/c/Users/Sophie/Documents/4-Figures/'   #distant
 ###############################################################################################
 # INPUT
 
-path = '/home/patras/PF-Test/DumbSquare/outputs/'
-foldername = 'DS.c1_v10R'
-runname = 'DS.c1'
+#path = '/home/patras/PF-Test/DumbSquare/outputs/'
+#foldername = 'DS.c01s5_v17F'
+#runname = 'DS.c01s5'
 
 """
 path = '/home/patras/PF-Valmalenco/outputs/'
@@ -71,7 +71,7 @@ def log_to_array(path, foldername, runname):
 
      dataset = np.loadtxt(f_in, \
           skiprows=header_rows, \
-          max_rows= sequencesnumber, \
+          max_rows= sequencesnumber+1, \
           usecols=(0, 1, 2, 4), \
           dtype={'names': ('sequence', 'time', 'timestep', 'dumptime'), \
           'formats': ('float64', 'float64', 'float64', '|S15')})
@@ -83,6 +83,7 @@ def log_to_array(path, foldername, runname):
 def dump_to_simulatedtimes_equivalent(path, foldername, runname):
 
      dataset = log_to_array(path, foldername, runname)
+     #print(dataset)
 
      time = np.array(dataset['time'])
      dumptime = np.array(dataset['dumptime'])
@@ -92,9 +93,15 @@ def dump_to_simulatedtimes_equivalent(path, foldername, runname):
      #dumptimes = np.linspace(0,len(idxdt)-1,len(idxdt))
      #print(dumptimes)
      #dumpdataset = np.array([dumptimes, time[idxdt]])
-     dumpdataset = time[idxdt]
+     if len(idxdt)>0:
+          dumpdataset = time[idxdt]
+     else:
+          dumpdataset = time
 
      return dumpdataset
+
+#dt_real = dump_to_simulatedtimes_equivalent(path, foldername, runname)
+#print(dt_real)
 
 """
 def nt_dump():
