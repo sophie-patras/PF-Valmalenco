@@ -32,7 +32,7 @@ from parflow.tools.hydrology import calculate_surface_storage, calculate_water_t
 # check what is the difference btw compute_water_table_depth and calculate_water_table_depth
 # check compute_hydraulic_head
 
-from Xcrs_to_Xidx import *
+from crs_to_idx import *
 from read_log import *
 
 
@@ -52,8 +52,8 @@ path_fig = '/mnt/c/Users/Sophie/Documents/4-Figures/'   #distant
 
 ## DS
 path = '/home/patras/PF-Test/DumbSquare/outputs/'
-foldername = 'DS.c100s05_v35' #'DS.c100s1_v28'
-runname = 'DS.c100s05'
+foldername = 'DS.c100s0_v42' #'DS.c100s1_v28'
+runname = 'DS.c100s0'
 
 ## MX
 #path = '/home/patras/PF-Test/Maxwell2013/outputs/'
@@ -61,9 +61,9 @@ runname = 'DS.c100s05'
 #runname = 'MX.c1s1'
 
 ## VM
-path = '/home/patras/PF-Valmalenco/outputs/'
-foldername = 'CLM_V52'
-runname = 'CLM_V5'
+#path = '/home/patras/PF-Valmalenco/outputs/'
+#foldername = 'CLM_V52'
+#runname = 'CLM_V5'
 
 ## parflow test cases
 #path = '/home/patras/PF-Test/LW/outputs/'
@@ -326,6 +326,17 @@ def centered_var_generator(vname):
 # Apply mask where data <-3.1e+38 (ie. nodata_value)
 # data_masked = np.ma.masked_where(data_to_plot <= -3.e+38, data_to_plot, copy=True)
 
+def diff_array2D(array1,array2):
+    diff = array2 - array1
+    meandiff = np.mean(diff)
+    mindiff = np.min(diff)
+    #minidx = np.where(diff==mindiff)
+    maxdiff = np.max(diff)
+    #minatt = [mindiff,minidx]
+    #maxidx = np.where(diff==maxdiff)
+    #maxatt = [maxdiff,maxidx]
+    return diff,meandiff,mindiff,maxdiff
+
 def face_to_centered_variable(array3Dt_faced,direction):
     # simplest linear interpolation from 2 closest point (average)
     # from face centered scheme to cell centered
@@ -562,7 +573,6 @@ def plot_3d_geom():
     # voxels
     #ax.voxels
     # https://stackoverflow.com/questions/73876939/plot-3d-grid-data-as-heat-map-using-matplotlib
-
 
 def plot_3d_singlevardtsgl(vname,t):
 
@@ -914,7 +924,6 @@ def plot_HTofy(runname, tmod, **kwargs):
     #plt.title(f'Water table')
     plt.savefig(f'{path_fig}{foldername}.HTofy.R{R_tot}.dt{tmod}.png', dpi = 300)
 
-
 def plot_compared_surfaceflow(runname, Xcp, mod,**kwargs):
     # compare overland_flow (Kinematic wave equation) vs flow discharge in surface layer, at chosen point Xcp
     # ref to (Rousseau, 2020)
@@ -1096,14 +1105,100 @@ def plot_HTofybis(): #runname, tmod, **kwargs): #MXFig3
     #plt.title(f'Water table')
     plt.savefig(f'{path_fig}{foldername}.HTofy.dtFig3.png', dpi = 300)
 
+
+def cvproxy_toknownsolution(tmod,**kwargs):
+    # cv proxy that evolves toward 0 when simu CV to analytical/known solution
+    
+    vname = 'water_table'
+    array_2Dt = -1* readpfblist_to_2Dtarray(path,runname,vname)
+    tmod = 'all'
+    time_indexes = tidxscaling(dt_real,tmod,c=kwargs.get('c',float),d=kwargs.get('d',float),e=kwargs.get('e',float))
+    #nt = len(time_indexes)
+    #tarray = dt_real[time_indexes]
+    array_known = unconfined_PBC_2D()
+
+    diff_2Dt = np.ones((nt,ny,nx))
+    cvproxy = np.ones((nt,3))
+    for t in time_indexes:
+        diff_res = diff_array2D(array_2Dt[t],array_known)
+        diff_2Dt[t] = diff_res[0]/array_known
+        cvproxy[t]=[np.mean(diff_2Dt[t]),np.mean(diff_2Dt[t,:,int(nx/2)]),np.max(diff_2Dt[t,:,int(nx/2)])]
+
+    tcv = np.where(cvproxy[:,1]<0.05)
+    print(tcv[0][0])
+
+    fig, axs = plt.subplots(1)
+    axs.plot(dt_real,cvproxy[:,0])
+    axs.plot(dt_real,cvproxy[:,1])
+    axs.plot(dt_real,cvproxy[:,2])
+    axs.plot(y_centers,0.05*np.ones(y_centers.shape),color='k',linestyle=':',label=r'5$\%$')
+
+    axs.grid(True)
+    #axs.legend(loc='lower right') #best', bbox_to_anchor=(0.5, 0., 0.5, 0.5)) #"Location","southeast")
+    axs.set_xlabel('t [h]')
+    axs.set_ylabel(r'$\bar{\Delta h/h}$ [m agl]')
+
+    #plt.title(f'Water table')
+    plt.savefig(f'{path_fig}{foldername}.DHToft.m.png', dpi = 300)
+
+
+def plot_DHTofy_toknownsolution(tmod,**kwargs):
+    # cv proxy that evolves toward 0 when simu CV to analytical/known solution
+    
+    vname = 'water_table'
+    array_2Dt = -1* readpfblist_to_2Dtarray(path,runname,vname)
+    time_indexes = tidxscaling(dt_real,tmod,c=kwargs.get('c',float),d=kwargs.get('d',float),e=kwargs.get('e',float))
+    #nt = len(time_indexes)
+    #tarray = dt_real[time_indexes]
+    
+    array_known = unconfined_PBC_2D()
+    # radius of influence - in steady state
+
+    fig, axs = plt.subplots(3,1)
+
+    for t in time_indexes:
+        print(t, 'time idx')
+        array_2D = array_2Dt[t,:,:]
+        diffres = diff_array2D(array_2D,array_known)
+        diff_2D = diffres[0]
+        diff_1D = diff_2D[0,:,int(nx/2)]
+        diffratio_1D = diff_1D/array_known[0,:,int(nx/2)]
+        print(diffres[1:])
+        axs[1].plot(y_centers,diff_1D)
+        axs[0].plot(y_centers,array_2D[:,int(nx/2)], label = f't={round(dt_real[t],0)}h') #, marker='.')
+        axs[2].plot(y_centers,diffratio_1D)
+    
+    axs[2].plot(y_centers,0.05*np.ones(y_centers.shape),color='k',linestyle=':',label=r'5$\%$')
+
+    axs[0].grid(True)
+    axs[1].grid(True)
+    axs[2].grid(True)
+    axs[0].legend(loc='lower right') #best', bbox_to_anchor=(0.5, 0., 0.5, 0.5)) #"Location","southeast")
+    axs[2].legend(loc='lower right') #best', bbox_to_anchor=(0.5, 0., 0.5, 0.5)) #"Location","southeast")
+    axs[2].set_xlabel('y [m]')
+    axs[1].set_ylabel(r'$\Delta$h [m agl]')
+    axs[0].set_ylabel(r'h [m agl]')
+    axs[2].set_ylabel(r'$\Delta$h/h [m agl]')
+
+    #plt.title(f'Water table')
+    plt.savefig(f'{path_fig}{foldername}.DHTofy.dt{tmod}.png', dpi = 300)
+
 ################################################################
 # THEORETICAL EQUATION
 
-def unconfined_Dupuit(Q,R,K,ho,y_array): # steady stata
+def unconfined_Dupuit(Q,R,K,ho,y_array): # steady state
     return (Q/(K*np.pi)*np.log10(y_array/R) + ho**2)**(1/2) + z_faces[0]
 
 def unconfined_PBC(hup,hlow,Ly,y): #steady state
     return ((hup**2-hlow**2)/Ly*y+hlow**2)**(1/2) + z_faces[0]
+
+def unconfined_PBC_2D(): #steady state
+    array_2D = np.ones((1,ny,nx))
+    array_Dupuit = unconfined_PBC(8,7,ny*dy,y_centers)
+    for i in range(nx):
+        array_2D[0,:,i] *= array_Dupuit
+    # array_2D[0,:] = array_2D[0,:]*array_Dupuit
+    return array_2D
 
 ################################################################
 
@@ -1140,7 +1235,7 @@ plot_proj2d_multivardtall(runname,'2dyz',xidx, tmod, c=ndt, d=tinit, e=tfin)
 #layerstoplot = [10,9,8,7,6,5,4,3,2,1,0]  #VM
 layerstoplot = [6,5,4,3,2,1,0]
 #plot_proj2d_singlevardtslall('H','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
-
+"""
 
 ## VM check points
 f_cp = '/home/patras/PF-Valmalenco/data/controlpoints.txt'
@@ -1166,7 +1261,7 @@ idxlist = [arr[0] for arr in idx_np] # Convert the numpy arrays into a list of v
 XP_maxof = [idxlist[1:],'X_ofmax']
 #print(XP_maxof)
 
-
+"""
 tmod = "all"
 #tmod = "beg" # beginning
 #tmod = "intall" # interval
@@ -1180,15 +1275,23 @@ plot_Hxoft(runname,XP_ylowerbis,tmod, d=tinit, e=tfin)
 plot_Hxoft(runname,XP_center,tmod, d=tinit, e=tfin)
 plot_compared_surfaceflow(runname,XP_maxof,tmod, d=tinit, e=tfin)
 plot_boundarychecks(tmod,c=ndt, d=tinit, e=tfin)
-
+"""
 
 #tmod = "fin"
 ndt = 5
 tmod = "int" # interval
 tinit = dt_real[1] # initial time in hours - for plot
 tfin = 120 #dt_real[-1]-1 # 5e7 # final time in hours - for plot #print(dt_real[-1])
-plot_HTofy(runname,tmod, c=ndt, d=tinit, e=tfin ) # H(t) distributed in space along y axis (x=nx/2)
-"""
+#plot_HTofy(runname,tmod, c=ndt, d=tinit, e=tfin ) # H(t) distributed in space along y axis (x=nx/2)
+
 
 #plot_MXFig3()
 plot_HTofybis()
+
+ndt = 6
+tmod = "int" # interval
+tinit = dt_real[0] # initial time in hours - for plot
+tfin = 14 #dt_real[-1]-1
+plot_DHTofy_toknownsolution(tmod, c=ndt, d=tinit, e=tfin)
+tmod = 'all'
+cvproxy_toknownsolution(tmod)
