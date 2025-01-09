@@ -52,18 +52,18 @@ path_fig = '/mnt/c/Users/Sophie/Documents/4-Figures/'   #distant
 
 ## DS
 path = '/home/patras/PF-Test/DumbSquare/outputs/'
-foldername = 'DS.c100s0_v42' #'DS.c100s1_v28'
-runname = 'DS.c100s0'
+foldername = 'DSc100z10s0.MX.DP23.IN0_v48' #'DS.c100s1_v28'
+runname = 'DSc100z10s0'
 
 ## MX
-#path = '/home/patras/PF-Test/Maxwell2013/outputs/'
-#foldername = 'MX.c100s1bcx_v5'
-#runname = 'MX.c1s1'
+path = '/home/patras/PF-Test/Maxwell2013/outputs/'
+foldername = 'MX.c1s1y3_v6' #'MX.c100s1bcx_v5'
+runname = 'MX.c1s1'
 
 ## VM
-#path = '/home/patras/PF-Valmalenco/outputs/'
-#foldername = 'CLM_V52'
-#runname = 'CLM_V5'
+path = '/home/patras/PF-Valmalenco/outputs/'
+foldername = 'CLM_V52'
+runname = 'CLM_V5'
 
 ## parflow test cases
 #path = '/home/patras/PF-Test/LW/outputs/'
@@ -107,11 +107,13 @@ y_faces = dy*(np.linspace(0,ny,ny+1))
 #print(y_centers.shape)
 
 dt_real = dump_to_simulatedtimes_equivalent(path,foldername,runname)
-#print(f'dumptimes {dt_real}')
+print(f'dumptimes real {dt_real}')
+Deltat = dump_timesteps(path,foldername,runname)
 nt = len(dt_real)
 
 #def layers_centereddepth():
 dzscaled = np.concatenate((dz,[0]))
+#print(dz)
 z_faces = (-1)*np.array([sum(dzscaled[i:]) for i in range(nz+1)])
 print('z_faces',z_faces)
 z_centers = (z_faces[:-1]+z_faces[1:])/2
@@ -127,8 +129,8 @@ for i in range(nz):
 mask = data.mask
 slopex = data.slope_x               # shape (1,ny, nx)
 slopey = data.slope_y               # shape (1,ny, nx)
-#print(slopey[0,0,0])
-#print(slopex.shape)
+print('slope_x : ', np.min(abs(slopex)), np.mean(abs(slopex)), np.max(abs(slopex)))
+print('slope_y : ', np.min(abs(slopey)), np.mean(abs(slopey)), np.max(abs(slopey)))
 
 def compute_dem():
     array_2D = np.empty((ny,nx))
@@ -369,6 +371,14 @@ def layer_sum1Dt(array_2Dt):
     array_1Dt = np.zeros(nt)
     for t in range(nt):
         array_1Dt[t] = np.sum(array_2Dt[t])
+    return array_1Dt
+
+def maxinspace_3Dt(array_3Dt):
+
+    array_1Dt = np.max(array_3Dt,3)
+    array_1Dt = np.max(array_1Dt,2)
+    array_1Dt = np.max(array_1Dt,1)
+
     return array_1Dt
 
 #################################################################################"
@@ -1073,7 +1083,7 @@ def plot_HTofx(): #runname, tmod, **kwargs): #MXFig3
 
 def plot_HTofybis(): #runname, tmod, **kwargs): #MXFig3
 
-    time_indexes = [0,4,nt-1]
+    time_indexes = [0,100,nt-1] #nt-1
 
     vname = 'water_table'
     array_2Dt = readpfblist_to_2Dtarray(path,runname,vname)
@@ -1125,7 +1135,8 @@ def cvproxy_toknownsolution(tmod,**kwargs):
         cvproxy[t]=[np.mean(diff_2Dt[t]),np.mean(diff_2Dt[t,:,int(nx/2)]),np.max(diff_2Dt[t,:,int(nx/2)])]
 
     tcv = np.where(cvproxy[:,1]<0.05)
-    print(tcv[0][0])
+    if len(tcv[0])>0:
+        print(f'time of cv (<5%) t[{tcv[0][0]}] = {dt_real[tcv[0][0]]}')
 
     fig, axs = plt.subplots(1)
     axs.plot(dt_real,cvproxy[:,0])
@@ -1184,6 +1195,91 @@ def plot_DHTofy_toknownsolution(tmod,**kwargs):
     plt.savefig(f'{path_fig}{foldername}.DHTofy.dt{tmod}.png', dpi = 300)
 
 ################################################################
+# Stability
+
+# evaluation only at dump times
+def CFL_eval():
+    
+    dt = Deltat # len = nt (number of dump times)
+
+    #v = vel = velocitynorm_3Dt()
+    vname = 'vx_c'
+    data_3Dt = centered_var_generator(vname)
+    vx = data_3Dt
+    vname = 'vy_c'
+    data_3Dt = centered_var_generator(vname)
+    vy = data_3Dt
+    vname = 'vz_c'
+    data_3Dt = centered_var_generator(vname)
+    vz = data_3Dt
+
+    # cell centered variable
+    CFL_norm_matrix = np.empty((nt,nz,ny,nx))
+    CFL_x_matrix = np.empty((nt,nz,ny,nx))
+    CFL_y_matrix = np.empty((nt,nz,ny,nx))
+    CFL_z_matrix = np.empty((nt,nz,ny,nx))
+
+    for t in range(nt) :
+        #CFL_norm_matrix[t] = v[t]*dt[t]/dx_norm
+        CFL_x_matrix[t] = vx[t]*dt[t]/dx
+        CFL_y_matrix[t] = vy[t]*dt[t]/dy
+        CFL_z_matrix[t] = vz[t]*dt[t]/dz_3D
+
+    #CFL_norm_stat = [mean(), var(), max(CFL_norm_matrix),np.where(CFL_matrix = max(CFL_matrix.max))]
+    #CFL_x_stat = [mean(), var(), max(CFL_norm_matrix),np.where(CFL_matrix = max(CFL_matrix.max))]
+    #CFL_y_stat = [mean(), var(), max(CFL_norm_matrix),np.where(CFL_matrix = max(CFL_matrix.max))]
+    #CFL_z_stat = [mean(), var(), max(CFL_norm_matrix),np.where(CFL_matrix = max(CFL_matrix.max))]
+
+    #return CFL_x_stat, CFL_y_stat, CFL_z_stat
+    return CFL_x_matrix, CFL_y_matrix, CFL_z_matrix
+
+# max, mean, min ratios of dt/dX
+dt_stat = [max(Deltat), np.mean(Deltat), min(Deltat)]
+dz_max = max(dz)
+dX_stat = [dz_max, dx, min(dz)]
+ratio = [dt_stat[0]/dX_stat[2],dt_stat[1]/dX_stat[1],dt_stat[2]/dX_stat[1]]
+print("ratio", ratio)
+
+def plot_CFL_evol():
+
+    CFL_X = CFL_eval()
+
+    CFL_xt = maxinspace_3Dt(CFL_X[0])
+    CFL_yt = maxinspace_3Dt(CFL_X[1])
+    CFL_zt = maxinspace_3Dt(CFL_X[2])
+
+    fig, ax = plt.subplots(1)
+
+    ax.plot(dt_real, CFL_xt , label = f'CFL_x', marker='.', color='b')
+    ax.plot(dt_real, CFL_yt, label = f'CFL_y', marker='.', color='r')
+    ax.plot(dt_real, CFL_zt, label = f'CFL_z', marker='.', color='g')
+    
+    ax.grid(True)
+    ax.legend(loc='upper right') #, bbox_to_anchor=(0.5, 0., 0.5, 0.5))
+    ax.set_xlabel('t [h]')
+    ax.set_ylabel('CFL')
+
+    plt.savefig(f'{path_fig}{foldername}.CFL.png', dpi = 300)
+
+def plot_timestep():
+    
+    #tzoom = 70
+    tzoom = -1
+
+    fig, ax = plt.subplots(1,figsize=(5,2))
+    ax.plot(dt_real[:], Deltat[:] , marker='.', color='k')
+    
+    ax.grid(True)
+    #ax.legend(loc='upper right') #, bbox_to_anchor=(0.5, 0., 0.5, 0.5))
+    ax.set_xlabel('t [h]')
+    ax.set_ylabel('timestep [h]')
+
+    plt.savefig(f'{path_fig}{foldername}.dtstep.png', dpi = 300)
+
+plot_timestep()
+
+
+################################################################
 # THEORETICAL EQUATION
 
 def unconfined_Dupuit(Q,R,K,ho,y_array): # steady state
@@ -1194,7 +1290,11 @@ def unconfined_PBC(hup,hlow,Ly,y): #steady state
 
 def unconfined_PBC_2D(): #steady state
     array_2D = np.ones((1,ny,nx))
-    array_Dupuit = unconfined_PBC(8,7,ny*dy,y_centers)
+
+    hup = -1*z_faces[0] + press_BC['y-upper__alltime']
+    hlow = -1*z_faces[0] + press_BC['y-lower__alltime']
+    #print(hlow)
+    array_Dupuit = unconfined_PBC(hup,hlow,ny*dy,y_centers)
     for i in range(nx):
         array_2D[0,:,i] *= array_Dupuit
     # array_2D[0,:] = array_2D[0,:]*array_Dupuit
@@ -1216,7 +1316,7 @@ xidx = int(nx/2)
 
 plot_3d_geom()
 
-"""
+
 #tmod = "all"
 #tmod = "beg" # beginning
 tmod = "int" # interval
@@ -1235,7 +1335,7 @@ plot_proj2d_multivardtall(runname,'2dyz',xidx, tmod, c=ndt, d=tinit, e=tfin)
 #layerstoplot = [10,9,8,7,6,5,4,3,2,1,0]  #VM
 layerstoplot = [6,5,4,3,2,1,0]
 #plot_proj2d_singlevardtslall('H','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
-"""
+
 
 ## VM check points
 f_cp = '/home/patras/PF-Valmalenco/data/controlpoints.txt'
@@ -1245,9 +1345,9 @@ XP_ylower = [Xidx_cp[0][1],[Xidx_cp[1][1]]]
 XP_center = [np.array([int(ny/2),int(nx/2)]),f'[{int(ny/2)},{int(nx/2)}]']
 
 ## 'Universal' check point
-Xidx_cp = [np.array([[0,int(nx/2)],[1,int(nx/2)],[2,int(nx/2)],[int(ny/2),int(nx/2)],[ny-1,int(nx/5)],[ny-1,int(nx/2)]]),['P1','P2','P3','P4','P5','P6']]
+#Xidx_cp = [np.array([[0,int(nx/2)],[1,int(nx/2)],[2,int(nx/2)],[int(ny/2),int(nx/2)],[ny-1,int(nx/5)],[ny-1,int(nx/2)]]),['P1','P2','P3','P4','P5','P6']]
 XP_center = [np.array([int(ny/2),int(nx/2)]),f'[{int(ny/2)},{int(nx/2)}]']
-XP_ylower = [np.array([0,int(nx/2)]),f'[0,{int(nx/2)}]']
+#XP_ylower = [np.array([0,int(nx/2)]),f'[0,{int(nx/2)}]']
 XP_ylowerbis = [np.array([1,int(nx/2)]),f'[1,{int(nx/2)}]']
 
 # Find max index in overland_flow # [[3, 67], 'X_ofmax'] for VM_V52
@@ -1261,12 +1361,13 @@ idxlist = [arr[0] for arr in idx_np] # Convert the numpy arrays into a list of v
 XP_maxof = [idxlist[1:],'X_ofmax']
 #print(XP_maxof)
 
-"""
+
 tmod = "all"
 #tmod = "beg" # beginning
-#tmod = "intall" # interval
-#tinit = 0 # initial time in hours - for plot
-#tfin = 5 # final time in hours - for plot
+tmod = "intall" # interval
+ndt = 5
+tinit = 0 # initial time in hours - for plot
+tfin = nt-1 # final time in hours - for plot
 plot_ZXoft(runname,Xidx_cp,tmod, d=tinit, e=tfin) # X : multiple points
 plot_Zxoft(runname,XP_ylower,tmod, d=tinit, e=tfin) # x : single point
 plot_Zxoft(runname,XP_center,tmod, d=tinit, e=tfin)
@@ -1275,23 +1376,28 @@ plot_Hxoft(runname,XP_ylowerbis,tmod, d=tinit, e=tfin)
 plot_Hxoft(runname,XP_center,tmod, d=tinit, e=tfin)
 plot_compared_surfaceflow(runname,XP_maxof,tmod, d=tinit, e=tfin)
 plot_boundarychecks(tmod,c=ndt, d=tinit, e=tfin)
-"""
+
 
 #tmod = "fin"
-ndt = 5
+ndt = 3
 tmod = "int" # interval
 tinit = dt_real[1] # initial time in hours - for plot
 tfin = 120 #dt_real[-1]-1 # 5e7 # final time in hours - for plot #print(dt_real[-1])
 #plot_HTofy(runname,tmod, c=ndt, d=tinit, e=tfin ) # H(t) distributed in space along y axis (x=nx/2)
 
-
 #plot_MXFig3()
-plot_HTofybis()
 
-ndt = 6
-tmod = "int" # interval
-tinit = dt_real[0] # initial time in hours - for plot
-tfin = 14 #dt_real[-1]-1
-plot_DHTofy_toknownsolution(tmod, c=ndt, d=tinit, e=tfin)
-tmod = 'all'
-cvproxy_toknownsolution(tmod)
+if runname == 'DSc100z10s0':
+    plot_HTofybis()
+    ndt = 6
+    tmod = "int" # interval
+    tinit = dt_real[0] # initial time in hours - for plot
+    tfin = dt_real[-1]-1 #6000 #
+    plot_DHTofy_toknownsolution(tmod, c=ndt, d=tinit, e=tfin)
+    tmod = 'all'
+    cvproxy_toknownsolution(tmod)
+
+plot_CFL_evol()
+
+# v46=v45_ time of cv (<5%) t[10] = 6311.923
+# v42 time of cv (<5%) t[13] = 10911980.0

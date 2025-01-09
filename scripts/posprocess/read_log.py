@@ -25,16 +25,22 @@ path_fig = '/mnt/c/Users/Sophie/Documents/4-Figures/'   #distant
 ###############################################################################################
 # INPUT
 
+## MX
+path = '/home/patras/PF-Test/Maxwell2013/outputs/'
+foldername = 'MX.c1s1y3_v6' #'MX.c100s1bcx_v5'
+runname = 'MX.c1s1'
+
+## DS
 #path = '/home/patras/PF-Test/DumbSquare/outputs/'
-#foldername = 'DS.c01s5_v17F'
-#runname = 'DS.c01s5'
+#foldername = 'DSc100z10s0.RE.DP23.IN0_v49' #'DS.c100s1_v28'
+#runname = 'DSc100z10s0'
 
-"""
+## VM
 path = '/home/patras/PF-Valmalenco/outputs/'
-foldername = 'CLM_V22'
-runname = 'CLM_V2'
-"""
+foldername = 'CLM_V52'
+runname = 'CLM_V5'
 
+## LW
 #path = '/home/patras/PF-Test/LW/outputs/'
 #foldername = 'LW_var_dz_spinup'
 #runname = 'LW_var_dz_spinup'
@@ -103,6 +109,26 @@ def dump_to_simulatedtimes_equivalent(path, foldername, runname):
 #dt_real = dump_to_simulatedtimes_equivalent(path, foldername, runname)
 #print(dt_real)
 
+def dump_timesteps(path, foldername, runname):
+
+     dataset = log_to_array(path, foldername, runname)
+     #print(dataset)
+
+     timestep = np.array(dataset['timestep'])
+     dumptime = np.array(dataset['dumptime'])
+     idxdt = np.where(dumptime!=b'y')[0]
+     #print(idxdt)
+
+     #dumptimes = np.linspace(0,len(idxdt)-1,len(idxdt))
+     #print(dumptimes)
+     #dumpdataset = np.array([dumptimes, time[idxdt]])
+     if len(idxdt)>0: # solution if timesteps gave outputs pfb
+          dumpdataset = timestep[idxdt]
+     else:
+          dumpdataset = timestep
+
+     return dumpdataset
+
 """
 def nt_dump():
     return len(idxdt)+1
@@ -136,3 +162,17 @@ def dumprealtime(dumpnb):
 print("real time of dumpfile '00007' : ",dumprealtime(7),"h")
 #print("real time of dumpfile '00030' : ",dumprealtime(30),"h")
 """
+
+dataset = log_to_array(path, foldername, runname)
+sequence = np.array(dataset['sequence'])
+timestep = np.array(dataset['timestep'])
+
+fig = plt.figure(1,figsize=(4.45,4.45))
+ax = fig.add_subplot(111)
+
+ax.plot(sequence,timestep,marker='+',linestyle='')
+ax.grid(True)
+ax.set_xlabel('t [h]')
+ax.set_ylabel('step')
+
+plt.savefig(f'{path_fig}{foldername}.dtstep.log.png')
