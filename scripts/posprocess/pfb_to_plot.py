@@ -52,18 +52,18 @@ path_fig = '/mnt/c/Users/Sophie/Documents/4-Figures/'   #distant
 
 ## DS
 path = '/home/patras/PF-Test/DumbSquare/outputs/'
-foldername = 'DSc100z10s0.MX.DP23.IN0_v48' #'DS.c100s1_v28'
+foldername = 'DSc100z10s0.MX.DP23.IN0dt01_v56' #'DS.c100s1_v28'
 runname = 'DSc100z10s0'
 
 ## MX
-path = '/home/patras/PF-Test/Maxwell2013/outputs/'
-foldername = 'MX.c1s1y3_v6' #'MX.c100s1bcx_v5'
-runname = 'MX.c1s1'
+#path = '/home/patras/PF-Test/Maxwell2013/outputs/'
+#foldername = 'MX.c1s1y3_v6' #'MX.c100s1bcx_v5'
+#runname = 'MX.c1s1'
 
 ## VM
-path = '/home/patras/PF-Valmalenco/outputs/'
-foldername = 'CLM_V52'
-runname = 'CLM_V5'
+#path = '/home/patras/PF-Valmalenco/outputs/'
+#foldername = 'CLM_V52'
+#runname = 'CLM_V5'
 
 ## parflow test cases
 #path = '/home/patras/PF-Test/LW/outputs/'
@@ -361,10 +361,16 @@ def vector_norm(datax, datay, dataz):
 
 def layer_mean1Dt(array_2Dt):
     # average a 2D array for each timestep
-    array_1Dt = np.zeros(nt)
-    for t in range(nt):
+    arrayshape = array_2Dt.shape
+    array_1Dt = np.zeros(arrayshape[0])
+    for t in range(arrayshape[0]):
         array_1Dt[t] = np.mean(array_2Dt[t])
     return array_1Dt
+
+def layer_mean3Dtto1Dt(array_3Dt):
+
+    s = array_3Dt.shape()
+    distt = s[0]
 
 def layer_sum1Dt(array_2Dt):
     # average a 2D array for each timestep
@@ -380,6 +386,20 @@ def maxinspace_3Dt(array_3Dt):
     array_1Dt = np.max(array_1Dt,1)
 
     return array_1Dt
+
+def derivative3D_dvarofdt(array_3Dt):
+
+    derivative_3Dt = np.empty((nt-1,nz,ny,nx))
+    for t in range(1,nt):
+        derivative_3Dt[t-1] = (array_3Dt[t] - array_3Dt[t-1])/Deltat[t] # forward derivative
+    return derivative_3Dt
+
+def derivative2D_dvarofdt(array_2Dt):
+
+    derivative_2Dt = np.empty((nt-1,ny,nx))
+    for t in range(1,nt):
+        derivative_2Dt[t-1] = (array_2Dt[t] - array_2Dt[t-1])/Deltat[t] # forward derivative
+    return derivative_2Dt
 
 #################################################################################"
 # PLOT SETTINGS x variable
@@ -1116,7 +1136,7 @@ def plot_HTofybis(): #runname, tmod, **kwargs): #MXFig3
     plt.savefig(f'{path_fig}{foldername}.HTofy.dtFig3.png', dpi = 300)
 
 
-def cvproxy_toknownsolution(tmod,**kwargs):
+def cvproxy_toknownsolution(tmod,cvratio,**kwargs):
     # cv proxy that evolves toward 0 when simu CV to analytical/known solution
     
     vname = 'water_table'
@@ -1134,15 +1154,15 @@ def cvproxy_toknownsolution(tmod,**kwargs):
         diff_2Dt[t] = diff_res[0]/array_known
         cvproxy[t]=[np.mean(diff_2Dt[t]),np.mean(diff_2Dt[t,:,int(nx/2)]),np.max(diff_2Dt[t,:,int(nx/2)])]
 
-    tcv = np.where(cvproxy[:,1]<0.05)
+    tcv = np.where(cvproxy[:,1]<cvratio)
     if len(tcv[0])>0:
-        print(f'time of cv (<5%) t[{tcv[0][0]}] = {dt_real[tcv[0][0]]}')
+        print(f'time of cv (<{cvratio}) t[{tcv[0][0]}] = {dt_real[tcv[0][0]]}')
 
     fig, axs = plt.subplots(1)
     axs.plot(dt_real,cvproxy[:,0])
     axs.plot(dt_real,cvproxy[:,1])
     axs.plot(dt_real,cvproxy[:,2])
-    axs.plot(y_centers,0.05*np.ones(y_centers.shape),color='k',linestyle=':',label=r'5$\%$')
+    axs.plot(y_centers,cvratio*np.ones(y_centers.shape),color='k',linestyle=':',label=r'5$\%$')
 
     axs.grid(True)
     #axs.legend(loc='lower right') #best', bbox_to_anchor=(0.5, 0., 0.5, 0.5)) #"Location","southeast")
@@ -1152,6 +1172,7 @@ def cvproxy_toknownsolution(tmod,**kwargs):
     #plt.title(f'Water table')
     plt.savefig(f'{path_fig}{foldername}.DHToft.m.png', dpi = 300)
 
+    return tcv
 
 def plot_DHTofy_toknownsolution(tmod,**kwargs):
     # cv proxy that evolves toward 0 when simu CV to analytical/known solution
@@ -1165,7 +1186,7 @@ def plot_DHTofy_toknownsolution(tmod,**kwargs):
     array_known = unconfined_PBC_2D()
     # radius of influence - in steady state
 
-    fig, axs = plt.subplots(3,1)
+    fig, axs = plt.subplots(3,1,figsize=(1*5,3*2))
 
     for t in time_indexes:
         print(t, 'time idx')
@@ -1179,7 +1200,7 @@ def plot_DHTofy_toknownsolution(tmod,**kwargs):
         axs[0].plot(y_centers,array_2D[:,int(nx/2)], label = f't={round(dt_real[t],0)}h') #, marker='.')
         axs[2].plot(y_centers,diffratio_1D)
     
-    axs[2].plot(y_centers,0.05*np.ones(y_centers.shape),color='k',linestyle=':',label=r'5$\%$')
+    axs[2].plot(y_centers,cv_ratio*np.ones(y_centers.shape),color='k',linestyle=':',label=fr'{cv_ratio}$\%$')
 
     axs[0].grid(True)
     axs[1].grid(True)
@@ -1193,6 +1214,49 @@ def plot_DHTofy_toknownsolution(tmod,**kwargs):
 
     #plt.title(f'Water table')
     plt.savefig(f'{path_fig}{foldername}.DHTofy.dt{tmod}.png', dpi = 300)
+
+def plot_wtderivative():
+
+    print('Derivative evaluation')
+    vname = 'water_table'
+    array_2Dt = -1* readpfblist_to_2Dtarray(path,runname,vname)
+    # temporal derivative of wt
+    deriv_wt = derivative2D_dvarofdt(array_2Dt)
+    # mean in space of temporal derivative of wt
+    mean_deriv_wt = layer_mean1Dt(deriv_wt)
+    abs_mean_deriv_wt = abs(mean_deriv_wt)
+
+    threshold = 1e-8
+    idxt = np.where(abs_mean_deriv_wt<threshold)
+    if len(idxt[0]>0):
+        idx = idxt[0][0]
+        print('idx lower 1e-8', idx)
+    else:
+        idx = nt-2
+        print('threshold 1e-8 not reached')
+    cv_ratio = 0.1
+    tcv = cvproxy_toknownsolution("all",cv_ratio)
+    if len(tcv[0]>0):
+    #    print(f'time of cv (<5%) t[{tcv[0][0]}] = {dt_real[tcv[0][0]]}')
+        idx_ks = tcv[0][0]
+    #else:
+    #    idx = nt-2
+
+    fig, ax = plt.subplots(1)
+
+    ax.plot(dt_real[1:idx+2], abs_mean_deriv_wt[:idx+1], label = r'dh/dt$_{mean,X}$', marker='.')
+    # ax.plot(dt_real[1:idx+2], 1e-8*np.ones((idx+1)), label = r'threshold 1e-6', marker='.')
+    if len(tcv[0]>0):
+        ax.plot(dt_real[1:idx+2], abs_mean_deriv_wt[idx_ks]*np.ones((idx+1)), label = f'dh/dt(t|dh/h<{cv_ratio})') #, marker='.')
+    
+    ax.grid(True)
+    ax.legend(loc='upper right') #, bbox_to_anchor=(0.5, 0., 0.5, 0.5))
+    plt.yscale("log")
+    ax.tick_params(axis='y', labelrotation=90)
+    ax.set_xlabel('t [h]')
+    ax.set_ylabel(r'dh/dt$_{mean,X}$')
+
+    plt.savefig(f'{path_fig}{foldername}.dhdt-mean.png', dpi = 300)
 
 ################################################################
 # Stability
@@ -1279,6 +1343,32 @@ def plot_timestep():
 plot_timestep()
 
 
+def val_derivativecv():
+
+    vname = 'water_table'
+    array_2Dt = -1* readpfblist_to_2Dtarray(path,runname,vname)
+
+    ## FIND TIME OF CONVERGENCE
+    # temporal derivative of wt
+    deriv_wt = derivative2D_dvarofdt(array_2Dt)
+    # mean in space of temporal derivative of wt
+    mean_deriv_wt = layer_mean1Dt(deriv_wt)
+    abs_mean_deriv_wt = abs(mean_deriv_wt)
+    threshold = 5.0e-8
+    idx = np.where(abs_mean_deriv_wt<threshold)
+    idx = idx[0][0]
+    
+    ## ASSESS CONVERGENCE PROXY AT TIME OF CONVERGENCE
+    array_known = unconfined_PBC_2D()
+    diffres = diff_array2D(array_2Dt[idx],array_known)
+    diff_2D = diffres[0]
+    diff_1D = diff_2D[0,:,int(nx/2)]
+    diffratio_1D = diff_1D/array_known[0,:,int(nx/2)]
+
+    val_cv = abs(diffratio_1D.mean())
+    
+    return val_cv
+
 ################################################################
 # THEORETICAL EQUATION
 
@@ -1316,7 +1406,7 @@ xidx = int(nx/2)
 
 plot_3d_geom()
 
-
+"""
 #tmod = "all"
 #tmod = "beg" # beginning
 tmod = "int" # interval
@@ -1335,7 +1425,7 @@ plot_proj2d_multivardtall(runname,'2dyz',xidx, tmod, c=ndt, d=tinit, e=tfin)
 #layerstoplot = [10,9,8,7,6,5,4,3,2,1,0]  #VM
 layerstoplot = [6,5,4,3,2,1,0]
 #plot_proj2d_singlevardtslall('H','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
-
+"""
 
 ## VM check points
 f_cp = '/home/patras/PF-Valmalenco/data/controlpoints.txt'
@@ -1361,7 +1451,7 @@ idxlist = [arr[0] for arr in idx_np] # Convert the numpy arrays into a list of v
 XP_maxof = [idxlist[1:],'X_ofmax']
 #print(XP_maxof)
 
-
+"""
 tmod = "all"
 #tmod = "beg" # beginning
 tmod = "intall" # interval
@@ -1384,20 +1474,29 @@ tmod = "int" # interval
 tinit = dt_real[1] # initial time in hours - for plot
 tfin = 120 #dt_real[-1]-1 # 5e7 # final time in hours - for plot #print(dt_real[-1])
 #plot_HTofy(runname,tmod, c=ndt, d=tinit, e=tfin ) # H(t) distributed in space along y axis (x=nx/2)
+"""
+cv_ratio = 0.1
+derive_threshold = 5e-7
 
 #plot_MXFig3()
 
-if runname == 'DSc100z10s0':
-    plot_HTofybis()
+if runname == 'DSc1000z10s0':
+    #plot_HTofybis()
     ndt = 6
     tmod = "int" # interval
     tinit = dt_real[0] # initial time in hours - for plot
     tfin = dt_real[-1]-1 #6000 #
     plot_DHTofy_toknownsolution(tmod, c=ndt, d=tinit, e=tfin)
     tmod = 'all'
-    cvproxy_toknownsolution(tmod)
+    cvproxy_toknownsolution(tmod,cv_ratio)
 
 plot_CFL_evol()
 
 # v46=v45_ time of cv (<5%) t[10] = 6311.923
 # v42 time of cv (<5%) t[13] = 10911980.0
+
+plot_wtderivative()
+
+val = val_derivativecv()
+print('RelativeCV proxy at t|dh/dt<5e-8:', val)
+
