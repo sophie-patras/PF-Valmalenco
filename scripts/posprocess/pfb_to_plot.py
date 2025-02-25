@@ -38,6 +38,7 @@ from read_log import *
 
 # coment if not defined
 plt.style.use('/home/patras/PF-Valmalenco/scripts/config.mplstyle')
+colorspalette = ['tab:grey','tab:blue','tab:cyan','tab:green','tab:olive','tab:orange','tab:brown','tab:red','tab:pink','tab:purple']
 
 #####################################################################################"
 # OUTPUT PATH
@@ -51,9 +52,9 @@ path_fig = '/mnt/c/Users/Sophie/Documents/4-Figures/'   #distant
 # such that <runname>.pfidb can be found in : f'{path}{foldername}{runname}.pfidb'
 
 ## DS
-path = '/home/patras/PF-Test/DumbSquare/outputs/'
-foldername = 'DSc100z10s0.MX.DP23.IN0dt01_v56' #'DS.c100s1_v28'
-runname = 'DSc100z10s0'
+#path = '/home/patras/PF-Test/DumbSquare/outputs/'
+#foldername = 'DSc1000z10s0.MX.DP23.IN0dt01_v55' #'DS.c100s1_v28'
+#runname = 'DSc1000z10s0'
 
 ## MX
 #path = '/home/patras/PF-Test/Maxwell2013/outputs/'
@@ -61,6 +62,14 @@ runname = 'DSc100z10s0'
 #runname = 'MX.c1s1'
 
 ## VM
+path = '/home/patras/PF-Valmalenco/outputs/'
+foldername = 'RainRec_RFe-4C2-2IC-35'
+runname = 'RainRec_RFe-4C2-2IC-35'
+
+#path = '/home/patras/PF-Valmalenco/outputs/BowlBox_UXZ/'
+#foldername = 'BowlBox_UXZ_K36e-3L6d' #'BowlBox_UXZ_TgwDpRFe-4K36e-10L1'
+#runname = 'BowlBox_UXZ' #'PLT_box'
+
 #path = '/home/patras/PF-Valmalenco/outputs/'
 #foldername = 'CLM_V52'
 #runname = 'CLM_V5'
@@ -69,6 +78,8 @@ runname = 'DSc100z10s0'
 #path = '/home/patras/PF-Test/LW/outputs/'
 #foldername = 'LW_var_dz_spinup'
 #runname = 'LW_var_dz_spinup'
+
+# NB: Possible error message on Boundary Condition Patches, if so comment line 183,184.
 
 ###############################################################################################
 
@@ -95,8 +106,8 @@ for i in range(nz):
 
 #nt = data.time
 
-X_origin = [0,0,0] # change with real CRS coordinate
-print(X_origin[0])
+X_origin = [280,0,0] # change with real CRS coordinate
+print('Domain origin, south-west:', X_origin[0])
 
 # domain rect cells
 x_centers = dx*(np.linspace(1,nx,nx)-1/2)
@@ -129,8 +140,8 @@ for i in range(nz):
 mask = data.mask
 slopex = data.slope_x               # shape (1,ny, nx)
 slopey = data.slope_y               # shape (1,ny, nx)
-print('slope_x : ', np.min(abs(slopex)), np.mean(abs(slopex)), np.max(abs(slopex)))
-print('slope_y : ', np.min(abs(slopey)), np.mean(abs(slopey)), np.max(abs(slopey)))
+print('abs slope_x : ', np.min(abs(slopex)), np.mean(abs(slopex)), np.max(abs(slopex)))
+print('abs slope_y : ', np.min(abs(slopey)), np.mean(abs(slopey)), np.max(abs(slopey)))
 
 def compute_dem():
     array_2D = np.empty((ny,nx))
@@ -154,6 +165,7 @@ def compute_zcentersasl_3D():
     return array_3D
 
 z_centers_asl_3D = compute_zcentersasl_3D()
+print('z min, max', np.min(z_centers_asl_3D), np.max(z_centers_asl_3D))
 
 dt_real = dump_to_simulatedtimes_equivalent(path,foldername,runname)
 #print(f'dumptimes {dt_real}')
@@ -171,8 +183,8 @@ permz = data.computed_permeability_z
 perm_avg = np.mean(permz)
 print(perm_avg)
 
-press_BC = data.pressure_boundary_conditions
-print('Pressure head boundary conditions : ', press_BC)
+#press_BC = data.pressure_boundary_conditions
+#print('Pressure head boundary conditions : ', press_BC)
 # data.flow_boundary_conditions doesn't exist.
 
 #################################
@@ -281,17 +293,27 @@ def velocitynorm_3Dt():
     array_3Dt = vector_norm(velx_centered,vely_centered,velz_centered)
     return array_3Dt
   
+def bernoullihead_3Dt():
+    # centered variable
+    # nb. Bernoulli assumptions is not verified (not Newtonian), thus h is an estimate of the hydraulic head
+    vel = velocitynorm_3Dt()
+    press = readpfblist_to_3Dtarray(path, runname, 'press') # pressure head
+    # H = p/rhog + z + u^2/rho2
+    # Element-wise operation
+    H = press + vel**2 + z_centers_3D
+    return H
+
 def hydraulichead_3Dt():
     # centered variable
     # nb. Bernoulli assumptions is not verified (not Newtonian), thus h is an estimate of the hydraulic head
     vel = velocitynorm_3Dt()
     press = readpfblist_to_3Dtarray(path, runname, 'press') # pressure head
-    # h = p + z + u^2/2
+    # h = p/rhog + z 
     # Element-wise operation
-    h = press + z_centers_3D #+ vel**2
+    h = press + vel**2 # + z_centers_3D
     return h
 
-def hydraulichhead_3Dt_bis():
+def hydraulichhead_3Dt_bis(): # BETTER USE hydraulichead_3Dt for H, this compute h 
     press = readpfblist_to_3Dtarray(path, runname, 'press') # pressure head
     h = compute_hydraulic_head(press, 0, dz) # hh = hp + hz
     return h
@@ -306,6 +328,8 @@ def centered_var_generator(vname):
     if vname == 'v':
         array3Dt = velocitynorm_3Dt()
     elif vname == 'H':
+        array3Dt = bernoullihead_3Dt()
+    elif vname == 'h':
         array3Dt = hydraulichead_3Dt()
     elif vname in pfb_out3dtvariables:
         array3Dt = readpfblist_to_3Dtarray(path,runname,vname)
@@ -501,8 +525,8 @@ def variablescaling(array,variable):
     elif variable == 'press':
         colorofmap = 'Blues'
         varlabel = r'$p/\rho g$ [m above layer]'
-        varrange = [array.min(), array.max()] #min(array.max(),2)]
-        #varrange = [-0.7, 0.1]
+        #varrange = [max(array.min(),-10), min(array.max(),10)] #min(array.max(),2)]
+        varrange = [-1.5,1.5] # [0.7, 0.1]
     elif variable == 'satur':
         colorofmap = 'Blues'
         varlabel = 'S [-]'
@@ -522,8 +546,29 @@ def variablescaling(array,variable):
         varrange = [array.min(), array.max()]
     elif variable == 'H':
         colorofmap = 'Blues'
-        varlabel = 'hydraulic head [m agl.]'
+        varlabel = 'H [m asl.]'
         varrange = [array.min(),array.max()]
+        #varrange = [-1.0,1.0]
+    elif variable == 'h':
+        colorofmap = 'Blues'
+        varlabel = 'h [m agl.]'
+        if array.min()<0:
+            normed_range = min(abs(array.min()), array.max())
+            varrange = [-1*normed_range, normed_range]
+        else:
+            varrange = [array.min(),array.max()]
+    elif variable == 'slopex':
+        colorofmap = 'PuOr'
+        varlabel = r"$i_x$ [-]"
+        varrange = [array.min(),array.max()]
+    elif variable == 'slopey':
+        colorofmap = 'PuOr'
+        varlabel = r"$i_y$ [-]"
+        varrange = [array.min(),array.max()]
+    elif variable == 'DEM':
+        colorofmap = 'terrain'
+        varlabel = r"$z$ [m asl]"
+        varrange = [0, 4000] #[array.min(),array.max()] # [0, 4050]
     else: # default
         colorofmap = 'Spectral_r'
         varlabel = f'{variable}'
@@ -581,6 +626,11 @@ def tidxscaling(dt_fullreal,mod,**kwargs):
 
 def plot_3d_geom():
 
+    pltsettings = variablescaling(z_dem_2D, 'DEM') # use 1 common scale of color for all layers and time steps
+    varcolor = pltsettings[0]
+    varlabel = pltsettings[1]
+    varrange = pltsettings[2]
+
     fig = plt.figure()
     ax = fig.add_subplot(111, projection=Axes3D.name)
     
@@ -588,12 +638,14 @@ def plot_3d_geom():
     x_c, y_c = np.meshgrid(x_centers, y_centers)
 
     # surface
-    ax.plot_surface(x_c,y_c,z_dem_2D, cmap = 'terrain', rstride=1, cstride=1, antialiased=True, shade=False)
+    ax.plot_surface(x_c,y_c,z_dem_2D, cmap = varcolor, rstride=1, cstride=1, antialiased=True, shade=False, vmin = varrange[0], vmax=varrange[1])
             # x_centers,y_centers
-    #ax.view_init(30, 60) # elev, azimuth, roll
+    ax.view_init(15, -100) # elev, azimuth, roll
+    
+    ax.set_box_aspect(aspect=(2, 2, 1), zoom=1.3)
     ax.set_xlabel('x')
     ax.set_ylabel('y')
-    ax.set_zlabel('z') # [m agl.]')
+    ax.set_zlabel('z [m asl.]')
     #ax.set_title('stacked '+args.variable)
     #ax.text2D(0.1,0.9,f"time={DumpInt*DumpGap}h",transform = ax.transAxes)
 
@@ -656,6 +708,72 @@ def plot_3d_singlevardtsgl(vname,t):
 
     #plt.show()
     plt.savefig(f'{path_fig}{foldername}.{vname}.dt{t}.3d.png', dpi = 300)
+
+def plot_proj2d_singlevar_geom():
+    # plot for 3Dt variables only (ie. exclude overland_flow)
+    
+    # dem, slopex, slopey
+    fig, axs = plt.subplots(1,3,figsize=(3*6,5)) #
+
+    projectioninfo = projscaling('press', '2dxy')
+    x = projectioninfo[0]
+    y = projectioninfo[1]
+    xtit = projectioninfo[2]
+    ytit = projectioninfo[3]
+    #xlim = projectioninfo[4]
+    #ylim = projectioninfo[5]
+
+    # DEM
+    pltsettings = variablescaling(z_dem_2D, 'DEM') # use 1 common scale of color for all layers and time steps
+    varcolor = pltsettings[0]
+    varlabel = pltsettings[1]
+    varrange = pltsettings[2]
+
+    im = axs[0].pcolormesh(x, y, z_dem_2D, shading='auto', cmap= varcolor, vmin = varrange[0], vmax=varrange[1] )
+    #axs[0,1].set_aspect('equal')      
+    axs[0].set_xlabel(xtit)
+    #axs[t,v].set_xlim(xlim[0],xlim[-1])
+    axs[0].set_ylabel(ytit)
+    #axs[t,v].set_ylim(ylim[0],ylim[-1])
+    axs[0].set_title(varlabel)
+    fig.colorbar(im, ax=axs[0], orientation='vertical') #, fraction=0.5, pad=0.04)
+
+    # SLOPE X
+    pltsettings = variablescaling(slopex[0], 'slopex') # use 1 common scale of color for all layers and time steps
+    varcolor = pltsettings[0]
+    varlabel = pltsettings[1]
+    varrange = pltsettings[2]
+
+    im = axs[1].pcolormesh(x, y, slopex[0], shading='auto', cmap=varcolor, vmin = varrange[0], vmax=varrange[1] )
+    #axs[1].set_aspect('equal')      
+    axs[1].set_xlabel(xtit)
+    #axs[t,v].set_xlim(xlim[0],xlim[-1])
+    axs[1].set_ylabel(ytit)
+    #axs[t,v].set_ylim(ylim[0],ylim[-1])
+    axs[1].set_title(varlabel)
+    fig.colorbar(im, ax=axs[1], orientation='vertical') #, fraction=0.5, pad=0.04)
+
+    # SLOPE Y
+    pltsettings = variablescaling(slopey[0], 'slopey') # use 1 common scale of color for all layers and time steps
+    varcolor = pltsettings[0]
+    varlabel = pltsettings[1]
+    varrange = pltsettings[2]
+
+    im = axs[2].pcolormesh(x, y, slopey[0], shading='auto', cmap=varcolor, vmin = varrange[0], vmax=varrange[1] )
+    #axs[0,2].set_aspect('equal')      
+    axs[2].set_xlabel(xtit)
+    #axs[t,v].set_xlim(xlim[0],xlim[-1])
+    axs[2].set_ylabel(ytit)
+    #axs[t,v].set_ylim(ylim[0],ylim[-1])
+    axs[2].set_title(varlabel)
+    fig.colorbar(im, ax=axs[2], orientation='vertical') #, fraction=0.5, pad=0.04)
+
+    #plt.text(f'{varlabel}[t,layer] for run {foldername}, in plan {projection}')
+    plt.tight_layout()
+    plt.savefig(f'{path_fig}{foldername}.topo.2dxy.png', dpi = 300)
+    plt.close()
+
+# plot_proj2d_singlevar_geom()
 
 def plot_proj2d_singlevardtslall(varname,projection, proj_idx_list, tmod, **kwargs):
     # plot for 3Dt variables only (ie. exclude overland_flow)
@@ -720,7 +838,7 @@ def plot_proj2d_multivardtall(runname,projection, proj_idx, tmod, **kwargs):
 
     pfb_outvariables = pfb_out3dtvariables
     if (projection == '2dxy') & (proj_idx == nz-1):
-        pfb_outvariables = pfb_out3dtvariables + pfb_out2dtvariables
+        pfb_outvariables = pfb_out3dtvariables[:2] + [pfb_out2dtvariables[0]] + pfb_out3dtvariables[2:] + [pfb_out2dtvariables[1]]
     
     time_indexes = tidxscaling(dt_real,tmod,c=kwargs.get('c',float),d=kwargs.get('d',float),e=kwargs.get('e',float))
     nt = len(time_indexes)
@@ -757,7 +875,7 @@ def plot_proj2d_multivardtall(runname,projection, proj_idx, tmod, **kwargs):
             array_2Dt = readpfblist_to_2Dtarray(path,runname,vname) #3Dt, future 2Dt
         #print(array_2Dt.shape)
         
-        pltsettings = variablescaling(array_2Dt, vname)
+        pltsettings = variablescaling(array_2Dt[time_indexes], vname)
         varcolor = pltsettings[0]
         varlabel = pltsettings[1]
         varrange = pltsettings[2]
@@ -828,6 +946,7 @@ def plot_ZXoft(runname, Xcp, tmod, **kwargs):
 
     #plt.show()
     plt.savefig(f'{path_fig}{foldername}.varall.dt{tmod}.X.png', dpi = 300)
+    plt.close()
 
 def plot_Zxoft(runname, Xcp, tmod,**kwargs):
 
@@ -837,7 +956,8 @@ def plot_Zxoft(runname, Xcp, tmod,**kwargs):
     nbvar = len(pfb_out3dtvariables)
     fig, axs = plt.subplots(1,nbvar,figsize=(nbvar*6,5))
 
-    time_indexes = tidxscaling(dt_real,tmod,c=kwargs.get('c',float),d=kwargs.get('d',float),e=kwargs.get('e',float))
+    tfin = kwargs.get('e',float)
+    time_indexes = tidxscaling(dt_real,tmod,c=kwargs.get('c',float),d=kwargs.get('d',float),e=tfin)
     #nt = len(time_indexes)
     tarray = dt_real[time_indexes]
 
@@ -857,7 +977,8 @@ def plot_Zxoft(runname, Xcp, tmod,**kwargs):
         axs[v].set_ylabel(f'{varlabel}')
 
     #plt.show()
-    plt.savefig(f'{path_fig}{foldername}.varall.dt{tmod}.{Xcp[1]}z.png', dpi = 300)
+    plt.savefig(f'{path_fig}{foldername}.varall.dt{tmod}{tfin}.{Xcp[1]}z.png', dpi = 300)
+    plt.close()
 
 ####################################
 # CONVERGENCE PROXY
@@ -887,34 +1008,39 @@ def plot_Hxoft(runname, Xcp, tmod,**kwargs):
     #    axs.plot(tarray,array_Xt,label=f'p(l={z})', marker='.')
 
     # hydraulic head # h = p/(rho g) + z + u^2/2
-    array_3Dt = hydraulichead_3Dt()
+    array_3Dt = bernoullihead_3Dt()
+    pltsettings = variablescaling(array_3Dt, 'H')
+    varlabel = pltsettings[1]
+
     for z in range(nz):
         array_Xt = array_3Dt[time_indexes,z,X[0],X[1]]
-        axs.plot(tarray,array_Xt,label=f'h(l={z})', marker='.')
-
-    # Water table
-    vname = 'water_table'
-    v = 2
-    array_3Dt = -1* readpfblist_to_2Dtarray(path,runname,vname)
-    pltsettings = variablescaling(array_3Dt, vname)
-    #varlabel = pltsettings[1]
-    array_Xt = array_3Dt[time_indexes,X[0],X[1]]
-    axs.plot(tarray,array_Xt,label='pf-wt', linestyle=':', color='k', marker='.')
+        axs.plot(tarray,array_Xt,label=f'layer {z}', marker='.')
+        
+    if np.mean(array_Xt)<0:
+        # Water table
+        vname = 'water_table'
+        v = 2
+        array_3Dt = -1* readpfblist_to_2Dtarray(path,runname,vname)
+        pltsettings = variablescaling(array_3Dt, vname)
+        #varlabel = pltsettings[1]
+        array_Xt = array_3Dt[time_indexes,X[0],X[1]]
+        axs.plot(tarray,array_Xt,label='pf-wt', linestyle=':', color='k', marker='.')
     
     # PBC y-lower
-    v = 3
-    ylower = press_BC['y-lower__alltime'] * np.ones(nt)
-    axs.plot(tarray,ylower,label='BCylow')
+    #v = 3
+    #ylower = press_BC['y-lower__alltime'] * np.ones(nt)
+    #axs.plot(tarray,ylower,label='BCylow')
 
     axs.grid(True)
     axs.legend()
     axs.set_xlabel('t [h]')
-    axs.set_ylabel('h [m agl]')
+    axs.set_ylabel(varlabel)
 
-    plt.title('Hydraulic head') # and water table(<0)')
+    #plt.title('Hydraulic head') # and water table(<0)')
 
     #plt.show()
     plt.savefig(f'{path_fig}{foldername}.Hxoft.dt{tmod}.{loc_cp}.png', dpi = 300)
+    plt.close()
 
 def plot_HTofy(runname, tmod, **kwargs):
     # compare water table in space (hyp. steady state)    
@@ -953,6 +1079,7 @@ def plot_HTofy(runname, tmod, **kwargs):
 
     #plt.title(f'Water table')
     plt.savefig(f'{path_fig}{foldername}.HTofy.R{R_tot}.dt{tmod}.png', dpi = 300)
+    plt.close()
 
 def plot_compared_surfaceflow(runname, Xcp, mod,**kwargs):
     # compare overland_flow (Kinematic wave equation) vs flow discharge in surface layer, at chosen point Xcp
@@ -972,9 +1099,26 @@ def plot_compared_surfaceflow(runname, Xcp, mod,**kwargs):
     # hypothesis that flow velocity in surface layer is the same as the one in the shear stress layer of free surface flow
     vname = 'discharge'
     array_3Dt = dischargenorm_3Dt()
-    array_2Dt = projected_array(array_3Dt,"2dxy",nz-1)
-    array_Xt = array_2Dt[time_indexes[:],X[0],X[1]]
-    axs.plot(tarray,array_Xt, marker='.', label = r'$Q_{subsurface}$')
+    array_2Dt_l10 = projected_array(array_3Dt,"2dxy",nz-1)
+    array_2Dt_l9 = projected_array(array_3Dt,"2dxy",nz-2)
+    array_2Dt_l8 = projected_array(array_3Dt,"2dxy",nz-3)
+    array_2Dt_l7 = projected_array(array_3Dt,"2dxy",nz-4)
+    array_2Dt_l6 = projected_array(array_3Dt,"2dxy",nz-5)
+
+    array_Xt_l10 = array_2Dt_l10[time_indexes[:],X[0],X[1]]
+    array_Xt_l9 = array_2Dt_l9[time_indexes[:],X[0],X[1]]
+    array_Xt_l8 = array_2Dt_l8[time_indexes[:],X[0],X[1]]
+    array_Xt_l7 = array_2Dt_l7[time_indexes[:],X[0],X[1]]
+    array_Xt_l6 = array_2Dt_l6[time_indexes[:],X[0],X[1]]
+    
+    axs.plot(tarray,array_Xt_l10, marker='.', label = r'$Q_{subsurface-l10}$')
+    axs.plot(tarray,array_Xt_l9, marker='.', label = r'$Q_{subsurface-l9}$')
+    axs.plot(tarray,array_Xt_l8, marker='.', label = r'$Q_{subsurface-l8}$')
+    axs.plot(tarray,array_Xt_l7, marker='.', label = r'$Q_{subsurface-l7}$')
+    axs.plot(tarray,array_Xt_l6, marker='.', label = r'$Q_{subsurface-l6}$')
+
+    array_Qsumt_l106 = array_Xt_l10 + array_Xt_l9 + array_Xt_l8 + array_Xt_l7 + array_Xt_l6
+    axs.plot(tarray,array_Qsumt_l106, marker='.', label = r'$Q_{subsurface-\Sigma l10-6}$')
 
     # of
     vname = 'overland_flow'
@@ -983,17 +1127,18 @@ def plot_compared_surfaceflow(runname, Xcp, mod,**kwargs):
     #varlabel = pltsettings[1]
 
     array_Xt = array_2Dt[time_indexes,X[0],X[1]]
-    axs.plot(tarray,array_Xt, marker='.',label=r'$Q_{overland flow}$')
+    axs.plot(tarray,array_Xt, marker='.', color='k', linestyle=':', label=r'$Q_{overland flow}$')
 
     axs.grid(True)
-    axs.legend()
+    axs.legend(loc='upper right')
     axs.set_xlabel('t [h]')
     axs.set_ylabel(r'$Q$ [m$^3$/h]')
 
-    plt.title(f'Comparison of flux in surface layer and overland_flow in {loc_cp}')
+    #plt.title(f'Comparison of flux in surface layer and overland_flow in {loc_cp}')
 
     #plt.show()
     plt.savefig(f'{path_fig}{foldername}.fluxcomp.dt{mod}.{loc_cp}.png', dpi = 300)
+    plt.close()
 
 def plot_boundarychecks(mod,**kwargs):
     # for all faces in press_BC list - for CV sum should go to 0 ('balanced model')
@@ -1042,6 +1187,7 @@ def plot_boundarychecks(mod,**kwargs):
     plt.title('Outflow of box-boundary faces')
     #plt.show()
     plt.savefig(f'{path_fig}{foldername}.outflow.Bf-low.dt{mod}.png', dpi = 300)
+    plt.close()
 
 def plot_MXFig3(): #runname, tmod, **kwargs): #MXFig3
 
@@ -1078,7 +1224,7 @@ def plot_HTofx(): #runname, tmod, **kwargs): #MXFig3
     colors = ['k','b','r']
     c = 0
 
-    array_3Dt = hydraulichead_3Dt()
+    array_3Dt = bernoullihead_3Dt()
     rgz = [0, int(nz/2), nz-1]
 
     fig, ax = plt.subplots(1,figsize=(5,5))
@@ -1099,7 +1245,7 @@ def plot_HTofx(): #runname, tmod, **kwargs): #MXFig3
 
     #plt.title(f'Water table')
     plt.savefig(f'{path_fig}{foldername}.HTofx.dtFig3.png', dpi = 300)
-
+    plt.close()
 
 def plot_HTofybis(): #runname, tmod, **kwargs): #MXFig3
 
@@ -1111,7 +1257,7 @@ def plot_HTofybis(): #runname, tmod, **kwargs): #MXFig3
     colors = ['k','b','r']
     c = 0
 
-    array_3Dt = hydraulichead_3Dt()
+    array_3Dt = bernoullihead_3Dt()
     rgz = [0, int(nz/2), nz-1]
 
     fig, ax = plt.subplots(1,figsize=(5,5))
@@ -1171,6 +1317,7 @@ def cvproxy_toknownsolution(tmod,cvratio,**kwargs):
 
     #plt.title(f'Water table')
     plt.savefig(f'{path_fig}{foldername}.DHToft.m.png', dpi = 300)
+    plt.close()
 
     return tcv
 
@@ -1214,6 +1361,7 @@ def plot_DHTofy_toknownsolution(tmod,**kwargs):
 
     #plt.title(f'Water table')
     plt.savefig(f'{path_fig}{foldername}.DHTofy.dt{tmod}.png', dpi = 300)
+    plt.close()
 
 def plot_wtderivative():
 
@@ -1224,6 +1372,8 @@ def plot_wtderivative():
     deriv_wt = derivative2D_dvarofdt(array_2Dt)
     # mean in space of temporal derivative of wt
     mean_deriv_wt = layer_mean1Dt(deriv_wt)
+    print('initial derivative', mean_deriv_wt[0])
+    print('final derivative',mean_deriv_wt[-1])
     abs_mean_deriv_wt = abs(mean_deriv_wt)
 
     threshold = 1e-8
@@ -1234,21 +1384,25 @@ def plot_wtderivative():
     else:
         idx = nt-2
         print('threshold 1e-8 not reached')
-    cv_ratio = 0.1
-    tcv = cvproxy_toknownsolution("all",cv_ratio)
-    if len(tcv[0]>0):
-    #    print(f'time of cv (<5%) t[{tcv[0][0]}] = {dt_real[tcv[0][0]]}')
-        idx_ks = tcv[0][0]
-    #else:
-    #    idx = nt-2
+    
+    if runname == 'DSc1000z10s0':
+        cv_ratio = 0.1
+        tcv = cvproxy_toknownsolution("all",cv_ratio)
+        if len(tcv[0]>0):
+        #    print(f'time of cv (<5%) t[{tcv[0][0]}] = {dt_real[tcv[0][0]]}')
+            idx_ks = tcv[0][0]
+        #else:
+        #    idx = nt-2
 
     fig, ax = plt.subplots(1)
-
     ax.plot(dt_real[1:idx+2], abs_mean_deriv_wt[:idx+1], label = r'dh/dt$_{mean,X}$', marker='.')
     # ax.plot(dt_real[1:idx+2], 1e-8*np.ones((idx+1)), label = r'threshold 1e-6', marker='.')
-    if len(tcv[0]>0):
+    if (runname == 'DSc1000z10s0') and len(tcv[0]>0):
+        #ax.plot(dt_real[1:idx+2], abs_mean_deriv_wt[:idx+1], label = r'dh/dt$_{mean,X}$', marker='.')
         ax.plot(dt_real[1:idx+2], abs_mean_deriv_wt[idx_ks]*np.ones((idx+1)), label = f'dh/dt(t|dh/h<{cv_ratio})') #, marker='.')
-    
+    #else:
+    #    ax.plot(dt_real[1:idx+2], abs_mean_deriv_wt[:idx+2], label = r'dh/dt$_{mean,X}$', marker='.')
+
     ax.grid(True)
     ax.legend(loc='upper right') #, bbox_to_anchor=(0.5, 0., 0.5, 0.5))
     plt.yscale("log")
@@ -1257,6 +1411,88 @@ def plot_wtderivative():
     ax.set_ylabel(r'dh/dt$_{mean,X}$')
 
     plt.savefig(f'{path_fig}{foldername}.dhdt-mean.png', dpi = 300)
+    plt.close()
+
+def plot_YofX(Yvarname, Xvarname, Xcp): # hysteretic curve
+
+    #Yvarname = 'H'
+    #Xvarname = 'satur'
+
+    X = Xcp[0] # single point
+    loc_cp = Xcp[1]
+
+    vname = Yvarname
+    if vname in pfb_cellcentered3dtvariables:
+        Y_array_3Dt = centered_var_generator(vname)
+    else:
+        Y_array_3Dt = readpfblist_to_3Dtarray(path,runname,vname)
+    Y_array_Xt = Y_array_3Dt[:,:,X[0],X[1]]
+    pltsettings = variablescaling(Y_array_3Dt, vname)
+    Y_varlabel = pltsettings[1]
+    # X
+    vname = Xvarname
+    X_array_3Dt = readpfblist_to_3Dtarray(path,runname,vname)
+    X_array_Xt = X_array_3Dt[:,:,X[0],X[1]]
+    pltsettings = variablescaling(X_array_3Dt, vname)
+    X_varlabel = pltsettings[1]
+
+    fig, ax = plt.subplots()
+    for z in range(nz-1):
+        ax.plot(X_array_Xt[:,z],Y_array_Xt[:,z],label=f'layer {z}', marker='.', color=colorspalette[z])
+        ax.plot(X_array_Xt[0,z],Y_array_Xt[0,z], marker='+', markersize=6, color=colorspalette[z])
+
+    ax.grid(True)
+    ax.legend(loc='best', bbox_to_anchor=(0.5, 0., 0.5, 0.5))
+    #plt.yscale("log")
+    #ax.tick_params(axis='y', labelrotation=90)
+    ax.set_xlabel(X_varlabel)
+    ax.set_ylabel(Y_varlabel)
+
+    plt.savefig(f'{path_fig}{foldername}.{Yvarname}of{Xvarname}.{loc_cp}.png', dpi = 300)
+    plt.close()
+
+def plot_zofX(Xvarname, Xcp, tmod,**kwargs): # hysteretic curve
+
+    #Xvarname = 'satur'
+
+    X = Xcp[0] # single point
+    loc_cp = Xcp[1]
+
+    time_indexes = tidxscaling(dt_real,tmod,c=kwargs.get('c',float),d=kwargs.get('d',float),e=kwargs.get('e',float))
+    #nt = len(time_indexes)
+    #tarray = dt_real[time_indexes]
+
+    # X
+    if Xvarname == 'H':
+        X_array_3Dt = bernoullihead_3Dt()
+    else :
+        vname = Xvarname
+        X_array_3Dt = readpfblist_to_3Dtarray(path,runname,vname)
+    X_array_Xt = X_array_3Dt[:,:,X[0],X[1]]
+    pltsettings = variablescaling(X_array_3Dt, vname)
+    X_varlabel = pltsettings[1]
+
+    fig, ax = plt.subplots(1,2,figsize=(5,3.5), gridspec_kw={'width_ratios': [0.5,1],'height_ratios': [1]})
+    
+    ax[0].plot(permz[3:,X[0],X[1]],z_centers[3:])
+    ax[0].set_xscale("log")
+    ax[0].grid(True)
+    ax[0].set_xlabel(r'K$_{sat}$ [m/h]')
+    ax[0].set_xticks([1.0e-3,1.0e-2])
+    ax[0].set_ylabel('z [m agl]')
+
+    for idx in time_indexes:
+        ax[1].plot(X_array_Xt[idx,3:],z_centers[3:],label=f'{round(dt_real[idx],0)}h', marker='.')
+    
+    ax[1].grid(True)
+    ax[1].legend() #loc='upper right', bbox_to_anchor=(0.5, 0., 0.5, 0.5))
+    #plt.yscale("log")
+    #ax.tick_params(axis='y', labelrotation=90)
+    ax[1].set_xlabel(X_varlabel)
+    ax[1].set_ylabel('z [m agl]')
+
+    plt.savefig(f'{path_fig}{foldername}.zof{Xvarname}.{loc_cp}z3-10.png', dpi = 300)
+    plt.close()
 
 ################################################################
 # Stability
@@ -1331,14 +1567,14 @@ def plot_timestep():
     tzoom = -1
 
     fig, ax = plt.subplots(1,figsize=(5,2))
-    ax.plot(dt_real[:], Deltat[:] , marker='.', color='k')
+    ax.plot(dt_real[:tzoom], Deltat[:tzoom] , marker='.', color='k')
     
     ax.grid(True)
     #ax.legend(loc='upper right') #, bbox_to_anchor=(0.5, 0., 0.5, 0.5))
     ax.set_xlabel('t [h]')
     ax.set_ylabel('timestep [h]')
 
-    plt.savefig(f'{path_fig}{foldername}.dtstep.png', dpi = 300)
+    plt.savefig(f'{path_fig}{foldername}.dtstep.zoom12.png', dpi = 300)
 
 plot_timestep()
 
@@ -1395,42 +1631,65 @@ def unconfined_PBC_2D(): #steady state
 # Nomenclature of variables
 
 pfb_out3dtvariables = ['press','satur','velx','vely','velz']
-pfb_cellcentered3dtvariables = ['press', 'satur', 'vx_c','vy_c','vz_c','v', 'H'] #'subsurface_storage' - H for hydraulic head
+pfb_cellcentered3dtvariables = ['press', 'satur', 'vx_c','vy_c','vz_c','v', 'H','h'] #'subsurface_storage' - H for hydraulic head
+#pfb_inparams = [slopex, slopey, permx, permy, permz, manning, porosity, ... ] #nb slope can be 2d or 3d ?
 pfb_out2dtvariables = ['water_table', 'overland_flow'] #'surface_storage', 'surface_storage', 'overland_bc_flux', 'overlandsum',
 faces = ['x-lower', 'x-upper', 'y-lower', 'y-upper', 'z-lower', 'z-upper']
 plot_projections = ['2dxy','2dxz','2dyz','1d','3d']
+
 
 zidx = nz-1
 yidx = 0
 xidx = int(nx/2)
 
-plot_3d_geom()
+#plot_proj2d_multivardtall(runname,'2dxy',10, "int", c=7, d=dt_real[0], e=dt_real[8])
 
-"""
-#tmod = "all"
+
+# plot_3d_geom()
+
+
+tmod = "int" # all
 #tmod = "beg" # beginning
-tmod = "int" # interval
-tmod = "ed"
-ndt = 3
-tinit = dt_real[1] # initial time in hours - for plot
-tfin = 120 #dt_real[-1]-1 # final time in hours - for plot
+#tmod = "int" # interval
+#tmod = "ed"
+ndt = 7
+tinit = dt_real[0] # initial time in hours - for plot
+tfin = 165 # dt_real[-1] # final time in hours - for plot
 plot_proj2d_multivardtall(runname,'2dxz',yidx, tmod, c=ndt, d=tinit, e=tfin)
 ## plot_proj2d_multivardtall(runname,'2dxz',yidx, "all")
 
 plot_proj2d_multivardtall(runname,'2dxy',zidx, tmod, c=ndt, d=tinit, e=tfin)
 plot_proj2d_multivardtall(runname,'2dyz',xidx, tmod, c=ndt, d=tinit, e=tfin)
 
-#plot_3d_singlevardtsgl('H', 7) # for cellcentered3dtvariables
 
-#layerstoplot = [10,9,8,7,6,5,4,3,2,1,0]  #VM
-layerstoplot = [6,5,4,3,2,1,0]
-#plot_proj2d_singlevardtslall('H','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
-"""
+#plot_3d_singlevardtsgl('H', 0) # for cellcentered3dtvariables
+#plot_3d_singlevardtsgl('H', 1) # for cellcentered3dtvariables
+#plot_3d_singlevardtsgl('H', 2) # for cellcentered3dtvariables
+#plot_3d_singlevardtsgl('H', 3) # for cellcentered3dtvariables
+#plot_3d_singlevardtsgl('H', 30) # for cellcentered3dtvariables
+
+
+layerstoplot = [10,9,8,7,6,5,4,3,2,1,0]  #VM
+#layerstoplot = [10,7,5,3,1,0]
+plot_proj2d_singlevardtslall('press','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
+plot_proj2d_singlevardtslall('velz','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
+plot_proj2d_singlevardtslall('v','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
+plot_proj2d_singlevardtslall('satur','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
+plot_proj2d_singlevardtslall('h','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
 
 ## VM check points
 f_cp = '/home/patras/PF-Valmalenco/data/controlpoints.txt'
 Xidx_cp = read_cpcsv(f_cp)
-#print(Xidx_cp)
+Xidx_cp0 = [[Xidx_cp[0][0,0],Xidx_cp[0][0,1]],Xidx_cp[1][0]]
+Xidx_cp1 = [[Xidx_cp[0][1,0],Xidx_cp[0][1,1]],Xidx_cp[1][1]]
+Xidx_cp2 = [[Xidx_cp[0][2,0],Xidx_cp[0][2,1]],Xidx_cp[1][2]]
+#print('Control Points', Xidx_cp)
+print('check p 0',Xidx_cp0[0])
+
+print('slope in Palu', z_dem_2D[Xidx_cp0[0][0],Xidx_cp0[0][1]], slopex[0,Xidx_cp0[0][0],Xidx_cp0[0][1]], slopey[0,Xidx_cp0[0][0],Xidx_cp0[0][1]]) #,
+print('slope in Gombaro', z_dem_2D[Xidx_cp1[0][0],Xidx_cp1[0][1]], slopex[0,Xidx_cp1[0][0],Xidx_cp1[0][1]], slopey[0,Xidx_cp1[0][0],Xidx_cp1[0][1]])
+print('slope in Spriana', z_dem_2D[Xidx_cp2[0][0],Xidx_cp2[0][1]], slopex[0,Xidx_cp2[0][0],Xidx_cp2[0][1]], slopey[0,Xidx_cp2[0][0],Xidx_cp2[0][1]])
+
 XP_ylower = [Xidx_cp[0][1],[Xidx_cp[1][1]]]
 XP_center = [np.array([int(ny/2),int(nx/2)]),f'[{int(ny/2)},{int(nx/2)}]']
 
@@ -1451,30 +1710,61 @@ idxlist = [arr[0] for arr in idx_np] # Convert the numpy arrays into a list of v
 XP_maxof = [idxlist[1:],'X_ofmax']
 #print(XP_maxof)
 
-"""
-tmod = "all"
+
+tmod = "intall"
 #tmod = "beg" # beginning
-tmod = "intall" # interval
-ndt = 5
+#tmod = "intall" # interval
+ndt = 7
 tinit = 0 # initial time in hours - for plot
-tfin = nt-1 # final time in hours - for plot
-plot_ZXoft(runname,Xidx_cp,tmod, d=tinit, e=tfin) # X : multiple points
-plot_Zxoft(runname,XP_ylower,tmod, d=tinit, e=tfin) # x : single point
-plot_Zxoft(runname,XP_center,tmod, d=tinit, e=tfin)
-plot_Hxoft(runname,XP_ylower,tmod, d=tinit, e=tfin) # Hxoft = H(x)(t), evolution of H(x) in time
-plot_Hxoft(runname,XP_ylowerbis,tmod, d=tinit, e=tfin)
-plot_Hxoft(runname,XP_center,tmod, d=tinit, e=tfin)
-plot_compared_surfaceflow(runname,XP_maxof,tmod, d=tinit, e=tfin)
+tfin = dt_real[nt-1] # final time in hours - for plot
+"""
+plot_ZXoft(runname,Xidx_cp,tmod, c=ndt, d=tinit, e=tfin) # X : multiple points
+
+plot_Zxoft(runname,Xidx_cp0,tmod, c=ndt, d=tinit, e=tfin)
+plot_Zxoft(runname,Xidx_cp1,tmod, c=ndt, d=tinit, e=tfin)
+plot_Zxoft(runname,Xidx_cp2,tmod, c=ndt, d=tinit, e=tfin)
+
+plot_Zxoft(runname,XP_ylower,tmod, c=ndt, d=tinit, e=tfin) # x : single point
+plot_Zxoft(runname,XP_center,tmod, c=ndt, d=tinit, e=tfin)
+
+plot_Hxoft(runname,Xidx_cp0,tmod, c=ndt, d=tinit, e=tfin)
+plot_Hxoft(runname,Xidx_cp1,tmod, c=ndt, d=tinit, e=tfin)
+plot_Hxoft(runname,Xidx_cp2,tmod, c=ndt, d=tinit, e=tfin)
+
+plot_Hxoft(runname,XP_ylower,tmod, c=ndt, d=tinit, e=tfin) # Hxoft = H(x)(t), evolution of H(x) in time
+plot_Hxoft(runname,XP_ylowerbis,tmod, c=ndt, d=tinit, e=tfin)
+plot_Hxoft(runname,XP_center,tmod, c=ndt, d=tinit, e=tfin)
+"""
+# plot_compared_surfaceflow(runname,XP_maxof,tmod, d=tinit, e=tfin)
+
+plot_compared_surfaceflow(runname,Xidx_cp0,tmod, c=ndt, d=tinit, e=tfin)
+plot_compared_surfaceflow(runname,Xidx_cp1,tmod, c=ndt, d=tinit, e=tfin)
+plot_compared_surfaceflow(runname,Xidx_cp2,tmod, c=ndt, d=tinit, e=tfin)
+
 plot_boundarychecks(tmod,c=ndt, d=tinit, e=tfin)
 
+plot_YofX('h','satur', Xidx_cp0)
+plot_YofX('h','satur', Xidx_cp1)
+plot_YofX('h','satur', Xidx_cp2)
+
+tmod = "ed"
+#tmod = "beg" # beginning
+#tmod = "intall" # interval
+ndt = 7
+tinit = 0 # initial time in hours - for plot
+tfin = dt_real[nt-1]
+plot_zofX('satur', Xidx_cp2, tmod, c=ndt, d=tinit, e=tfin)
+plot_zofX('satur', Xidx_cp1, tmod, c=ndt, d=tinit, e=tfin)
+plot_zofX('satur', Xidx_cp0, tmod, c=ndt, d=tinit, e=tfin)
+plot_zofX('press', Xidx_cp2, tmod, c=ndt, d=tinit, e=tfin)
 
 #tmod = "fin"
-ndt = 3
+ndt = 7
 tmod = "int" # interval
-tinit = dt_real[1] # initial time in hours - for plot
-tfin = 120 #dt_real[-1]-1 # 5e7 # final time in hours - for plot #print(dt_real[-1])
+tinit = dt_real[0] # initial time in hours - for plot
+tfin = dt_real[-1]-1 # 5e7 # final time in hours - for plot #print(dt_real[-1])
 #plot_HTofy(runname,tmod, c=ndt, d=tinit, e=tfin ) # H(t) distributed in space along y axis (x=nx/2)
-"""
+
 cv_ratio = 0.1
 derive_threshold = 5e-7
 
@@ -1497,6 +1787,5 @@ plot_CFL_evol()
 
 plot_wtderivative()
 
-val = val_derivativecv()
-print('RelativeCV proxy at t|dh/dt<5e-8:', val)
-
+#val = val_derivativecv()
+#print('RelativeCV proxy at t|dh/dt<5e-8:', val)

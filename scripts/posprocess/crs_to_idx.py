@@ -58,7 +58,9 @@ def read_cpcsv(f_cp):
 
     data_cp = pd.read_csv(f_cp)
     x_cp = np.array(data_cp['xcoord'])
+    #print(x_cp)
     y_cp = np.array(data_cp['ycoord'])
+    #print(y_cp)
     loc_cp = data_cp['localita']
 
     # pfb read from lower left
@@ -66,12 +68,17 @@ def read_cpcsv(f_cp):
     cellsize = demheader[2]
     ysouth = demheader[5]
     xwest = demheader[3]
-    i_cp = [int((y_cp[k] - ysouth)/cellsize) for k in range(3)]
-    j_cp = [int((x_cp[k] - xwest)/cellsize) for k in range(3)]
+    i_cp = [int((y_cp[k] - (ysouth-cellsize/2))/cellsize) for k in range(3)]
+    j_cp = [int((x_cp[k] - (xwest-cellsize/2))/cellsize) for k in range(3)]
 
-    Xidx = np.reshape([i_cp,j_cp],(len(i_cp),2))
+    CP = np.array([i_cp,j_cp])
+    #print(CP)
+    #print(CP.transpose())
+    #Xidx = np.reshape([i_cp,j_cp],(len(i_cp),2))
+    Xidx = CP.transpose()
 
     return Xidx, loc_cp
 
 #Xidx = read_cpcsv(f_cp)
 #print(Xidx[0].shape)
+#print(Xidx)
