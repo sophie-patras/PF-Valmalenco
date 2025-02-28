@@ -37,19 +37,27 @@ runname = Run(args.run_name, __file__)
 #_______________________________________________________________________________________
 #yamlfn = args.run_name + '_c' + str(int(args.cellsize)) + '.yaml'
 #print(yamlfn)
-runname.pfset(yaml_file='InputKeys_c250.yaml')
+#runname.pfset(yaml_file='InputKeys_c250_L11_Cycle.yaml')
 
 # dist
-slopexfn = 'slopeX.c'+str(int(args.cellsize))+'.v1.pfb'
-slopeyfn = 'slopeY.c'+str(int(args.cellsize))+'.v1.pfb'
+#slopexfn = 'slopeX.c'+str(int(args.cellsize))+'.v1.pfb'
+#slopeyfn = 'slopeY.c'+str(int(args.cellsize))+'.v1.pfb'
+
+runname.pfset(yaml_file='InputKeys_c500_L11UX.yaml')
+# dist
+slopexfn = 'slopeX.c'+str(int(args.cellsize))+'.v4.pfb'
+slopeyfn = 'slopeY.c'+str(int(args.cellsize))+'.v4.pfb'
+
 #print(slopexfn)
 runname.dist(slopexfn)
 runname.dist(slopeyfn)
-runname.dist('KS.c250.v2-331.pfb')
-runname.dist('MRC_Tr.c250.v1-331.pfb')
-runname.dist('MRC_Ts.c250.v1-331.pfb')
-runname.dist('MRC_a.c250.v1-331.pfb')
-runname.dist('MRC_n.c250.v1-331.pfb')
+#runname.dist('KS.c250.v2-331.pfb')
+#runname.dist('MRC_Tr.c250.v1-331.pfb')
+#runname.dist('MRC_Ts.c250.v1-331.pfb')
+#runname.dist('MRC_a.c250.v1-331.pfb')
+#runname.dist('MRC_n.c250.v1-331.pfb')
+
+#runname.dist('SeepBox.out.press.00007.pfb')
 
 # clm
 #variables = ['DSWR', 'DLWR', 'Press', 'SPFH', 'Temp', 'APCP', 'UGRD', 'VGRD']

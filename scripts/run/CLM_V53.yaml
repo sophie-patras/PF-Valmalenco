@@ -66,7 +66,9 @@ Geom:
     GeomNames: domain
   domain:
     ICPressure:
-      FileName: SeepBox.out.press.00007.pfb
+      RefGeom: domain
+      RefPatch: z-upper
+      Value: 0
     Upper:
       X: 24500.0
       Y: 25500.0
@@ -110,7 +112,7 @@ GeomInput:
 Gravity: 1.0
 ICPressure:
   GeomNames: domain
-  Type: PFBFile
+  Type: HydroStaticPatch
 KnownSolution: NoKnownSolution
 Mannings:
   Geom:
@@ -138,7 +140,7 @@ Patch:
       RefGeom: domain
       RefPatch: z-upper
       alltime:
-        Value: 0.1
+        Value: 0
   y-upper:
     BCPressure:
       Cycle: constant
@@ -187,35 +189,47 @@ PhaseSources:
     Type: Constant
 Process:
   Topology:
-    P: 3
-    Q: 3
+    P: 2
+    Q: 2
     R: 1
 Solver:
-  AbsTol: 1.0e-10
+  AbsTol: 1.0e-9
   Drop: 1.0e-20
+  CLM:
+    MetForcing: 3D
+    MetFileName: clm.v1-331
+    MetFilePath: clm.v1-331/
+    MetFileNT: 24
+    CLMDumpInterval: 24
   Linear:
-    KrylovDimension: 15
-    MaxRestarts: 15
+    KrylovDimension: 80
+    MaxRestarts: 20
     Preconditioner: PFMG
   MaxConvergenceFailures: 8
-  MaxIter: 1000000
+  MaxIter: 25000
   Nonlinear:
-    Globalization: LineSearch
-    MaxIter: 50
-    ResidualTol: 1.0e-05
-    StepTol: 1.0e-30
+    Globalization: InexactNewton
+    MaxIter: 200
+    ResidualTol: 1.0e-06
+    StepTol: 1.0e-20
     UseJacobian: true
+    EtaChoice: Walker2
+    EtaAlpha: 2.0
+    EtaGamma: 0.9
     VariableDz: true
-    PrintFlag: HightVerbosity
+    PrintFlag: HighVerbosity
   OverlandKinematic:
     Epsilon: 1.0e-05
   PrintMannings: true
   PrintSaturation: true
   PrintSlopes: true
   PrintSubsurf: true
-  PrintOverlandSum: true
-  PrintOverlandBCFlux: true
+  PrintOverlandSum: false
+  PrintOverlandBCFlux: false
   PrintVelocities: true
+  ResetSurfacePressure:
+    ResetPressure: -1.0e-05
+    ThresholdPressure: 10.0
   TerrainFollowingGrid: true
   _value_: Richards
 SpecificStorage:
@@ -223,16 +237,16 @@ SpecificStorage:
   Type: Constant
 TimeStep:
   Type: Growth
-  InitialStep: 1
+  InitialStep: 0.05
   GrowthFactor: 1.1
   MaxStep: 100
   MinStep: 0.001
 TimingInfo:
   BaseUnit: 1.0
-  DumpInterval: 24.0 
-  StartCount: 7
-  StartTime: 168.0
-  StopTime: 337.0
+  DumpInterval: -2.0
+  StartCount: 0
+  StartTime: 0.0
+  StopTime: 169
 TopoSlopesX:
   FileName: slopeX.c250.v1.pfb
   GeomNames: domain

@@ -3,35 +3,23 @@ BCPressure:
 Cell:
   '0':
     dzScale:
-      Value: 24.0
+      Value: 1.5
   '1':
     dzScale:
-      Value: 12.0
+      Value: 0.7
   '2':
     dzScale:
-      Value: 6.0
+      Value: 0.35
   '3':
     dzScale:
-      Value: 3.0
+      Value: 0.25
   '4':
     dzScale:
-      Value: 1.5
+      Value: 0.175
   '5':
     dzScale:
-      Value: 0.7
-  '6':
-    dzScale:
-      Value: 0.35
-  '7':
-    dzScale:
-      Value: 0.25
-  '8':
-    dzScale:
-      Value: 0.175
-  '9':
-    dzScale:
       Value: 0.025
-  '10':
+  '6':
     dzScale:
       Value: 0.025
 ComputationalGrid:
@@ -44,7 +32,7 @@ ComputationalGrid:
     Z: 0.0
   NX: 98
   NY: 102
-  NZ: 11
+  NZ: 7
 Contaminants:
   Names: ''
 Cycle:
@@ -66,11 +54,13 @@ Geom:
     GeomNames: domain
   domain:
     ICPressure:
-      FileName: SeepBox.out.press.00007.pfb
+      RefGeom: domain
+      RefPatch: z-upper
+      Value: -1.0
     Upper:
       X: 24500.0
       Y: 25500.0
-      Z: 11.0
+      Z: 7.0
     Lower:
       X: 0.0
       Y: 0.0
@@ -81,24 +71,24 @@ Geom:
       TensorValY: 1.0
       TensorValZ: 1.0
       Type: PFBFile
-      FileName: KS.c250.v7-331.pfb
+      FileName: KS.c250.v5-331.pfb
     Porosity:
       Type: Constant
       Value: 0.2
     RelPerm:
       Alpha:
-        Filename: MRC_alp.c250.v6-331.pfb
+        Filename: MRC_alp.c250.v5-331.pfb
       N:
-        Filename: MRC_n.c250.v6-331.pfb
+        Filename: MRC_n.c250.v5-331.pfb
     Saturation:
       Alpha:
-        Filename: MRC_alp.c250.v6-331.pfb
+        Filename: MRC_alp.c250.v5-331.pfb
       N:
-        Filename: MRC_n.c250.v6-331.pfb
+        Filename: MRC_n.c250.v5-331.pfb
       SRes:
-        Filename: MRC_thr.c250.v6-331.pfb
+        Filename: MRC_thr.c250.v5-331.pfb
       SSat:
-        Filename: MRC_ths.c250.v6-331.pfb
+        Filename: MRC_ths.c250.v5-331.pfb
     SpecificStorage:
       Value: 0.00016
 GeomInput:
@@ -110,7 +100,7 @@ GeomInput:
 Gravity: 1.0
 ICPressure:
   GeomNames: domain
-  Type: PFBFile
+  Type: HydroStaticPatch
 KnownSolution: NoKnownSolution
 Mannings:
   Geom:
@@ -130,6 +120,14 @@ Patch:
       Cycle: constant
       Type: FluxConst
       alltime:
+        Value: 0.00001
+  y-lower:
+    BCPressure:
+      Cycle: constant
+      Type: DirEquilRefPatch
+      RefGeom: domain
+      RefPatch: z-upper
+      alltime:
         Value: 0
   y-lower:
     BCPressure:
@@ -138,7 +136,7 @@ Patch:
       RefGeom: domain
       RefPatch: z-upper
       alltime:
-        Value: 0.1
+        Value: 0.0
   y-upper:
     BCPressure:
       Cycle: constant
@@ -193,6 +191,12 @@ Process:
 Solver:
   AbsTol: 1.0e-10
   Drop: 1.0e-20
+  CLM:
+    MetForcing: 3D
+    MetFileName: clm.v1-331
+    MetFilePath: clm.v1-331/
+    MetFileNT: 24
+    CLMDumpInterval: 24
   Linear:
     KrylovDimension: 15
     MaxRestarts: 15
@@ -206,16 +210,18 @@ Solver:
     StepTol: 1.0e-30
     UseJacobian: true
     VariableDz: true
-    PrintFlag: HightVerbosity
   OverlandKinematic:
     Epsilon: 1.0e-05
   PrintMannings: true
   PrintSaturation: true
   PrintSlopes: true
   PrintSubsurf: true
-  PrintOverlandSum: true
-  PrintOverlandBCFlux: true
+  PrintOverlandSum: false
+  PrintOverlandBCFlux: false
   PrintVelocities: true
+  ResetSurfacePressure:
+    ResetPressure: -1.0e-05
+    ThresholdPressure: 10.0
   TerrainFollowingGrid: true
   _value_: Richards
 SpecificStorage:
@@ -223,16 +229,16 @@ SpecificStorage:
   Type: Constant
 TimeStep:
   Type: Growth
-  InitialStep: 1
+  InitialStep: 0.01
   GrowthFactor: 1.1
   MaxStep: 100
   MinStep: 0.001
 TimingInfo:
   BaseUnit: 1.0
   DumpInterval: 24.0 
-  StartCount: 7
-  StartTime: 168.0
-  StopTime: 337.0
+  StartCount: 0
+  StartTime: 0.0
+  StopTime: 169
 TopoSlopesX:
   FileName: slopeX.c250.v1.pfb
   GeomNames: domain
@@ -246,4 +252,4 @@ Wells:
 dzScale:
   GeomNames: domain
   Type: nzList
-  nzListNumber: 11
+  nzListNumber: 7

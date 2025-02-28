@@ -1,5 +1,5 @@
 BCPressure:
-  PatchNames: x-lower x-upper y-lower  y-upper z-lower z-upper
+  PatchNames: x-lower x-upper y-lower y-upper z-lower z-upper
 Cell:
   '0':
     dzScale:
@@ -35,15 +35,15 @@ Cell:
     dzScale:
       Value: 0.025
 ComputationalGrid:
-  DX: 250.0
-  DY: 250.0
-  DZ: 1.0
+  DX: 500.0
+  DY: 500.0
+  DZ: 10.0
   Lower:
     X: 0.0
     Y: 0.0
     Z: 0.0
-  NX: 98
-  NY: 102
+  NX: 48
+  NY: 49
   NZ: 11
 Contaminants:
   Names: ''
@@ -66,7 +66,9 @@ Geom:
     GeomNames: domain
   domain:
     ICPressure:
-      FileName: SeepBox.out.press.00007.pfb
+      RefGeom: domain
+      RefPatch: z-upper
+      Value: -0.375
     Upper:
       X: 24500.0
       Y: 25500.0
@@ -80,25 +82,19 @@ Geom:
       TensorValX: 1.0
       TensorValY: 1.0
       TensorValZ: 1.0
-      Type: PFBFile
-      FileName: KS.c250.v7-331.pfb
+      Type: Constant
+      Value: 3.6e-03
     Porosity:
       Type: Constant
       Value: 0.2
     RelPerm:
-      Alpha:
-        Filename: MRC_alp.c250.v6-331.pfb
-      N:
-        Filename: MRC_n.c250.v6-331.pfb
+      Alpha: 1.8
+      N: 1.3
     Saturation:
-      Alpha:
-        Filename: MRC_alp.c250.v6-331.pfb
-      N:
-        Filename: MRC_n.c250.v6-331.pfb
-      SRes:
-        Filename: MRC_thr.c250.v6-331.pfb
-      SSat:
-        Filename: MRC_ths.c250.v6-331.pfb
+      Alpha: 1.8
+      N: 1.3
+      SRes: 0.01
+      SSat: 1.0
     SpecificStorage:
       Value: 0.00016
 GeomInput:
@@ -110,12 +106,12 @@ GeomInput:
 Gravity: 1.0
 ICPressure:
   GeomNames: domain
-  Type: PFBFile
+  Type: HydroStaticPatch
 KnownSolution: NoKnownSolution
 Mannings:
   Geom:
     domain:
-      Value: 1.0e-05
+      Value: 2.78e-5
   GeomNames: domain
   Type: Constant
 Patch:
@@ -130,16 +126,8 @@ Patch:
       Cycle: constant
       Type: FluxConst
       alltime:
-        Value: 0
-  y-lower:
-    BCPressure:
-      Cycle: constant
-      Type: DirEquilRefPatch
-      RefGeom: domain
-      RefPatch: z-upper
-      alltime:
-        Value: 0.1
-  y-upper:
+        Value: 0.0
+  x-lower:
     BCPressure:
       Cycle: constant
       Type: FluxConst
@@ -157,6 +145,18 @@ Patch:
       Type: FluxConst
       alltime:
         Value: 0.0
+  y-lower:
+    BCPressure:
+      Cycle: constant
+      Type: FluxConst
+      alltime:
+        Value: 0.0
+  y-upper:
+    BCPressure:
+      Cycle: constant
+      Type: FluxConst
+      alltime:
+        Value: 0.0
 Perm:
   TensorType: TensorByGeom
 Phase:
@@ -164,13 +164,9 @@ Phase:
   RelPerm:
     GeomNames: domain
     Type: VanGenuchten
-    VanGenuchten:
-      File: 1
   Saturation:
     GeomNames: domain
     Type: VanGenuchten
-    VanGenuchten:
-      File: 1
   water:
     Density:
       Type: Constant
@@ -206,15 +202,14 @@ Solver:
     StepTol: 1.0e-30
     UseJacobian: true
     VariableDz: true
-    PrintFlag: HightVerbosity
   OverlandKinematic:
     Epsilon: 1.0e-05
   PrintMannings: true
   PrintSaturation: true
   PrintSlopes: true
   PrintSubsurf: true
-  PrintOverlandSum: true
-  PrintOverlandBCFlux: true
+  PrintOverlandSum: false
+  PrintOverlandBCFlux: false
   PrintVelocities: true
   TerrainFollowingGrid: true
   _value_: Richards
@@ -223,22 +218,22 @@ SpecificStorage:
   Type: Constant
 TimeStep:
   Type: Growth
-  InitialStep: 1
+  InitialStep: 0.1
   GrowthFactor: 1.1
   MaxStep: 100
   MinStep: 0.001
 TimingInfo:
   BaseUnit: 1.0
-  DumpInterval: 24.0 
-  StartCount: 7
-  StartTime: 168.0
-  StopTime: 337.0
+  DumpInterval: -24.0 
+  StartCount: 0
+  StartTime: 0.0
+  StopTime: 269
 TopoSlopesX:
-  FileName: slopeX.c250.v1.pfb
+  FileName: slopeX.c500.v4.pfb
   GeomNames: domain
   Type: PFBFile
 TopoSlopesY:
-  FileName: slopeY.c250.v1.pfb
+  FileName: slopeY.c500.v4.pfb
   GeomNames: domain
   Type: PFBFile
 Wells:

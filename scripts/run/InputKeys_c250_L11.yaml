@@ -66,7 +66,9 @@ Geom:
     GeomNames: domain
   domain:
     ICPressure:
-      FileName: SeepBox.out.press.00007.pfb
+      RefGeom: domain
+      RefPatch: z-upper
+      Value: -0.0125
     Upper:
       X: 24500.0
       Y: 25500.0
@@ -110,7 +112,7 @@ GeomInput:
 Gravity: 1.0
 ICPressure:
   GeomNames: domain
-  Type: PFBFile
+  Type: HydroStaticPatch
 KnownSolution: NoKnownSolution
 Mannings:
   Geom:
@@ -206,7 +208,6 @@ Solver:
     StepTol: 1.0e-30
     UseJacobian: true
     VariableDz: true
-    PrintFlag: HightVerbosity
   OverlandKinematic:
     Epsilon: 1.0e-05
   PrintMannings: true
@@ -223,16 +224,16 @@ SpecificStorage:
   Type: Constant
 TimeStep:
   Type: Growth
-  InitialStep: 1
+  InitialStep: 0.01
   GrowthFactor: 1.1
   MaxStep: 100
   MinStep: 0.001
 TimingInfo:
   BaseUnit: 1.0
   DumpInterval: 24.0 
-  StartCount: 7
-  StartTime: 168.0
-  StopTime: 337.0
+  StartCount: 0
+  StartTime: 0.0
+  StopTime: 169
 TopoSlopesX:
   FileName: slopeX.c250.v1.pfb
   GeomNames: domain

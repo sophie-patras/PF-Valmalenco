@@ -48,12 +48,19 @@ ComputationalGrid:
 Contaminants:
   Names: ''
 Cycle:
-  Names: constant
+  Names: constant rainrec
   constant:
     Names: alltime
     Repeat: -1
     alltime:
       Length: 1
+  rainrec:
+    Names: rec rain
+    Repeat: -1
+    rec:
+      Length: 48
+    rain:
+      Length: 48
 Domain:
   GeomName: domain
 FileVersion: 4
@@ -66,7 +73,9 @@ Geom:
     GeomNames: domain
   domain:
     ICPressure:
-      FileName: SeepBox.out.press.00007.pfb
+      RefGeom: domain
+      RefPatch: z-upper
+      Value: -0.350
     Upper:
       X: 24500.0
       Y: 25500.0
@@ -110,7 +119,7 @@ GeomInput:
 Gravity: 1.0
 ICPressure:
   GeomNames: domain
-  Type: PFBFile
+  Type: HydroStaticPatch
 KnownSolution: NoKnownSolution
 Mannings:
   Geom:
@@ -121,10 +130,12 @@ Mannings:
 Patch:
   z-upper:
     BCPressure:
-      Cycle: constant
+      Cycle: rainrec
       Type: OverlandKinematic
-      alltime:
-        Value: 0
+      rec:
+        Value: 0.0
+      rain:
+        Value: 0.0001
   z-lower:
     BCPressure:
       Cycle: constant
@@ -206,7 +217,6 @@ Solver:
     StepTol: 1.0e-30
     UseJacobian: true
     VariableDz: true
-    PrintFlag: HightVerbosity
   OverlandKinematic:
     Epsilon: 1.0e-05
   PrintMannings: true
@@ -223,16 +233,16 @@ SpecificStorage:
   Type: Constant
 TimeStep:
   Type: Growth
-  InitialStep: 1
+  InitialStep: 0.01
   GrowthFactor: 1.1
   MaxStep: 100
   MinStep: 0.001
 TimingInfo:
   BaseUnit: 1.0
-  DumpInterval: 24.0 
-  StartCount: 7
-  StartTime: 168.0
-  StopTime: 337.0
+  DumpInterval: -24.0 
+  StartCount: 0
+  StartTime: 0.0
+  StopTime: 200
 TopoSlopesX:
   FileName: slopeX.c250.v1.pfb
   GeomNames: domain
