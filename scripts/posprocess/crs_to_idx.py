@@ -18,6 +18,7 @@ import pandas as pd
 # INPUT
 # input .asc dem
 path_dem = '/home/patras/PF-Valmalenco/data/prepareddata/'
+#filename_dem = 'hydroDEM.c500.v2.asc'
 filename_dem = 'hydroDEM.c250.v2.asc'
 f_dem = path_dem + filename_dem
 # controlpoints

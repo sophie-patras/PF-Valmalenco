@@ -62,17 +62,30 @@ path_fig = '/mnt/c/Users/Sophie/Documents/4-Figures/'   #distant
 #runname = 'MX.c1s1'
 
 ## VM
-path = '/home/patras/PF-Valmalenco/outputs/'
-foldername = 'RainRec_RFe-4C2-2IC-35'
-runname = 'RainRec_RFe-4C2-2IC-35'
+path = '/home/patras/PF-Valmalenco/outputs/BowlBox_UXZ/'
+foldername = 'BowlBox_UXZ_TgwDpRFe-4K36e-10L1'
+runname = 'PLT_box'
 
 #path = '/home/patras/PF-Valmalenco/outputs/BowlBox_UXZ/'
 #foldername = 'BowlBox_UXZ_K36e-3L6d' #'BowlBox_UXZ_TgwDpRFe-4K36e-10L1'
-#runname = 'BowlBox_UXZ' #'PLT_box'
+#runname = 'BowlBox_UXZ' #'BowlBox_UXZ' #'PLT_box'
+
+#path = '/home/patras/PF-Valmalenco/outputs/'
+#foldername = 'SeepBox_KSsgL11IC-0125' #'BowlBox_UXZ_K36e-3L6d' #'BowlBox_UXZ_TgwDpRFe-4K36e-10L1'
+#runname = 'SeepBox' #'BowlBox_UXZ' #'PLT_box'
+
+#path = '/home/patras/PF-Valmalenco/outputs/'
+#foldername = 'BB.c500.VMRF0IC-0375' #'BowlBox_UXZ_K36e-3L6d' #'BowlBox_UXZ_TgwDpRFe-4K36e-10L1'
+#runname = 'BB.c500.VMRF0IC-0375' #'BowlBox_UXZ' #'PLT_box'
 
 #path = '/home/patras/PF-Valmalenco/outputs/'
 #foldername = 'CLM_V52'
 #runname = 'CLM_V5'
+
+## VM
+#path = '/home/patras/PF-Valmalenco/outputs/'
+#foldername = 'RainRec_RFe-4C2-2IC-35'
+#runname = 'RainRec_RFe-4C2-2IC-35'
 
 ## parflow test cases
 #path = '/home/patras/PF-Test/LW/outputs/'
@@ -174,14 +187,31 @@ nt = len(dt_real)
 #################################
 # DISTRIBUTED INPUT PARAMETERS
 
+pfbinput_variables = ['alpha','n','porosity','specific_storage','mannings','permx','permy','permz']
+pfbinput_MRC = ['alpha','n','sres','ssat']
+
+def readpfbinput_to_array(path,runname,variable):
+    # elaborate 2D or 3D array for input values  pfbinput_variables
+    if variable in pfbinput_MRC:
+        filename = path + foldername + '/' + runname + ".out." + variable +".pfb"
+        variable_array = read_pfb(filename)
+    else:
+        print("Error: not an input variable")
+    return variable_array
+
 porosity = data.computed_porosity
 specific_storage = data.specific_storage
-mannings = data.mannings
+mannings = data.mannings #2D
 permx = data.computed_permeability_x
 permy = data.computed_permeability_y
 permz = data.computed_permeability_z
 perm_avg = np.mean(permz)
 print(perm_avg)
+
+alpha = readpfbinput_to_array(path,runname,'alpha')
+n = readpfbinput_to_array(path,runname,'n')
+sres = readpfbinput_to_array(path,runname,'sres')
+ssat = readpfbinput_to_array(path,runname,'ssat')
 
 #press_BC = data.pressure_boundary_conditions
 #print('Pressure head boundary conditions : ', press_BC)
@@ -257,7 +287,7 @@ def readpfblist_to_2Dtarray(path,runname,variable):
         pressure_3Dt = readpfblist_to_3Dtarray(path,runname,'press')
         for t in range(0,nt):
             variable2Dt[t] = calculate_overland_flow_grid(pressure_3Dt[t], slopex, slopey, mannings, dx, dy, epsilon=1e-5, mask=mask)
-        variable2Dt = variable2Dt #* 1/3600 # m^3/s
+        variable2Dt = variable2Dt #*1/3600 # m^3/s
 
         #flow = calculate_overland_flow_grid(press, slopex, slopey, mannings, dx, dy, flow_method='OverlandKinematic', epsilon=1e-5, mask=mask)
         #flx, fly = calculate_overland_fluxes(press, slopex, slopey, mannings, dx, dy)
@@ -525,8 +555,8 @@ def variablescaling(array,variable):
     elif variable == 'press':
         colorofmap = 'Blues'
         varlabel = r'$p/\rho g$ [m above layer]'
-        #varrange = [max(array.min(),-10), min(array.max(),10)] #min(array.max(),2)]
-        varrange = [-1.5,1.5] # [0.7, 0.1]
+        varrange = [max(array.min(),-10), min(array.max(),10)] #min(array.max(),2)]
+        #varrange = [-1.5,1.5] # [0.7, 0.1]
     elif variable == 'satur':
         colorofmap = 'Blues'
         varlabel = 'S [-]'
@@ -543,7 +573,7 @@ def variablescaling(array,variable):
     elif variable == 'overland_flow':
         colorofmap = 'Spectral_r'
         varlabel = 'overland flow [m$^3$/h]'
-        varrange = [array.min(), array.max()]
+        varrange = [0, 600] #[array.min(), array.max()]
     elif variable == 'H':
         colorofmap = 'Blues'
         varlabel = 'H [m asl.]'
@@ -569,6 +599,22 @@ def variablescaling(array,variable):
         colorofmap = 'terrain'
         varlabel = r"$z$ [m asl]"
         varrange = [0, 4000] #[array.min(),array.max()] # [0, 4050]
+    elif variable == 'alpha':
+        colorofmap = 'viridis'
+        varlabel = r'$\alpha$ [m$^{-1}$]'
+        varrange = [array.min(),array.max()]      
+    elif variable == 'n':
+        colorofmap = 'viridis'
+        varlabel = r'$n$ [-]'
+        varrange = [array.min(),array.max()] 
+    elif variable == 'ssat':
+        colorofmap = 'Blues'
+        varlabel = r'$S_{sat}$ [-]'
+        varrange = [array.min(),array.max()] 
+    elif variable == 'sres':
+        colorofmap = 'Blues'
+        varlabel = r'$S_{res}$ [-]'
+        varrange = [array.min(),array.max()]   
     else: # default
         colorofmap = 'Spectral_r'
         varlabel = f'{variable}'
@@ -621,8 +667,9 @@ def tidxscaling(dt_fullreal,mod,**kwargs):
 #print(dt_new)
 ################################################################################
 # PLOT 'PAINTINGS'
-
 # https://jackmckew.dev/3d-terrain-in-python.html
+
+#### FOR INPUTS (3 first function) AND OUTPUTS
 
 def plot_3d_geom():
 
@@ -656,58 +703,7 @@ def plot_3d_geom():
     #ax.voxels
     # https://stackoverflow.com/questions/73876939/plot-3d-grid-data-as-heat-map-using-matplotlib
 
-def plot_3d_singlevardtsgl(vname,t):
-
-    # cell centered variable
-    data_3Dt = centered_var_generator(vname)
-
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection=Axes3D.name)
-    
-    pltsettings = variablescaling(data_3Dt[t], vname) # use 1 common scale of color for all layers and time steps
-    varlabel = pltsettings[1]
-    varrange = pltsettings[2]
-    cmap = getattr(plt.cm, pltsettings[0])
-    norm = pltsettings[3]
-
-    print(data_3Dt.shape) # (93, 7, 100, 100)
-
-    #x,y = np.meshgrid(np.arange(data_3Dt.shape[3]), np.arange(data_3Dt.shape[2]))
-    x_c, y_c = np.meshgrid(x_centers, y_centers)
-
-    for z in range(0,nz):
-        
-        data = data_3Dt[t,z]
-        #print(data.shape)
-        vmin = data.min()
-        vmax = data.max()
-        vmean = np.mean(data)
-        print(f'layer {z} centered depth z=',z_centers[z],'m.agl; vmin,vmean,vmax',round(vmin,5),round(vmean,5),round(vmax,5))
-    
-        #if z in range(0,nz,1):
-        ax.plot_surface(x_c,y_c,np.full_like(data, z_centers[z]), facecolors=cmap(data), norm=norm, rstride=1, cstride=1, antialiased=True, shade=False)
-            # x_centers,y_centers
-    #ax.view_init(30, 60) # elev, azimuth, roll
-    ax.set_xlabel('x')
-    ax.set_ylabel('y')
-    ax.set_zlabel('z') # [m agl.]')
-    #ax.set_title('stacked '+args.variable)
-    #ax.text2D(0.1,0.9,f"time={DumpInt*DumpGap}h",transform = ax.transAxes)
-
-    
-    m = plt.cm.ScalarMappable(cmap=cmap, norm=norm)  #, norm=surf.norm)
-    #vmin = data.min()
-    #vmax = data.max()
-    #ax.set_zlim(-1+DepthCenteredCellZ[0], 1+DepthCenteredCellZ[-1])
-    m.set_clim(varrange[0],varrange[1])
-    #m.set_clim(53.9982,53.9983)
-    #m.set_clim(0,50)
-    #print(vmin,vmax)
-    #print(f'non all nul in cell : {np.where(data>-3.402823466385288e+38)}')
-    plt.colorbar(m, ax=plt.gca(), label=varlabel)
-
-    #plt.show()
-    plt.savefig(f'{path_fig}{foldername}.{vname}.dt{t}.3d.png', dpi = 300)
+plot_3d_geom()
 
 def plot_proj2d_singlevar_geom():
     # plot for 3Dt variables only (ie. exclude overland_flow)
@@ -773,7 +769,99 @@ def plot_proj2d_singlevar_geom():
     plt.savefig(f'{path_fig}{foldername}.topo.2dxy.png', dpi = 300)
     plt.close()
 
-# plot_proj2d_singlevar_geom()
+plot_proj2d_singlevar_geom()
+
+def plot_proj2d_MRC():
+    # plot for 3Dt variables only (ie. exclude overland_flow)
+    
+    sl = nz
+    MRC_var = len(pfbinput_MRC)
+    fig, axs = plt.subplots(MRC_var,sl,figsize=(sl*6,MRC_var*5))
+
+    # cell-centered variables
+    projectioninfo = projscaling('press', '2dxy')
+    x = projectioninfo[0]
+    y = projectioninfo[1]
+    xtit = projectioninfo[2]
+    ytit = projectioninfo[3]
+    #xlim = projectioninfo[4]
+    #ylim = projectioninfo[5]
+
+    for i in range(MRC_var):
+        vname = pfbinput_MRC[i]
+        varray = readpfbinput_to_array(path,runname,vname)
+        pltsettings = variablescaling(varray, vname)
+        varcolor = pltsettings[0]
+        varlabel = pltsettings[1]
+        varrange = pltsettings[2]
+
+        for j in range(sl):
+            im = axs[i,j].pcolormesh(x, y, varray[j], shading='auto', cmap= varcolor, vmin = varrange[0], vmax=varrange[1] )
+            #axs[0].set_xlabel(xtit)
+            #axs[0].set_ylabel(ytit)
+            #axs[t,v].set_ylim(ylim[0],ylim[-1])
+            axs[i,j].set_title(varlabel)
+        fig.colorbar(im, ax=axs[i,j], orientation='vertical') #, fraction=0.5, pad=0.04)
+
+    #plt.text(f'{varlabel}[t,layer] for run {foldername}, in plan {projection}')
+    plt.tight_layout()
+    plt.savefig(f'{path_fig}{foldername}.mrc.2dxyzall.png', dpi = 300)
+    plt.close()
+
+#plot_proj2d_MRC()
+
+def plot_3d_singlevardtsgl(vname,t):
+
+    # cell centered variable
+    data_3Dt = centered_var_generator(vname)
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection=Axes3D.name)
+    
+    pltsettings = variablescaling(data_3Dt[t], vname) # use 1 common scale of color for all layers and time steps
+    varlabel = pltsettings[1]
+    varrange = pltsettings[2]
+    cmap = getattr(plt.cm, pltsettings[0])
+    norm = pltsettings[3]
+
+    print(data_3Dt.shape) # (93, 7, 100, 100)
+
+    #x,y = np.meshgrid(np.arange(data_3Dt.shape[3]), np.arange(data_3Dt.shape[2]))
+    x_c, y_c = np.meshgrid(x_centers, y_centers)
+
+    for z in range(0,nz):
+        
+        data = data_3Dt[t,z]
+        #print(data.shape)
+        vmin = data.min()
+        vmax = data.max()
+        vmean = np.mean(data)
+        print(f'layer {z} centered depth z=',z_centers[z],'m.agl; vmin,vmean,vmax',round(vmin,5),round(vmean,5),round(vmax,5))
+    
+        #if z in range(0,nz,1):
+        ax.plot_surface(x_c,y_c,np.full_like(data, z_centers[z]), facecolors=cmap(data), norm=norm, rstride=1, cstride=1, antialiased=True, shade=False)
+            # x_centers,y_centers
+    #ax.view_init(30, 60) # elev, azimuth, roll
+    ax.set_xlabel('x')
+    ax.set_ylabel('y')
+    ax.set_zlabel('z') # [m agl.]')
+    #ax.set_title('stacked '+args.variable)
+    #ax.text2D(0.1,0.9,f"time={DumpInt*DumpGap}h",transform = ax.transAxes)
+
+    
+    m = plt.cm.ScalarMappable(cmap=cmap, norm=norm)  #, norm=surf.norm)
+    #vmin = data.min()
+    #vmax = data.max()
+    #ax.set_zlim(-1+DepthCenteredCellZ[0], 1+DepthCenteredCellZ[-1])
+    m.set_clim(varrange[0],varrange[1])
+    #m.set_clim(53.9982,53.9983)
+    #m.set_clim(0,50)
+    #print(vmin,vmax)
+    #print(f'non all nul in cell : {np.where(data>-3.402823466385288e+38)}')
+    plt.colorbar(m, ax=plt.gca(), label=varlabel)
+
+    #plt.show()
+    plt.savefig(f'{path_fig}{foldername}.{vname}.dt{t}.3d.png', dpi = 300)
 
 def plot_proj2d_singlevardtslall(varname,projection, proj_idx_list, tmod, **kwargs):
     # plot for 3Dt variables only (ie. exclude overland_flow)
@@ -899,7 +987,7 @@ def plot_proj2d_multivardtall(runname,projection, proj_idx, tmod, **kwargs):
             #axs[t,v].set_ylim(ylim[0],ylim[-1])
 
             #plt.axis('off')
-            axs[t, 0].set_title(f't={dt_real[tidx]}h',loc='left') #, ha='center', va='center', transform=axs[t, v].transAxes)
+            axs[t, v].set_title(f't={dt_real[tidx]}h',loc='left') #, ha='center', va='center', transform=axs[t, v].transAxes)
             fig.colorbar(im, ax=axs[t,v], orientation='vertical') #, fraction=0.5, pad=0.04)
             #fig.clim(varrange[0],varrange[1])
 
@@ -1133,6 +1221,7 @@ def plot_compared_surfaceflow(runname, Xcp, mod,**kwargs):
     axs.legend(loc='upper right')
     axs.set_xlabel('t [h]')
     axs.set_ylabel(r'$Q$ [m$^3$/h]')
+    axs.set_ylim(0,250)
 
     #plt.title(f'Comparison of flux in surface layer and overland_flow in {loc_cp}')
 
@@ -1574,10 +1663,9 @@ def plot_timestep():
     ax.set_xlabel('t [h]')
     ax.set_ylabel('timestep [h]')
 
-    plt.savefig(f'{path_fig}{foldername}.dtstep.zoom12.png', dpi = 300)
+    plt.savefig(f'{path_fig}{foldername}.dtstep.png', dpi = 300)
 
 plot_timestep()
-
 
 def val_derivativecv():
 
@@ -1669,13 +1757,13 @@ plot_proj2d_multivardtall(runname,'2dyz',xidx, tmod, c=ndt, d=tinit, e=tfin)
 #plot_3d_singlevardtsgl('H', 30) # for cellcentered3dtvariables
 
 
-layerstoplot = [10,9,8,7,6,5,4,3,2,1,0]  #VM
-#layerstoplot = [10,7,5,3,1,0]
-plot_proj2d_singlevardtslall('press','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
-plot_proj2d_singlevardtslall('velz','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
-plot_proj2d_singlevardtslall('v','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
-plot_proj2d_singlevardtslall('satur','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
-plot_proj2d_singlevardtslall('h','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
+#layerstoplot = [10,9,8,7,6,5,4,3,2,1,0]  #VM
+layerstoplot = [5,4,3,2,1,0]
+#plot_proj2d_singlevardtslall('press','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
+#plot_proj2d_singlevardtslall('velz','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
+#plot_proj2d_singlevardtslall('v','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
+#plot_proj2d_singlevardtslall('satur','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
+#plot_proj2d_singlevardtslall('h','2dxy',layerstoplot, tmod, c=ndt, d=tinit, e=tfin)
 
 ## VM check points
 f_cp = '/home/patras/PF-Valmalenco/data/controlpoints.txt'

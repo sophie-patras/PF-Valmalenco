@@ -1,3 +1,15 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+"""
+Read <runname>.out.log files
+    - read to array {'Sequence','Time','\Delta t','Dumpfile'}
+    - 
+
+Created on Tue Sep 03 13:34:20 2024
+@author: S.P.
+"""
+
 import re
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,7 +25,7 @@ path_fig = '/mnt/c/Users/Sophie/Documents/4-Figures/'   #distant
 # kinsol type by time step
 
 KINSOL starting step for time <simulated_time:time>
-scsteptol used:  <Solver.Nonlinear.StepTol, es. 1e-30>  
+scsteptol used:  <Solver.Nonlinear.StepTol, es. 1e-20>  
 fnormtol  used:  <Solver.Nonlinear.ResidualTol, es. 1e-06>
 % for every nonlinear iteration (nni), this is listing the residual (fnorm) and the
 % number of function evaluations (nfe) - ie. k iteration of the suite ? - that where
@@ -97,9 +109,9 @@ def parse_log_file(log_file_path):
 # Example usage:
 #log_file_path = "path_to_your_log_file.txt"
 
-path = '/home/patras/PF-Valmalenco/outputs/'
-foldername = 'CLM_V52'
-runname = 'CLM_V5'
+#path = '/home/patras/PF-Valmalenco/outputs/'
+#foldername = 'CLM_V52'
+#runname = 'CLM_V5'
 
 ## MX
 #path = '/home/patras/PF-Test/Maxwell2013/outputs/'
@@ -108,8 +120,14 @@ runname = 'CLM_V5'
 
 ## DS
 #path = '/home/patras/PF-Test/DumbSquare/outputs/'
-#foldername = 'DSc100z10s0.MX.DP23.IN0_v48' #'DS.c100s1_v28'
-#runname = 'DSc100z10s0'
+#foldername = 'DSc1000z10s0.MX.DP23.IN1dt1_v57' #'DS.c100s1_v28'
+#runname = 'DSc1000z10s0'
+
+## VM-RR
+## VM
+path = '/home/patras/PF-Valmalenco/outputs/'
+foldername = 'RainRec_RFe-2C2-2IC-35'
+runname = 'RainRec_RFe-2C2-2IC-35'
 
 log_file_path = f'{path}{foldername}/{runname}.out.kinsol.log'
 

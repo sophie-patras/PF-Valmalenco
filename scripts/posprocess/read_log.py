@@ -31,14 +31,28 @@ foldername = 'MX.c1s1y3_v6' #'MX.c100s1bcx_v5'
 runname = 'MX.c1s1'
 
 ## DS
-#path = '/home/patras/PF-Test/DumbSquare/outputs/'
-#foldername = 'DSc100z10s0.RE.DP23.IN0_v49' #'DS.c100s1_v28'
-#runname = 'DSc100z10s0'
+path = '/home/patras/PF-Test/DumbSquare/outputs/'
+foldername = 'DSc1000z10s0.MX.DP23.IN0dt01_v55' #'DS.c100s1_v28' DSc10z10s0.MX.DP23.IN0_v52
+runname = 'DSc1000z10s0'
 
 ## VM
+#path = '/home/patras/PF-Valmalenco/outputs/'
+#foldername = 'CLM_V52'
+#runname = 'CLM_V5'
+
+## VM
+#path = '/home/patras/PF-Valmalenco/outputs/'
+#foldername = 'SeepBox_KSsgL11IC-0125' #'CLM_V52'
+#runname = 'SeepBox'
+
+#path = '/home/patras/PF-Valmalenco/outputs/BowlBox_UXZ/'
+#foldername = 'BowlBox_UXZ_K36e-3L6d' #'CLM_V52'
+#runname = 'BowlBox_UXZ'
+
+## VM.RR
 path = '/home/patras/PF-Valmalenco/outputs/'
-foldername = 'CLM_V52'
-runname = 'CLM_V5'
+foldername = 'RainRec_RFe-2C2-2IC-35'
+runname = 'RainRec_RFe-2C2-2IC-35'
 
 ## LW
 #path = '/home/patras/PF-Test/LW/outputs/'
@@ -166,13 +180,30 @@ print("real time of dumpfile '00007' : ",dumprealtime(7),"h")
 dataset = log_to_array(path, foldername, runname)
 sequence = np.array(dataset['sequence'])
 timestep = np.array(dataset['timestep'])
+time = np.array(dataset['time'])
+
+timesteps_dumped = dump_timesteps(path, foldername, runname)
+time_dumped = dump_to_simulatedtimes_equivalent(path, foldername, runname)
 
 fig = plt.figure(1,figsize=(4.45,4.45))
 ax = fig.add_subplot(111)
 
 ax.plot(sequence,timestep,marker='+',linestyle='')
 ax.grid(True)
-ax.set_xlabel('t [h]')
-ax.set_ylabel('step')
+ax.set_xlabel('sequence [#]')
+ax.set_ylabel('dt [h]')
 
-plt.savefig(f'{path_fig}{foldername}.dtstep.log.png')
+plt.savefig(f'{path_fig}{foldername}.dtsqc.log.png')
+
+###
+fig = plt.figure(2,figsize=(4.45,4.45))
+ax = fig.add_subplot(111)
+
+ax.plot(time,timestep,marker='+',linestyle='')
+ax.plot(time_dumped,timesteps_dumped,marker='+', color='k', linestyle='',label='dumptimes')
+ax.grid(True)
+ax.legend()
+ax.set_xlabel('t [h]')
+ax.set_ylabel('dt [h]')
+
+plt.savefig(f'{path_fig}{foldername}.dttime.log.png')
